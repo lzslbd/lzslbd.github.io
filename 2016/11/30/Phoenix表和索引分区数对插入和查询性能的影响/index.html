@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>phoenix表和索引分区数对插入和查询性能的影响 | LBD&#39;s Blog</title>
+  <title>phoenix表和索引分区数对插入和查询性能的影响 | 大数据与分布式</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="大数据NoSQLPhoenix" />
@@ -16,7 +16,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Phoenix表和索引分区数对插入和查询性能的影响">
 <meta property="og:url" content="http://linbingdong.com/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/index.html">
-<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:site_name" content="大数据与分布式">
 <meta property="og:description" content="Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
 通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。">
 <meta property="og:updated_time" content="2016-12-08T13:45:31.000Z">
@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
 通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。">
   
-    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大数据与分布式" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/mylogo.jpg">
   
@@ -87,15 +87,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -453,7 +453,7 @@
 <nav id="article-nav">
   
     <a href="/2016/11/30/Phoenix查询测试经验总结/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Phoenix查询经验总结
@@ -463,7 +463,7 @@
   
   
     <a href="/2016/11/30/Parquet调研/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">浅析列式存储格式Parquet</div>
     </a>
   
@@ -476,7 +476,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-number">1.</span> <span class="toc-text">1. 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-HBase概述"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 HBase概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Phoenix分区"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 Phoenix分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-目的"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 目的</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-方案"><span class="toc-number">2.</span> <span class="toc-text">2. 方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-方案设计"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 方案设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-测试用例"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 测试用例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-结果"><span class="toc-number">3.</span> <span class="toc-text">3. 结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-软硬件环境"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 软硬件环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-结果"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-分析"><span class="toc-number">4.</span> <span class="toc-text">4. 分析</span></a></li></ol>
     
@@ -492,8 +492,8 @@
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 大数据与分布式 All Rights Reserved.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>
@@ -623,7 +623,7 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            LBD&#39;s Blog
+            大数据与分布式
           </div>
           <div class="panel-body">
             Copyright © 2017 LBD All Rights Reserved.

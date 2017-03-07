@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>java i/o 总结 | LBD&#39;s Blog</title>
+  <title>java i/o 总结 | 大数据与分布式</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="Java" />
@@ -15,7 +15,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java I/O 总结">
 <meta property="og:url" content="http://linbingdong.com/2017/01/11/Java I:O总结/index.html">
-<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:site_name" content="大数据与分布式">
 <meta property="og:description" content="Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-adc85fb95f884363.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-ee60b12bd1f9a3dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-adc85fb95f884363.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
-    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大数据与分布式" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/mylogo.jpg">
   
@@ -87,15 +87,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -265,7 +265,7 @@
 <nav id="article-nav">
   
     <a href="/2017/01/13/Java I:O 操作示例/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Java I/O 操作示例
@@ -275,7 +275,7 @@
   
   
     <a href="/2017/01/11/Java 7新机制之自动关闭资源——try-with-resources/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">Java 7新机制之自动关闭资源——try-with-resources</div>
     </a>
   
@@ -288,7 +288,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#概览"><span class="toc-number">1.</span> <span class="toc-text">概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O流"><span class="toc-number">2.</span> <span class="toc-text">I/O流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#InputStream"><span class="toc-number">2.1.</span> <span class="toc-text">InputStream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OutputStream"><span class="toc-number">2.2.</span> <span class="toc-text">OutputStream</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何选择I-O流"><span class="toc-number">3.</span> <span class="toc-text">如何选择I/O流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例代码"><span class="toc-number">4.</span> <span class="toc-text">示例代码</span></a></li></ol>
     
@@ -304,8 +304,8 @@
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 大数据与分布式 All Rights Reserved.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>
@@ -435,7 +435,7 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            LBD&#39;s Blog
+            大数据与分布式
           </div>
           <div class="panel-body">
             Copyright © 2017 LBD All Rights Reserved.

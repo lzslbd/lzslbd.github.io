@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>浅析列式存储格式parquet | LBD&#39;s Blog</title>
+  <title>浅析列式存储格式parquet | 大数据与分布式</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="Parquet列式存储" />
@@ -15,7 +15,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅析列式存储格式Parquet">
 <meta property="og:url" content="http://linbingdong.com/2016/11/30/Parquet调研/index.html">
-<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:site_name" content="大数据与分布式">
 <meta property="og:description" content="Apache Parquet是Hadoop生态圈中一种新型列式存储格式，它可以兼容Hadoop生态圈中大多数计算框架(Hadoop、Spark等)，被多种查询引擎支持(Hive、Impala、Drill等)，并且它是语言和平台无关的。Parquet最初是由Twitter和Cloudera(由于Impala的缘故)合作开发完成并开源，2015年5月从Apache的孵化器里毕业成为Apache顶级项目">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-403f3636be9fab06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-dd058fe3ef60b330.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -39,7 +39,7 @@
 <meta name="twitter:description" content="Apache Parquet是Hadoop生态圈中一种新型列式存储格式，它可以兼容Hadoop生态圈中大多数计算框架(Hadoop、Spark等)，被多种查询引擎支持(Hive、Impala、Drill等)，并且它是语言和平台无关的。Parquet最初是由Twitter和Cloudera(由于Impala的缘故)合作开发完成并开源，2015年5月从Apache的孵化器里毕业成为Apache顶级项目">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-403f3636be9fab06.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
-    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大数据与分布式" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/mylogo.jpg">
   
@@ -101,15 +101,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -366,7 +366,7 @@
 <nav id="article-nav">
   
     <a href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Phoenix表和索引分区数对插入和查询性能的影响
@@ -376,7 +376,7 @@
   
   
     <a href="/2016/11/30/Hive on Spark调优/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">Hive on Spark调优</div>
     </a>
   
@@ -389,7 +389,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-概述"><span class="toc-number">1.</span> <span class="toc-text">1. 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-简介"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-列式存储"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 列式存储</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Parquet详解"><span class="toc-number">2.</span> <span class="toc-text">2. Parquet详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-数据模型"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-列存储格式"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 列存储格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Definition-levels"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Definition levels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Repetition-levels"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 Repetition levels</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Striping-and-assembly"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 Striping and assembly</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-文件格式"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 文件格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-映射下推-Project-PushDown"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 映射下推(Project PushDown)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-谓词下推-Predicate-PushDown"><span class="toc-number">2.8.</span> <span class="toc-text">2.8 谓词下推(Predicate PushDown)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-性能"><span class="toc-number">3.</span> <span class="toc-text">3. 性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-压缩"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-查询"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-总结"><span class="toc-number">4.</span> <span class="toc-text">4. 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-参考"><span class="toc-number">5.</span> <span class="toc-text">5. 参考</span></a></li></ol>
     
@@ -405,8 +405,8 @@
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 大数据与分布式 All Rights Reserved.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>
@@ -536,7 +536,7 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            LBD&#39;s Blog
+            大数据与分布式
           </div>
           <div class="panel-body">
             Copyright © 2017 LBD All Rights Reserved.

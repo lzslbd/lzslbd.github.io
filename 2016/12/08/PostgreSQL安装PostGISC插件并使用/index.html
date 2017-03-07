@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>postgresql安装postgisc插件并使用 | LBD&#39;s Blog</title>
+  <title>postgresql安装postgisc插件并使用 | 大数据与分布式</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="关系数据库PostgreSQL" />
@@ -15,14 +15,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="PostgreSQL安装PostGISC插件并使用">
 <meta property="og:url" content="http://linbingdong.com/2016/12/08/PostgreSQL安装PostGISC插件并使用/index.html">
-<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:site_name" content="大数据与分布式">
 <meta property="og:description" content="PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。">
 <meta property="og:updated_time" content="2016-12-09T09:13:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL安装PostGISC插件并使用">
 <meta name="twitter:description" content="PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。">
   
-    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="大数据与分布式" type="application/atom+xml">
   
   <link rel="icon" href="/css/images/mylogo.jpg">
   
@@ -84,15 +84,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -197,7 +197,7 @@
 <nav id="article-nav">
   
     <a href="/2016/12/08/学习PostgreSQL不可错过的一篇文章/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           PostgreSQL综合
@@ -207,7 +207,7 @@
   
   
     <a href="/2016/12/08/PostgreSQL主从流复制部署/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">PostgreSQL主从流复制部署</div>
     </a>
   
@@ -220,7 +220,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简介"><span class="toc-number">1.</span> <span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-部署"><span class="toc-number">2.</span> <span class="toc-text">2. 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-安装PostGIS"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装PostGIS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-使PostGIS可用"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 使PostGIS可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-查看是否安装成功"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 查看是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-使用"><span class="toc-number">3.</span> <span class="toc-text">3. 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-创建空间数据表"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 创建空间数据表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-简单查询"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 简单查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-空间查询"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 空间查询</span></a></li></ol></li></ol>
     
@@ -236,8 +236,8 @@
   <div class="container">
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 大数据与分布式 All Rights Reserved.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>
@@ -367,7 +367,7 @@
         </div>
          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            LBD&#39;s Blog
+            大数据与分布式
           </div>
           <div class="panel-body">
             Copyright © 2017 LBD All Rights Reserved.
