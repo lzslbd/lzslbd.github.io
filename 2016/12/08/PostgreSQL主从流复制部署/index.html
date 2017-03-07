@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>postgresql主从流复制部署 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="关系数据库PostgreSQL" />
+  
+  
+  
+  
+  <meta name="description" content="PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL主从流复制部署">
+<meta property="og:url" content="http://linbingdong.com/2016/12/08/PostgreSQL主从流复制部署/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。">
+<meta property="og:updated_time" content="2016-12-09T09:14:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PostgreSQL主从流复制部署">
+<meta name="twitter:description" content="PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://linbingdong.com"></form>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-PostgreSQL主从流复制部署" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      PostgreSQL主从流复制部署
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/08/PostgreSQL主从流复制部署/" class="article-date">
+	  <time datetime="2016-12-08T13:57:15.000Z" itemprop="datePublished">2016-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
+<a id="more"></a>
+<p>192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
+<p>与基于文件日志传送相比，流复制允许保持从服务器更新。 从服务器连接主服务器，其产生的流WAL记录到从服务器， 而不需要等待主服务器写完WAL文件。</p>
+<p>PostgreSQL流复制默认是异步的。在主服务器上提交事务和从服务器上变化可见之间有一个小的延迟，这个延迟远小于基于文件日志传送，通常1秒能完成。如果主服务器突然崩溃，可能会有少量数据丢失。</p>
+<p>同步复制必须等主服务器和从服务器都写完WAL后才能提交事务。这样在一定程度上会增加事务的响应时间。</p>
+<p>配置同步复制仅需要一个额外的配置步骤： <a href="http://www.postgres.cn/docs/9.4/runtime-config-replication.html#GUC-SYNCHRONOUS-STANDBY-NAMES" target="_blank" rel="external">synchronous_standby_names</a>必须设置为一个非空值。synchronous_commit也必须设置为on。</p>
+<p>这里部署的是异步的流复制。</p>
+<p><strong>注:</strong><br>主从服务器所在节点的系统、环境等最好一致。PostgreSQL版本也最好一致，否则可能会有问题。</p>
+<h2 id="2-安装部署"><a href="#2-安装部署" class="headerlink" title="2. 安装部署"></a>2. 安装部署</h2><p>先在192.168.20.93和192.168.20.94均安装PostgreSQL。</p>
+<p>具体安装部署步骤见：<a href="http://linbingdong.com/2016/12/08/PostgreSQL%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2%EF%BC%88CentOS7%EF%BC%89/">PostgreSQL单机部署（CentOS7）</a></p>
+<h3 id="2-1-主服务器"><a href="#2-1-主服务器" class="headerlink" title="2.1 主服务器"></a>2.1 主服务器</h3><p>主服务器为192.168.20.93</p>
+<p>先创建一个新目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /opt/pgsql/pg_archive</div></pre></td></tr></table></figure>
+<p>1.首先需要创建一个数据库用户进行主从同步。创建用户replica，并赋予登录和复制的权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postgres# CREATE ROLE replica login replication encrypted password &apos;replica&apos;</div></pre></td></tr></table></figure>
+<p>2.修改pg_hba.conf，允许replica用户来同步。</p>
+<p>在pg_hba.conf里增加两行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">host     all             all          192.168.20.94/32          trust   #允许94连接到主服务器</div><div class="line">host   replication      replica       192.168.20.94/32          md5   #允许94使用replica用户来复制</div></pre></td></tr></table></figure>
+<p>这样，就设置了replica这个用户可以从192.168.20.93进行流复制请求。</p>
+<p><strong>注：</strong><br>第二个字段必须要填replication</p>
+<p>4.修改postgresql.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">listen_addresses = &apos;*&apos;   # 监听所有IP</div><div class="line">archive_mode = on  # 允许归档</div><div class="line">archive_command = &apos;cp %p /opt/pgsql/pg_archive/%f&apos;  # 用该命令来归档logfile segment</div><div class="line">wal_level = hot_standby </div><div class="line">max_wal_senders = 32 # 这个设置了可以最多有几个流复制连接，差不多有几个从，就设置几个wal_keep_segments = 256 ＃ 设置流复制保留的最多的xlog数目</div><div class="line">wal_sender_timeout = 60s ＃ 设置流复制主机发送数据的超时时间</div><div class="line">max_connections = 100 # 这个设置要注意下，从库的max_connections必须要大于主库的</div></pre></td></tr></table></figure>
+<p>配置完两个文件后重启服务器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pg_ctl stop -D /opt/pgsql/data</div><div class="line">pg_ctl start -D /opt/pgsql/data</div></pre></td></tr></table></figure>
+<p>3.测试94能否连接93数据库。在94上运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">psql -h 192.168.20.93 -U postgres</div></pre></td></tr></table></figure>
+<p>看看是否能进入数据库。若可以，则正常。</p>
+<h3 id="2-2-从服务器"><a href="#2-2-从服务器" class="headerlink" title="2.2 从服务器"></a>2.2 从服务器</h3><p>1.从主节点拷贝数据到从节点</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">su - postgres</div><div class="line">rm -rf /opt/pgsql/data/*   #先将data目录下的数据都清空</div><div class="line">pg_basebackup -h 192.168.20.93 -U replica -D /opt/pgsql/data -X stream -P  # 从93拷贝数据到94（基础备份）</div><div class="line">mkdir /opt/pgsql/pg_archive</div></pre></td></tr></table></figure>
+<p>2.配置recovery.conf</p>
+<p>复制/usr/pgsql-9.4/share/recovery.conf.sample 到 /opt/pgsql/data/recovery.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/pgsql-9.4/share/recovery.conf.sample /opt/pgsql/data/recovery.conf</div></pre></td></tr></table></figure>
+<p>修改recovery.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">standby_mode = on    # 说明该节点是从服务器</div><div class="line">primary_conninfo = &apos;host=192.168.20.93 port=5432 user=replica password=replica&apos;  # 主服务器的信息以及连接的用户</div><div class="line">recovery_target_timeline = &apos;latest&apos;</div></pre></td></tr></table></figure>
+<p>3.配置postgresql.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wal_level = hot_standby</div><div class="line">max_connections = 1000 ＃ 一般查多于写的应用从库的最大连接数要比较大</div><div class="line">hot_standby = on ＃ 说明这台机器不仅仅是用于数据归档，也用于数据查询</div><div class="line">max_standby_streaming_delay = 30s # 数据流备份的最大延迟时间</div><div class="line">wal_receiver_status_interval = 10s # 多久向主报告一次从的状态，当然从每次数据复制都会向主报告状态，这里只是设置最长的间隔时间</div><div class="line">hot_standby_feedback = on # 如果有错误的数据复制，是否向主进行反馈</div></pre></td></tr></table></figure>
+<p>配置完后重启从服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pg_ctl stop -D /opt/pgsql/data</div><div class="line">pg_ctl start -D /opt/pgsql/data</div></pre></td></tr></table></figure>
+<h2 id="3-验证是否部署成功"><a href="#3-验证是否部署成功" class="headerlink" title="3. 验证是否部署成功"></a>3. 验证是否部署成功</h2><p>在主节点上执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select client_addr,sync_state from pg_stat_replication;</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">postgres=# select client_addr,sync_state from pg_stat_replication;</div><div class="line">  client_addr  | sync_state</div><div class="line">---------------+------------</div><div class="line"> 192.168.20.94 | async</div><div class="line">(1 行记录)</div></pre></td></tr></table></figure>
+<p>说明94是从服务器，在接收流，而且是异步流复制。</p>
+<p>此外，还可以分别在主、从节点上运行 ps aux | grep postgres 来查看进程：</p>
+<p>主服务器（93）上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postgres 262270  0.0  0.0 337844  2832 ?        Ss   10:14   0:00 postgres: wal sender process replica 192.168.20.94(13059) streaming 0/A002A88</div></pre></td></tr></table></figure>
+<p>可以看到有一个 wal sender 进程。</p>
+<p>从服务器（94）上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">postgres 569868  0.0  0.0 384604  2960 ?        Ss   10:14   0:02 postgres: wal receiver process   streaming 0/A002B60</div></pre></td></tr></table></figure>
+<p>可以看到有一个 wal receiver 进程。</p>
+<p>至此，PostgreSQL主从流复制安装部署完成。</p>
+<p>在主服务器上插入数据或删除数据，在从服务器上能看到相应的变化。从服务器上只能查询，不能插入或删除。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/08/PostgreSQL安装PostGISC插件并使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          PostgreSQL安装PostGISC插件并使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/08/PostgreSQL单机部署（CentOS7）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">PostgreSQL单机部署（CentOS7）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-简介"><span class="toc-number">1.</span> <span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装部署"><span class="toc-number">2.</span> <span class="toc-text">2. 安装部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-主服务器"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 主服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-从服务器"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 从服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-验证是否部署成功"><span class="toc-number">3.</span> <span class="toc-text">3. 验证是否部署成功</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+</body>
+</html>
