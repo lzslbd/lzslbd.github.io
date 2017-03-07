@@ -11,6 +11,7 @@
 }
 
 #allheader {
+	background: -webkit-linear-gradient(330deg, #155799, #159957);
 	background: linear-gradient(120deg, #155799, #159957);
 	background: transparent;
 	z-index: 2;
