@@ -271,7 +271,7 @@
 <li><p>也可以用模板字符串来对字符串进行格式化 </p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> from string import Template  </div><div class="line"> s = Template(&apos;A $thing must never $action.&apos;)</div><div class="line"> d = &#123;&#125;</div><div class="line"> d[&apos;thing&apos;] = &apos;gentleman&apos;</div><div class="line"> d[&apos;action&apos;] = &apos;show his socks&apos;</div><div class="line"> s.substitute(d)</div><div class="line">&apos;A gentleman must never show his socks.&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><div class="line"> <span class="keyword">from</span> <span class="built_in">string</span> <span class="keyword">import</span> Template  </div><div class="line"> s = Template(<span class="string">'A $thing must never $action.'</span>)</div><div class="line"> d = &#123;&#125;</div><div class="line"> d[<span class="string">'thing'</span>] = <span class="string">'gentleman'</span></div><div class="line"> d[<span class="string">'action'</span>] = <span class="string">'show his socks'</span></div><div class="line"> s.substitute(d)</div><div class="line"><span class="string">'A gentleman must never show his socks.'</span></div></pre></td></tr></table></figure>
 <ul>
 <li><p>%-10.2f   总宽度为10 保留2位小数  左对齐（默认是右对齐）   %010.2f  左边用0填充</p>
 </li>

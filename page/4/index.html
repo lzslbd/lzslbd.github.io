@@ -236,7 +236,7 @@
         <p>给出几个Java I/O 操作的示例代码。</p>
         <!-- 给出几个Java I/O 操作的示例代码。
 
-创建文件或目录12345678910111213141516import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir =......  -->
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
         <p class="article-more-link">
           <a href="/2017/01/13/Java I:O 操作示例/#more">阅读全文</a>
         </p>
@@ -333,7 +333,7 @@
         <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
 
 如下：
-123456BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br ......  -->
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
         <p class="article-more-link">
           <a href="/2017/01/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
@@ -532,7 +532,7 @@
         <!-- 列举几个关于Java Map的常见问题并给出答案。
 
 1. 将Map转化成ListMap接口提供了三种collection：key set,value set 和 key-value set，每一种都可以转成List。如下：
-1234567891011//mapHashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();map.put......  -->
+//mapHashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();map.put(1,10);map.pu......  -->
         <p class="article-more-link">
           <a href="/2017/01/09/关于Java Map的几个常见问题/#more">阅读全文</a>
         </p>
