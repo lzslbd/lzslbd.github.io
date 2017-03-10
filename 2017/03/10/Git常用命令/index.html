@@ -64,7 +64,7 @@
 <meta property="og:url" content="http://linbingdong.com/2017/03/10/Git常用命令/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="记录 Git 常用的命令。">
-<meta property="og:updated_time" content="2017-03-10T09:35:38.000Z">
+<meta property="og:updated_time" content="2017-03-10T09:39:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git常用命令">
 <meta name="twitter:description" content="记录 Git 常用的命令。">
@@ -361,7 +361,7 @@
 <td>初始化git仓库</td>
 </tr>
 <tr>
-<td>git add \<file></file></td>
+<td>git add filename</td>
 <td>将文件添加到暂存区</td>
 </tr>
 <tr>
@@ -401,7 +401,7 @@
 <td>撤销工作区中对该文件的修改 让该文件回到最近一次 commit 或 add 时的状态</td>
 </tr>
 <tr>
-<td>git rm  \<file></file></td>
+<td>git rm  filename</td>
 <td>从版本库中删除文件</td>
 </tr>
 <tr>
@@ -413,23 +413,23 @@
 <td>查看分支</td>
 </tr>
 <tr>
-<td>git branch \<name></name></td>
+<td>git branch branchname</td>
 <td>创建分支</td>
 </tr>
 <tr>
-<td>git checkout \<name></name></td>
+<td>git checkout branchname</td>
 <td>切换分支</td>
 </tr>
 <tr>
-<td>git checkout -b \<name></name></td>
+<td>git checkout -b branchname</td>
 <td>创建并切换分支</td>
 </tr>
 <tr>
-<td>git merge \<name></name></td>
-<td>将\<name>分支合并到当前分支</name></td>
+<td>git merge branchname</td>
+<td>将<name>分支合并到当前分支</name></td>
 </tr>
 <tr>
-<td>git branch -d \<name></name></td>
+<td>git branch -d branchname</td>
 <td>删除分支</td>
 </tr>
 <tr>
@@ -453,8 +453,8 @@
 <td>恢复工作现场并把stash内容删除  相当于 git stash apply stash@{0};git stash drop stash@{0}</td>
 </tr>
 <tr>
-<td>git branch -D \<name></name></td>
-<td>将没有被merge过的\<name>分支强制删除</name></td>
+<td>git branch -D branchname</td>
+<td>将没有被merge过的<name>分支强制删除</name></td>
 </tr>
 <tr>
 <td>git remote</td>
@@ -493,7 +493,7 @@
 <td>查看标签（显示具体的commit内容）</td>
 </tr>
 <tr>
-<td>git tag -a \<tagname> -m “blablabla…”</tagname></td>
+<td>git tag -a <tagname> -m “blablabla…”</tagname></td>
 <td>可以指定标签信息</td>
 </tr>
 <tr>
