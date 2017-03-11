@@ -21,12 +21,14 @@ Note:">
 <meta property="og:description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 For example,Given [3,2,1,5,6,4] and k = 2, return 5.
 Note:">
-<meta property="og:updated_time" content="2017-02-20T15:11:12.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode[215] Kth Largest Element in an Array">
 <meta name="twitter:description" content="Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
 For example,Given [3,2,1,5,6,4] and k = 2, return 5.
 Note:">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -154,6 +156,8 @@ Note:">
 <p><strong>代码:</strong></p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        Queue&lt;Integer&gt; q = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; nums.length;i++)</div><div class="line">            q.add(nums[i]);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length - k;i++)</div><div class="line">            q.remove();</div><div class="line">        <span class="keyword">return</span> q.peek();     </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

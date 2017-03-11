@@ -17,10 +17,12 @@
 <meta property="og:url" content="http://linbingdong.com/2016/12/08/PostgreSQL安装PostGISC插件并使用/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。">
-<meta property="og:updated_time" content="2016-12-09T09:13:57.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL安装PostGISC插件并使用">
 <meta name="twitter:description" content="PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -181,7 +183,7 @@
 <figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">gisdb=#  SELECT id, ST_AsText(the_geom), ST_AsEwkt(the_geom), ST_X(the_geom), ST_Y(the_geom) FROM cities;</div><div class="line"> id |          st_astext           |               st_asewkt                |    st_x     |   st_y</div><div class="line">----+------------------------------+----------------------------------------+-------------+-----------</div><div class="line">  <span class="number">1</span> | POINT(<span class="number">-0.1257</span> <span class="number">51.508</span>)        | SRID=<span class="number">4326</span>;POINT(<span class="number">-0.1257</span> <span class="number">51.508</span>)        |     <span class="number">-0.1257</span> |    <span class="number">51.508</span></div><div class="line">  <span class="number">2</span> | POINT(<span class="number">-81.233</span> <span class="number">42.983</span>)        | SRID=<span class="number">4326</span>;POINT(<span class="number">-81.233</span> <span class="number">42.983</span>)        |     <span class="number">-81.233</span> |    <span class="number">42.983</span></div><div class="line">  <span class="number">3</span> | POINT(<span class="number">27.91162491</span> <span class="number">-33.01529</span>) | SRID=<span class="number">4326</span>;POINT(<span class="number">27.91162491</span> <span class="number">-33.01529</span>) | <span class="number">27.91162491</span> | <span class="number">-33.01529</span></div><div class="line">(<span class="number">3</span> 行记录)</div></pre></td></tr></table></figure>
 <h3 id="3-3-空间查询"><a href="#3-3-空间查询" class="headerlink" title="3.3 空间查询"></a>3.3 空间查询</h3><p>PostGIS 为 PostgreSQL 扩展了许多空间操作功能。以上已经涉及了转换空间坐标格式的 ST_GeomFromText 。多数空间操作以 ST（spatial type）开头，在 PostGIS 文档相应章节有罗列。这里回答一个具体的问题：上面三个城市相互的距离是多少？查询语句怎么写？</p>
 <figure class="highlight asciidoc"><table><tr><td class="code"><pre><div class="line">gisdb=# SELECT p1.name,p2.name,ST<span class="emphasis">_Distance_</span>Sphere(p1.the<span class="emphasis">_geom,p2.the_</span>geom) FROM cities AS p1, cities AS p2 WHERE p1.id &gt; p2.id;</div><div class="line"><span class="section">      name       |      name       | st_distance_sphere</span></div><div class="line">-----------------+-----------------+--------------------</div><div class="line"><span class="code"> London, Ontario | London, England |   5875787.03777356</span></div><div class="line"><span class="code"> East London,SA  | London, England |   9789680.59961472</span></div><div class="line"><span class="code"> East London,SA  | London, Ontario |   13892208.6782928</span></div><div class="line">(3 行记录)</div></pre></td></tr></table></figure>
-<p>输出显示了距离数据。注意 ‘WHERE’ 部分防止了输出城市到自身的距离（0）或者两个城市不同排列的距离数据（London, England 到 London, Ontario 和 London, Ontario 到 London, England 的距离是一样的）。</p>
+<p>输出显示了距离数据。注意 ‘WHERE’ 部分防止了输出城市到自身的距离（0）或者两个城市不同排列的距离数据（London, England 到 London, Ontario 和 London, Ontario 到 London, England 的距离是一样的）。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>

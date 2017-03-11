@@ -19,11 +19,13 @@
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
 本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使得其他线程能获">
-<meta property="og:updated_time" content="2016-12-15T03:35:56.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中wait、sleep和yield的区别">
 <meta name="twitter:description" content="Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
 本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使得其他线程能获">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -158,7 +160,7 @@
 <h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
 <p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
 <p>yield方法也<strong>不会释放锁</strong>。</p>
-<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。</p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>

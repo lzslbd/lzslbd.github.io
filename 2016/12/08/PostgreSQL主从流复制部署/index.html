@@ -17,10 +17,12 @@
 <meta property="og:url" content="http://linbingdong.com/2016/12/08/PostgreSQL主从流复制部署/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。">
-<meta property="og:updated_time" content="2016-12-09T09:14:15.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PostgreSQL主从流复制部署">
 <meta name="twitter:description" content="PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -192,7 +194,7 @@
 <figure class="highlight tap"><table><tr><td class="code"><pre><div class="line">postgres<span class="number"> 569868 </span> 0.0  0.0<span class="number"> 384604 </span><span class="number"> 2960 </span>?        Ss   10:14   0:02 postgres: wal receiver process   streaming 0/A002B60</div></pre></td></tr></table></figure>
 <p>可以看到有一个 wal receiver 进程。</p>
 <p>至此，PostgreSQL主从流复制安装部署完成。</p>
-<p>在主服务器上插入数据或删除数据，在从服务器上能看到相应的变化。从服务器上只能查询，不能插入或删除。</p>
+<p>在主服务器上插入数据或删除数据，在从服务器上能看到相应的变化。从服务器上只能查询，不能插入或删除。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>

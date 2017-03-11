@@ -17,10 +17,12 @@
 <meta property="og:url" content="http://linbingdong.com/2016/12/04/回文序列/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="如果一个数字序列逆置之后跟原序列是一样的就称这样的数字序列为回文序列。例如：{1, 2, 1}, {15, 78, 78, 15} , {112} 是回文序列,{1, 2, 2}, {15, 78, 87, 51} ,{112, 2, 11} 不是回文序列。现在给出一个数字序列，允许使用一种转换操作：选择任意两个相邻的数，然后从序列移除这两个数，并用这两个数字的和插入到这两个数之前的位置(只插入一">
-<meta property="og:updated_time" content="2017-02-20T15:10:49.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回文序列">
 <meta name="twitter:description" content="如果一个数字序列逆置之后跟原序列是一样的就称这样的数字序列为回文序列。例如：{1, 2, 1}, {15, 78, 78, 15} , {112} 是回文序列,{1, 2, 2}, {15, 78, 87, 51} ,{112, 2, 11} 不是回文序列。现在给出一个数字序列，允许使用一种转换操作：选择任意两个相邻的数，然后从序列移除这两个数，并用这两个数字的和插入到这两个数之前的位置(只插入一">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -151,6 +153,8 @@
 <p><strong>代码:</strong></p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"> </div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by lbd on 2016/10/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">while</span> (sc.hasNext())&#123;</div><div class="line">            <span class="keyword">int</span> n = sc.nextInt();</div><div class="line">            <span class="keyword">int</span>[] inputArray = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">            <span class="keyword">int</span> times = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</div><div class="line">                inputArray[i] = sc.nextInt();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> head = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> tail = n-<span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (head &lt; tail)&#123;</div><div class="line">                <span class="keyword">if</span> (inputArray[head] &lt; inputArray[tail])&#123;</div><div class="line">                    inputArray[++head] += inputArray[head-<span class="number">1</span>];</div><div class="line">                    times++;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inputArray[head] &gt; inputArray[tail])&#123;</div><div class="line">                    inputArray[--tail] += inputArray[tail+<span class="number">1</span>];</div><div class="line">                    times++;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    head++;</div><div class="line">                    tail--;</div><div class="line">                &#125;</div><div class="line"> </div><div class="line">            &#125;</div><div class="line">            System.out.println(times);</div><div class="line">        &#125;</div><div class="line">        sc.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

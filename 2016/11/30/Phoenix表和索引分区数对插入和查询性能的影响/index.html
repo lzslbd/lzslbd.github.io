@@ -19,11 +19,13 @@
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
 通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。">
-<meta property="og:updated_time" content="2016-12-08T13:45:31.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Phoenix表和索引分区数对插入和查询性能的影响">
 <meta name="twitter:description" content="Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
 通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -437,7 +439,7 @@
 <p>对比T3和T4,T8和T9可知，<strong>在一定范围内，增大索引分区数使插入变慢，查询变快。</strong></p>
 <p>对比T11和T12可知，<strong>当索引分区达到一定大小后，再增加分区数已经无法提升查询性能。</strong></p>
 <p>综合比较来看，<strong>当前集群在表分区数和索引分区数均为40时插入和查询的综合性能最好。</strong></p>
-<p>因此，Phoenix的性能测试中将采用表分区数和索引分区数均为40的方案。</p>
+<p>因此，Phoenix的性能测试中将采用表分区数和索引分区数均为40的方案。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>

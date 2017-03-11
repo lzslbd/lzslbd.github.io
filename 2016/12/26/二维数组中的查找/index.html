@@ -23,13 +23,15 @@
 分析
 从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。
 代码:">
-<meta property="og:updated_time" content="2017-02-20T15:10:42.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二维数组中的查找">
 <meta name="twitter:description" content="在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
 分析
 从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。
 代码:">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -154,6 +156,8 @@
 <p><strong>代码:</strong></p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span> [][] array)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> y = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> x = array.length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(x &gt;= <span class="number">0</span> &amp;&amp; y &lt; array[<span class="number">0</span>].length)&#123;</div><div class="line">            <span class="keyword">if</span>(target &gt; array[x][y])</div><div class="line">                y++;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(target &lt; array[x][y])</div><div class="line">                    x--;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

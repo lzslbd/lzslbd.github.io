@@ -18,7 +18,8 @@
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-37e6cda2c76b8cec.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-01-02T11:30:34.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系列文章——从ACID到CAP/BASE">
 <meta name="twitter:description" content="本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。">
@@ -267,7 +268,7 @@
 </ul>
 <p>以上就是最终一致性的五种常见的变种，在实际系统实践中，可以将其中的若干个变种互相结合起来，以构建一个具有最终一致性特性的分布式系统。事实上，最终一致性并不是只有那些大型分布式系统才涉及的特性，许多<strong>现代的关系型数据库</strong>都采用了最终一致性模型。在现代关系型数据库中（比如MySQL和PostgreSQL），大多都会采用<strong>同步或异步</strong>方式来实现<strong>主备数据复制</strong>技术。在同步方式中，数据的复制过程通常是更新事务的一部分，因此在事务完成后，主备数据库的数据就会达到一致。而在异步方式中，备库的更新往往会存在延时，这取决于事务日志在主备数据库之间传输的时间长短。如果传输时间过长或者甚至在日志传输过程中出现异常导致无法及时将事务应用到备库上，那么很显然，从备库中读取的数据将是旧的，因此就出现了数据不一致的情况。当然，无论是采用多次重试还是人为数据订正，关系型数据库还是能够保证最终数据达到一致，这就是系统提供最终一致性保证的经典案例。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li>《从Paxos到ZooKeeper——分布式一致性原理与实践》</li>
+<li>《从Paxos到ZooKeeper——分布式一致性原理与实践》<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
 </ul>
 
       

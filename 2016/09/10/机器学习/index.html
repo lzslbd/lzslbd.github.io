@@ -17,10 +17,12 @@
 <meta property="og:url" content="http://linbingdong.com/2016/09/10/机器学习/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias">
-<meta property="og:updated_time" content="2016-12-02T01:23:34.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习笔记（持续更新）">
 <meta name="twitter:description" content="任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -158,6 +160,8 @@
 <li>神经网络</li>
 </ul>
 <figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"><span class="number">1.</span> 每个神经元都是一个感知机</div><div class="line"><span class="number">2.</span> 若每个激活函数都是线性函数，最终只得到线性变换（线性函数的组合还是线性函数）</div><div class="line"><span class="number">3.</span> 一般都用非线性激活函数 （对数、双曲正切、阶跃、修正线性）</div><div class="line"><span class="number">4.</span> BP算法基于梯度下降策略，以误差函数的负梯度方向对参数进行调整（权重和阈值）</div><div class="line"><span class="number">5.</span> 梯度下降法：一种常用的一阶优化方法（只使用目标函数的一阶导数），求解无约束优化问题最经典的方法之一</div><div class="line"><span class="number">6.</span> 学习率控制每一步更新的步长，太大容易震荡，太小收敛慢</div><div class="line"><span class="number">7.</span> 神经网络只需输入样本和学习率 连接权重和阈值在（<span class="number">0</span>，<span class="number">1</span>）随机初始化</div><div class="line"><span class="number">8.</span> 深度学习中更常用的做法是将softmax作为最后一层的激活函数，此时用的代价函数是log-likelihood（对数自然）</div><div class="line"><span class="number">9.</span> 标准BP（每次用一个样本来更新）和累积BP（先读取一遍训练集）算法的区别，类似于随机梯度下降和（最快）梯度下降的区别 </div><div class="line"><span class="number">10.</span> 神经网络模型越复杂则<span class="number">1.</span>参数越多，训练效率低（慢）<span class="number">2.</span>容易过拟合  解决办法<span class="number">1.</span>云计算（计算能力强）<span class="number">2.</span>大数据（样本多）</div><div class="line"><span class="number">11.</span> 改进：<span class="number">1.</span>用交叉熵代价函数代替方差代价函数 <span class="number">2.</span>用分段线性函数（修正线性函数）代替sigmoid函数作隐含层激活函数</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

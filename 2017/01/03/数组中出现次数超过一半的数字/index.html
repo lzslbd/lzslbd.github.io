@@ -23,13 +23,15 @@
 分析
 用HashMap，key为数组中的数字，value为该数字在数组中出现的次数。边put边计算当前该数字的次数，若超过数组长度的一半直接返回。最后返回0。
 代码:">
-<meta property="og:updated_time" content="2017-02-20T15:10:52.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组中出现次数超过一半的数字">
 <meta name="twitter:description" content="数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
 分析
 用HashMap，key为数组中的数字，value为该数字在数组中出现的次数。边put边计算当前该数字的次数，若超过数组长度的一半直接返回。最后返回0。
 代码:">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -154,6 +156,8 @@
 <p><strong>代码:</strong></p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.HashMap;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">MoreThanHalfNum_Solution</span><span class="params">(<span class="keyword">int</span> [] array)</span> </span>&#123;</div><div class="line">        HashMap&lt;Integer,Integer&gt; hm = <span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</div><div class="line">            Integer value = hm.get(array[i]);</div><div class="line">            <span class="keyword">if</span>(value == <span class="keyword">null</span>)&#123;</div><div class="line">                hm.put(array[i],<span class="number">1</span>);</div><div class="line">                value = <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                hm.put(array[i],value+<span class="number">1</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(value+<span class="number">1</span>&gt;array.length/<span class="number">2</span>)</div><div class="line">                <span class="keyword">return</span> array[i];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

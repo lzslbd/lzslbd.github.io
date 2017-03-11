@@ -17,10 +17,12 @@
 <meta property="og:url" content="http://linbingdong.com/2017/02/14/LeetCode[145] Binary Tree Postorder Traversal/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="Given a binary tree, return the inorder traversal of its nodes’ values.">
-<meta property="og:updated_time" content="2017-03-01T07:08:17.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode[145] Binary Tree Postorder Traversal">
 <meta name="twitter:description" content="Given a binary tree, return the inorder traversal of its nodes’ values.">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -158,6 +160,8 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</div><div class="line">            result.addAll(inorderTraversal(root.left));</div><div class="line">            result.addAll(inorderTraversal(root.right));</div><div class="line">            result.add(root.val);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>迭代法：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        LinkedList&lt;Integer&gt; result = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</div><div class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</div><div class="line">        TreeNode n = root;</div><div class="line">        stack.push(n);</div><div class="line">        <span class="keyword">while</span> (!stack.empty()) &#123;</div><div class="line">            n = stack.pop();</div><div class="line">            result.addFirst(n.val);</div><div class="line">            <span class="keyword">if</span> (n.left != <span class="keyword">null</span>) stack.push(n.left);</div><div class="line">            <span class="keyword">if</span> (n.right != <span class="keyword">null</span>) stack.push(n.right);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

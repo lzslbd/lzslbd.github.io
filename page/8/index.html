@@ -319,7 +319,7 @@ For example, given input 43261596 (represented in binary as 00000010100101000001
 <h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
 <p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
 <p>yield方法也<strong>不会释放锁</strong>。</p>
-<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。</p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>

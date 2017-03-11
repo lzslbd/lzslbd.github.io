@@ -19,7 +19,8 @@
 <meta property="og:description" content="Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-adc85fb95f884363.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-ee60b12bd1f9a3dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-01-11T11:14:48.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java I/O 总结">
 <meta name="twitter:description" content="Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。">
@@ -251,6 +252,8 @@
 <li>将标准输入的内容写入文件</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">FileWriter out = <span class="keyword">new</span> FileWriter(<span class="string">"systemIn.log"</span>);</div><div class="line">String s;</div><div class="line"><span class="keyword">while</span> (!(s = in.nextLine()).equals(<span class="string">"Q"</span>))&#123;</div><div class="line">    out.write(s + <span class="string">"\n"</span>);</div><div class="line">&#125;</div><div class="line">out.flush();</div><div class="line">out.close();</div><div class="line">in.close();</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">

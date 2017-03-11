@@ -17,10 +17,12 @@
 <meta property="og:url" content="http://linbingdong.com/2016/12/12/分布式系列文章——分布式系统的特点及问题/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。">
-<meta property="og:updated_time" content="2016-12-11T16:14:01.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系列文章——分布式系统的特点及问题">
 <meta name="twitter:description" content="随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -156,7 +158,7 @@
 <h3 id="通信异常"><a href="#通信异常" class="headerlink" title="通信异常"></a>通信异常</h3><p>分布式系统中个计算机之间是通过网络进行通信的。由于<strong>网络本身的不可靠性</strong>，每次网络通信都会伴随着网络不可用的风险。即使分布式系统各节点之间的网络通信能够正常进行，其延时也会远远大于单机操作。在分布式系统中，<strong>消息延时和消息丢失非常普遍</strong>。</p>
 <h3 id="网络分区"><a href="#网络分区" class="headerlink" title="网络分区"></a>网络分区</h3><p>当网络发生异常情况，可能导致分布式系统中某些节点之间能够正常通信，而某些节点之间无法通信——该现象就是网络分区，就是俗称的『脑裂』。当网络分区出现时，分布式系统就会出现局部小集群，小集群内计算机可以相互通信，小集群之间计算机无法通信。这就对分布式一致性提出了非常大的挑战。</p>
 <h3 id="三态"><a href="#三态" class="headerlink" title="三态"></a>三态</h3><p>因为在分布式系统中，网络可能会出现各式各样的问题，因此分布式系统的每一次请求和响应，存在特有的『三态』概念，即<strong>成功、失败与超时</strong>。在传统的单机系统中，应用程序在调用一个函数之后，能够得到一个非常明确的相应：成功或失败。而在分布式系统中，由于网络是不可靠的，当网络出现异常的情况下，就可能出现超时现象，发生消息丢失现象。</p>
-<h3 id="节点故障"><a href="#节点故障" class="headerlink" title="节点故障"></a>节点故障</h3><p>节点故障是分布式环境下一个比较常见的问题，指的是组成分布式系统的服务器节点出现宕机或『僵死』现象。通常根据经验来说，每个节点都有可能出现故障，并且每天都在发生。</p>
+<h3 id="节点故障"><a href="#节点故障" class="headerlink" title="节点故障"></a>节点故障</h3><p>节点故障是分布式环境下一个比较常见的问题，指的是组成分布式系统的服务器节点出现宕机或『僵死』现象。通常根据经验来说，每个节点都有可能出现故障，并且每天都在发生。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>

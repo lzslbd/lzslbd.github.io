@@ -25,7 +25,8 @@
 分析
 先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。
 排序规则如下：若ab &amp;gt; ba 则 a &amp;gt; b，若ab &amp;lt; ba">
-<meta property="og:updated_time" content="2017-02-20T15:10:51.000Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="把数组排成最小的数">
 <meta name="twitter:description" content="题目描述
@@ -33,6 +34,7 @@
 分析
 先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。
 排序规则如下：若ab &amp;gt; ba 则 a &amp;gt; b，若ab &amp;lt; ba">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -160,6 +162,8 @@
 <p><strong>代码:</strong></p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.Comparator;</div><div class="line"><span class="keyword">import</span> java.util.Collections;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">PrintMinNumber</span><span class="params">(<span class="keyword">int</span> [] numbers)</span> </span>&#123;</div><div class="line">        String result = <span class="string">""</span>;</div><div class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)</div><div class="line">            list.add(numbers[i]);</div><div class="line">        Collections.sort(list,<span class="keyword">new</span> Comparator&lt;Integer&gt;()&#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer str1,Integer str2)</span></span>&#123;  <span class="comment">//制定排序规则</span></div><div class="line">                String s1 = str1 + <span class="string">""</span> + str2;</div><div class="line">                String s2 = str2 + <span class="string">""</span> + str1;</div><div class="line">                <span class="keyword">return</span> s1.compareTo(s2);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">for</span>(Integer i : list)</div><div class="line">            result += i;  <span class="comment">//拼接</span></div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
       
     </div>
     <footer class="article-footer">
