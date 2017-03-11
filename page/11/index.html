@@ -1,64 +1,15 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
+  <meta charset="utf-8">
+  
+  <title>LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="大数据与分布式">
+  
+  
+  <meta name="description" content="大数据与分布式">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LBD's Blog">
 <meta property="og:url" content="http://linbingdong.com/page/11/index.html">
@@ -67,611 +18,233 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LBD's Blog">
 <meta name="twitter:description" content="大数据与分布式">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
 
+  <script src="/js/jquery-3.1.1.min.js"></script>
 
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"hide"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":30},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
 
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
 
+  
 
-  <link rel="canonical" href="http://linbingdong.com/page/11/"/>
-
-
-
-
-
-  <title> LBD's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+<body>
   
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">LBD's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-    
-      <h1 class="site-subtitle" itemprop="description">大数据与分布式</h1>
-    
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
+  <div id="container">
+    <div id="wrap">
       
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/Python读书笔记（持续更新）/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                 >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
             
             
-              
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
                 
-                <a class="post-title-link" href="/2016/08/27/Python读书笔记（持续更新）/" itemprop="url">
-                  Python读书笔记（持续更新）
-                </a>
-              
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="index.search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://linbingdong.com"></form>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
             
-          </h2>
+      <div id="content" class="outer">
         
+          <section id="main" style="float:none;">
+  
+    <article id="post-Python读书笔记（持续更新）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/Python读书笔记（持续更新）/">Python读书笔记（持续更新）</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T21:47:49+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/Python读书笔记（持续更新）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Python读书笔记（持续更新）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/Python读书笔记（持续更新）/" class="article-date">
+	  <time datetime="2016-08-27T13:47:49.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <blockquote>
+        <blockquote>
 <p>书籍：《Python基础教程》《Python核心编程》《Python Cookbook》《Python源码剖析》</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/Python读书笔记（持续更新）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- 
+书籍：《Python基础教程》《Python核心编程》《Python Cookbook》《Python源码剖析》
+
+
+
+在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言
+
+在Python中，通常用全部大写的变量名表示常量。用全部大写的变量名表示常量只是一个习惯......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/Python读书笔记（持续更新）/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/" itemprop="url">
-                  Java中System.arraycopy()和Arrays.copyOf()的区别
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T20:00:43+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	  <time datetime="2016-08-27T12:00:43.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <p>先看看System.arraycopy()的声明：</p>
+        <p>先看看System.arraycopy()的声明：</p>
 <pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
 </code></pre>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- 先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/统计每个单词出现的次数/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/统计每个单词出现的次数/" itemprop="url">
-                  统计每个单词出现的次数
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/统计每个单词出现的次数/">统计每个单词出现的次数</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T19:57:33+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/编程题/" itemprop="url" rel="index">
-                    <span itemprop="name">编程题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/统计每个单词出现的次数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/统计每个单词出现的次数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/统计每个单词出现的次数/" class="article-date">
+	  <time datetime="2016-08-27T11:57:33.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <pre><code>/**统计单词出现的次数
+        <pre><code>/**统计单词出现的次数
  * this is a cat and this is a mice and where is the food?
  * 思路
  * 1.分割字符串
@@ -680,1167 +253,475 @@
  * Created by linbingdong on 16/3/19.
  */
 </code></pre>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/统计每个单词出现的次数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- /**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
+
+package cn.lbd.Collection;import java.ut......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/统计每个单词出现的次数/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-LeetCode[7] 反转整数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/LeetCode[7] 反转整数/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/LeetCode[7] 反转整数/" itemprop="url">
-                  LeetCode[7] 反转整数
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/LeetCode[7] 反转整数/">LeetCode[7] 反转整数</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T19:55:54+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/编程题/" itemprop="url" rel="index">
-                    <span itemprop="name">编程题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/LeetCode[7] 反转整数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/LeetCode[7] 反转整数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/LeetCode[7] 反转整数/" class="article-date">
+	  <time datetime="2016-08-27T11:55:54.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <h3 id="Reverse-digits-of-an-integer"><a href="#Reverse-digits-of-an-integer" class="headerlink" title="Reverse digits of an integer."></a>Reverse digits of an integer.</h3><p>Example1: x = 123, return 321</p>
+        <h3 id="Reverse-digits-of-an-integer"><a href="#Reverse-digits-of-an-integer" class="headerlink" title="Reverse digits of an integer."></a>Reverse digits of an integer.</h3><p>Example1: x = 123, return 321</p>
 <p>Example2: x = -123, return -321</p>
 <h3 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h3>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/LeetCode[7] 反转整数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- Reverse digits of an integer.Example1: x = 123, return 321
+Example2: x = -123, return -321
+My Solution
+public class Solution &#123;    public int reverse(int x) &#123;        long result=0;        ......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/LeetCode[7] 反转整数/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-LeetCode[3] 最大字符不重复的子串"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/LeetCode[3] 最大字符不重复的子串/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/" itemprop="url">
-                  LeetCode[3] 最大字符不重复的子串
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/">LeetCode[3] 最大字符不重复的子串</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T19:47:15+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/编程题/" itemprop="url" rel="index">
-                    <span itemprop="name">编程题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/LeetCode[3] 最大字符不重复的子串/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/" class="article-date">
+	  <time datetime="2016-08-27T11:47:15.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
 <p>Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for “abcabcbb” is “abc”, which the length is 3. For “bbbbb” the longest substring is “b”, with the length of 1.</p>
 </blockquote>
 <p>即给定一个字符串，返回最长的没有重复字符的子串的长度</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用一个HashMap来存储字符串。其中key为字符，value为该字符在字符串中的位置。</p>
 <p>使用两个指针i，j来指示最长子串的位置。刚开始i，j都为0，指向第一个字符。然后i开始向右遍历。若遍历到的字符已在HashMap中，则更新它的value为现在i的位置。并且将j指向该字符的下一个位置（j只能往右移，或者不移，不能左移）。若未在HashMap中，则将该字符以及它的位置放入HashMap中。最大的（i-j+1）即为最长子串的长度。</p>
 <h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- 题目描述
+Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for “abcabcbb” is “abc”, which the length is......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-LeetCode[5] 最长的回文子串"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/LeetCode[5] 最长的回文子串/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/LeetCode[5] 最长的回文子串/" itemprop="url">
-                  LeetCode[5] 最长的回文子串
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/LeetCode[5] 最长的回文子串/">LeetCode[5] 最长的回文子串</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T19:45:22+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构与算法</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构与算法/编程题/" itemprop="url" rel="index">
-                    <span itemprop="name">编程题</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/LeetCode[5] 最长的回文子串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/LeetCode[5] 最长的回文子串/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/LeetCode[5] 最长的回文子串/" class="article-date">
+	  <time datetime="2016-08-27T11:45:22.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
 <p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
 </blockquote>
 <p>即给定一个字符串，返回该字符串最长的回文子串<br>如给出“acabcddcbadike”,返回“abcddcba”。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>回文子串分为长度为偶数（中间两个字符相同，就像示例）和长度为奇数两种。<br>从头往后遍历s.length()趟，第i趟指针j，k从i（奇数）或j从i，k从i+1（偶数）向两边扩散（s.charAt(i)和s.charAt(j)相等才扩散），k-j-1为该回文子串长度，若比之前maxlen大，则更新maxlen。</p>
 <h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/LeetCode[5] 最长的回文子串/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- 题目描述
+Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+
+即给定一个字符串，返回该字符串最......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/LeetCode[5] 最长的回文子串/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/Java中Comparable与Comparator的区别/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/Java中Comparable与Comparator的区别/" itemprop="url">
-                  Java中Comparable与Comparator的区别
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T19:43:01+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/Java中Comparable与Comparator的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Java中Comparable与Comparator的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/Java中Comparable与Comparator的区别/" class="article-date">
+	  <time datetime="2016-08-27T11:43:01.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
 <li>Comparable和Comparator都是用来实现对象的比较、排序</li>
 <li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
 <li>Comparable和Comparator都是Java的接口</li>
 </ul>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/Java中Comparable与Comparator的区别/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
+
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/Java中Comparable与Comparator的区别/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
+<!-- Table of Contents -->
 
+  
+    <article id="post-Java中四种引用"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://linbingdong.com/2016/08/27/Java中四种引用/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="LBD">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.gif">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="LBD's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="LBD's Blog" src="">
-    </span>
-  </span>
-
     
-      <header class="post-header">
-
+      <header class="article-header">
         
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/Java中四种引用/" itemprop="url">
-                  Java中四种引用
-                </a>
-              
-            
-          </h2>
-        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/Java中四种引用/">Java中四种引用</a>
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T19:39:10+08:00">
-                2016-08-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/08/27/Java中四种引用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Java中四种引用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-
-    <div class="post-body" itemprop="articleBody">
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/Java中四种引用/" class="article-date">
+	  <time datetime="2016-08-27T11:39:10.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
 
       
-      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
+    </div>
+    <div class="article-entry" itemprop="articleBody">
       
-        
-          <blockquote>
+        <blockquote>
 <p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
 </blockquote>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/Java中四种引用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <!-- 
+为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
+
+ 
+
+强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
+
+软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/Java中四种引用/#more">weiter lesen</a>
+        </p>
       
     </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
     </footer>
-  </article>
+  </div>
+  
+</article>
 
-
-    
-  </section>
+<!-- Table of Contents -->
 
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
   </nav>
 
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="LBD" />
-          <p class="site-author-name" itemprop="name">LBD</p>
-          <p class="site-description motion-element" itemprop="description">大数据与分布式</p>
-        </div>
-        <nav class="site-state motion-element">
-        
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">108</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">44</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              博客推荐
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="https://toutiao.io/subjects/157348" title="开发者头条独家号" target="_blank">开发者头条独家号</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.pingcap.com/bloglist.html" title="PingCAP博客" target="_blank">PingCAP博客</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://tech.meituan.com/" title="美团点评技术团队" target="_blank">美团点评技术团队</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://dongxicheng.org/" title="董的博客" target="_blank">董的博客</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://hbasefly.com/" title="有态度的HBase" target="_blank">有态度的HBase</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://jm.taobao.org" title="阿里中间件团队博客" target="_blank">阿里中间件团队博客</a>
-                </li>
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://zh.lucida.me/archives/" title="Lucida" target="_blank">Lucida</a>
-                </li>
-              
-            </ul>
-          </div>
-        
-
-        
-
-
-      </section>
-
-      
-
-    </div>
-  </aside>
-
-
+</section>
         
       </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">LBD</span>
-</div>
-
-
-
-        
-
-<div class="busuanzi-count">
-
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
   
 
-  
-    <span class="site-pv">访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
-  
-</div>
-
-
-
-        
-      </div>
-    </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	</div>
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+</footer>
 
 
+<!-- min height -->
 
-
-
-
-
-
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"lbd"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
 <script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
     }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
     }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
 
 </body>
 </html>
