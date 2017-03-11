@@ -118,7 +118,96 @@ public static native void arraycopy(Object src,int srcPos, Object dest, int dest
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Java中System.arraycopy()和Arrays.copyOf()的区别
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	  <time datetime="2016-08-27T12:00:43.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看看System.arraycopy()的声明：</p>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+</code></pre><a id="more"></a>
+<p>src - 源数组。<br>srcPos - 源数组中的起始位置。<br>dest - 目标数组。<br>destPos - 目标数据中的起始位置。<br>length - 要复制的数组元素的数量。</p>
+<p>该方法用了native关键字，说明调用的是其他语言写的底层函数。</p>
+<p>再看Arrays.copyOf()</p>
+<pre><code>public static &lt;T,U&gt; T[] copyOf(U[] original, int newLength, Class&lt;? extends T[]&gt; newType) {
+   @SuppressWarnings(&quot;unchecked&quot;)    
+   T[] copy = ((Object)newType == (Object)Object[].class)?(T[]) new Object[newLength]:(T[])    
+   Array.newInstance(newType.getComponentType(), newLength);System.arraycopy(original,0, copy,0,                       
+   Math.min(original.length, newLength));    
+   return copy;
+}
+</code></pre><p>该方法对应不同的数据类型都有各自的重载方法<br>original - 要复制的数组<br>newLength - 要返回的副本的长度<br>newType - 要返回的副本的类型<br>仔细观察发现，copyOf()内部调用了System.arraycopy()方法</p>
+<h3 id="区别在于："><a href="#区别在于：" class="headerlink" title="区别在于："></a>区别在于：</h3><ol>
+<li>arraycopy()需要目标数组，将原数组拷贝到你自己定义的数组里，而且可以选择拷贝的起点和长度以及放入新数组中的位置</li>
+<li>copyOf()是系统自动在内部新建一个数组，调用arraycopy()将original内容复制到copy中去，并且长度为newLength。返回copy; 即将原数组拷贝到一个长度为newLength的新数组中，并返回该数组。</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Array.copyOf()可以看作是受限的System.arraycopy(),它主要是用来将原数组全部拷贝到一个新长度的数组，适用于数组扩容。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/27/Python读书笔记（持续更新）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Python读书笔记（持续更新）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/27/统计每个单词出现的次数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">统计每个单词出现的次数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#区别在于："><span class="toc-number">1.</span> <span class="toc-text">区别在于：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

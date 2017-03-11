@@ -124,7 +124,85 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-数组中重复的数字" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      数组中重复的数字
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/16/数组中重复的数字/" class="article-date">
+	  <time datetime="2017-01-16T12:58:15.000Z" itemprop="datePublished">2017-01-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
+<p><strong>分析</strong></p>
+<p>新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如果arr[numbers[i]] == true，说明numbers[i]重复了。</p>
+<p><strong>代码:</strong></p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="comment">// Parameters:</span></div><div class="line">    <span class="comment">//    numbers:     an array of integers</span></div><div class="line">    <span class="comment">//    length:      the length of array numbers</span></div><div class="line">    <span class="comment">//    duplication: (Output) the duplicated number in the array number,length of duplication array is 1,so using duplication[0] = ? in implementation;</span></div><div class="line">    <span class="comment">//                  Here duplication like pointor in C/C++, duplication[0] equal *duplication in C/C++</span></div><div class="line">    <span class="comment">//    这里要特别注意~返回任意重复的一个，赋值duplication[0]</span></div><div class="line">    <span class="comment">// Return value:       true if the input is valid, and there are some duplications in the array number</span></div><div class="line">    <span class="comment">//                     otherwise false</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">duplicate</span><span class="params">(<span class="keyword">int</span> numbers[],<span class="keyword">int</span> length,<span class="keyword">int</span> [] duplication)</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span>[] arr = <span class="keyword">new</span> <span class="keyword">boolean</span>[length];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</div><div class="line">            <span class="keyword">if</span>(arr[numbers[i]] == <span class="keyword">true</span>)&#123;</div><div class="line">                duplication[<span class="number">0</span>] = numbers[i];</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            arr[numbers[i]] = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/16/构建乘积数组/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          构建乘积数组
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/16/纠删码（Erasure Code）浅析/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">纠删码（Erasure Code）浅析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

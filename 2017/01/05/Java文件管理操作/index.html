@@ -118,7 +118,116 @@ Path和Files类封装了处理文件系统所需的所有功能。比如，可�
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Java文件管理操作" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Java文件管理操作
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/05/Java文件管理操作/" class="article-date">
+	  <time datetime="2017-01-05T07:47:59.000Z" itemprop="datePublished">2017-01-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
+<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
+<a id="more"></a> 
+<p>Path和Files是在Java SE 7中新添加进来的类，比自JDK 1.0以来就一直使用的File类要方便得多。</p>
+<h2 id="java-nio-file-Paths-7"><a href="#java-nio-file-Paths-7" class="headerlink" title="java.nio.file.Paths 7"></a>java.nio.file.Paths 7</h2><p><strong>Path</strong>表示的是文件或目录的路径。是一个字符串。</p>
+<ul>
+<li>java.nio.file.Paths<ul>
+<li>static Path get(String first, String…more)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Path dir = Paths.get(<span class="string">"/Users/linbingdong"</span>,<span class="string">"Downloads"</span>,<span class="string">"xxx.txt"</span>);</div></pre></td></tr></table></figure>
+<p> Paths.get方法通过给定的字符串<strong>创建一个路径</strong>。该方法可以接受<strong>一个或多个</strong>字符串，并自动将它们用默认文件系统的路径分隔符<strong>连接</strong>起来。</p>
+<p>要操作文件或目录之前，都需要先用Paths.get方法生成相应的路径。</p>
+<h2 id="java-nio-file-Files-7"><a href="#java-nio-file-Files-7" class="headerlink" title="java.nio.file.Files 7"></a>java.nio.file.Files 7</h2><p>Files类使得普通文件操作变得快捷。</p>
+<ul>
+<li>java.nio.file.Files<ul>
+<li>static byte[] readAllBytes(Path path)</li>
+<li>static Path write(Path path, byte[] contents, OpenOption…options)</li>
+<li>static Path copy(Path from, Path to, CopyOption…options)</li>
+<li>static Path move (Path from, Path to, CopyOption…options)</li>
+<li>static void delete(Path path)</li>
+<li>static Path createFile(Path path, FileAttribute&lt;?&gt;… attrs)</li>
+<li>static Path createDirectory(Path path, FileAttribute&lt;?&gt;…attrs)</li>
+<li>static Path createDirectories(Path path, FileAttribute&lt;?&gt;…attrs)</li>
+<li>static boolean exists(Path path)</li>
+<li>static boolean isReadable(Path path)</li>
+<li>static boolean isDirectory(Path path)</li>
+</ul>
+</li>
+</ul>
+<p>要读入文件内容是，首先将文件内容以字节的方式读入字节数组，再将字节数组作为参数传入新建的String对象。</p>
+<p>要将String写入文件，需要调用String.getBytes()。</p>
+<p>具体各方法的用法见示例</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.nio.charset.Charset;</div><div class="line"><span class="keyword">import</span> java.nio.file.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by lbd on 2017/1/5.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestFile</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        Path from = Paths.get(<span class="string">"/Users/linbingdong/hehe"</span>);</div><div class="line">        Path to = Paths.get(<span class="string">"/Users/linbingdong/hehe2"</span>);</div><div class="line">        Path newDir = Paths.get(<span class="string">"/Users/linbingdong/test"</span>,<span class="string">"hi"</span>,<span class="string">"hei"</span>,<span class="string">"oo"</span>);</div><div class="line">        <span class="comment">//Files.copy(from,to);</span></div><div class="line">        Files.createDirectories(newDir);</div><div class="line">        <span class="comment">//Files.copy(from,newDir, StandardCopyOption.COPY_ATTRIBUTES,StandardCopyOption.REPLACE_EXISTING);</span></div><div class="line">        <span class="comment">//Files.move(from,to);</span></div><div class="line">        System.out.println(newDir.getParent());</div><div class="line">        System.out.println(newDir.getRoot());</div><div class="line">        System.out.println(newDir.getFileName());  <span class="comment">//获取路径中最后一个字段,不管是目录还是文件</span></div><div class="line">        System.out.println(newDir.getFileSystem());</div><div class="line">        System.out.println(newDir.getNameCount());   <span class="comment">//路径层级的个数</span></div><div class="line"></div><div class="line">        <span class="keyword">byte</span>[] bytes = Files.readAllBytes(to);   <span class="comment">//获取文本内容存入byte数组</span></div><div class="line">        String contents = <span class="keyword">new</span> String(bytes, Charset.defaultCharset());  <span class="comment">//将byte数组转化成String对象</span></div><div class="line">        System.out.println(contents);</div><div class="line">        Files.write(to,contents.getBytes());  <span class="comment">//覆盖写    获取String对象对应的byte数组</span></div><div class="line">        <span class="comment">//Files.write(to,contents.getBytes(), StandardOpenOption.APPEND);  //追加写</span></div><div class="line"></div><div class="line">        <span class="comment">//Files.delete(newDir);</span></div><div class="line">        Files.createDirectories(newDir);  <span class="comment">//创建路径中的所有中间目录 相当于mkdir -p</span></div><div class="line">        Path newFile = Paths.get(<span class="string">"/Users/linbingdong/test"</span>,<span class="string">"hi"</span>,<span class="string">"hei"</span>,<span class="string">"oo"</span>,<span class="string">"hhhh"</span>);</div><div class="line">        <span class="comment">//Files.createFile(newFile); //创建一个新文件 最后是文件名</span></div><div class="line"></div><div class="line">        System.out.println(Files.exists(newFile));  <span class="comment">//判断是否存在</span></div><div class="line">        System.out.println(Files.size(newFile)); <span class="comment">//返回文件的字节数</span></div><div class="line">        System.out.println(Files.isDirectory(newFile)); <span class="comment">//判断是否是文件夹</span></div><div class="line">        Path basePath = Paths.get(<span class="string">"/Users/linbingdong/test"</span>);</div><div class="line">        </div><div class="line">        <span class="keyword">try</span>(DirectoryStream&lt;Path&gt; entries = Files.newDirectoryStream(basePath)) &#123; <span class="comment">//迭代目录中的文件</span></div><div class="line">            <span class="keyword">for</span> (Path entry: entries) &#123;</div><div class="line">                System.out.println(entry.getFileName());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>注：</strong><br>以上的方法适用于处理<strong>中等长度</strong>的<strong>文本文件</strong>，如果要处理的<strong>文件较大</strong>，或者是<strong>二进制文件</strong>，那么还是应该使用所熟知的<strong>流或者读入器、写出器</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">InputStream in = Files.newInputStream(Path);</div><div class="line">OutputStream out = Files.newOutputStream(Path);</div><div class="line">Reader in = Files.newBufferedReader(Path,charset);</div><div class="line">Writer out = Files.newBufferedWriter(path,charset);</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/05/第一个只出现一次的字符/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          第一个只出现一次的字符
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/05/Java对象流与序列化/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java对象流与序列化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-nio-file-Paths-7"><span class="toc-number">1.</span> <span class="toc-text">java.nio.file.Paths 7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java-nio-file-Files-7"><span class="toc-number">2.</span> <span class="toc-text">java.nio.file.Files 7</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

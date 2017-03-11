@@ -134,7 +134,99 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-分布式系列文章——Paxos算法原理与推导(PPT)" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      分布式系列文章——Paxos算法原理与推导(PPT)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/29/分布式系列文章——Paxos算法原理与推导(PPT)/" class="article-date">
+	  <time datetime="2016-12-29T08:21:48.000Z" itemprop="datePublished">2016-12-29</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前在公司内部分享了Paxos算法的原理和推导过程，现将PPT分享给大家，有疑问欢迎随时交流讨论。</p>
+<a id="more"></a>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-d110e4fa4fb0833a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片01.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-ccee68f9ad0a4232.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片02.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-fc834aae082c880b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片03.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-76e2dc603afb41a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片04.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-bcd5f793a99909bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片05.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-52bfab72009a460c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片06.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-8320dad992bd2eb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片07.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-bb05c9c96b57b752.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片08.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-1a5a3cf47ec8d193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片09.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-74539d0b3969c801.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片10.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-b821902a66c9a074.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片11.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-f54e9302ec427c3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片12.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-1009ff703bde24ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片13.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2fb6efdc57adc1e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片14.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-8798c8d383d88d7b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片15.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-93fd5e4c0473ed26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片16.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-f0b3751e4e649888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片17.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-a03c11d91a4759b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片18.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-8daa2037a8ef31c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="幻灯片19.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/30/分布式系列文章——Paxos算法原理与推导/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          分布式系列文章——Paxos算法原理与推导
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/27/疯狂跳台阶/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">疯狂跳台阶</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

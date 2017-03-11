@@ -115,7 +115,91 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Python日志模块示例" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Python日志模块示例
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/20/Python日志模块示例/" class="article-date">
+	  <time datetime="2017-02-20T08:10:46.000Z" itemprop="datePublished">2017-02-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给出Python日志模块显示配置和文件配置两种方式的示例</p>
+<a id="more"></a>
+<h2 id="显示配置"><a href="#显示配置" class="headerlink" title="显示配置"></a>显示配置</h2><p>在程序中直接调用函数来设置参数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> logging</div><div class="line"></div><div class="line"><span class="comment"># 创建一个logger</span></div><div class="line">logger = logging.getLogger(<span class="string">'example'</span>)</div><div class="line">logger.setLevel(logging.DEBUG)</div><div class="line"></div><div class="line"><span class="comment"># 创建一个输出到控制台的handler</span></div><div class="line">sh = logging.StreamHandler()</div><div class="line">sh.setLevel(logging.ERROR)</div><div class="line"></div><div class="line"><span class="comment"># 创建一个输出到文件的handler</span></div><div class="line">fh = logging.FileHandler(<span class="string">'loggingtest.log'</span>)</div><div class="line">fh.setLevel(logging.INFO)</div><div class="line"></div><div class="line"><span class="comment"># 设置输出格式</span></div><div class="line">fmt = logging.Formatter(<span class="string">'%(asctime)s - %(threadName)s - [%(levelname)s] : %(message)s'</span>)</div><div class="line"></div><div class="line"><span class="comment"># handler设置formatter</span></div><div class="line">sh.setFormatter(fmt)</div><div class="line">fh.setFormatter(fmt)</div><div class="line"></div><div class="line"><span class="comment"># logger添加handler</span></div><div class="line">logger.addHandler(sh)</div><div class="line">logger.addHandler(fh)</div><div class="line"></div><div class="line"><span class="comment"># 写日志</span></div><div class="line">logger.debug(<span class="string">'debug message'</span>)</div><div class="line">logger.info(<span class="string">'info message'</span>)</div><div class="line">logger.warn(<span class="string">'warn message'</span>)</div><div class="line">logger.error(<span class="string">'error message'</span>)</div><div class="line">logger.critical(<span class="string">'critical message'</span>)</div></pre></td></tr></table></figure>
+<h2 id="文件配置"><a href="#文件配置" class="headerlink" title="文件配置"></a>文件配置</h2><p>通过配置文件进行配置，使用fileConfig()函数读取配置文件</p>
+<ul>
+<li>配置文件 logging.conf :</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="section">[loggers]</span></div><div class="line"><span class="attr">keys</span>=root,example01</div><div class="line"><span class="section"></span></div><div class="line">[logger_root]</div><div class="line"><span class="attr">level</span>=DEBUG</div><div class="line"><span class="attr">handlers</span>=hand01,hand02</div><div class="line"><span class="section"></span></div><div class="line">[logger_example01]</div><div class="line"><span class="attr">handlers</span>=hand01,hand02</div><div class="line"><span class="attr">qualname</span>=example01</div><div class="line"><span class="attr">propagate</span>=<span class="number">0</span></div><div class="line"><span class="section"></span></div><div class="line">[handlers]</div><div class="line"><span class="attr">keys</span>=hand01,hand02</div><div class="line"><span class="section"></span></div><div class="line">[handler_hand01]</div><div class="line"><span class="attr">class</span>=StreamHandler</div><div class="line"><span class="attr">level</span>=INFO</div><div class="line"><span class="attr">formatter</span>=form02</div><div class="line"><span class="attr">args</span>=(sys.stderr,)</div><div class="line"><span class="section"></span></div><div class="line">[handler_hand02]</div><div class="line"><span class="attr">class</span>=FileHandler</div><div class="line"><span class="attr">level</span>=DEBUG</div><div class="line"><span class="attr">formatter</span>=form01</div><div class="line"><span class="attr">args</span>=(<span class="string">'log.log'</span>,<span class="string">'a'</span>)</div><div class="line"><span class="section"></span></div><div class="line">[formatters]</div><div class="line"><span class="attr">keys</span>=form01,form02</div><div class="line"><span class="section"></span></div><div class="line">[formatter_form01]</div><div class="line"><span class="attr">format</span>=%(asctime)s %(filename)s[line:%(line<span class="literal">no</span>)d] %(levelname)s %(message)s</div><div class="line"><span class="section"></span></div><div class="line">[formatter_form02]</div><div class="line"><span class="attr">format</span>=%(asctime)s - %(threadName)s - [%(levelname)s] : %(message)s</div></pre></td></tr></table></figure>
+<ul>
+<li>程序 LogByFile.py :</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python</span></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> logging</div><div class="line"><span class="keyword">import</span> logging.config</div><div class="line"></div><div class="line">logging.config.fileConfig(<span class="string">'logging.conf'</span>)</div><div class="line"></div><div class="line">logger = logging.getLogger(<span class="string">'example01'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 写日志</span></div><div class="line">logger.debug(<span class="string">'debug message'</span>)</div><div class="line">logger.info(<span class="string">'info message'</span>)</div><div class="line">logger.warn(<span class="string">'warn message'</span>)</div><div class="line">logger.error(<span class="string">'error message'</span>)</div><div class="line">logger.critical(<span class="string">'critical message'</span>)</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/26/字符串匹配之暴力匹配 && KMP/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          字符串查找算法总结（暴力匹配、KMP 算法、Boyer-Moore 算法和 Sunday 算法）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/20/经典编程书籍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">经典编程书籍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#显示配置"><span class="toc-number">1.</span> <span class="toc-text">显示配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件配置"><span class="toc-number">2.</span> <span class="toc-text">文件配置</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

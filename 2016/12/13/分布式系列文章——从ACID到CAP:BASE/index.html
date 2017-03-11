@@ -116,7 +116,205 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-分布式系列文章——从ACID到CAP:BASE" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      分布式系列文章——从ACID到CAP/BASE
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/13/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	  <time datetime="2016-12-13T15:24:21.000Z" itemprop="datePublished">2016-12-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。</p>
+<a id="more"></a>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><strong>事务的定义：</strong></p>
+<blockquote>
+<p>事务（Transaction）是由一系列对系统中数据进行<strong>访问与更新</strong>的操作所组成的一个<strong>程序执行逻辑单元</strong>（Unit），狭义上的事务特指数据库事务。</p>
+</blockquote>
+<p><strong>事务的作用：</strong></p>
+<ul>
+<li><p>当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。</p>
+</li>
+<li><p>事务为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍能保持数据一致性的方法。</p>
+</li>
+</ul>
+<p>事务具有四个特性，分别是原子性（Atomicity）、一致性（Consistency）、隔离性（Isolation）和持久性（Durability）,简称为事务的ACID特性。</p>
+<h2 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h2><h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>事务的原子性是指事务必须是一个<strong>原子的操作序列单元</strong>。事务中包含的各项操作在一次执行过程中，<strong>要么全部执行，要么全部不执行</strong>。</p>
+<p>任何一项操作失败都将导致整个事务失败，同时其他已经被执行的操作都将被撤销并回滚。只有所有的操作全部成功，整个事务才算是成功完成。</p>
+<h3 id="一致性"><a href="#一致性" class="headerlink" title="一致性"></a>一致性</h3><p>事务的一致性是指事务的执行不能破坏数据库数据的完整性和一致性，一个事务在执行前后，数据库都必须处于一致性状态。换句话说，事务的执行结果必须是使数据库从一个一致性状态转变到另一个一致性状态。</p>
+<p>举个例子</p>
+<p>银行的转账操作就是一个事务。假设A和B原来账户都有100元。此时A转账给B50元，转账结束后，应该是A账户减去50元变成50元，B账户增加50元变成150元。A、B的账户总和还是200元。转账前后，数据库就是从一个一致性状态（A100元，B100元，A、B共200元）转变到另一个一致性状态（A50元，B150元，A、B共200元）。假设转账结束后只扣了A账户，没有增加B账户，这时数据库就处于不一致的状态。</p>
+<h3 id="隔离性"><a href="#隔离性" class="headerlink" title="隔离性"></a>隔离性</h3><p>事务的隔离性是指在<strong>并发</strong>环境中，并发的事务是<strong>相互隔离</strong>的，事务之间<strong>互不干扰</strong>。</p>
+<p>在标准的SQL规范中，定义的4个事务隔离级别，不同隔离级别对事务的处理不同。4个隔离级别分别是：未授权读取、授权读取、可重复读取和串行化。</p>
+<p>下表展示了不同隔离级别下事务访问数据的差异</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别</th>
+<th style="text-align:center">脏读</th>
+<th style="text-align:center">可重复读</th>
+<th style="text-align:center">幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">未授权读取</td>
+<td style="text-align:center">存在</td>
+<td style="text-align:center">不可以</td>
+<td style="text-align:center">存在</td>
+</tr>
+<tr>
+<td style="text-align:center">授权读取</td>
+<td style="text-align:center">不存在</td>
+<td style="text-align:center">不可以</td>
+<td style="text-align:center">存在</td>
+</tr>
+<tr>
+<td style="text-align:center">可重复读取</td>
+<td style="text-align:center">不存在</td>
+<td style="text-align:center">可以</td>
+<td style="text-align:center">存在</td>
+</tr>
+<tr>
+<td style="text-align:center">串行化</td>
+<td style="text-align:center">不存在</td>
+<td style="text-align:center">可以</td>
+<td style="text-align:center">不存在</td>
+</tr>
+</tbody>
+</table>
+<p>以上4个级别的隔离性依次增强，分别解决不同的问题。<strong>事务隔离级别越高，就越能保证数据的完整性和一致性，但同时对并发性能的影响也越大</strong>。</p>
+<p>通常，对于绝大多数的应用来说，可以优先考虑将数据库系统的隔离级别设置为<strong>授权读取</strong>，这能够在避免脏读的同时保证较好的并发性能。尽管这种事务隔离级别会导致不可重复读、幻读和第二类丢失更新等并发问题，但较为科学的做法是在可能出现这类问题的个别场合中，由应用程序主动采用悲观锁或乐观锁来进行事务控制。</p>
+<h3 id="持久性"><a href="#持久性" class="headerlink" title="持久性"></a>持久性</h3><p>事务的持久性又称为永久性，是指一个事务一旦提交，对数据库中对应数据的状态变更就应该是<strong>永久性</strong>的。即使发生系统崩溃或机器宕机等故障，只要数据库能够重新启动，那么一定能够将其<strong>恢复</strong>到事务成功结束时的状态。</p>
+<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><p>事务在分布式计算领域也得到了广泛的应用。在单机数据库中，我们很容易能够实现一套满足ACID特性的事务处理系统，但是在分布式数据库中，数据分散在各台不同的机器上，如何对这些数据进行分布式事务处理具有非常大的挑战。</p>
+<blockquote>
+<p>分布式事务是指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于分布式系统的<strong>不同节点</strong>之上。通常一个分布式事务会涉及对<strong>多个数据源</strong>或<strong>业务系统</strong>的操作。</p>
+</blockquote>
+<p>举个例子来说明分布式事务。一个最典型的分布式事务场景是<strong>跨行的转账操作</strong>。该操作涉及调用两个异地的银行服务。其中一个是本地银行提供的取款服务，另一个是目标银行提供的存款服务，这两个服务本身是无状态且相互独立的，共同构成了一个完整的分布式事务。取款和存款两个步骤要么都执行，要么都不执行。否则，如果从本地银行取款成功，但是因为某种原因存款服务失败了，那么必须<strong>回滚</strong>到取款之前的状态，否则就会导致数据不一致。</p>
+<p>从上面的例子可以看出，一个分布式事务可以看作是由<strong>多个分布式操作序列</strong>组成的，例如上面例子中的取款服务和存款服务，通常可以把这一系列分布式的操作序列称为<strong>子事务</strong>。由于分布式事务中，各个子事务的执行是分布式的，因此要实现一种能够保证ACID特性的分布式事务处理系统就显得格外复杂。</p>
+<h2 id="CAP定理"><a href="#CAP定理" class="headerlink" title="CAP定理"></a>CAP定理</h2><p>CAP定理：</p>
+<blockquote>
+<p>一个分布式系统<strong>不可能</strong>同时满足<strong>一致性</strong>（C:Consistency）、<strong>可用性</strong>（A:Availability）和<strong>分区容错性</strong>（P:Partition tolerance）这三个基本要求，最多只能满足<strong>其中的两项</strong>。</p>
+</blockquote>
+<h3 id="一致性-1"><a href="#一致性-1" class="headerlink" title="一致性"></a>一致性</h3><p>在分布式环境中，一致性是指数据在<strong>多个副本之间</strong>是否能够<strong>保持一致</strong>的特性（这点跟ACID中的一致性含义不同）。</p>
+<p>对于一个将数据副本分布在不同节点上的分布式系统来说，如果对第一个节点的数据进行了更新操作并且更新成功后，却没有使得第二个节点上的数据得到相应的更新，于是在对第二个节点的数据进行读取操作时，获取的依然是更新前的数据（称为<strong>脏数据</strong>），这就是典型的分布式数据不一致情况。在分布式系统中，如果能够做到针对一个数据项的更新操作执行成功后，所有的用户都能读取到最新的值，那么这样的系统就被认为具有<strong>强一致性</strong>（或严格的一致性）。</p>
+<h3 id="可用性"><a href="#可用性" class="headerlink" title="可用性"></a>可用性</h3><p>可用性是指系统提供的服务必须<strong>一直处于可用</strong>的状态，对于用户的每一个操作请求总是能够在<strong>有限的时间</strong>内<strong>返回结果</strong>，如果超过了这个时间范围，那么系统就被认为是不可用的。</p>
+<p>『有限的时间内』是一个在系统设计之初就设定好的运行指标，<strong>不同的系统会有很大的差别</strong>。比如对于一个在线搜索引擎来说，通常在0.5秒内需要给出用户搜索关键词对应的检索结果。而对应Hive来说，一次正常的查询时间可能在20秒到30秒之间。</p>
+<p>『返回结果』是可用性的另一个非常重要的指标，它要求系统在完成对用户请求的处理后，返回一个正常的响应结果。正常的响应结果通常能够<strong>明确</strong>地反映出对请求的处理结果，及成功或失败，而不是一个让用户感到困惑的返回结果。</p>
+<p>让我们再来看看上面提到的在线搜索引擎的例子，如果用户输入指定的搜索关键词后，返回的结果是一个系统错误，比如”OutOfMemoryErroe”或”System Has Crashed”等提示语，那么我们认为此时系统是不可用的。</p>
+<h3 id="分区容错性"><a href="#分区容错性" class="headerlink" title="分区容错性"></a>分区容错性</h3><p>分区容错性要求一个分布式系统需要具备如下特性：分布式系统在遇到任何网络分区故障的时候，仍然能够保证对外提供满足一致性和可用性的服务，除非是整个网络环境都发生了故障。</p>
+<p>网络分区是指在分布式系统中，不同的节点分布在不同的<strong>子网络</strong>（机房或异地网络等）中，由于一些特殊的原因导致这些子网络之间出现网络<strong>不连通</strong>的状况，但各个子网络的<strong>内部网络是正常的</strong>，从而导致整个系统的网络环境被切分成了<strong>若干个孤立的区域</strong>。</p>
+<p>以上就是对CAP定理中一致性、可用性和分区容错性的讲解。</p>
+<p>既然一个分布式系统无法同时满足上述三个要求，而只能满足其中的两项，因此在对CAP定理应用时，我们就需要抛弃其中的一项，下表是抛弃CAP中任意一项特性的场景说明。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CAP</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">放弃P</td>
+<td style="text-align:center">如果希望能够避免系统出现分区容错性问题，一种较为简单的做法是将所有的数据（或者仅仅是哪些与事务相关的数据）都放在<strong>一个分布式节点上</strong>。这样做虽然无法100%保证系统不会出错，但至少不会碰到由于网络分区带来的负面影响。但同时需要注意的是，放弃P的同时也就意味着放弃了系统的可扩展性</td>
+</tr>
+<tr>
+<td style="text-align:center">放弃A</td>
+<td style="text-align:center">一旦系统遇到网络分区或其他故障或为了保证一致性时，放弃可用性，那么受到影响的服务需要等待一定的时间，因此在等待期间系统<strong>无法对外提供正常的服务</strong>，即<strong>不可用</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">放弃C</td>
+<td style="text-align:center">这里所说的放弃一致性，实际上指的是放弃数据的<strong>强一致性</strong>，而保留数据的<strong>最终一致性</strong>。这样的系统无法保证数据保持实时的一致性，但是能够承诺的是，数据<strong>最终会达到一个一致的状态</strong>。</td>
+</tr>
+</tbody>
+</table>
+<p>需要明确的一点是：对于一个分布式系统而言，分区容错性可以说是一个<strong>最基本的要求</strong>。因为既然是一个分布式系统，那么分布式系统中的组件必然需要被部署到不同的节点，否则也就无所谓的分布式系统了，因此必然出现子网络。而对于分布式系统而言，网络问题又是一个必定会出现的异常情况，因此分区容错性也就成为了一个分布式系统必然需要面对和解决的问题。因此系统架构师往往需要把精力花在如何根据业务特点<strong>在C（一致性）和A（可用性）之间寻求平衡</strong>。</p>
+<h2 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h2><p>BASE是<strong>Basically Available(基本可用）</strong>、<strong>Soft state(软状态）</strong>和<strong>Eventually consistent(最终一致性）</strong>三个短语的简写。BASE是对CAP中一致性和可用性权衡的结果，其来源于对大规模互联网系统分布式实践的总结，是<strong>基于CAP定理逐步演化</strong>而来的，其核心思想是即使无法做到强一致性，但每个应用都可以根据自身的业务特点，采用适当的方法来使系统达到<strong>最终一致性</strong>。接下来，我们着重对BASE中的三要素进行讲解。</p>
+<h3 id="基本可用"><a href="#基本可用" class="headerlink" title="基本可用"></a>基本可用</h3><p>基本可用是指分布式系统在出现不可预知故障的时候，允许<strong>损失部分可用性</strong>——但请注意，这绝不等价于系统不可用。一下就是两个”基本可用”的例子。</p>
+<ul>
+<li><p><strong>响应时间上的损失：</strong>正常情况下，一个在线搜索引擎需要在0.5秒之内返回给用户相应的查询结果，但由于出现故障（比如系统部分机房发生断电或断网故障），查询结果的响应时间增加到了1~2秒。</p>
+</li>
+<li><p><strong>功能上的损失：</strong>正常情况下，在一个电子商务网站（比如淘宝）上购物，消费者几乎能够顺利地完成每一笔订单。但在一些节日大促购物高峰的时候（比如双十一、双十二），由于消费者的购物行为激增，为了保护系统的稳定性（或者保证一致性），部分消费者可能会被引导到一个降级页面，如下：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-37e6cda2c76b8cec.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="基本可用"></p>
+<h3 id="软状态"><a href="#软状态" class="headerlink" title="软状态"></a>软状态</h3><p>软状态是指允许系统中的数据存在<strong>中间状态</strong>，并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同的数据副本之间进行数据同步的过程<strong>存在延时</strong>。</p>
+<h3 id="最终一致性"><a href="#最终一致性" class="headerlink" title="最终一致性"></a>最终一致性</h3><p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，<strong>最终能够达到一个一致的状态</strong>。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
+<p>最终一致性是一种<strong>特殊的弱一致性</strong>：系统能够保证在没有其他新的更新操作的情况下，数据最终一定能够达到一致的状态，因此所有客户端对系统的数据访问都能够获取到最新的值。同时，在没有发生故障的前提下，数据到达一致状态的时间延迟，取决于网络延迟、系统负载和数据复制方案设计等因素。</p>
+<p>在实际工程实践中，最终一致性存在一下五类主要变种。</p>
+<ul>
+<li>因果一致性(Causal consistency)</li>
+<li>读己之所写(Read your writes)</li>
+<li>会话一致性(Session consistency)</li>
+<li>单调读一致性(Monotonic read consistency)</li>
+<li>单调写一致性(Monotonic write consistency)</li>
+</ul>
+<p>以上就是最终一致性的五种常见的变种，在实际系统实践中，可以将其中的若干个变种互相结合起来，以构建一个具有最终一致性特性的分布式系统。事实上，最终一致性并不是只有那些大型分布式系统才涉及的特性，许多<strong>现代的关系型数据库</strong>都采用了最终一致性模型。在现代关系型数据库中（比如MySQL和PostgreSQL），大多都会采用<strong>同步或异步</strong>方式来实现<strong>主备数据复制</strong>技术。在同步方式中，数据的复制过程通常是更新事务的一部分，因此在事务完成后，主备数据库的数据就会达到一致。而在异步方式中，备库的更新往往会存在延时，这取决于事务日志在主备数据库之间传输的时间长短。如果传输时间过长或者甚至在日志传输过程中出现异常导致无法及时将事务应用到备库上，那么很显然，从备库中读取的数据将是旧的，因此就出现了数据不一致的情况。当然，无论是采用多次重试还是人为数据订正，关系型数据库还是能够保证最终数据达到一致，这就是系统提供最终一致性保证的经典案例。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>《从Paxos到ZooKeeper——分布式一致性原理与实践》<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/15/Java中wait、sleep和yield的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Java中wait、sleep和yield的区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/12/分布式系列文章——分布式系统的特点及问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">分布式系列文章——分布式系统的特点及问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID"><span class="toc-number">2.</span> <span class="toc-text">ACID</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原子性"><span class="toc-number">2.1.</span> <span class="toc-text">原子性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性"><span class="toc-number">2.2.</span> <span class="toc-text">一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离性"><span class="toc-number">2.3.</span> <span class="toc-text">隔离性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久性"><span class="toc-number">2.4.</span> <span class="toc-text">持久性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式事务"><span class="toc-number">3.</span> <span class="toc-text">分布式事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP定理"><span class="toc-number">4.</span> <span class="toc-text">CAP定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性-1"><span class="toc-number">4.1.</span> <span class="toc-text">一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可用性"><span class="toc-number">4.2.</span> <span class="toc-text">可用性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分区容错性"><span class="toc-number">4.3.</span> <span class="toc-text">分区容错性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BASE理论"><span class="toc-number">5.</span> <span class="toc-text">BASE理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本可用"><span class="toc-number">5.1.</span> <span class="toc-text">基本可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软状态"><span class="toc-number">5.2.</span> <span class="toc-text">软状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终一致性"><span class="toc-number">5.3.</span> <span class="toc-text">最终一致性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

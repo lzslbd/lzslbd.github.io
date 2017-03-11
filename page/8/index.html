@@ -112,25 +112,528 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-LeetCode[202] Happy Number"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
+    
+      <header class="article-header">
+        
   
-    
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/26/LeetCode[202] Happy Number/">LeetCode[202] Happy Number</a>
+    </h1>
   
+
+      </header>
     
+    <div class="article-meta">
+      
+	<a href="/2016/12/26/LeetCode[202] Happy Number/" class="article-date">
+	  <time datetime="2016-12-26T05:47:45.000Z" itemprop="datePublished">2016-12-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Write an algorithm to determine if a number is “happy”.</p>
+<p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
+<p>Example: 19 is a happy number</p>
+<p>1^2 + 9^2 = 82</p>
+<p>8^2 + 2^2 = 68</p>
+<p>6^2 + 8^2 = 100</p>
+<p>1^2 + 0^2 + 0^2 = 1</p>
+<p><strong>分析：</strong></p>
+<p>这题找到规律后就简单了。如果右边的出现了某个重复的数，但不是1，说明会无限循环下去，这个数就不是快乐数，如果是1，则是快乐数。</p>
+<p><strong>代码:</strong></p>
+        <!-- Write an algorithm to determine if a number is “happy”.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/26/LeetCode[202] Happy Number/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
   
-    
+</article>
+
+<!-- Table of Contents -->
+
   
+    <article id="post-LeetCode[191] Number of 1 Bits"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
+    
+      <header class="article-header">
+        
   
-    
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/26/LeetCode[191] Number of 1 Bits/">LeetCode[191] Number of 1 Bits</a>
+    </h1>
   
+
+      </header>
     
+    <div class="article-meta">
+      
+	<a href="/2016/12/26/LeetCode[191] Number of 1 Bits/" class="article-date">
+	  <time datetime="2016-12-26T04:50:39.000Z" itemprop="datePublished">2016-12-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).</p>
+<p>For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.</p>
+<p><strong>分析：</strong></p>
+<p>题目要求算出一个int数二进制表示中1的个数。</p>
+<p>n和n-1按位与可以去掉n二进制表示中最右边一位1.</p>
+<p>令   n =1101011000</p>
+<p>则  n-1=1101010111</p>
+<p>n&amp;(n-1)=1101010000</p>
+<p>经过K次n&amp;n-1,n变为0.K即n的二进制表示中1的个数。</p>
+<p><strong>代码:</strong></p>
+        <!-- Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).
+For example, the 32-bit integer ’11’ has binary representation 00000000......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/26/LeetCode[191] Number of 1 Bits/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
   
-    
+</article>
+
+<!-- Table of Contents -->
+
   
+    <article id="post-LeetCode[190] Reverse Bits"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
+    
+      <header class="article-header">
+        
   
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/23/LeetCode[190] Reverse Bits/">LeetCode[190] Reverse Bits</a>
+    </h1>
+  
+
+      </header>
     
+    <div class="article-meta">
+      
+	<a href="/2016/12/23/LeetCode[190] Reverse Bits/" class="article-date">
+	  <time datetime="2016-12-23T14:58:53.000Z" itemprop="datePublished">2016-12-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Reverse bits of a given 32 bits unsigned integer.</p>
+<p>For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 964176192 (represented in binary as 00111001011110000010100101000000).</p>
+<p>Follow up:</p>
+<p>If this function is called many times, how would you optimize it?</p>
+<p><strong>分析：</strong></p>
+<p>最简单直接的做法，从右向左把一位位取出来，添加到新生成的整数的最低位即<br>可。</p>
+<p><strong>代码:</strong></p>
+        <!-- Reverse bits of a given 32 bits unsigned integer.
+For example, given input 43261596 (represented in binary as 00000010100101000001111010011100), return 964176192 (represented in binary as 001110010......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/23/LeetCode[190] Reverse Bits/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java中wait、sleep和yield的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/15/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/15/Java中wait、sleep和yield的区别/" class="article-date">
+	  <time datetime="2016-12-15T03:35:56.000Z" itemprop="datePublished">2016-12-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
+<p>本质上，wait方法是用来让线程<strong>等待某个条件</strong>，进入该条件的等待集中。而sleep和yield方法是用来让线程<strong>让出CPU时间</strong>，把CPU交给线程调度器，使得其他线程能获得CPU时间。</p>
+<p>接下来详细比较三个方法。</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p>常用的wait方法有<strong>wait( )</strong>和<strong>wait(long timeout)</strong></p>
+<p>wait( )方法导致当前线程进入等待状态直到它被通知（其他线程调用notify或notifyAll方法。notify/notifyAll方法解除等待线程的阻塞状态）。    </p>
+<p>wait(long timeout) 方法导致当前线程进入等待状态直到它被通知或者经过指定的时间。</p>
+<p> <strong>wait( )后，线程会释放掉它所占有的对象的锁</strong>，从而使线程所在对象中的其它synchronized数据可被别的线程使用。</p>
+<p><strong>wait方法只能在一个同步方法中调用</strong>。如果当前线程不是对象锁的持有者，该方法抛出一个IllegalMonitorStateException异常。</p>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>Thread.sleep(long millis),<strong>必须带有一个时间参数</strong>。</p>
+<p> sleep(long millis)使当前线程进入停滞状态，所以执行sleep()的线程<strong>在指定的时间内肯定不会被执行</strong>。</p>
+<p> sleep(long millis)可能使<strong>任意优先级</strong>的其他线程得到执行机会。</p>
+<p>sleep(long millis)<strong>不会释放锁</strong>。</p>
+<p>调用sleep方法的线程在唤醒之后<strong>不保证</strong>能获取到CPU，它会先进入就绪态，与其他线程<strong>竞争CPU</strong>。</p>
+<h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
+<p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
+<p>yield方法也<strong>不会释放锁</strong>。</p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-分布式系列文章——从ACID到CAP:BASE"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/13/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/13/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	  <time datetime="2016-12-13T15:24:21.000Z" itemprop="datePublished">2016-12-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。</p>
+        <!-- 本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+
+事务事务的定义：
+
+事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
+
+事务的作用：
+
+当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
+......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/13/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-分布式系列文章——分布式系统的特点及问题"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/12/分布式系列文章——分布式系统的特点及问题/">分布式系列文章——分布式系统的特点及问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/12/分布式系列文章——分布式系统的特点及问题/" class="article-date">
+	  <time datetime="2016-12-11T16:08:15.000Z" itemprop="datePublished">2016-12-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。</p>
+        <!-- 随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。
+
+分布式系统定义在《分布式系统概念与设计》一书中，对分布式系统做了 如下定义：
+
+分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/12/分布式系列文章——分布式系统的特点及问题/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-学习PostgreSQL不可错过的一篇文章"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/08/学习PostgreSQL不可错过的一篇文章/">PostgreSQL综合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/08/学习PostgreSQL不可错过的一篇文章/" class="article-date">
+	  <time datetime="2016-12-08T14:02:14.000Z" itemprop="datePublished">2016-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PostgreSQL是以加州大学伯克利分校计算机系开发的<a href="http://db.cs.berkeley.edu/postgres.html"> POSTGRES, Version 4.2</a>为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。</p>
+        <!-- PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。
+
+1. 简介PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/08/学习PostgreSQL不可错过的一篇文章/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-PostgreSQL安装PostGISC插件并使用"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/08/PostgreSQL安装PostGISC插件并使用/">PostgreSQL安装PostGISC插件并使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/08/PostgreSQL安装PostGISC插件并使用/" class="article-date">
+	  <time datetime="2016-12-08T13:59:39.000Z" itemprop="datePublished">2016-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。</p>
+        <!-- PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。
+
+1. 简介PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenG......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/08/PostgreSQL安装PostGISC插件并使用/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-PostgreSQL主从流复制部署"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/08/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/08/PostgreSQL主从流复制部署/" class="article-date">
+	  <time datetime="2016-12-08T13:57:15.000Z" itemprop="datePublished">2016-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
+        <!-- PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+
+192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
+1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/08/PostgreSQL主从流复制部署/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-PostgreSQL单机部署（CentOS7）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/08/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/08/PostgreSQL单机部署（CentOS7）/" class="article-date">
+	  <time datetime="2016-12-08T13:37:13.000Z" itemprop="datePublished">2016-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍Contos7上用yum部署PostgreSQL9.4的过程。</p>
+        <!-- 本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
+
+1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+2. 执行安装命令yum updateyum install postgresql94-server po......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/08/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
   
 
 

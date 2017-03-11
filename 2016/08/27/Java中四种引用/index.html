@@ -115,7 +115,88 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Java中四种引用" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Java中四种引用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/Java中四种引用/" class="article-date">
+	  <time datetime="2016-08-27T11:39:10.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
+</blockquote>
+<a id="more"></a> 
+<ul>
+<li><p>强引用（StrongReference）<br>强引用是级别最高，也是最常用的引用。<strong>拥有强引用的对象绝不会被垃圾回收器回收</strong>。</p>
+</li>
+<li><p>软引用（SoftReference）<br>如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；<strong>如果内存空间不足了，就会回收这些对象的内存</strong>。</p>
+</li>
+</ul>
+<ul>
+<li><p>弱引用（WeakReference）<br>只具有弱引用的对象拥有更短暂的生命周期。<strong>在执行gc的时候会被回收</strong>。</p>
+</li>
+<li><p>虚引用（PhantomReference）<br>“虚引用”顾名思义，就是形同虚设，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。<strong>仅用于在发生gc时接收一个系统通知</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/27/Java中Comparable与Comparator的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Java中Comparable与Comparator的区别
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

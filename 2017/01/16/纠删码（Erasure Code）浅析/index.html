@@ -122,7 +122,140 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-纠删码（Erasure Code）浅析" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      纠删码（Erasure Code）浅析
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/16/纠删码（Erasure Code）浅析/" class="article-date">
+	  <time datetime="2017-01-16T08:29:08.000Z" itemprop="datePublished">2017-01-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
+<a id="more"></a>
+<p>多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。</p>
+<p>纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目的。其基本思想是将n块原始的数据元素通过一定的计算，得到m块冗余元素（校验块）。对于这n+m块的元素，当其中任意的m块元素出错（包括原始数据和冗余数据）时，均可以通过对应的重构算法恢复出原来的n块数据。生成校验的过程被成为编码（encoding），恢复丢失数据块的过程被称为解码（decoding）。磁盘利用率为n/(n+m)。基于纠删码的方法与多副本方法相比具有冗余度低、磁盘利用率高等优点。</p>
+<p>两种冗余技术对比如下表：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">两种技术</th>
+<th style="text-align:center">磁盘利用率</th>
+<th style="text-align:center">计算开销</th>
+<th style="text-align:center">网络消耗</th>
+<th style="text-align:center">恢复效率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">多副本(3副本)</td>
+<td style="text-align:center">1/3</td>
+<td style="text-align:center">几乎没有</td>
+<td style="text-align:center">较低</td>
+<td style="text-align:center">较高</td>
+</tr>
+<tr>
+<td style="text-align:center">纠删码(n+m)</td>
+<td style="text-align:center">n/(n+m)</td>
+<td style="text-align:center">高</td>
+<td style="text-align:center">较高</td>
+<td style="text-align:center">较低</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Reed-Solomon-RS-码"><a href="#Reed-Solomon-RS-码" class="headerlink" title="Reed-Solomon(RS)码"></a>Reed-Solomon(RS)码</h2><p>Reed-Solomon（RS）码是存储系统较为常用的一种纠删码，它有两个参数n和m，记为RS(n,m)。n代表原始数据块个数。m代表校验块个数。接下来介绍RS码的原理。</p>
+<h2 id="RS码原理"><a href="#RS码原理" class="headerlink" title="RS码原理"></a>RS码原理</h2><p>以n=5，m=3为例。即5个原始数据块，乘上一个(n+m)*n的矩阵，然后得出一个(n+m)*1的矩阵。根据矩阵特点可以得知结果矩阵中前面5个值与原来的5个数据块的值相等，而最后3个则是计算出来的校验块。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-cc930e9d848ee224.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>以上过程为编码过程。D是原始数据块，得到的C为校验块。</p>
+<p>假设丢失了m块数据。如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-feb8c76af3c7bab8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="丢失m块"></p>
+<p>那我们如何从剩余的n个数据块（注意，这里剩余的n块可能包含几个原始数据块+几个校验块）恢复出来原始的n个数据块呢，就需要通过下面的decoding（解码）过程来实现。</p>
+<p>第一步：从编码矩阵中删去丢失数据块和丢失编码块对应行。 将删掉m个块的(n+m)*1个矩阵变形为n*1矩阵，同时B矩阵也需要删掉对应的m个行得出一个B’的变形矩阵，这个B’就是n*n矩阵。如下：假设D1、D4、C2丢失，我们得到如下B’矩阵及等式。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-7ddc3f3071489be9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vandermode矩阵"></p>
+<p>第二步：求出B’的逆矩阵。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-b5d966cd6cb3866c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="B’逆矩阵"></p>
+<p>第三步：等式两边分别乘上B’的逆矩阵。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-03509dcf17c0a358.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="两边乘上B’逆矩阵"></p>
+<p>B’和它的逆矩阵相乘得到单位矩阵I，如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-565e7d41f929107c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="单位矩阵"></p>
+<p>左边只剩下原始数据矩阵D：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-225afb1b2353ae9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>至此完成解码过程。</p>
+<p>注：图中黄色部分为范德蒙矩阵。至于如何生成B矩阵，以及如何求B’的逆矩阵，请查看其他相关文献，这里不再赘述。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>RS的特点：</p>
+<ul>
+<li>低冗余度，高磁盘利用率。</li>
+<li>数据恢复代价高。 丢失数据块或者编码块时， RS需要读取n个数据块和校验块才能恢复数据， 数据恢复效率也在一定程度上制约了RS的可靠性。</li>
+<li>数据更新代价高。 数据更新相当于重新编码， 代价很高， 因此常常针对只读数据，或者冷数据。</li>
+</ul>
+<p>工程实践中，一般对于热数据还是会使用多副本策略来冗余，冷数据使用纠删码。</p>
+<p>值得期待的是，纠删码技术也即将在Hadoop 3.0中发布。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>论文《Erasure Codes for Storage Applications》</li>
+<li>论文《存储系统中纠删码研究综述》<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/16/数组中重复的数字/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          数组中重复的数字
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/15/Hadoop YARN介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Hadoop YARN介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reed-Solomon-RS-码"><span class="toc-number">1.</span> <span class="toc-text">Reed-Solomon(RS)码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RS码原理"><span class="toc-number">2.</span> <span class="toc-text">RS码原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number">3.</span> <span class="toc-text">小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

@@ -115,7 +115,90 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-回文序列" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      回文序列
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/04/回文序列/" class="article-date">
+	  <time datetime="2016-12-04T08:58:04.000Z" itemprop="datePublished">2016-12-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果一个数字序列逆置之后跟原序列是一样的就称这样的数字序列为回文序列。例如：<br>{1, 2, 1}, {15, 78, 78, 15} , {112} 是回文序列,<br>{1, 2, 2}, {15, 78, 87, 51} ,{112, 2, 11} 不是回文序列。<br>现在给出一个数字序列，允许使用一种转换操作：<br>选择任意两个相邻的数，然后从序列移除这两个数，并用这两个数字的和插入到这两个数之前的位置(只插入一个和)。<br>现在对于所给序列要求出最少需要多少次操作可以将其变成回文序列。</p>
+<p><strong>输入描述:</strong></p>
+<p>输入为两行，第一行为序列长度n ( 1 ≤ n ≤ 50)<br>第二行为序列中的n个整数item[i]  (1 ≤ iteam[i] ≤ 1000)，以空格分隔。</p>
+<p><strong>输出描述:</strong></p>
+<p>输出一个数，表示最少需要的转换次数</p>
+<p><strong>输入例子:</strong></p>
+<p>4<br>1 1 1 3</p>
+<p><strong>输出例子:</strong></p>
+<p>2</p>
+<p><strong>代码:</strong></p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"> </div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by lbd on 2016/10/29.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">while</span> (sc.hasNext())&#123;</div><div class="line">            <span class="keyword">int</span> n = sc.nextInt();</div><div class="line">            <span class="keyword">int</span>[] inputArray = <span class="keyword">new</span> <span class="keyword">int</span>[n];</div><div class="line">            <span class="keyword">int</span> times = <span class="number">0</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</div><div class="line">                inputArray[i] = sc.nextInt();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">int</span> head = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> tail = n-<span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (head &lt; tail)&#123;</div><div class="line">                <span class="keyword">if</span> (inputArray[head] &lt; inputArray[tail])&#123;</div><div class="line">                    inputArray[++head] += inputArray[head-<span class="number">1</span>];</div><div class="line">                    times++;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inputArray[head] &gt; inputArray[tail])&#123;</div><div class="line">                    inputArray[--tail] += inputArray[tail+<span class="number">1</span>];</div><div class="line">                    times++;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    head++;</div><div class="line">                    tail--;</div><div class="line">                &#125;</div><div class="line"> </div><div class="line">            &#125;</div><div class="line">            System.out.println(times);</div><div class="line">        &#125;</div><div class="line">        sc.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/04/优雅的点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          优雅的点
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/04/买苹果/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">买苹果</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

@@ -136,7 +136,93 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-丑数" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      丑数
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/04/丑数/" class="article-date">
+	  <time datetime="2017-01-04T03:36:55.000Z" itemprop="datePublished">2017-01-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<p><strong>分析</strong></p>
+<p>这里的因子指的是质因子。</p>
+<p>每个丑数等于某个比它小的丑数x2或x3或x5。<br>根据提示中的信息，我们知道丑数可以拆分成3个子序列:</p>
+<ol>
+<li>1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… </li>
+<li>1x3, 2x3, 3x3, 4x3, 5x3, 6x2, 8x2… </li>
+<li>1x5, 2x5, 3x5, 4x5, 5x5, 6x2, 8x2…</li>
+</ol>
+<p>其中1，2，3，4，5，6，8（注意，没有7）是前几个丑数。7有因子7，所以不是丑数。</p>
+<p>每次从三个子序列中取出当前最小的那个加入序列，直到第N个为止。</p>
+<p><strong>代码:</strong></p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">GetUglyNumber_Solution</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span>(index &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span>[] uglynum = <span class="keyword">new</span> <span class="keyword">int</span>[index];</div><div class="line">        uglynum[<span class="number">0</span>] = <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> n = <span class="number">0</span>,index2 = <span class="number">0</span>,index3 = <span class="number">0</span>,index5 = <span class="number">0</span>,x2 = <span class="number">0</span>, x3 = <span class="number">0</span>, x5 = <span class="number">0</span>, min = <span class="number">0</span>; </div><div class="line">        <span class="keyword">while</span>( n + <span class="number">1</span> &lt; index)&#123;</div><div class="line">            x2 = uglynum[index2] * <span class="number">2</span>;</div><div class="line">            x3 = uglynum[index3] * <span class="number">3</span>;</div><div class="line">            x5 = uglynum[index5] * <span class="number">5</span>;</div><div class="line">            min = Math.min(x2,Math.min(x3,x5));</div><div class="line">            <span class="keyword">if</span>(min == x2) ++index2;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(min == x3) ++index3;</div><div class="line">                <span class="keyword">else</span> ++index5;</div><div class="line">            <span class="keyword">if</span>(min != uglynum[n])</div><div class="line">                uglynum[++n] = min;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> uglynum[index-<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/04/删除链表中重复的节点/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          删除链表中重复的节点!
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/03/把数组排成最小的数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">把数组排成最小的数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

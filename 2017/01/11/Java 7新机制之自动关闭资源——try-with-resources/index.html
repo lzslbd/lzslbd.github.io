@@ -115,7 +115,89 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Java 7新机制之自动关闭资源——try-with-resources" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Java 7新机制之自动关闭资源——try-with-resources
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
+	  <time datetime="2017-01-11T04:05:56.000Z" itemprop="datePublished">2017-01-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
+<a id="more"></a>
+<p>如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(path));</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">return</span> br.readLine();</div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    <span class="keyword">if</span> (br != <span class="keyword">null</span>) br.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Java 7新增了try-with-resources语法来保证资源的关闭。现在你可以这么写：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">try</span>(BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(path));) &#123;</div><div class="line">  <span class="keyword">return</span> br.readLine();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码块里处理完后会自动关闭资源，不需要显示调用close()方法。也不需要finally。代码简洁了很多。</p>
+<p>注意：</p>
+<ul>
+<li>被关闭的资源类需要实现AutoClosable接口或者是Closable接口。</li>
+<li>需要自动关闭的资源在try后面的括号里声明。允许声明多个被关闭的资源，关闭的顺序是与创建资源的顺序相反。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/11/Java I:O总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Java I/O 总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/11/Java NIO之内存映射文件——MappedByteBuffer/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java NIO之内存映射文件——MappedByteBuffer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

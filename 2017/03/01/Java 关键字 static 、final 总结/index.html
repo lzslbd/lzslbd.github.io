@@ -115,7 +115,110 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Java 关键字 static 、final 总结" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Java 关键字 static 、final 总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/01/Java 关键字 static 、final 总结/" class="article-date">
+	  <time datetime="2017-03-01T04:35:38.000Z" itemprop="datePublished">2017-03-01</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
+<a id="more"></a>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用<code>类名.static 域</code>和<code>类名.static 方法</code>即可。</p>
+<p><strong>static 域：</strong></p>
+<p>如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。</p>
+<p><strong>static 方法：</strong></p>
+<p>static 方法可以通过类名直接调用，该类的任何对象也可以调用（但不推荐）。</p>
+<ol>
+<li>static 方法不能使用 this 和 super 关键字。</li>
+<li>static 方法只能访问 static 域，不能访问实例域，因为实例域是与特定的对象相关联的。</li>
+<li>static 方法必须被实现，而不能是 abstract 方法。</li>
+</ol>
+<p>以下两种情况可以考虑使用 static 方法：</p>
+<ol>
+<li>一个方法不需要访问对象状态，所需参数都是通过显示参数提供（如：Math.pow）</li>
+<li>一个方法只需访问类的 static 域。</li>
+</ol>
+<p><strong>static 代码块：</strong></p>
+<p>static 代码块，是在类中独立于类成员的 static 语句块，可以有多个，位置可以随便放，它不在任何的方法体内，JVM 加载类时会执行这些静态的代码块，如果 static 代码块有多个，JVM 将按照它们在类中出现的先后顺序依次执行它们，每个代码块只会被执行一次。所有 static 代码块都在 main 方法之前执行。</p>
+<h2 id="final"><a href="#final" class="headerlink" title="final"></a>final</h2><p>final 可以修饰域、方法和类。</p>
+<p><strong>final 域：</strong></p>
+<p>被 final 修饰的域是常量，值一旦给定就无法改变。</p>
+<p><strong>final 方法：</strong></p>
+<p>如果某个类不允许其子类覆盖某个方法，可以将该方法声明为 final 方法。</p>
+<p>使用 final 方法有两个原因：</p>
+<ol>
+<li>防止子类覆盖该方法，修改它的意义和实现。</li>
+<li>提高效率。编译器遇到 final 方法就会使用内联机制。</li>
+</ol>
+<p><strong>final 类：</strong></p>
+<p>final 类不能被继承。final 类中的方法自动成为 final 方法，因为不能被继承，也就不会被覆盖。</p>
+<p>使用 final 类和 final 方法的目的都是为了确保它们不会在子类中改变语义。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/01/LeetCode[102] Binary Tree Level Order Traversal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          LeetCode[102] Binary Tree Level Order Traversal
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/26/字符串匹配之暴力匹配 && KMP/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">字符串查找算法总结（暴力匹配、KMP 算法、Boyer-Moore 算法和 Sunday 算法）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#static"><span class="toc-number">1.</span> <span class="toc-text">static</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#final"><span class="toc-number">2.</span> <span class="toc-text">final</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

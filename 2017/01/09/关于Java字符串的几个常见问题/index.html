@@ -115,7 +115,97 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-关于Java字符串的几个常见问题" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      关于Java字符串的几个常见问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/09/关于Java字符串的几个常见问题/" class="article-date">
+	  <time datetime="2017-01-09T05:38:20.000Z" itemprop="datePublished">2017-01-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>列举几个关于Java字符串的常见问题并给出答案。</p>
+<a id="more"></a>
+<h3 id="1-如何比较两个字符串？用”-”还是”equals”"><a href="#1-如何比较两个字符串？用”-”还是”equals”" class="headerlink" title="1. 如何比较两个字符串？用”==”还是”equals”?"></a>1. 如何比较两个字符串？用”==”还是”equals”?</h3><ul>
+<li>“==”对比的是引用是否相同（是否同一个对象）</li>
+<li>“equals”对比的是值是否相同</li>
+</ul>
+<p>除非想要比较两个字符串是否是同一个对象，否则应该一直使用”equals”。</p>
+<h3 id="2-为什么对安全性敏感的信息更喜欢用char-而不是String来存储？"><a href="#2-为什么对安全性敏感的信息更喜欢用char-而不是String来存储？" class="headerlink" title="2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？"></a>2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？</h3><p>因为String是不可变对象，这就意味着只要String被创建，它们就会一直存在直到被垃圾回收器收集。因此，用String保存的信息安全性会降低。</p>
+<h3 id="3-在switch语句中可以使用字符串吗？"><a href="#3-在switch语句中可以使用字符串吗？" class="headerlink" title="3. 在switch语句中可以使用字符串吗？"></a>3. 在switch语句中可以使用字符串吗？</h3><p>从Java7开始，可以在switch语句中使用字符串。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">switch</span> (aString) &#123;</div><div class="line">      <span class="keyword">case</span> <span class="string">"a"</span>:</div><div class="line">           value = <span class="number">1</span>;</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">case</span> <span class="string">"b"</span>:</div><div class="line">           value = <span class="number">2</span>;</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-如何将字符串转为int？"><a href="#4-如何将字符串转为int？" class="headerlink" title="4. 如何将字符串转为int？"></a>4. 如何将字符串转为int？</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> n = Integer.parseInt(<span class="string">"10"</span>);</div></pre></td></tr></table></figure>
+<p>虽然很简单，但是使用频率很高。</p>
+<h3 id="5-如何用空格切分字符串？"><a href="#5-如何用空格切分字符串？" class="headerlink" title="5. 如何用空格切分字符串？"></a>5. 如何用空格切分字符串？</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String[] strArray = aString.split(<span class="string">"\\s+"</span>);</div></pre></td></tr></table></figure>
+<h3 id="6-substring-方法会创建一个新字符串吗？"><a href="#6-substring-方法会创建一个新字符串吗？" class="headerlink" title="6. substring()方法会创建一个新字符串吗？"></a>6. substring()方法会创建一个新字符串吗？</h3><p>从Java7开始，substring()方法会创建一个新的char数组，而不是使用已经存在的。</p>
+<p>在Java6中，substring()方法不会创建一个新的char数组，如果想创建新的，可以用以下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">str.substring(m,n) + <span class="string">""</span>;</div></pre></td></tr></table></figure>
+<h3 id="7-String-vs-StringBuilder-vs-StringBuffer"><a href="#7-String-vs-StringBuilder-vs-StringBuffer" class="headerlink" title="7. String vs StringBuilder vs StringBuffer"></a>7. String vs StringBuilder vs StringBuffer</h3><p>String是不可变的，StringBuilder和StringBuffer都是可变的。</p>
+<p>StringBuffer是同步的，线程安全的，效率低。</p>
+<p>StringBuilder是非同步的，非线程安全，效率比StringBuffer高。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/09/关于Java Map的几个常见问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          关于Java Map的几个常见问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/07/Stack Overflow上关于Java Collections的几个常见问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">关于Java Collections的几个常见问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-如何比较两个字符串？用”-”还是”equals”"><span class="toc-number">1.</span> <span class="toc-text">1. 如何比较两个字符串？用”==”还是”equals”?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-为什么对安全性敏感的信息更喜欢用char-而不是String来存储？"><span class="toc-number">2.</span> <span class="toc-text">2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在switch语句中可以使用字符串吗？"><span class="toc-number">3.</span> <span class="toc-text">3. 在switch语句中可以使用字符串吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-如何将字符串转为int？"><span class="toc-number">4.</span> <span class="toc-text">4. 如何将字符串转为int？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-如何用空格切分字符串？"><span class="toc-number">5.</span> <span class="toc-text">5. 如何用空格切分字符串？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-substring-方法会创建一个新字符串吗？"><span class="toc-number">6.</span> <span class="toc-text">6. substring()方法会创建一个新字符串吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-String-vs-StringBuilder-vs-StringBuffer"><span class="toc-number">7.</span> <span class="toc-text">7. String vs StringBuilder vs StringBuffer</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

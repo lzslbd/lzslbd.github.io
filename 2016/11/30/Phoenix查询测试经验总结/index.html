@@ -115,7 +115,135 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-Phoenix查询测试经验总结" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Phoenix查询经验总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/11/30/Phoenix查询测试经验总结/" class="article-date">
+	  <time datetime="2016-11-30T06:19:42.000Z" itemprop="datePublished">2016-11-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。</p>
+<a id="more"></a>
+<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h2><p>适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，在此记录下来。</p>
+<h2 id="2-问题及解决"><a href="#2-问题及解决" class="headerlink" title="2. 问题及解决"></a>2. 问题及解决</h2><h3 id="2-1-创建索引时报错，报错如下："><a href="#2-1-创建索引时报错，报错如下：" class="headerlink" title="2.1. 创建索引时报错，报错如下："></a>2.1. 创建索引时报错，报错如下：</h3><figure class="highlight"><table><tr><td class="code"><pre><div class="line">//创建索引语句：</div><div class="line">0: jdbc:phoenix:localhost&gt; CREATE INDEX ind_1 ON TESTINPUT(ff1);</div><div class="line">//报错：</div><div class="line">Error: ERROR 1029 (42Y88): Mutable secondary indexes must have the hbase.regionserver.wal.codec property set to org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec in the hbase-sites.xml of every region server tableName=IND_1 (state=42Y88,code=1029)</div><div class="line">java.sql.SQLException: ERROR 1029 (42Y88): Mutable secondary indexes must have the hbase.regionserver.wal.codec property set to org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec in the hbase-sites.xml of every region server tableName=IND_1</div><div class="line">	at org.apache.phoenix.exception.SQLExceptionCode$Factory$1.newException(SQLExceptionCode.java:396)</div><div class="line">	at org.apache.phoenix.exception.SQLExceptionInfo.buildException(SQLExceptionInfo.java:145)</div><div class="line">	at org.apache.phoenix.schema.MetaDataClient.createIndex(MetaDataClient.java:1162)</div><div class="line">	at org.apache.phoenix.compile.CreateIndexCompiler$1.execute(CreateIndexCompiler.java:95)</div><div class="line">	at org.apache.phoenix.jdbc.PhoenixStatement$2.call(PhoenixStatement.java:322)</div><div class="line">	at org.apache.phoenix.jdbc.PhoenixStatement$2.call(PhoenixStatement.java:314)</div><div class="line">	at org.apache.phoenix.call.CallRunner.run(CallRunner.java:53)</div><div class="line">	at org.apache.phoenix.jdbc.PhoenixStatement.executeMutation(PhoenixStatement.java:312)</div><div class="line">	at org.apache.phoenix.jdbc.PhoenixStatement.execute(PhoenixStatement.java:1435)</div><div class="line">	at sqlline.Commands.execute(Commands.java:822)</div><div class="line">	at sqlline.Commands.sql(Commands.java:732)</div><div class="line">	at sqlline.SqlLine.dispatch(SqlLine.java:808)</div><div class="line">	at sqlline.SqlLine.begin(SqlLine.java:681)</div><div class="line">	at sqlline.SqlLine.start(SqlLine.java:398)</div><div class="line">	at sqlline.SqlLine.main(SqlLine.java:292)</div></pre></td></tr></table></figure>
+<ul>
+<li><p>原因：Phoenix支持两种索引：可变索引跟不可变索引。在可变表上建的索引是可变索引，在不可变表上建的索引是不可变索引。可变索引是指插入或删除数据的时候会同时更新索引；不可变索引适用于只写入一次不再更改的表，索引只建立一次，再插入数据不会更新索引。上面使用的语句是创建可变索引，需要在hbase-site.xml中进行相关配置使其支持可变索引（不可变索引无需另外配置，默认支持）。</p>
+</li>
+<li><p>解决：对HMaster和HRegionserver节点分别增加配置,然后重启HBase集群</p>
+<ul>
+<li>HMaster</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"> &lt;property&gt;</div><div class="line">   &lt;name&gt;hbase<span class="selector-class">.regionserver</span><span class="selector-class">.wal</span><span class="selector-class">.codec</span>&lt;/name&gt;</div><div class="line">   &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.wal</span><span class="selector-class">.IndexedWALEditCodec</span>&lt;/value&gt;</div><div class="line"> &lt;/property&gt;</div><div class="line"> &lt;property&gt;</div><div class="line">  &lt;name&gt;hbase<span class="selector-class">.master</span><span class="selector-class">.loadbalancer</span><span class="selector-class">.class</span>&lt;/name&gt;</div><div class="line">  &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.phoenix</span><span class="selector-class">.hbase</span><span class="selector-class">.index</span><span class="selector-class">.balancer</span><span class="selector-class">.IndexLoadBalancer</span>&lt;/value&gt;</div><div class="line"> &lt;/property&gt;</div><div class="line"> &lt;property&gt;</div><div class="line">  &lt;name&gt;hbase<span class="selector-class">.coprocessor</span><span class="selector-class">.master</span><span class="selector-class">.classes</span>&lt;/name&gt;</div><div class="line">  &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.phoenix</span><span class="selector-class">.hbase</span><span class="selector-class">.index</span><span class="selector-class">.master</span><span class="selector-class">.IndexMasterObserver</span>&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>HRegionserver</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">  &lt;property&gt;</div><div class="line">    &lt;name&gt;hbase<span class="selector-class">.regionserver</span><span class="selector-class">.wal</span><span class="selector-class">.codec</span>&lt;/name&gt;</div><div class="line">    &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.wal</span><span class="selector-class">.IndexedWALEditCodec</span>&lt;/value&gt;</div><div class="line"> &lt;/property&gt;</div><div class="line"> &lt;property&gt;</div><div class="line">   &lt;name&gt;hbase<span class="selector-class">.region</span><span class="selector-class">.server</span><span class="selector-class">.rpc</span><span class="selector-class">.scheduler</span><span class="selector-class">.factory</span><span class="selector-class">.class</span>&lt;/name&gt; </div><div class="line">   &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.ipc</span><span class="selector-class">.PhoenixRpcSchedulerFactory</span>&lt;/value&gt;</div><div class="line">   &lt;description&gt;Factory to create the Phoenix RPC Scheduler that usesseparate queues <span class="keyword">for</span> index and metadata updates&lt;/description&gt;</div><div class="line"> &lt;/property&gt;</div><div class="line"> &lt;property&gt;</div><div class="line">   &lt;name&gt;hbase<span class="selector-class">.rpc</span><span class="selector-class">.controllerfactory</span><span class="selector-class">.class</span>&lt;/name&gt;</div><div class="line">   &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.ipc</span><span class="selector-class">.controller</span><span class="selector-class">.ServerRpcControllerFactory</span>&lt;/value&gt;</div><div class="line">   &lt;description&gt;Factory to create the Phoenix RPCScheduler that uses separate queues <span class="keyword">for</span> index and metadataupdates&lt;/description&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">   &lt;name&gt;hbase<span class="selector-class">.coprocessor</span><span class="selector-class">.regionserver</span><span class="selector-class">.classes</span>&lt;/name&gt;</div><div class="line">   &lt;value&gt;org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.LocalIndexMerger</span>&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-2-对10亿数据查询时，报错如下："><a href="#2-2-对10亿数据查询时，报错如下：" class="headerlink" title="2.2. 对10亿数据查询时，报错如下："></a>2.2. 对10亿数据查询时，报错如下：</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="number">16</span>/<span class="number">11</span>/<span class="number">29</span> <span class="number">10</span>:<span class="number">33</span>:<span class="number">50</span> WARN client<span class="selector-class">.ScannerCallable</span>: Ignore, probably already closed</div><div class="line">org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.LeaseException</span>: org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.LeaseException</span>: lease <span class="string">'1132'</span> does not exist</div><div class="line">	at org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.Leases</span><span class="selector-class">.removeLease</span>(Leases<span class="selector-class">.java</span>:<span class="number">221</span>)</div><div class="line">	at org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.regionserver</span><span class="selector-class">.Leases</span><span class="selector-class">.cancelLease</span>(Leases<span class="selector-class">.java</span>:<span class="number">206</span>)</div><div class="line">...</div><div class="line">org<span class="selector-class">.apache</span><span class="selector-class">.phoenix</span><span class="selector-class">.exception</span><span class="selector-class">.PhoenixIOException</span>: org<span class="selector-class">.apache</span><span class="selector-class">.phoenix</span><span class="selector-class">.exception</span><span class="selector-class">.PhoenixIOException</span>: Failed after attempts=<span class="number">36</span>, exceptions:</div><div class="line">Tue Nov <span class="number">29</span> <span class="number">10</span>:<span class="number">33</span>:<span class="number">50</span> CST <span class="number">2016</span>, null, java<span class="selector-class">.net</span><span class="selector-class">.SocketTimeoutException</span>: callTimeout=<span class="number">60000</span>, callDuration=<span class="number">60321</span>: row <span class="string">'��s,d'</span> on <span class="selector-tag">table</span> <span class="string">'TEST11'</span> at region=TEST11,\x11\x00\x00\x00\x00\x00\x00\x00\x00,<span class="number">1479985615575</span><span class="selector-class">.c3adb68acea8d88d223bffd3acc16c2e</span>., hostname=node-<span class="number">20</span>-<span class="number">105</span>,<span class="number">60020</span>,<span class="number">1480385981798</span>, seqNum=<span class="number">1244662</span></div><div class="line">...</div><div class="line">Caused by: org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.ipc</span><span class="selector-class">.CallTimeoutException</span>: Call id=<span class="number">18173</span>, waitTime=<span class="number">60001</span>, operationTimeout=<span class="number">60000</span> expired.</div><div class="line">	at org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.ipc</span><span class="selector-class">.Call</span><span class="selector-class">.checkAndSetTimeout</span>(Call<span class="selector-class">.java</span>:<span class="number">70</span>)</div><div class="line">	at org<span class="selector-class">.apache</span><span class="selector-class">.hadoop</span><span class="selector-class">.hbase</span><span class="selector-class">.ipc</span><span class="selector-class">.RpcClientImpl</span><span class="selector-class">.call</span>(RpcClientImpl<span class="selector-class">.java</span>:<span class="number">1197</span>)</div><div class="line">...</div></pre></td></tr></table></figure>
+<ul>
+<li>原因：</li>
+</ul>
+<p>某些查询需要很长时间才能返回结果，被HBase的超时机制杀掉了。</p>
+<ul>
+<li>思路：</li>
+</ul>
+<p>增大超时时间，在hbase-site.xml里增加了如下配置：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rpc.timeout<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>600000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.client.operation.timeout<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>600000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.client.scanner.timeout.period<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>600000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.regionserver.lease.period<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>600000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">name</span>&gt;</span>phoenix.query.timeoutMs<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">value</span>&gt;</span>600000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">name</span>&gt;</span>phoenix.query.keepAliveMs<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">value</span>&gt;</span>600000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.client.ipc.pool.type<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>RoundRobinPool<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.client.ipc.pool.size<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>10<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>最终虽然配置生效了，但是还是报同样的错。已经将网上说的可能的配置项都配了还是无法解决超时问题。等增加了机器，查询时间变短，10亿数据的查询应该就没有超时问题了。</p>
+<h2 id="3-特性"><a href="#3-特性" class="headerlink" title="3. 特性"></a>3. 特性</h2><ul>
+<li>不可变索引默认支持，不需要另外配置；可变索引需要如上添加配置才能支持</li>
+<li><p>创建不可变表：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> TABLENAME (pk <span class="keyword">long</span> PRIMARY <span class="keyword">KEY</span>,col1 <span class="built_in">int</span>) IMMUTABLE_ROWS=<span class="literal">true</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建索引有以下几种方式：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> ind_name <span class="keyword">ON</span> TABLENAME(COLUMN1);</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> ind_name <span class="keyword">ON</span> TABLENAME(COLUMN1,COLUMN2);</div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">INDEX</span> ind_name <span class="keyword">ON</span> TABLENAME(COLUMN1) <span class="keyword">INCLUDE</span>(COLUMN2);</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行查询的时候，Phoenix查询优化器将选择合适的索引。可以使用explain plan进行查看</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><div class="line"><span class="section">0: jdbc:phoenix:localhost&gt; explain select ff3,if1 from testinput where ff3 &gt;= 0.7 and ff3 &lt; 0.9 order by if1;</span></div><div class="line">+------------------------------------------+</div><div class="line"><span class="section">|                   PLAN                   |</span></div><div class="line">+------------------------------------------+</div><div class="line">| CLIENT 1-CHUNK PARALLEL 1-WAY RANGE SCAN OVER IND<span class="emphasis">_4 [0.7] - [0.9] |</span></div><div class="line">|     SERVER SORTED BY ["IF1"]             |</div><div class="line">| CLIENT MERGE SORT                        |</div><div class="line">+------------------------------------------+</div></pre></td></tr></table></figure>
+</li>
+<li><p>除非所有查询使用的列被索引或者覆盖列，否则二级索引不会被使用</p>
+</li>
+<li>建索引的时候不要包括primary key，否则索引不会被使用；可以单独对primary key建索引</li>
+<li>where条件里有primary key的时候会使用Range Scan，因为表本来就是按照primary key的顺序排列的</li>
+<li>primary key在插入时是自动排序的，插入完成后primary key保持有序（如果该表只有一个分区，则全局有序；如果有多个分区，则在每个分区内部有序，并非全局有序）</li>
+<li>对某几个（1个或多个）列建索引，则会生成一张索引表，该表由创建索引的这几个列组成，并在最后一列添加primary key列。也就是说索引表也是一张表，只不过该表列数比原表少。</li>
+<li>索引表的第一列是有序的</li>
+<li>upsert into一个跟之前一样的primary key，会将之前那个primary key的记录替换成新的。</li>
+<li>phoenix虽然不支持update语句，但是可以用upsert into tablename(id,columnname) values(id,newvalue)来实现同样的功能。</li>
+<li>local index 对应的索引表的分区跟表的分区在同一个region server上（索引表分区数必须跟表分区数一样）</li>
+<li>global index 对应的索引表的分区跟表的分区不一定在同一个region server上（索引表分区数必须跟表分区数一样）</li>
+<li>对一张表建了多个local index，对于HBase来讲，其实只存了一张索引表。但是global index则不同。</li>
+</ul>
+<h2 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4. 参考资料"></a>4. 参考资料</h2><ul>
+<li><a href="https://github.com/forcedotcom/phoenix/wiki/Secondary-Indexing" target="_blank" rel="external">https://github.com/forcedotcom/phoenix/wiki/Secondary-Indexing</a></li>
+<li><a href="http://phoenix.apache.org/language/index.html#create_index" target="_blank" rel="external">http://phoenix.apache.org/language/index.html#create_index</a></li>
+<li><a href="http://blog.csdn.net/jiangshouzhuang/article/details/52387718" target="_blank" rel="external">http://blog.csdn.net/jiangshouzhuang/article/details/52387718</a><br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/30/Phoenix安装配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Phoenix安装配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Phoenix表和索引分区数对插入和查询性能的影响</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背景"><span class="toc-number">1.</span> <span class="toc-text">1. 背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-问题及解决"><span class="toc-number">2.</span> <span class="toc-text">2. 问题及解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建索引时报错，报错如下："><span class="toc-number">2.1.</span> <span class="toc-text">2.1. 创建索引时报错，报错如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-对10亿数据查询时，报错如下："><span class="toc-number">2.2.</span> <span class="toc-text">2.2. 对10亿数据查询时，报错如下：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-特性"><span class="toc-number">3.</span> <span class="toc-text">3. 特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参考资料"><span class="toc-number">4.</span> <span class="toc-text">4. 参考资料</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

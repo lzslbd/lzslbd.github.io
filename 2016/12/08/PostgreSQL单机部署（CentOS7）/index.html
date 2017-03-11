@@ -115,7 +115,126 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-PostgreSQL单机部署（CentOS7）" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      PostgreSQL单机部署（CentOS7）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/08/PostgreSQL单机部署（CentOS7）/" class="article-date">
+	  <time datetime="2016-12-08T13:37:13.000Z" itemprop="datePublished">2016-12-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍Contos7上用yum部署PostgreSQL9.4的过程。</p>
+<a id="more"></a>
+<h2 id="1-安装PostgreSQL源"><a href="#1-安装PostgreSQL源" class="headerlink" title="1. 安装PostgreSQL源"></a>1. 安装PostgreSQL源</h2><figure class="highlight awk"><table><tr><td class="code"><pre><div class="line">rpm -Uvh http:<span class="regexp">//yum</span>.postgresql.org<span class="regexp">/9.4/</span>redhat<span class="regexp">/rhel-7-x86_64/</span>pgdg-centos94-<span class="number">9.4</span>-<span class="number">1</span>.noarch.rpm</div></pre></td></tr></table></figure>
+<h2 id="2-执行安装命令"><a href="#2-执行安装命令" class="headerlink" title="2. 执行安装命令"></a>2. 执行安装命令</h2><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">yum <span class="keyword">update</span></div><div class="line">yum <span class="keyword">install</span> postgresql94-<span class="keyword">server</span> postgresql94-contrib</div></pre></td></tr></table></figure>
+<h2 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h2><p>执行：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">rpm -<span class="keyword">qa</span> | <span class="keyword">grep</span> postgres</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">postgresql94-9</span><span class="selector-class">.4</span><span class="selector-class">.10-1PGDG</span><span class="selector-class">.rhel7</span><span class="selector-class">.x86_64</span></div><div class="line"><span class="selector-tag">postgresql94-server-9</span><span class="selector-class">.4</span><span class="selector-class">.10-1PGDG</span><span class="selector-class">.rhel7</span><span class="selector-class">.x86_64</span></div><div class="line"><span class="selector-tag">postgresql94-libs-9</span><span class="selector-class">.4</span><span class="selector-class">.10-1PGDG</span><span class="selector-class">.rhel7</span><span class="selector-class">.x86_64</span></div><div class="line"><span class="selector-tag">postgresql94-contrib-9</span><span class="selector-class">.4</span><span class="selector-class">.10-1PGDG</span><span class="selector-class">.rhel7</span><span class="selector-class">.x86_64</span></div></pre></td></tr></table></figure>
+<p>说明安装成功</p>
+<h2 id="4-初始化数据库"><a href="#4-初始化数据库" class="headerlink" title="4. 初始化数据库"></a>4. 初始化数据库</h2><p>先创建数据存放目录：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">mkdir</span> -p /<span class="meta">opt</span>/pgsql/<span class="meta">data</span></div></pre></td></tr></table></figure>
+<p>赋予postgres用户该目录的权限：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">chown</span> postgres /<span class="meta">opt</span>/pgsql/<span class="meta">data</span></div></pre></td></tr></table></figure>
+<p>切换到postgres用户：</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">su postgres</span></div></pre></td></tr></table></figure>
+<p>执行初始化：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">initdb</span> -D /<span class="meta">opt</span>/pgsql/<span class="meta">data</span></div></pre></td></tr></table></figure>
+<p>注：</p>
+<p>-D 后面是数据库文件存放的目录，如果不指定则默认在/var/lib/pgsql/9.4/data下</p>
+<p>初始化的日志如下：</p>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line">属于此数据库系统的文件宿主为用户 <span class="string">"postgres"</span>.</div><div class="line">此用户也必须为服务器进程的宿主.</div><div class="line">数据库簇将使用本地化语言 <span class="string">"zh_CN.UTF-8"</span>进行初始化.</div><div class="line">默认的数据库编码已经相应的设置为 <span class="string">"UTF8"</span>.</div><div class="line">initdb: 无法为本地化语言环境<span class="string">"zh_CN.UTF-8"</span>找到合适的文本搜索配置</div><div class="line">缺省的文本搜索配置将会被设置到<span class="string">"simple"</span></div><div class="line"></div><div class="line">禁止为数据页生成校验和.</div><div class="line"></div><div class="line">修复已存在目录 /opt/pgsql/<span class="built_in">data</span> 的权限 <span class="params">...</span> 成功</div><div class="line">正在创建子目录 <span class="params">...</span> 成功</div><div class="line">选择默认最大联接数 (max_connections) <span class="params">...</span> <span class="number">100</span></div><div class="line">选择默认共享缓冲区大小 (shared_buffers) <span class="params">...</span> <span class="number">128</span>MB</div><div class="line">选择动态共享内存实现 <span class="params">...</span><span class="params">...</span>posix</div><div class="line">创建配置文件 <span class="params">...</span> 成功</div><div class="line">在 /opt/pgsql/<span class="built_in">data</span>/base/<span class="number">1</span> 中创建 template1 数据库 <span class="params">...</span> 成功</div><div class="line">初始化 pg_authid <span class="params">...</span>  成功</div><div class="line">初始化dependencies <span class="params">...</span> 成功</div><div class="line">创建系统视图 <span class="params">...</span> 成功</div><div class="line">正在加载系统对象描述 <span class="params">...</span>成功</div><div class="line">创建(字符集)校对规则 <span class="params">...</span> 成功</div><div class="line">创建字符集转换 <span class="params">...</span> 成功</div><div class="line">正在创建字典 <span class="params">...</span> 成功</div><div class="line">对内建对象设置权限 <span class="params">...</span> 成功</div><div class="line">创建信息模式 <span class="params">...</span> 成功</div><div class="line">正在装载PL/pgSQL服务器端编程语言<span class="params">...</span>成功</div><div class="line">清理数据库 template1 <span class="params">...</span> 成功</div><div class="line">拷贝 template1 到 template0 <span class="params">...</span> 成功</div><div class="line">拷贝 template1 到 template0 <span class="params">...</span> 成功</div><div class="line">同步数据到磁盘<span class="params">...</span>成功</div><div class="line"></div><div class="line">成功. 您现在可以用下面的命令运行数据库服务器:</div><div class="line"></div><div class="line">    /usr/pgsql<span class="number">-9.4</span>/bin/postmaster <span class="params">-D</span> /opt/pgsql/<span class="built_in">data</span>/</div><div class="line">或者</div><div class="line">    /usr/pgsql<span class="number">-9.4</span>/bin/pg_ctl <span class="params">-D</span> /opt/pgsql/<span class="built_in">data</span>/ <span class="params">-l</span> logfile start</div></pre></td></tr></table></figure>
+<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5. 启动服务"></a>5. 启动服务</h2><p>1.切换到postgres用户</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">su postgres</span></div></pre></td></tr></table></figure>
+<p>这个步骤同样必须以PostgreSQL用户帐户登录来做。 </p>
+<p>2.启动服务</p>
+<p>没有-D选项，服务器将使用环境变量PGDATA命名的目录； 如果这个环境变量也没有，将导致失败。通常，最好在后台启动postgres，使用下面的 Unix shell 语法：</p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">pg_ctl</span> -D /<span class="meta">opt</span>/pgsql/<span class="meta">data</span>/ -l logfile start</div></pre></td></tr></table></figure>
+<p>3.设置开机自动启动</p>
+<p>在Linux系统里，要么往/etc/rc.d/rc.local或 /etc/rc.local文件里加上下面几行：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line"><span class="regexp">/usr/</span>local<span class="regexp">/pgsql/</span>bin<span class="regexp">/pg_ctl start -l logfile -D /u</span>sr<span class="regexp">/local/</span>pgsql<span class="regexp">/data</span></div></pre></td></tr></table></figure>
+<h2 id="6-创建用户"><a href="#6-创建用户" class="headerlink" title="6. 创建用户"></a>6. 创建用户</h2><p>PostgreSQL使用<em>角色</em>的概念管理数据库访问权限。 根据角色自身的设置不同，一个角色可以看做是一个数据库用户，或者一组数据库用户。 角色可以拥有数据库对象(比如表)以及可以把这些对象上的权限赋予其它角色， 以控制谁拥有访问哪些对象的权限。另外，我们也可以把一个角色的<em>成员</em> 权限赋予其它角色，这样就允许成员角色使用分配给另一个角色的权限。<br>角色的概念替换了”用户”和”组”。在PostgreSQL 版本 8.1 之前，用户和组是独立类型的记录，但现在它们只是角色。 任何角色都可以是一个用户、一个组、或者两者。</p>
+<p>数据库角色从概念上与操作系统用户是完全无关的。在实际使用中把它们对应起来可能比较方便， 但这不是必须的。数据库角色在整个数据库集群中是全局的(而不是每个库不同)。 要创建一个角色，使用 SQL 命令<a href="http://www.postgres.cn/docs/9.4/sql-createrole.html" target="_blank" rel="external">CREATE ROLE</a>执行：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">ROLE</span> <span class="keyword">name</span>;</div></pre></td></tr></table></figure>
+<p><em>name</em>遵循 SQL 标识的规则：要么完全没有特殊字符， 要么用双引号包围(实际上你通常会给命令增加额外的选项，比如LOGIN。 下面显示更多细节)。要删除一个现有角色，使用类似的<a href="http://www.postgres.cn/docs/9.4/sql-droprole.html" target="_blank" rel="external">DROP ROLE</a>命令：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">ROLE</span> <span class="keyword">name</span>;</div></pre></td></tr></table></figure>
+<p>为了方便，程序<a href="http://www.postgres.cn/docs/9.4/app-createuser.html" target="_blank" rel="external">createuser</a>和<a href="http://www.postgres.cn/docs/9.4/app-dropuser.html" target="_blank" rel="external">dropuser</a> 提供了对了这些 SQL 命令的封装。我们可以在 shell 命令上直接调用它们：</p>
+<p>直接在shell里输入：</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><div class="line">createuser lbd<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>这样就创建了lbd这个角色。</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><div class="line">dropuser lbd<span class="comment">;</span></div></pre></td></tr></table></figure>
+<p>这样就创建了lbd这个角色。</p>
+<p>要检查现有角色的集合，可以检查pg_roles系统表，比如：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> rolname <span class="keyword">FROM</span> pg_roles;</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">postgres=# <span class="keyword">SELECT</span> rolname FROM pg_roles;</div><div class="line"> rolname</div><div class="line"><span class="comment">----------</span></div><div class="line"> postgres</div><div class="line"> lbd</div><div class="line">(<span class="number">2</span> 行记录)</div></pre></td></tr></table></figure>
+<p><a href="http://www.postgres.cn/docs/9.4/app-psql.html" target="_blank" rel="external">psql</a>的元命令\du<br>也可以用于列出现有角色。</p>
+<p>结果如下：</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><div class="line">postgres=# \du</div><div class="line"><span class="code">                        角色列表</span></div><div class="line"><span class="section"> 角色名称 |               属性                | 成员属于</span></div><div class="line">---------+----------------------------------+----------</div><div class="line"><span class="code"> lbd     |                                   | &#123;&#125;</span></div><div class="line"><span class="code"> postgres| 超级用户, 建立角色, 建立 DB, 复制     | &#123;&#125;</span></div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/08/PostgreSQL主从流复制部署/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          PostgreSQL主从流复制部署
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/06/LeetCode[215] Kth Largest Element in an Array/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">LeetCode[215] Kth Largest Element in an Array</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装PostgreSQL源"><span class="toc-number">1.</span> <span class="toc-text">1. 安装PostgreSQL源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-执行安装命令"><span class="toc-number">2.</span> <span class="toc-text">2. 执行安装命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-验证是否安装成功"><span class="toc-number">3.</span> <span class="toc-text">3. 验证是否安装成功</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-初始化数据库"><span class="toc-number">4.</span> <span class="toc-text">4. 初始化数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-启动服务"><span class="toc-number">5.</span> <span class="toc-text">5. 启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-创建用户"><span class="toc-number">6.</span> <span class="toc-text">6. 创建用户</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

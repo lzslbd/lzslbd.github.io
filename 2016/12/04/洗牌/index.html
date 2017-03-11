@@ -115,7 +115,90 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-洗牌" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      洗牌
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/04/洗牌/" class="article-date">
+	  <time datetime="2016-12-04T09:00:56.000Z" itemprop="datePublished">2016-12-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把牌合并起来就可以了。 例如有6张牌，最开始牌的序列是1,2,3,4,5,6。首先分成两组，左手拿着1,2,3；右手拿着4,5,6。在洗牌过程中按顺序放下了6,3,5,2,4,1。把这六张牌再次合成一组牌之后，我们按照从上往下的顺序看这组牌，就变成了序列1,4,2,5,3,6。 现在给出一个原始牌组，请输出这副牌洗牌k次之后从上往下的序列。 </p>
+<p><strong>输入描述:</strong></p>
+<p>第一行一个数T(T ≤ 100)，表示数据组数。对于每组数据，第一行两个数n,k(1 ≤ n,k ≤ 100)，接下来一行有2n个数a1,a2,…,a2n(1 ≤ ai ≤ 1000000000)。表示原始牌组从上到下的序列。</p>
+<p><strong>输出描述:</strong></p>
+<p>对于每组数据，输出一行，最终的序列。数字之间用空格隔开，不要在行末输出多余的空格。</p>
+<p><strong>输入例子:</strong></p>
+<p>3<br>3 1<br>1 2 3 4 5 6<br>3 2<br>1 2 3 4 5 6<br>2 2<br>1 1 1 1</p>
+<p><strong>输出例子:</strong></p>
+<p>1 4 2 5 3 6<br>1 5 4 3 2 6<br>1 1 1 1</p>
+<p><strong>代码:</strong></p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Scanner;</div><div class="line"> </div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by lbd on 2016/10/31.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">int</span> group = sc.nextInt();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; group;i++)&#123;</div><div class="line">            <span class="keyword">int</span> n = sc.nextInt();</div><div class="line">            <span class="keyword">int</span> k = sc.nextInt();</div><div class="line">            <span class="keyword">int</span>[] cards = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>*n];</div><div class="line">            <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>*n];</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> a = <span class="number">0</span>; a &lt; <span class="number">2</span>*n ; a++)&#123;</div><div class="line">                cards[a] = sc.nextInt();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> b = <span class="number">0</span>;b &lt; k;b++)&#123;</div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">0</span>;c &lt; <span class="number">2</span>*n;c += <span class="number">2</span>)&#123;</div><div class="line">                    temp[c] = cards[c/<span class="number">2</span>];</div><div class="line">                    temp[c+<span class="number">1</span>] = cards[c/<span class="number">2</span>+n];</div><div class="line">                &#125;</div><div class="line"> </div><div class="line">                cards = temp.clone();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> d = <span class="number">0</span>;d &lt; <span class="number">2</span>*n-<span class="number">1</span>;d++)&#123;</div><div class="line">                System.out.print(cards[d] + <span class="string">" "</span>);</div><div class="line">            &#125;</div><div class="line">            System.out.println(cards[<span class="number">2</span>*n-<span class="number">1</span>]);          </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/04/LeetCode[136] Single Number/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          LeetCode[136] Single Number
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/04/优雅的点/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">优雅的点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

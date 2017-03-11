@@ -121,7 +121,82 @@ My Solution">
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-LeetCode[7] 反转整数" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      LeetCode[7] 反转整数
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/LeetCode[7] 反转整数/" class="article-date">
+	  <time datetime="2016-08-27T11:55:54.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Reverse-digits-of-an-integer"><a href="#Reverse-digits-of-an-integer" class="headerlink" title="Reverse digits of an integer."></a>Reverse digits of an integer.</h3><p>Example1: x = 123, return 321</p>
+<p>Example2: x = -123, return -321</p>
+<h3 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h3><a id="more"></a>
+<figure class="highlight axapta"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> <span class="keyword">reverse</span>(<span class="keyword">int</span> x) &#123;</div><div class="line">        <span class="keyword">long</span> result=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;</div><div class="line">            result=result*<span class="number">10</span>+x%<span class="number">10</span>;</div><div class="line">            <span class="keyword">if</span>(result&gt;Integer.MAX_VALUE||result&lt;Integer.MIN_VALUE)</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">            x/=<span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/27/统计每个单词出现的次数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          统计每个单词出现的次数
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">LeetCode[3] 最大字符不重复的子串</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reverse-digits-of-an-integer"><span class="toc-number">1.</span> <span class="toc-text">Reverse digits of an integer.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#My-Solution"><span class="toc-number">2.</span> <span class="toc-text">My Solution</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

@@ -115,7 +115,100 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-LeetCode[144] Binary Tree Preorder Traversal" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      LeetCode[144] Binary Tree Preorder Traversal
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/13/LeetCode[144] Binary Tree Preorder Traversal/" class="article-date">
+	  <time datetime="2017-02-13T07:18:46.000Z" itemprop="datePublished">2017-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a binary tree, return the preorder traversal of its nodes’ values.</p>
+<a id="more"></a>
+<p>For example:<br>Given binary tree {1,#,2,3},</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"><span class="number">1</span></div><div class="line"> \</div><div class="line">  <span class="number">2</span></div><div class="line"> /</div><div class="line"><span class="number">3</span></div></pre></td></tr></table></figure>
+<p>return [1,2,3].</p>
+<p><strong>分析:</strong></p>
+<p>两种种方法：</p>
+<ol>
+<li><p>递归法</p>
+<p> 递归是最简单的。</p>
+</li>
+<li><p>迭代法</p>
+<p> 迭代法使用一个栈来保存每个节点的右节点。列表 result 用来保存最后的结果。每次将节点值放入 relust 列表中，并将其右节点入栈，然后令该节点等于它的左节点，如果左节点为空，就令该节点等于栈顶元素，并让栈顶元素出栈。当节点为 null 时结束。</p>
+</li>
+</ol>
+<p><strong>代码:</strong></p>
+<p>递归法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Definition for a binary tree node.</div><div class="line"> * public class TreeNode &#123;</div><div class="line"> *     int val;</div><div class="line"> *     TreeNode left;</div><div class="line"> *     TreeNode right;</div><div class="line"> *     TreeNode(int x) &#123; val = x; &#125;</div><div class="line"> * &#125;</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span>(root != <span class="keyword">null</span>) &#123;</div><div class="line">            result.add(root.val);</div><div class="line">            result.addAll(preorderTraversal(root.left));</div><div class="line">            result.addAll(preorderTraversal(root.right));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>迭代法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</div><div class="line">        Stack&lt;TreeNode&gt; rightNodes = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</div><div class="line">        TreeNode n = root;</div><div class="line">        <span class="keyword">while</span> (n != <span class="keyword">null</span>) &#123;</div><div class="line">            result.add(n.val);</div><div class="line">            <span class="keyword">if</span> (n.right != <span class="keyword">null</span>) &#123;</div><div class="line">                rightNodes.push(n.right);</div><div class="line">            &#125;</div><div class="line">            n = n.left;</div><div class="line">            <span class="keyword">if</span> (n == <span class="keyword">null</span> &amp;&amp; !rightNodes.empty()) &#123;</div><div class="line">                n = rightNodes.pop();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">preorderTraversal</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> result;</div><div class="line">        Stack&lt;TreeNode&gt; stack = <span class="keyword">new</span> Stack&lt;TreeNode&gt;();</div><div class="line">        TreeNode n = root;</div><div class="line">        stack.push(n);</div><div class="line">        <span class="keyword">while</span> (!stack.empty()) &#123;</div><div class="line">            n = stack.pop();</div><div class="line">            result.add(n.val);</div><div class="line">            <span class="keyword">if</span> (n.right != <span class="keyword">null</span>) stack.push(n.right);</div><div class="line">            <span class="keyword">if</span> (n.left != <span class="keyword">null</span>) stack.push(n.left);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/13/LeetCode[94] Binary Tree Inorder Traversal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          LeetCode[94] Binary Tree Inorder Traversal!
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/13/LeetCode[232] Implement Queue using Stacks/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">LeetCode[232] Implement Queue using Stacks</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

@@ -130,7 +130,103 @@ empty()">
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-LeetCode[232] Implement Queue using Stacks" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      LeetCode[232] Implement Queue using Stacks
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/13/LeetCode[232] Implement Queue using Stacks/" class="article-date">
+	  <time datetime="2017-02-13T03:23:50.000Z" itemprop="datePublished">2017-02-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Implement the following operations of a queue using stacks.</p>
+<ul>
+<li>push(x) – Push element x to the back of queue.</li>
+<li>pop() – Removes the element from in front of queue.</li>
+<li>peek() – Get the front element.</li>
+<li>empty() – Return whether the queue is empty.</li>
+</ul>
+<a id="more"></a>
+<p><strong>Notes:</strong></p>
+<p>You must use only standard operations of a stack – which means only push to top, peek/pop from top, size, and is empty operations are valid.</p>
+<p>Depending on your language, stack may not be supported natively. You may simulate a stack by using a list or deque (double-ended queue), as long as you use only standard operations of a stack.</p>
+<p>You may assume that all operations are valid (for example, no pop or peek operations will be called on an empty queue).</p>
+<p><strong>分析:</strong></p>
+<p>这题跟<a href="http://linbingdong.com/2017/02/10/LeetCode[225]%20Implement%20Stack%20using%20Queues/">LeetCode[225] Implement Stack using Queues</a>相反。</p>
+<p><strong>两种方案：</strong></p>
+<p>方案 A ：</p>
+<p>可以用两个栈 a 和 b 来实现队列。其中，push（）都在栈 a 中进行，pop（）和 peek（）都在栈 b 中进行。如果b中没有元素可以 pop（）或 peek（），则依次从 a 中 pop（）出来并 push（）到 b 中。</p>
+<p>若 a 和 b 均为空则该队列为空。</p>
+<p>方案 B ：</p>
+<p>也是用两个栈。其中栈 temp 是用来辅助使栈 queue 维持与入栈时相反的顺序。如入栈顺序为 1、2、3、4、5 ，最终栈 queue 维持的顺序为 5、4、3、2、1 。这样就可以在栈 queue 上直接 pop（）和 peek（）了。</p>
+<p><strong>代码:</strong></p>
+<p>方案 A ：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</div><div class="line">    Stack&lt;Integer&gt; a = <span class="keyword">new</span> Stack&lt;Integer&gt;();</div><div class="line">    Stack&lt;Integer&gt; b = <span class="keyword">new</span> Stack&lt;Integer&gt;();</div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyQueue</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Push element x to the back of queue. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">        a.push(x);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Removes the element from in front of queue and returns that element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (b.empty()) &#123;</div><div class="line">            <span class="keyword">while</span> (!a.empty()) &#123;</div><div class="line">                b.push(a.pop());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> b.pop();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Get the front element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (b.empty()) &#123;</div><div class="line">            <span class="keyword">while</span> (!a.empty()) &#123;</div><div class="line">                b.push(a.pop());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> b.peek();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns whether the queue is empty. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> a.empty() &amp;&amp; b.empty() ? <span class="keyword">true</span> : <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>方案 B ：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</div><div class="line">    Stack&lt;Integer&gt; queue = <span class="keyword">new</span> Stack&lt;Integer&gt;();</div><div class="line">    Stack&lt;Integer&gt; temp = <span class="keyword">new</span> Stack&lt;Integer&gt;();</div><div class="line">    <span class="comment">/** Initialize your data structure here. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyQueue</span><span class="params">()</span> </span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Push element x to the back of queue. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</div><div class="line">       <span class="keyword">while</span> (!queue.empty()) &#123;</div><div class="line">           temp.push(queue.pop());</div><div class="line">       &#125;</div><div class="line">       queue.push(x);</div><div class="line">       <span class="keyword">while</span> (!temp.empty()) &#123;</div><div class="line">           queue.push(temp.pop());</div><div class="line">       &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Removes the element from in front of queue and returns that element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> queue.pop();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Get the front element. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> queue.peek();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/** Returns whether the queue is empty. */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> queue.empty();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/02/13/LeetCode[144] Binary Tree Preorder Traversal/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          LeetCode[144] Binary Tree Preorder Traversal
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/12/程序员必读书单/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">程序员必读书单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

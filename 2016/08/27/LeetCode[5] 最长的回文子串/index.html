@@ -124,7 +124,85 @@ Given a string S, find the longest palindromic substring in S. You may assume th
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-LeetCode[5] 最长的回文子串" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      LeetCode[5] 最长的回文子串
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/LeetCode[5] 最长的回文子串/" class="article-date">
+	  <time datetime="2016-08-27T11:45:22.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
+</blockquote>
+<p>即给定一个字符串，返回该字符串最长的回文子串<br>如给出“acabcddcbadike”,返回“abcddcba”。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>回文子串分为长度为偶数（中间两个字符相同，就像示例）和长度为奇数两种。<br>从头往后遍历s.length()趟，第i趟指针j，k从i（奇数）或j从i，k从i+1（偶数）向两边扩散（s.charAt(i)和s.charAt(j)相等才扩散），k-j-1为该回文子串长度，若比之前maxlen大，则更新maxlen。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><a id="more"></a>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">class</span> Solution &#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> lo,maxlen;<span class="comment">//子串的起始和长度</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">String</span> longestPalindrome(<span class="keyword">String</span> s) &#123;</div><div class="line">        <span class="keyword">int</span> len=s.length();</div><div class="line">        <span class="built_in">if</span> (len&lt;<span class="number">2</span>)</div><div class="line">            <span class="built_in">return</span> s;</div><div class="line">        <span class="built_in">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)&#123;<span class="comment">//n躺遍历</span></div><div class="line">            extendPalindrome(s,i,i); <span class="comment">//子串长度为奇数</span></div><div class="line">            extendPalindrome(s,i,i+<span class="number">1</span>);<span class="comment">//子串长度为偶数</span></div><div class="line">        &#125;</div><div class="line">        <span class="built_in">return</span> s.substring(lo,lo + maxlen);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">void</span> extendPalindrome(<span class="keyword">String</span> s,<span class="keyword">int</span> j,<span class="keyword">int</span> k)&#123;</div><div class="line">        <span class="built_in">while</span>(j&gt;=<span class="number">0</span> &amp;&amp; k&lt;s.length() &amp;&amp; s.charAt(j)==s.charAt(k))&#123;</div><div class="line">            --j;      </div><div class="line">            ++k;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">if</span>(maxlen&lt;k-j<span class="number">-1</span>)&#123;</div><div class="line">            lo=j+<span class="number">1</span>;</div><div class="line">            maxlen=k-j<span class="number">-1</span>; </div><div class="line">        &#125;     </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          LeetCode[3] 最大字符不重复的子串
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/27/Java中Comparable与Comparator的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java中Comparable与Comparator的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码如下"><span class="toc-number">3.</span> <span class="toc-text">代码如下</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

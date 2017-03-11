@@ -133,7 +133,90 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-链表中环的入口" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      链表中环的入口节点
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/07/链表中环的入口/" class="article-date">
+	  <time datetime="2017-01-07T01:30:38.000Z" itemprop="datePublished">2017-01-07</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
+<p><strong>分析</strong></p>
+<p>两种思路</p>
+<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
+<p>思路二：两个指针。具体分析见代码注释。</p>
+<p><strong>代码:</strong></p>
+<a id="more"></a>
+<p>用HashSet（取巧）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode p = pHead;</div><div class="line">        HashSet&lt;ListNode&gt; set = <span class="keyword">new</span> HashSet&lt;ListNode&gt;();</div><div class="line">        <span class="keyword">while</span> (p != <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span> (!set.add(p))</div><div class="line">                <span class="keyword">return</span> p;</div><div class="line">            p = p.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;      </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>两个指针（巧妙）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123; </div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span> || pHead.next == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode p1 = pHead, p2 = pHead;</div><div class="line">        <span class="keyword">while</span> (p2 != <span class="keyword">null</span>)&#123;</div><div class="line">            p1 = p1.next;  <span class="comment">//p1每次走一步</span></div><div class="line">            p2 = p2.next.next; <span class="comment">//p2每次走两步</span></div><div class="line">            <span class="keyword">if</span> (p1 == p2)&#123;  <span class="comment">//第一次相遇，此时p2刚好比p1多走一个环的长度，又因为p2走的距离是p1的两倍，所以p1刚好走了一个环的距离</span></div><div class="line">                p1 = pHead;  <span class="comment">//p1回到头节点，p2不动。此时p1，p2刚好相差一个环的距离</span></div><div class="line">                <span class="keyword">while</span> (p1 != p2)&#123; <span class="comment">//p1、p2每次都只走一步，下次相遇必定在环的入口节点</span></div><div class="line">                    p1 = p1.next;</div><div class="line">                    p2 = p2.next;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> p1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/07/Stack Overflow上关于Java Collections的几个常见问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          关于Java Collections的几个常见问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/06/反转链表/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">反转链表</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       

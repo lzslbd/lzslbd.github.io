@@ -115,7 +115,95 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"></section>
+          <section id="main" style="float:none;"><article id="post-分布式系列文章——分布式系统的特点及问题" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      分布式系列文章——分布式系统的特点及问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/12/分布式系列文章——分布式系统的特点及问题/" class="article-date">
+	  <time datetime="2016-12-11T16:08:15.000Z" itemprop="datePublished">2016-12-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+   
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。</p>
+<a id="more"></a>
+<h2 id="分布式系统定义"><a href="#分布式系统定义" class="headerlink" title="分布式系统定义"></a>分布式系统定义</h2><p>在《分布式系统概念与设计》一书中，对分布式系统做了 如下定义：</p>
+<blockquote>
+<p>分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信和协调的系统。</p>
+</blockquote>
+<p>也就是说一个分布式系统中的计算机在空间部署上可以是<strong>随意分布</strong>的，这些计算机可能被放在不同的机柜上，也可能在不同的机房中，甚至分布在不同的城市。这些计算机之间<strong>通过网络来通信</strong>。</p>
+<h2 id="分布式的特点"><a href="#分布式的特点" class="headerlink" title="分布式的特点"></a>分布式的特点</h2><p>分布式系统有如下体征：</p>
+<h3 id="分布性"><a href="#分布性" class="headerlink" title="分布性"></a>分布性</h3><p>分布式系统中的多台计算机在空间上随意分步。当然，机器的分布情况也会随时变动。</p>
+<h3 id="对等性"><a href="#对等性" class="headerlink" title="对等性"></a>对等性</h3><p>分布式系统中的计算机没有主/从之分，既没有控制整个系统的主机，也没有被控制的从机，组成分布式系统的所有计算机节点都是<strong>对等的</strong>。</p>
+<h3 id="并发性"><a href="#并发性" class="headerlink" title="并发性"></a>并发性</h3><p>一个分布式系统中的多个节点，可能会并发地操作一些共享的资源，比如数据库或分布式存储等。如何准确并高效地协调分布式并发操作也成为了分布式系统架构与设计中最大的挑战。</p>
+<h3 id="缺乏全局时钟"><a href="#缺乏全局时钟" class="headerlink" title="缺乏全局时钟"></a>缺乏全局时钟</h3><p>在分布式系统中，<strong>很难定义两个事件究竟谁先谁后</strong>，原因就是分布式系统缺乏一个全局的时钟控制序列。</p>
+<h3 id="故障总是会发生"><a href="#故障总是会发生" class="headerlink" title="故障总是会发生"></a>故障总是会发生</h3><p>组成分布式系统的所有计算机，都有可能发生任何形式的故障。实践表明，在分布式系统中，计算机发生故障是比较常见的。因此，在分布式系统设计时，必须考虑到该问题。</p>
+<h2 id="分布式环境的各种问题"><a href="#分布式环境的各种问题" class="headerlink" title="分布式环境的各种问题"></a>分布式环境的各种问题</h2><p>分布式系统体系结构从其出现之初就伴随着诸多的难题和挑战，本节介绍分布式系统中的一些典型的问题。</p>
+<h3 id="通信异常"><a href="#通信异常" class="headerlink" title="通信异常"></a>通信异常</h3><p>分布式系统中个计算机之间是通过网络进行通信的。由于<strong>网络本身的不可靠性</strong>，每次网络通信都会伴随着网络不可用的风险。即使分布式系统各节点之间的网络通信能够正常进行，其延时也会远远大于单机操作。在分布式系统中，<strong>消息延时和消息丢失非常普遍</strong>。</p>
+<h3 id="网络分区"><a href="#网络分区" class="headerlink" title="网络分区"></a>网络分区</h3><p>当网络发生异常情况，可能导致分布式系统中某些节点之间能够正常通信，而某些节点之间无法通信——该现象就是网络分区，就是俗称的『脑裂』。当网络分区出现时，分布式系统就会出现局部小集群，小集群内计算机可以相互通信，小集群之间计算机无法通信。这就对分布式一致性提出了非常大的挑战。</p>
+<h3 id="三态"><a href="#三态" class="headerlink" title="三态"></a>三态</h3><p>因为在分布式系统中，网络可能会出现各式各样的问题，因此分布式系统的每一次请求和响应，存在特有的『三态』概念，即<strong>成功、失败与超时</strong>。在传统的单机系统中，应用程序在调用一个函数之后，能够得到一个非常明确的相应：成功或失败。而在分布式系统中，由于网络是不可靠的，当网络出现异常的情况下，就可能出现超时现象，发生消息丢失现象。</p>
+<h3 id="节点故障"><a href="#节点故障" class="headerlink" title="节点故障"></a>节点故障</h3><p>节点故障是分布式环境下一个比较常见的问题，指的是组成分布式系统的服务器节点出现宕机或『僵死』现象。通常根据经验来说，每个节点都有可能出现故障，并且每天都在发生。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/13/分布式系列文章——从ACID到CAP:BASE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          分布式系列文章——从ACID到CAP/BASE
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/08/学习PostgreSQL不可错过的一篇文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">PostgreSQL综合</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式系统定义"><span class="toc-number">1.</span> <span class="toc-text">分布式系统定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式的特点"><span class="toc-number">2.</span> <span class="toc-text">分布式的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分布性"><span class="toc-number">2.1.</span> <span class="toc-text">分布性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对等性"><span class="toc-number">2.2.</span> <span class="toc-text">对等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发性"><span class="toc-number">2.3.</span> <span class="toc-text">并发性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#缺乏全局时钟"><span class="toc-number">2.4.</span> <span class="toc-text">缺乏全局时钟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#故障总是会发生"><span class="toc-number">2.5.</span> <span class="toc-text">故障总是会发生</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式环境的各种问题"><span class="toc-number">3.</span> <span class="toc-text">分布式环境的各种问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通信异常"><span class="toc-number">3.1.</span> <span class="toc-text">通信异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络分区"><span class="toc-number">3.2.</span> <span class="toc-text">网络分区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三态"><span class="toc-number">3.3.</span> <span class="toc-text">三态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点故障"><span class="toc-number">3.4.</span> <span class="toc-text">节点故障</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
         
       </div>
       
