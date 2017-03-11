@@ -86,15 +86,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -478,7 +478,7 @@
 <nav id="article-nav">
   
     <a href="/2016/10/10/Hive on Spark安装配置详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Hive on Spark安装配置详解
@@ -488,7 +488,7 @@
   
   
     <a href="/2016/09/10/机器学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">机器学习笔记（持续更新）</div>
     </a>
   
@@ -501,7 +501,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码结构"><span class="toc-number">1.</span> <span class="toc-text">代码结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据生成"><span class="toc-number">2.</span> <span class="toc-text">数据生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行流程"><span class="toc-number">3.</span> <span class="toc-text">执行流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bigBench"><span class="toc-number">3.1.</span> <span class="toc-text">bigBench</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#runBenchmark"><span class="toc-number">3.2.</span> <span class="toc-text">runBenchmark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#runModule"><span class="toc-number">3.3.</span> <span class="toc-text">runModule()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#runCmd"><span class="toc-number">3.4.</span> <span class="toc-text">runCmd()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getQueryList"><span class="toc-number">3.5.</span> <span class="toc-text">getQueryList()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parseEnvironment"><span class="toc-number">3.6.</span> <span class="toc-text">parseEnvironment()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run"><span class="toc-number">3.7.</span> <span class="toc-text">run()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#benchmarkPhase-和-module-对应关系"><span class="toc-number">3.8.</span> <span class="toc-text">benchmarkPhase 和 module 对应关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序调用流程"><span class="toc-number">3.9.</span> <span class="toc-text">程序调用流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#module"><span class="toc-number">4.</span> <span class="toc-text">module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cleanAll"><span class="toc-number">4.1.</span> <span class="toc-text">cleanAll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cleanQuery"><span class="toc-number">4.2.</span> <span class="toc-text">cleanQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cleanMetastore"><span class="toc-number">4.3.</span> <span class="toc-text">cleanMetastore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cleanData"><span class="toc-number">4.4.</span> <span class="toc-text">cleanData</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#populateMetastore"><span class="toc-number">4.5.</span> <span class="toc-text">populateMetastore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#runQuery"><span class="toc-number">4.6.</span> <span class="toc-text">runQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#validateQuery"><span class="toc-number">4.7.</span> <span class="toc-text">validateQuery</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#refreshMetastore"><span class="toc-number">4.8.</span> <span class="toc-text">refreshMetastore</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录"><span class="toc-number">5.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#23张表"><span class="toc-number">5.1.</span> <span class="toc-text">23张表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#customer-（99000行）4-03MB"><span class="toc-number">5.2.</span> <span class="toc-text">customer （99000行）4.03MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#customer-address（49500行）-0-92MB"><span class="toc-number">5.3.</span> <span class="toc-text">customer_address（49500行） 0.92MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#customer-demographics-19200800行）6-84MB"><span class="toc-number">5.4.</span> <span class="toc-text">customer_demographics (19200800行）6.84MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#date-dim-（109573行）-1-67MB"><span class="toc-number">5.5.</span> <span class="toc-text">date_dim （109573行） 1.67MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#household-demographics-（7200行）-14-31KB"><span class="toc-number">5.6.</span> <span class="toc-text">household_demographics （7200行） 14.31KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#income-band-（20行）-754B"><span class="toc-number">5.7.</span> <span class="toc-text">income_band （20行） 754B</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#inventory-（23255100行）-34-55MB"><span class="toc-number">5.8.</span> <span class="toc-text">inventory （23255100行） 34.55MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#item-（17820行）-2-36MB"><span class="toc-number">5.9.</span> <span class="toc-text">item （17820行） 2.36MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#item-marketprices-（89100行）-0-63MB"><span class="toc-number">5.10.</span> <span class="toc-text">item_marketprices （89100行） 0.63MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#product-reviews-（89991行）-24-36MB"><span class="toc-number">5.11.</span> <span class="toc-text">product_reviews （89991行） 24.36MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#promotion-（300行）-15-83KB"><span class="toc-number">5.12.</span> <span class="toc-text">promotion （300行） 15.83KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reason-（35行）-3-17KB"><span class="toc-number">5.13.</span> <span class="toc-text">reason （35行） 3.17KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ship-mode-（20行）-2-93KB"><span class="toc-number">5.14.</span> <span class="toc-text">ship_mode （20行） 2.93KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#store-（12行）-8-03KB"><span class="toc-number">5.15.</span> <span class="toc-text">store （12行） 8.03KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#store-returns-37902行）-1-19MB"><span class="toc-number">5.16.</span> <span class="toc-text">store_returns (37902行） 1.19MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#store-sales-（667579行）-23-49MB"><span class="toc-number">5.17.</span> <span class="toc-text">store_sales （667579行） 23.49MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#time-dim-（86400行）-219-49KB"><span class="toc-number">5.18.</span> <span class="toc-text">time_dim （86400行） 219.49KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#warehouse-（5行）-1-94KB"><span class="toc-number">5.19.</span> <span class="toc-text">warehouse （5行） 1.94KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-clickstreams-（6770550行）-34-11MB"><span class="toc-number">5.20.</span> <span class="toc-text">web_clickstreams （6770550行） 34.11MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-page-（60行）-6-81KB"><span class="toc-number">5.21.</span> <span class="toc-text">web_page （60行） 6.81KB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-returns-（38487行）-1-40MB"><span class="toc-number">5.22.</span> <span class="toc-text">web_returns （38487行） 1.40MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-sales-（668052行）-32-99MB"><span class="toc-number">5.23.</span> <span class="toc-text">web_sales （668052行） 32.99MB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-site-（30行）10-31KB"><span class="toc-number">5.24.</span> <span class="toc-text">web_site （30行）10.31KB</span></a></li></ol></li></ol>
     
@@ -518,7 +518,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>

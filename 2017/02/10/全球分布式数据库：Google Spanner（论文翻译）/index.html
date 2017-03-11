@@ -6,7 +6,7 @@
   <title>全球分布式数据库：google spanner（论文翻译） | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="论文翻译分布式数据库Spanner" />
+  <meta name="keywords" content="分布式数据库Spanner论文翻译" />
   
   
   
@@ -102,15 +102,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -324,7 +324,7 @@
 <nav id="article-nav">
   
     <a href="/2017/02/10/LeetCode[225] Implement Stack using Queues/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           LeetCode[225] Implement Stack using Queues
@@ -334,7 +334,7 @@
   
   
     <a href="/2017/02/10/LeetCode[84] Largest Rectangle in Histogram!/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">LeetCode[84] Largest Rectangle in Histogram!</div>
     </a>
   
@@ -347,7 +347,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-介绍"><span class="toc-number">1.</span> <span class="toc-text">1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-实现"><span class="toc-number">2.</span> <span class="toc-text">2 实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Spanserver-软件栈"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Spanserver 软件栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-目录和放置"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 目录和放置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-数据模型"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 数据模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-并发控制"><span class="toc-number">3.</span> <span class="toc-text">4 并发控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-时间戳管理"><span class="toc-number">3.1.</span> <span class="toc-text">4.1 时间戳管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1-Paxos-领导者租约"><span class="toc-number">3.1.1.</span> <span class="toc-text">4.1.1 Paxos 领导者租约</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2-为读写事务分配时间戳"><span class="toc-number">3.1.2.</span> <span class="toc-text">4.1.2 为读写事务分配时间戳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-3-在某个时间戳下的读操作"><span class="toc-number">3.1.3.</span> <span class="toc-text">4.1.3 在某个时间戳下的读操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-4-为只读事务分配时间戳"><span class="toc-number">3.1.4.</span> <span class="toc-text">4.1.4 为只读事务分配时间戳</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-细节"><span class="toc-number">3.2.</span> <span class="toc-text">4.2 细节</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-读写事务"><span class="toc-number">3.2.1.</span> <span class="toc-text">4.2.1 读写事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-只读事务"><span class="toc-number">3.2.2.</span> <span class="toc-text">4.2.2 只读事务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-模式变更事务"><span class="toc-number">3.2.3.</span> <span class="toc-text">4.2.3 模式变更事务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-实验分析"><span class="toc-number">4.</span> <span class="toc-text">5. 实验分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-微测试基准"><span class="toc-number">4.1.</span> <span class="toc-text">5.1 微测试基准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-可用性"><span class="toc-number">4.2.</span> <span class="toc-text">5.2 可用性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-TrueTime"><span class="toc-number">4.3.</span> <span class="toc-text">5.3 TrueTime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-F1"><span class="toc-number">4.4.</span> <span class="toc-text">5.4 F1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-相关工作"><span class="toc-number">5.</span> <span class="toc-text">6. 相关工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-未来的工作"><span class="toc-number">6.</span> <span class="toc-text">7. 未来的工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-总结"><span class="toc-number">7.</span> <span class="toc-text">8. 总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#致谢"><span class="toc-number">8.</span> <span class="toc-text">致谢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">9.</span> <span class="toc-text">参考文献</span></a></li></ol>
     
@@ -364,7 +364,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>

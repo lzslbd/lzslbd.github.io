@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://linbingdong.com/2017/03/11/有趣的Pythonic写法/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。">
-<meta property="og:updated_time" content="2017-03-11T09:33:27.000Z">
+<meta property="og:updated_time" content="2017-03-11T11:38:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有趣的Pythonic写法">
 <meta name="twitter:description" content="Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。">
@@ -84,15 +84,15 @@
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -150,19 +150,19 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i += <span class="number">2</span>) </div><div class="line">    System.out.print(i + <span class="string">" "</span>);</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>)</div><div class="line">    <span class="keyword">print</span> i,</div></pre></td></tr></table></figure>
-<h4 id="带有索引位置的列表遍历"><a href="#带有索引位置的列表遍历" class="headerlink" title="带有索引位置的列表遍历"></a>带有索引位置的列表遍历</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>, <span class="string">'Friday'</span>]</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(weekdays)):</div><div class="line">	<span class="keyword">print</span> i, <span class="string">'----&gt;'</span>, weekdays[i]</div></pre></td></tr></table></figure>
+<h4 id="带有索引位置的列表遍历"><a href="#带有索引位置的列表遍历" class="headerlink" title="带有索引位置的列表遍历"></a>带有索引位置的列表遍历</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>, <span class="string">'Friday'</span>]</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(weekdays)):</div><div class="line">    <span class="keyword">print</span> i, <span class="string">'----&gt;'</span>, weekdays[i]</div></pre></td></tr></table></figure>
 <p>pythonic</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i, weekday <span class="keyword">in</span> enumerate(weekdays):</div><div class="line">	<span class="keyword">print</span> i, <span class="string">'----&gt;'</span>, weekday</div></pre></td></tr></table></figure>
-<h4 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>, <span class="string">'Friday'</span>]</div><div class="line"></div><div class="line">s = weekdays[<span class="number">0</span>]</div><div class="line"><span class="keyword">for</span> weekday <span class="keyword">in</span> weekdays[<span class="number">1</span>:]:</div><div class="line">	s += <span class="string">', '</span> + weekday</div><div class="line"><span class="keyword">print</span> s</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i, weekday <span class="keyword">in</span> enumerate(weekdays):</div><div class="line">    <span class="keyword">print</span> i, <span class="string">'----&gt;'</span>, weekday</div></pre></td></tr></table></figure>
+<h4 id="字符串连接"><a href="#字符串连接" class="headerlink" title="字符串连接"></a>字符串连接</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>, <span class="string">'Friday'</span>]</div><div class="line"></div><div class="line">s = weekdays[<span class="number">0</span>]</div><div class="line"><span class="keyword">for</span> weekday <span class="keyword">in</span> weekdays[<span class="number">1</span>:]:</div><div class="line">    s += <span class="string">', '</span> + weekday</div><div class="line"><span class="keyword">print</span> s</div></pre></td></tr></table></figure>
 <p>pythonic </p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">print(<span class="string">', '</span>.join(weekdays))</div></pre></td></tr></table></figure>
 <h4 id="打开-关闭文件"><a href="#打开-关闭文件" class="headerlink" title="打开/关闭文件"></a>打开/关闭文件</h4><p>打开文件最后一定要关闭文件。普通的方法是在finally语句中关闭。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">f = open(<span class="string">'test.txt'</span>)</div><div class="line"><span class="keyword">try</span>:</div><div class="line">	data = f.read()</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">	f.close()</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">f = open(<span class="string">'test.txt'</span>)</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    data = f.read()</div><div class="line"><span class="keyword">finally</span>:</div><div class="line">    f.close()</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">with</span> open(<span class="string">'test.txt'</span>) <span class="keyword">as</span> f:</div><div class="line">    data = f.read()</div></pre></td></tr></table></figure>
 <p>使用 with open 语句，系统会在执行完文件操作后自动关闭文件对象。</p>
 <h4 id="列表推导式"><a href="#列表推导式" class="headerlink" title="列表推导式"></a>列表推导式</h4><p>如要生成一个 [0, 3, 6, 9, 12] 这样的列表</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">ls = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">	ls.append(i*<span class="number">3</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line">ls = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    ls.append(i*<span class="number">3</span>)</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">[i*<span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>)]</div></pre></td></tr></table></figure>
 <h4 id="序列解包"><a href="#序列解包" class="headerlink" title="序列解包"></a>序列解包</h4><figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="attr">lbd</span> = <span class="string">'lbd'</span>, <span class="string">'male'</span>, <span class="string">'25'</span>, <span class="string">'beijing'</span></div><div class="line"><span class="attr">name</span> = lbd[<span class="number">0</span>]</div><div class="line"><span class="attr">gender</span> = lbd[<span class="number">1</span>]</div><div class="line"><span class="attr">age</span> = lbd[<span class="number">2</span>]</div><div class="line"><span class="attr">location</span> = lbd[<span class="number">3</span>]</div></pre></td></tr></table></figure>
@@ -171,7 +171,7 @@
 <h4 id="遍历字典的-key-和-value"><a href="#遍历字典的-key-和-value" class="headerlink" title="遍历字典的 key  和 value"></a>遍历字典的 key  和 value</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> k <span class="keyword">in</span> d:</div><div class="line">    <span class="keyword">print</span> (k, <span class="string">'----&gt;'</span>, d[k])</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> d.items():</div><div class="line">    print(k, <span class="string">'----&gt;'</span>, v)</div></pre></td></tr></table></figure>
-<h4 id="if-else"><a href="#if-else" class="headerlink" title="if/else"></a>if/else</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> x == y:</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">	<span class="keyword">return</span> <span class="number">1</span></div></pre></td></tr></table></figure>
+<h4 id="if-else"><a href="#if-else" class="headerlink" title="if/else"></a>if/else</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> x == y:</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span></div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span></div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="number">0</span> <span class="keyword">if</span> x == y <span class="keyword">else</span> <span class="number">1</span></div></pre></td></tr></table></figure>
 <p>相当于 <code>return x==y ? 0 : 1</code></p>
@@ -210,7 +210,7 @@
   
   
     <a href="/2017/03/10/设计模式-观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">设计模式-观察者模式</div>
     </a>
   
@@ -223,7 +223,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">文章目录</strong>
     
       <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量替换"><span class="toc-number">1.</span> <span class="toc-text">变量替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遍历区间元素"><span class="toc-number">2.</span> <span class="toc-text">遍历区间元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#带有索引位置的列表遍历"><span class="toc-number">3.</span> <span class="toc-text">带有索引位置的列表遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串连接"><span class="toc-number">4.</span> <span class="toc-text">字符串连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打开-关闭文件"><span class="toc-number">5.</span> <span class="toc-text">打开/关闭文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表推导式"><span class="toc-number">6.</span> <span class="toc-text">列表推导式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#序列解包"><span class="toc-number">7.</span> <span class="toc-text">序列解包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遍历字典的-key-和-value"><span class="toc-number">8.</span> <span class="toc-text">遍历字典的 key  和 value</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#if-else"><span class="toc-number">9.</span> <span class="toc-text">if/else</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串格式化"><span class="toc-number">10.</span> <span class="toc-text">字符串格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#列表切片"><span class="toc-number">11.</span> <span class="toc-text">列表切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取字典元素"><span class="toc-number">12.</span> <span class="toc-text">获取字典元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#预设字典默认值"><span class="toc-number">13.</span> <span class="toc-text">预设字典默认值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字典推导式"><span class="toc-number">14.</span> <span class="toc-text">字典推导式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考"><span class="toc-number">15.</span> <span class="toc-text">参考</span></a></li></ol>
     
@@ -240,7 +240,7 @@
       <div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
-	      <p id="copyRightCn">LBD hält Urheberrechtsansprüche.</p>
+	      <p id="copyRightCn">LBD 保留所有权利</p>
 	</div>
   </div>
 </footer>
