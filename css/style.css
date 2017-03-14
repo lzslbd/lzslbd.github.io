@@ -621,7 +621,7 @@ body {
 }
 .article-header h1 {
   font-weight: bold;
-  font-family: "futura-pt", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", Microsoft JhengHei, WenQuanYi Micro Hei, "Microsoft YaHei", sans-serif;
+  font-family: Arial, "Hiragino Sans GB", "黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Helvetica, Tahoma, "Arial sans-serif";
 }
 .article-header .thumb {
   margin-top: 20px;
