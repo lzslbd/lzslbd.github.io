@@ -58,7 +58,11 @@
 
 </head>
 
-<body>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
   
   <div id="container">
     <div id="wrap">
@@ -85,7 +89,7 @@
             
             
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="hnav navbar-nav">
                 
                   <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
@@ -366,7 +370,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#事务"><span class="toc-number">1.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACID"><span class="toc-number">2.</span> <span class="toc-text">ACID</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#原子性"><span class="toc-number">2.1.</span> <span class="toc-text">原子性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性"><span class="toc-number">2.2.</span> <span class="toc-text">一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离性"><span class="toc-number">2.3.</span> <span class="toc-text">隔离性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久性"><span class="toc-number">2.4.</span> <span class="toc-text">持久性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分布式事务"><span class="toc-number">3.</span> <span class="toc-text">分布式事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAP定理"><span class="toc-number">4.</span> <span class="toc-text">CAP定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一致性-1"><span class="toc-number">4.1.</span> <span class="toc-text">一致性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可用性"><span class="toc-number">4.2.</span> <span class="toc-text">可用性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分区容错性"><span class="toc-number">4.3.</span> <span class="toc-text">分区容错性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BASE理论"><span class="toc-number">5.</span> <span class="toc-text">BASE理论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本可用"><span class="toc-number">5.1.</span> <span class="toc-text">基本可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软状态"><span class="toc-number">5.2.</span> <span class="toc-text">软状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终一致性"><span class="toc-number">5.3.</span> <span class="toc-text">最终一致性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">6.</span> <span class="toc-text">参考资料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">1.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACID"><span class="nav-number">2.</span> <span class="nav-text">ACID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原子性"><span class="nav-number">2.1.</span> <span class="nav-text">原子性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性"><span class="nav-number">2.2.</span> <span class="nav-text">一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隔离性"><span class="nav-number">2.3.</span> <span class="nav-text">隔离性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#持久性"><span class="nav-number">2.4.</span> <span class="nav-text">持久性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务"><span class="nav-number">3.</span> <span class="nav-text">分布式事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAP定理"><span class="nav-number">4.</span> <span class="nav-text">CAP定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一致性-1"><span class="nav-number">4.1.</span> <span class="nav-text">一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可用性"><span class="nav-number">4.2.</span> <span class="nav-text">可用性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分区容错性"><span class="nav-number">4.3.</span> <span class="nav-text">分区容错性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BASE理论"><span class="nav-number">5.</span> <span class="nav-text">BASE理论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本可用"><span class="nav-number">5.1.</span> <span class="nav-text">基本可用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软状态"><span class="nav-number">5.2.</span> <span class="nav-text">软状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最终一致性"><span class="nav-number">5.3.</span> <span class="nav-text">最终一致性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol>
     
     </div>
   </aside>

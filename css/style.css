@@ -569,7 +569,7 @@ body {
 .article-inner .h4,
 .article-inner .h5,
 .article-inner .h6 {
-  font-family: "futura-pt", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", Microsoft JhengHei, WenQuanYi Micro Hei, "Microsoft YaHei", sans-serif;
+  font-family: Arial, "Hiragino Sans GB", "黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Helvetica, Tahoma, "Arial sans-serif";
 }
 .article-meta {
   text-align: center;
@@ -1099,21 +1099,27 @@ a.article-title:hover {
   overflow: hidden;
   z-index: 1;
 }
-.toc {
+.nav {
   padding: 0;
   margin: 1em;
   line-height: 1.8em;
-li
-  list-style-type: none;
 }
-.toc-link {
-  font-family: "futura-pt", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", Microsoft JhengHei, WenQuanYi Micro Hei, "Microsoft YaHei", sans-serif;
-  color: #0e83cd;
+.nav li a:hover,
+.nav list-style-type none a:hover {
+  background-color: transparent !important;
 }
-.toc-link:hover {
+.nav .active > a {
   color: #fb6d19;
 }
-.toc-child {
+.nav-link {
+  font-family: "futura-pt", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", Microsoft JhengHei, WenQuanYi Micro Hei, "Microsoft YaHei", sans-serif;
+  color: #0e83cd;
+  padding: 1px !important;
+}
+.nav-link:hover {
+  color: #fb6d19;
+}
+.nav-child {
   margin-left: 1em;
 }
 #comments {

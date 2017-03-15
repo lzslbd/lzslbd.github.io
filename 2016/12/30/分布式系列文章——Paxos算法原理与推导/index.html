@@ -70,7 +70,11 @@
 
 </head>
 
-<body>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
   
   <div id="container">
     <div id="wrap">
@@ -97,7 +101,7 @@
             
             
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="hnav navbar-nav">
                 
                   <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
@@ -390,7 +394,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Paxos是什么"><span class="toc-number">1.</span> <span class="toc-text">Paxos是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题产生的背景"><span class="toc-number">2.</span> <span class="toc-text">问题产生的背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关概念"><span class="toc-number">3.</span> <span class="toc-text">相关概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">4.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推导过程"><span class="toc-number">5.</span> <span class="toc-text">推导过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最简单的方案——只有一个Acceptor"><span class="toc-number">5.1.</span> <span class="toc-text">最简单的方案——只有一个Acceptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多个Acceptor"><span class="toc-number">5.2.</span> <span class="toc-text">多个Acceptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Proposer生成提案"><span class="toc-number">5.3.</span> <span class="toc-text">Proposer生成提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Acceptor接受提案"><span class="toc-number">5.4.</span> <span class="toc-text">Acceptor接受提案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Paxos算法描述"><span class="toc-number">5.5.</span> <span class="toc-text">Paxos算法描述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learner学习被选定的value"><span class="toc-number">6.</span> <span class="toc-text">Learner学习被选定的value</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何保证Paxos算法的活性"><span class="toc-number">7.</span> <span class="toc-text">如何保证Paxos算法的活性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paxos是什么"><span class="nav-number">1.</span> <span class="nav-text">Paxos是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题产生的背景"><span class="nav-number">2.</span> <span class="nav-text">问题产生的背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">3.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">4.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推导过程"><span class="nav-number">5.</span> <span class="nav-text">推导过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最简单的方案——只有一个Acceptor"><span class="nav-number">5.1.</span> <span class="nav-text">最简单的方案——只有一个Acceptor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个Acceptor"><span class="nav-number">5.2.</span> <span class="nav-text">多个Acceptor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposer生成提案"><span class="nav-number">5.3.</span> <span class="nav-text">Proposer生成提案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Acceptor接受提案"><span class="nav-number">5.4.</span> <span class="nav-text">Acceptor接受提案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Paxos算法描述"><span class="nav-number">5.5.</span> <span class="nav-text">Paxos算法描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learner学习被选定的value"><span class="nav-number">6.</span> <span class="nav-text">Learner学习被选定的value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何保证Paxos算法的活性"><span class="nav-number">7.</span> <span class="nav-text">如何保证Paxos算法的活性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol>
     
     </div>
   </aside>

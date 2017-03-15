@@ -57,7 +57,11 @@
 
 </head>
 
-<body>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
   
   <div id="container">
     <div id="wrap">
@@ -84,7 +88,7 @@
             
             
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="hnav navbar-nav">
                 
                   <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
@@ -336,7 +340,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-相关概念"><span class="toc-number">1.</span> <span class="toc-text">1. 相关概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Metadata、Metastore作用"><span class="toc-number">1.1.</span> <span class="toc-text">Metadata、Metastore作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三种配置方式区别"><span class="toc-number">1.2.</span> <span class="toc-text">三种配置方式区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集群规划"><span class="toc-number">2.</span> <span class="toc-text">集群规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装MySQL"><span class="toc-number">3.</span> <span class="toc-text">安装MySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置MySQL和metastore"><span class="toc-number">4.</span> <span class="toc-text">配置MySQL和metastore</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hive配置"><span class="toc-number">5.</span> <span class="toc-text">Hive配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HDFS存储位置配置"><span class="toc-number">5.1.</span> <span class="toc-text">HDFS存储位置配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive-env-sh-所有节点）"><span class="toc-number">5.2.</span> <span class="toc-text">hive-env.sh (所有节点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hive-log4j-properties（所有节点）"><span class="toc-number">5.3.</span> <span class="toc-text">hive-log4j.properties（所有节点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端hive-site-xml"><span class="toc-number">5.4.</span> <span class="toc-text">服务端hive-site.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端hive-site-xml"><span class="toc-number">5.5.</span> <span class="toc-text">客户端hive-site.xml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动Hive"><span class="toc-number">6.</span> <span class="toc-text">启动Hive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-相关概念"><span class="nav-number">1.</span> <span class="nav-text">1. 相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Metadata、Metastore作用"><span class="nav-number">1.1.</span> <span class="nav-text">Metadata、Metastore作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种配置方式区别"><span class="nav-number">1.2.</span> <span class="nav-text">三种配置方式区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群规划"><span class="nav-number">2.</span> <span class="nav-text">集群规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MySQL"><span class="nav-number">3.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置MySQL和metastore"><span class="nav-number">4.</span> <span class="nav-text">配置MySQL和metastore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hive配置"><span class="nav-number">5.</span> <span class="nav-text">Hive配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS存储位置配置"><span class="nav-number">5.1.</span> <span class="nav-text">HDFS存储位置配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hive-env-sh-所有节点）"><span class="nav-number">5.2.</span> <span class="nav-text">hive-env.sh (所有节点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hive-log4j-properties（所有节点）"><span class="nav-number">5.3.</span> <span class="nav-text">hive-log4j.properties（所有节点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端hive-site-xml"><span class="nav-number">5.4.</span> <span class="nav-text">服务端hive-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端hive-site-xml"><span class="nav-number">5.5.</span> <span class="nav-text">客户端hive-site.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Hive"><span class="nav-number">6.</span> <span class="nav-text">启动Hive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol>
     
     </div>
   </aside>

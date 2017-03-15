@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-881a52aa250e3bd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-b6f3bb3a8024a63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-15T08:18:49.000Z">
+<meta property="og:updated_time" content="2017-03-15T08:24:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python函数式编程">
 <meta name="twitter:description" content="虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。">
@@ -61,7 +61,11 @@
 
 </head>
 
-<body>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
   
   <div id="container">
     <div id="wrap">
@@ -88,7 +92,7 @@
             
             
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="hnav navbar-nav">
                 
                   <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
@@ -179,7 +183,9 @@
       
         <p>虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。</p>
 <a id="more"></a>
-<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表达式的定义体必须和声明放在同一行。语法如下：<br><code>lambda [arg1[, arg2, ... argN]]: expression</code><br>参数是可选的，如果使用参数的话，参数通常也会出现在表达式中。</p>
+<h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表达式的定义体必须和声明放在同一行。语法如下：</p>
+<p><code>lambda [arg1[, arg2, ... argN]]: expression</code></p>
+<p>参数是可选的，如果使用参数的话，参数通常也会出现在表达式中。</p>
 <p>注意：lambda 表达式返回可调用的函数对象。其实 lambda 表达式本身就是一个函数，这个函数定义了输入（冒号左边）和输出（冒号右边），只不过这个函数没有名字，但是我们可以把它赋给一个变量。</p>
 <p>比如简单的加法函数。一般我们是这么写的：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></div><div class="line">	<span class="keyword">return</span> x+y</div></pre></td></tr></table></figure>
@@ -210,7 +216,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x : x**<span class="number">3</span>, range(<span class="number">1</span>, <span class="number">11</span>))</div><div class="line">[<span class="number">1</span>, <span class="number">8</span>, <span class="number">27</span>, <span class="number">64</span>, <span class="number">125</span>, <span class="number">216</span>, <span class="number">343</span>, <span class="number">512</span>, <span class="number">729</span>, <span class="number">1000</span>]</div></pre></td></tr></table></figure>
 <p>列表生成式：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>[x**<span class="number">3</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</div><div class="line">[<span class="number">1</span>, <span class="number">8</span>, <span class="number">27</span>, <span class="number">64</span>, <span class="number">125</span>, <span class="number">216</span>, <span class="number">343</span>, <span class="number">512</span>, <span class="number">729</span>, <span class="number">1000</span>]</div></pre></td></tr></table></figure>
-<p><strong>map() 也可以处理多个序列。</strong></p>
+<p><strong>注意：map() 也可以处理多个序列。</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x, y: x + y, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>])</div><div class="line">[<span class="number">3</span>, <span class="number">7</span>, <span class="number">11</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">lambda</span> x, y: (x+y, x-y), [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>])</div><div class="line">[(<span class="number">3</span>, <span class="number">-1</span>), (<span class="number">7</span>, <span class="number">-1</span>), (<span class="number">11</span>, <span class="number">-1</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>map(<span class="keyword">None</span>, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>])</div><div class="line">[(<span class="number">1</span>, <span class="number">2</span>), (<span class="number">3</span>, <span class="number">4</span>), (<span class="number">5</span>, <span class="number">6</span>)]</div></pre></td></tr></table></figure>
 <p>工作流程如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-881a52aa250e3bd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="How the map() built-in function works with &gt; 1 sequence"></p>
@@ -299,7 +305,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数"><span class="toc-number">1.</span> <span class="toc-text">匿名函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高阶函数"><span class="toc-number">2.</span> <span class="toc-text">高阶函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#filter"><span class="toc-number">2.1.</span> <span class="toc-text">filter()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#map"><span class="toc-number">2.2.</span> <span class="toc-text">map()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reduce"><span class="toc-number">2.3.</span> <span class="toc-text">reduce()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#偏函数"><span class="toc-number">3.</span> <span class="toc-text">偏函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名函数"><span class="nav-number">1.</span> <span class="nav-text">匿名函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶函数"><span class="nav-number">2.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#filter"><span class="nav-number">2.1.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">2.2.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reduce"><span class="nav-number">2.3.</span> <span class="nav-text">reduce()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#偏函数"><span class="nav-number">3.</span> <span class="nav-text">偏函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol>
     
     </div>
   </aside>
