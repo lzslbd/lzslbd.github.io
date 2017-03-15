@@ -144,6 +144,62 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/05/链表中倒数第k个节点/">链表中倒数第k个节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/05/链表中倒数第k个节点/" class="article-date">
+	  <time datetime="2017-01-05T15:47:21.000Z" itemprop="datePublished">2017-01-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>输入一个链表，输出该链表中倒数第k个结点。</p>
+<p><strong>分析</strong></p>
+<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+输入一个链表，输出该链表中倒数第k个结点。
+分析
+两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
+代码:
+
+/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/05/链表中倒数第k个节点/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-数组中只出现一次的数字II"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -624,60 +680,6 @@ public class Solution &......  -->
 排序规则如下：若ab &gt; ba 则 a &gt; b，若ab &lt; ......  -->
         <p class="article-more-link">
           <a href="/2017/01/03/把数组排成最小的数/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-数组中出现次数超过一半的数字"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/03/数组中出现次数超过一半的数字/">数组中出现次数超过一半的数字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/03/数组中出现次数超过一半的数字/" class="article-date">
-	  <time datetime="2017-01-03T04:44:00.000Z" itemprop="datePublished">2017-01-03</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
-<p><strong>分析</strong></p>
-<p>用HashMap，key为数组中的数字，value为该数字在数组中出现的次数。边put边计算当前该数字的次数，若超过数组长度的一半直接返回。最后返回0。</p>
-<p><strong>代码:</strong></p>
-        <!-- 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
-分析
-用HashMap，key为数组中的数字，value为该数字在数组中出现的次数。边put边计算当前该数字的次数，若超过数组长度的一半直接返回。最后返回0。
-代码:
-
-import......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/03/数组中出现次数超过一半的数字/#more">阅读全文</a>
         </p>
       
     </div>
