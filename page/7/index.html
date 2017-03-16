@@ -148,6 +148,62 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-把数组排成最小的数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/03/把数组排成最小的数/">把数组排成最小的数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/03/把数组排成最小的数/" class="article-date">
+	  <time datetime="2017-01-03T11:54:27.000Z" itemprop="datePublished">2017-01-03</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。</p>
+<p><strong>分析</strong></p>
+<p>先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。</p>
+<p>排序规则如下：<br>若ab &gt; ba 则 a &gt; b，<br>若ab &lt; ba 则 a &lt; b，<br>若ab = ba 则 a = b；</p>
+<p>解释说明：比如 “3” &lt; “31”但是 “331” &gt; “313”，所以要将二者拼接起来进行比较</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。
+分析
+先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。
+排序规则如下：若ab &gt; ba 则 a &gt; b，若ab &lt; ......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/03/把数组排成最小的数/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-数组中出现次数超过一半的数字"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -624,60 +680,6 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
 public class Solution &#123;    public String replaceSpace(StringBuffer str......  -->
         <p class="article-more-link">
           <a href="/2016/12/27/替换空格/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-二维数组中的查找"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/26/二维数组中的查找/">二维数组中的查找</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/26/二维数组中的查找/" class="article-date">
-	  <time datetime="2016-12-26T15:10:30.000Z" itemprop="datePublished">2016-12-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p><strong>分析</strong></p>
-<p>从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。</p>
-<p><strong>代码:</strong></p>
-        <!-- 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
-分析
-从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。
-代码:
-
-public class Solution &#123;    public boolea......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/26/二维数组中的查找/#more">阅读全文</a>
         </p>
       
     </div>

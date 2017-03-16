@@ -148,6 +148,53 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Python用yield生成杨辉三角"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/16/Python用yield生成杨辉三角/">Python用yield生成杨辉三角</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/16/Python用yield生成杨辉三角/" class="article-date">
+	  <time datetime="2017-03-16T08:01:11.000Z" itemprop="datePublished">2017-03-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">triangles</span><span class="params">()</span>:</span></div><div class="line">	n = <span class="number">0</span></div><div class="line">	line = [<span class="number">1</span>]</div><div class="line">	<span class="keyword">while</span> n &lt; <span class="number">10</span>:</div><div class="line">		<span class="keyword">yield</span>(line)</div><div class="line">		line.append(<span class="number">0</span>)</div><div class="line">		line = [line[i<span class="number">-1</span>] + line[i] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(line))]</div><div class="line">		n += <span class="number">1</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> line <span class="keyword">in</span> triangles():</div><div class="line">	print(line)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><div class="line">[<span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">6</span>, <span class="number">15</span>, <span class="number">20</span>, <span class="number">15</span>, <span class="number">6</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">7</span>, <span class="number">21</span>, <span class="number">35</span>, <span class="number">35</span>, <span class="number">21</span>, <span class="number">7</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">8</span>, <span class="number">28</span>, <span class="number">56</span>, <span class="number">70</span>, <span class="number">56</span>, <span class="number">28</span>, <span class="number">8</span>, <span class="number">1</span>]</div><div class="line">[<span class="number">1</span>, <span class="number">9</span>, <span class="number">36</span>, <span class="number">84</span>, <span class="number">126</span>, <span class="number">126</span>, <span class="number">84</span>, <span class="number">36</span>, <span class="number">9</span>, <span class="number">1</span>]</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Python函数式编程"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -629,56 +676,6 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-经典编程书籍"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/20/经典编程书籍/">经典编程书籍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/20/经典编程书籍/" class="article-date">
-	  <time datetime="2017-02-20T06:31:27.000Z" itemprop="datePublished">2017-02-20</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。</p>
-<p><a href="https://github.com/jobbole/awesome-programming-books">原文</a></p>
-        <!-- 经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
-原文
-
-这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/20/经典编程书籍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典编程书籍/">经典编程书籍</a></li></ul>
 
     </footer>
   </div>
