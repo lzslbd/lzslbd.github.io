@@ -148,6 +148,70 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-丑数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/04/丑数/">丑数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/04/丑数/" class="article-date">
+	  <time datetime="2017-01-04T03:36:55.000Z" itemprop="datePublished">2017-01-04</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<p><strong>分析</strong></p>
+<p>这里的因子指的是质因子。</p>
+<p>每个丑数等于某个比它小的丑数x2或x3或x5。<br>根据提示中的信息，我们知道丑数可以拆分成3个子序列:</p>
+<ol>
+<li>1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… </li>
+<li>1x3, 2x3, 3x3, 4x3, 5x3, 6x2, 8x2… </li>
+<li>1x5, 2x5, 3x5, 4x5, 5x5, 6x2, 8x2…</li>
+</ol>
+<p>其中1，2，3，4，5，6，8（注意，没有7）是前几个丑数。7有因子7，所以不是丑数。</p>
+<p>每次从三个子序列中取出当前最小的那个加入序列，直到第N个为止。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
+分析
+这里的因子指的是质因子。
+每个丑数等于某个比它小的丑数x2或x3或x5。根据提示中的信息，我们知道丑数可以拆分成3个子序列:
+
+1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… ......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/04/丑数/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-把数组排成最小的数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -642,65 +706,11 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
 <!-- Table of Contents -->
 
   
-    <article id="post-替换空格"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/27/替换空格/">替换空格</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/27/替换空格/" class="article-date">
-	  <time datetime="2016-12-27T09:21:56.000Z" itemprop="datePublished">2016-12-27</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<p><strong>分析</strong></p>
-<p>这道题有很多种方法，最简单的是直接调用String的replace方法</p>
-<p><strong>代码:</strong></p>
-        <!-- 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
-分析
-这道题有很多种方法，最简单的是直接调用String的replace方法
-代码:
-
-public class Solution &#123;    public String replaceSpace(StringBuffer str......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/27/替换空格/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/">下一页 &raquo;</a>
   </nav>
 
 </section>
