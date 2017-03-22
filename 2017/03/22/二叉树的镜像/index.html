@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>滑动窗口的最大值 | LBD&#39;s Blog</title>
+  <title>二叉树的镜像 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="数据结构与算法编程题" />
@@ -12,19 +12,28 @@
   
   
   <meta name="description" content="题目描述
-给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5">
+操作给定的二叉树，将其变换为源二叉树的镜像。 
+输入描述:
+二叉树的镜像定义：
+    源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="滑动窗口的最大值">
-<meta property="og:url" content="http://linbingdong.com/2017/03/22/滑动窗口的最大值/index.html">
+<meta property="og:title" content="二叉树的镜像">
+<meta property="og:url" content="http://linbingdong.com/2017/03/22/二叉树的镜像/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="题目描述
-给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5">
+操作给定的二叉树，将其变换为源二叉树的镜像。 
+输入描述:
+二叉树的镜像定义：
+    源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-22T04:14:18.000Z">
+<meta property="og:updated_time" content="2017-03-22T07:25:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="滑动窗口的最大值">
+<meta name="twitter:title" content="二叉树的镜像">
 <meta name="twitter:description" content="题目描述
-给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5">
+操作给定的二叉树，将其变换为源二叉树的镜像。 
+输入描述:
+二叉树的镜像定义：
+    源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -154,7 +163,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-滑动窗口的最大值" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-二叉树的镜像" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -162,7 +171,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      滑动窗口的最大值
+      二叉树的镜像
     </h1>
   
 
@@ -170,8 +179,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/22/滑动窗口的最大值/" class="article-date">
-	  <time datetime="2017-03-22T04:14:18.000Z" itemprop="datePublished">2017-03-22</time>
+	<a href="/2017/03/22/二叉树的镜像/" class="article-date">
+	  <time datetime="2017-03-22T07:25:00.000Z" itemprop="datePublished">2017-03-22</time>
 	</a>
 
       
@@ -181,13 +190,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。 </p>
+<p>输入描述:</p>
+<p>二叉树的镜像定义：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">    源二叉树 </div><div class="line">    <span class="number">8</span></div><div class="line">   /  \</div><div class="line">  <span class="number">6</span>   <span class="number">10</span></div><div class="line"> / \  / \</div><div class="line"><span class="number">5</span>  <span class="number">7</span> <span class="number">9</span>  <span class="number">11</span></div><div class="line"></div><div class="line">镜像二叉树</div><div class="line">    <span class="number">8</span></div><div class="line">   /  \</div><div class="line">  <span class="number">10</span>   <span class="number">6</span></div><div class="line"> / \  / \</div><div class="line"><span class="number">11</span> <span class="number">9</span> <span class="number">7</span>   <span class="number">5</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p><strong>分析</strong></p>
-<p>如果用暴力解决，可以扫描每个滑动窗口的所有数字并找出其中的最大值，如果数组长度为 n ，滑动窗口的长度为 k ，则时间复杂度为O(nk)。</p>
-<p>换一种思路。使用一个双端队列，只把可能成为滑动窗口最大值的数加入队列，队头是最大值。每次有新值加入时，将它与队尾元素一一比较，若队尾元素小于它，则删除队尾元素，最后将该新值加入队列。如果队头元素已在滑动窗口之外，将队头元素删除。</p>
+<p>用递归可以很方便地解决。</p>
+<p>如果不用递归的话，可以借助队列来实现。思想类似于二叉树的层序遍历</p>
 <p><strong>代码:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayDeque;</div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">maxInWindows</span><span class="params">(<span class="keyword">int</span> [] num, <span class="keyword">int</span> size)</span></span>&#123;</div><div class="line">        ArrayList&lt;Integer&gt; maxList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        ArrayDeque&lt;Integer&gt; dq = <span class="keyword">new</span> ArrayDeque&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span> (size == <span class="number">0</span> || size &gt; num.length) &#123;</div><div class="line">            <span class="keyword">return</span> maxList;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; size; i++) &#123;</div><div class="line">            <span class="keyword">while</span> (!dq.isEmpty() &amp;&amp; num[i] &gt; num[dq.peekLast()]) &#123;</div><div class="line">                dq.pollLast();</div><div class="line">            &#125;</div><div class="line">            dq.add(i);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = size; i &lt; num.length; i++) &#123;</div><div class="line">            maxList.add(num[dq.peekFirst()]);</div><div class="line">            <span class="keyword">while</span> (!dq.isEmpty() &amp;&amp; num[i] &gt; num[dq.peekLast()]) &#123;</div><div class="line">                dq.pollLast();</div><div class="line">            &#125;</div><div class="line">            dq.add(i);</div><div class="line">            <span class="keyword">if</span> (dq.peekFirst() &lt;= i - size) &#123;</div><div class="line">                dq.pollFirst();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        maxList.add(num[dq.peekFirst()]);</div><div class="line">        <span class="keyword">return</span> maxList;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>递归：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        TreeNode temp = root.left;</div><div class="line">        root.left = root.right;</div><div class="line">        root.right = temp;</div><div class="line">        Mirror(root.left);</div><div class="line">        Mirror(root.right);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>迭代：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Queue;</div><div class="line"><span class="keyword">import</span> java.util.LinkedList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Mirror</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</div><div class="line">        q.offer(root);</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            TreeNode node = q.poll();</div><div class="line">            TreeNode temp = node.left;</div><div class="line">            node.left = node.right;</div><div class="line">            node.right = temp;</div><div class="line">            <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) q.offer(node.left);</div><div class="line">            <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) q.offer(node.right);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
@@ -198,7 +213,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/03/22/滑动窗口的最大值/" data-title="滑动窗口的最大值" data-url="http://linbingdong.com/2017/03/22/滑动窗口的最大值/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/03/22/二叉树的镜像/" data-title="二叉树的镜像" data-url="http://linbingdong.com/2017/03/22/二叉树的镜像/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -227,19 +242,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/22/二叉树的镜像/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          二叉树的镜像
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/21/旋转数组的最小数字/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/22/滑动窗口的最大值/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">旋转数组的最小数字</div>
+      <div class="article-nav-title">滑动窗口的最大值</div>
     </a>
   
 </nav>

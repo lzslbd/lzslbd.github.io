@@ -148,6 +148,60 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-LeetCode[5] 最长的回文子串"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/08/27/LeetCode[5] 最长的回文子串/">LeetCode[5] 最长的回文子串</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/08/27/LeetCode[5] 最长的回文子串/" class="article-date">
+	  <time datetime="2016-08-27T11:45:22.000Z" itemprop="datePublished">2016-08-27</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
+</blockquote>
+<p>即给定一个字符串，返回该字符串最长的回文子串<br>如给出“acabcddcbadike”,返回“abcddcba”。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>回文子串分为长度为偶数（中间两个字符相同，就像示例）和长度为奇数两种。<br>从头往后遍历s.length()趟，第i趟指针j，k从i（奇数）或j从i，k从i+1（偶数）向两边扩散（s.charAt(i)和s.charAt(j)相等才扩散），k-j-1为该回文子串长度，若比之前maxlen大，则更新maxlen。</p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3>
+        <!-- 题目描述
+Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+
+即给定一个字符串，返回该字符串最......  -->
+        <p class="article-more-link">
+          <a href="/2016/08/27/LeetCode[5] 最长的回文子串/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
