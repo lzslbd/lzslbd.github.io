@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>category: 数据结构与算法 | LBD&#39;s Blog</title>
+  <title>leetcode[106] construct binary tree from inorder and postorder traversal | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="LeetCode数据结构与算法编程题" />
   
   
   
-  <meta name="description" content="大数据与分布式">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LBD's Blog">
-<meta property="og:url" content="http://linbingdong.com/categories/数据结构与算法/page/3/index.html">
+  
+  <meta name="description" content="Given inorder and postorder traversal of a tree, construct the binary tree.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal">
+<meta property="og:url" content="http://linbingdong.com/2017/03/22/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="大数据与分布式">
+<meta property="og:description" content="Given inorder and postorder traversal of a tree, construct the binary tree.">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-22T14:18:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LBD's Blog">
-<meta name="twitter:description" content="大数据与分布式">
+<meta name="twitter:title" content="LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal">
+<meta name="twitter:description" content="Given inorder and postorder traversal of a tree, construct the binary tree.">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -49,14 +54,12 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -79,7 +82,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -148,238 +151,98 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-  
-  
+          <section id="main" style="float:none;"><article id="post-LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/19/调整数组顺序使奇数在偶数前面（相对位置不变）/" class="archive-article-date">
-	  <time datetime="2017-01-19T10:02:10.000Z" itemprop="datePublished">2017-01-19</time>
-	</a>
-
-      
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/19/调整数组顺序使奇数在偶数前面（相对位置不变）/">调整数组顺序使奇数在偶数前面（相对位置不变）</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
+    <div class="article-meta">
       
-	<a href="/2017/01/17/LeetCode[205] Isomorphic Strings/" class="archive-article-date">
-	  <time datetime="2017-01-17T15:26:45.000Z" itemprop="datePublished">2017-01-17</time>
+	<a href="/2017/03/22/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" class="article-date">
+	  <time datetime="2017-03-22T14:18:18.000Z" itemprop="datePublished">2017-03-22</time>
 	</a>
 
       
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/17/LeetCode[205] Isomorphic Strings/">LeetCode[205] Isomorphic Strings</a>
-    </h1>
-  
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
-    </header>
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
+<a id="more"></a>
+<p><strong>分析:</strong></p>
+<p>本题是重建二叉树（后序加中序），跟<a href="http://linbingdong.com/2017/03/22/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">重建二叉树</a>（先序加中序）思路一样。</p>
+<p><strong>代码:</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span>[] inorder, <span class="keyword">int</span>[] postorder)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> rebuildTree(postorder, <span class="number">0</span>, postorder.length, inorder, <span class="number">0</span>, inorder.length);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function">TreeNode <span class="title">rebuildTree</span><span class="params">(<span class="keyword">int</span>[] postorder, <span class="keyword">int</span> begin1, <span class="keyword">int</span> end1, <span class="keyword">int</span>[] inorder, <span class="keyword">int</span> begin2, <span class="keyword">int</span> end2)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (begin1 == end1) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(postorder[end1 - <span class="number">1</span>]);</div><div class="line">        <span class="keyword">int</span> inPos = find(inorder, begin2, end2, postorder[end1 - <span class="number">1</span>]);</div><div class="line">        <span class="keyword">int</span> rightSize = end2 - inPos - <span class="number">1</span>;</div><div class="line">        root.right = rebuildTree(postorder, end1 - rightSize - <span class="number">1</span>, end1 - <span class="number">1</span>, inorder, inPos + <span class="number">1</span>, end2);</div><div class="line">        root.left = rebuildTree(postorder, begin1, end1 - rightSize - <span class="number">1</span>, inorder, begin2, inPos);</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span>[] in, <span class="keyword">int</span> begin2, <span class="keyword">int</span> end2, <span class="keyword">int</span> val)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = begin2; i &lt; end2; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (in[i] == val)</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/22/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" data-title="LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal" data-url="http://linbingdong.com/2017/03/22/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linbingdong"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/22/重建二叉树/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">重建二叉树</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
     
+        <ol class="artnav">无</ol>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/17/LeetCode[290] Word Pattern/" class="archive-article-date">
-	  <time datetime="2017-01-17T14:50:29.000Z" itemprop="datePublished">2017-01-17</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/17/LeetCode[290] Word Pattern/">LeetCode[290] Word Pattern</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/16/表示数值的字符串/" class="archive-article-date">
-	  <time datetime="2017-01-16T15:15:13.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/16/表示数值的字符串/">表示数值的字符串</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/16/构建乘积数组/" class="archive-article-date">
-	  <time datetime="2017-01-16T14:21:29.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/16/构建乘积数组/">构建乘积数组</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/16/数组中重复的数字/" class="archive-article-date">
-	  <time datetime="2017-01-16T12:58:15.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/16/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/09/字符流中第一个不重复的字符/" class="archive-article-date">
-	  <time datetime="2017-01-09T15:16:02.000Z" itemprop="datePublished">2017-01-09</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/09/字符流中第一个不重复的字符/">字符流中第一个不重复的字符</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/07/链表中环的入口/" class="archive-article-date">
-	  <time datetime="2017-01-07T01:30:38.000Z" itemprop="datePublished">2017-01-07</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/07/链表中环的入口/">链表中环的入口节点</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/06/反转链表/" class="archive-article-date">
-	  <time datetime="2017-01-06T10:56:13.000Z" itemprop="datePublished">2017-01-06</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/反转链表/">反转链表</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/01/06/合并两个有序的链表/" class="archive-article-date">
-	  <time datetime="2017-01-06T09:25:54.000Z" itemprop="datePublished">2017-01-06</time>
-	</a>
-
-      
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/01/06/合并两个有序的链表/">合并两个有序的链表</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/categories/数据结构与算法/page/2/">&laquo; 上一页</a><a class="page-number" href="/categories/数据结构与算法/">1</a><a class="page-number" href="/categories/数据结构与算法/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/数据结构与算法/page/4/">4</a><a class="page-number" href="/categories/数据结构与算法/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/categories/数据结构与算法/page/7/">7</a><a class="extend next" rel="next" href="/categories/数据结构与算法/page/4/">下一页 &raquo;</a>
-  </nav>
-
+    </div>
+  </aside>
 </section>
         
       </div>
@@ -484,6 +347,8 @@
   <script src="/js/home.js"></script>
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 

@@ -148,6 +148,65 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Java中wait、sleep和yield的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/15/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/15/Java中wait、sleep和yield的区别/" class="article-date">
+	  <time datetime="2016-12-15T03:35:56.000Z" itemprop="datePublished">2016-12-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
+<p>本质上，wait方法是用来让线程<strong>等待某个条件</strong>，进入该条件的等待集中。而sleep和yield方法是用来让线程<strong>让出CPU时间</strong>，把CPU交给线程调度器，使得其他线程能获得CPU时间。</p>
+<p>接下来详细比较三个方法。</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p>常用的wait方法有<strong>wait( )</strong>和<strong>wait(long timeout)</strong></p>
+<p>wait( )方法导致当前线程进入等待状态直到它被通知（其他线程调用notify或notifyAll方法。notify/notifyAll方法解除等待线程的阻塞状态）。    </p>
+<p>wait(long timeout) 方法导致当前线程进入等待状态直到它被通知或者经过指定的时间。</p>
+<p> <strong>wait( )后，线程会释放掉它所占有的对象的锁</strong>，从而使线程所在对象中的其它synchronized数据可被别的线程使用。</p>
+<p><strong>wait方法只能在一个同步方法中调用</strong>。如果当前线程不是对象锁的持有者，该方法抛出一个IllegalMonitorStateException异常。</p>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>Thread.sleep(long millis),<strong>必须带有一个时间参数</strong>。</p>
+<p> sleep(long millis)使当前线程进入停滞状态，所以执行sleep()的线程<strong>在指定的时间内肯定不会被执行</strong>。</p>
+<p> sleep(long millis)可能使<strong>任意优先级</strong>的其他线程得到执行机会。</p>
+<p>sleep(long millis)<strong>不会释放锁</strong>。</p>
+<p>调用sleep方法的线程在唤醒之后<strong>不保证</strong>能获取到CPU，它会先进入就绪态，与其他线程<strong>竞争CPU</strong>。</p>
+<h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
+<p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
+<p>yield方法也<strong>不会释放锁</strong>。</p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-分布式系列文章——从ACID到CAP:BASE"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -588,57 +647,6 @@ For example,Given sorted array nums = [1,1,1,2,2,3],
 Your function should return length = 5, with the first five elem......  -->
         <p class="article-more-link">
           <a href="/2016/12/04/LeetCode[80] Remove Duplicates from Sorted Array II/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[26] Remove Duplicates from Sorted Array"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/LeetCode[26] Remove Duplicates from Sorted Array/">LeetCode[26] Remove Duplicates from Sorted Array</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/04/LeetCode[26] Remove Duplicates from Sorted Array/" class="article-date">
-	  <time datetime="2016-12-04T13:44:06.000Z" itemprop="datePublished">2016-12-04</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
-<p>For example,<br>Given input array nums = [1,1,2],</p>
-<p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.</p>
-<p><strong>代码:</strong></p>
-        <!-- Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
-Do not allocate extra space for another array, you must do this in place with......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/04/LeetCode[26] Remove Duplicates from Sorted Array/#more">阅读全文</a>
         </p>
       
     </div>

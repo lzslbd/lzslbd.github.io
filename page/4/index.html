@@ -148,6 +148,67 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-LeetCode[155] Min Stack"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/08/LeetCode[155] Min Stack/">LeetCode[155] Min Stack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/08/LeetCode[155] Min Stack/" class="article-date">
+	  <time datetime="2017-02-08T05:41:04.000Z" itemprop="datePublished">2017-02-08</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<ul>
+<li>push(x) – Push element x onto stack.</li>
+<li>pop() – Removes the element on top of the stack.</li>
+<li>top() – Get the top element.</li>
+<li>getMin() – Retrieve the minimum element in the stack.</li>
+</ul>
+<p>Example:</p>
+<p>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; Returns -3.<br>minStack.pop();<br>minStack.top();      –&gt; Returns 0.<br>minStack.getMin();   –&gt; Returns -2.</p>
+<p><strong>分析:</strong></p>
+<p>Java中本来就有Stack。本题跟普通Stack的区别是需要记住最小值，关键在于push和pop方法。在push时，若x比当前的min更小，则先push值min，再push值x，并令min = x。在pop时，若该值为min值，需要pop两次，并且让第二次pop的值为min值。push和pop相呼应。</p>
+<p><strong>代码:</strong></p>
+        <!-- Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) – Push element x onto stack.
+pop() – Removes the element on top of the stack.
+top() – Get ......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/08/LeetCode[155] Min Stack/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-和为S的两个数字"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -638,55 +699,6 @@ import java.util.ArrayList;public class Solut......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/16/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/16/纠删码（Erasure Code）浅析/" class="article-date">
-	  <time datetime="2017-01-16T08:29:08.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
-        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
-
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/16/纠删码（Erasure Code）浅析/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
 
     </footer>
   </div>
