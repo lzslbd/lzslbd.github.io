@@ -19,8 +19,7 @@
 <meta property="og:description" content="ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-6326ec291ba11b95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta property="og:updated_time" content="2017-03-23T00:47:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZooKeeper原理及其在Hadoop和HBase中的应用">
 <meta name="twitter:description" content="ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。">
@@ -283,7 +282,7 @@
 </blockquote>
 <p>总结：可以<strong>多个事务同时获得</strong>一个对象的<strong>共享锁</strong>（同时读），有共享锁就不能再加排他锁（因为排他锁是写锁）</p>
 <h2 id="ZooKeeper在大型分布式系统中的应用"><a href="#ZooKeeper在大型分布式系统中的应用" class="headerlink" title="ZooKeeper在大型分布式系统中的应用"></a>ZooKeeper在大型分布式系统中的应用</h2><p>前面已经介绍了ZooKeeper的典型应用场景。本节将以常见的大数据产品Hadoop和HBase为例来介绍ZooKeeper在其中的应用，帮助大家更好地理解ZooKeeper的分布式应用场景。</p>
-<h3 id="ZooKeeper在Hadoop中的应用"><a href="#ZooKeeper在Hadoop中的应用" class="headerlink" title="ZooKeeper在Hadoop中的应用"></a>ZooKeeper在Hadoop中的应用</h3><p>在Hadoop中，ZooKeeper主要用于<strong>实现HA(Hive Availability）</strong>，包括<strong>HDFS的NamaNode和YARN的ResourceManager的HA</strong>。同时，在YARN中，ZooKeepr还用来<strong>存储应用的运行状态</strong>。HDFS的NamaNode和YARN的ResourceManager利用ZooKeepr实现HA的原理是一样的，所以本节以YARN为例来介绍。</p>
+<h3 id="ZooKeeper在Hadoop中的应用"><a href="#ZooKeeper在Hadoop中的应用" class="headerlink" title="ZooKeeper在Hadoop中的应用"></a>ZooKeeper在Hadoop中的应用</h3><p>在Hadoop中，ZooKeeper主要用于<strong>实现HA(High Availability）</strong>，包括<strong>HDFS的NamaNode和YARN的ResourceManager的HA</strong>。同时，在YARN中，ZooKeepr还用来<strong>存储应用的运行状态</strong>。HDFS的NamaNode和YARN的ResourceManager利用ZooKeepr实现HA的原理是一样的，所以本节以YARN为例来介绍。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-6326ec291ba11b95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="YARN架构体系"></p>
 <p>从上图可以看出，YARN主要由ResourceManager（RM）、NodeManager（NM）、ApplicationMaster（AM）和Container四部分组成。其中<strong>最核心</strong>的就是<strong>ResourceManager</strong>。</p>
 <p>ResourceManager负责集群中<strong>所有资源的统一管理和分配</strong>，同时<strong>接收</strong>来自各个节点（NodeManager）的<strong>资源汇报信息</strong>，并把这些信息按照一定的策略分配给各个应用程序（Application Manager），其内部维护了各个应用程序的ApplicationMaster信息、NodeManager信息以及资源使用信息等。</p>
@@ -333,7 +332,6 @@
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>《从Paxos到Zookeeper》</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
