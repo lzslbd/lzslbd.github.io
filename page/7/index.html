@@ -148,6 +148,60 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-第一个只出现一次的字符"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/05/第一个只出现一次的字符/">第一个只出现一次的字符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/05/第一个只出现一次的字符/" class="article-date">
+	  <time datetime="2017-01-05T08:55:41.000Z" itemprop="datePublished">2017-01-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由大小写字母组成)中找到第一个只出现一次的字符,并返回它的位置</p>
+<p><strong>分析</strong></p>
+<p>遍历一遍字符串，用counts数组存储每个字母出现的次数。<code>str.charAt[i] - &#39;A&#39;</code>作为该字母在counts数组中的下标。数组大小为58（’A’的ASCLL码为65 ‘a’为97 ‘z’为122  122-65+1=58）</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+在一个字符串(1&lt;=字符串长度&lt;=10000，全部由大小写字母组成)中找到第一个只出现一次的字符,并返回它的位置
+分析
+遍历一遍字符串，用counts数组存储每个字母出现的次数。str.charAt[i] - &#39;A&#39;作为该字母在counts数组中的下标。数组大小为58（’A’的ASCLL码为65 ‘a’为97 ‘z’为122  122-65+1=58）
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/05/第一个只出现一次的字符/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Java文件管理操作"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -631,57 +685,6 @@ Apache Kyiln构建在Hadoo......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kylin/">Kylin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-分布式系列文章——Paxos算法原理与推导"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/30/分布式系列文章——Paxos算法原理与推导/">分布式系列文章——Paxos算法原理与推导</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/30/分布式系列文章——Paxos算法原理与推导/" class="article-date">
-	  <time datetime="2016-12-30T11:55:19.000Z" itemprop="datePublished">2016-12-30</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
-<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
-        <!-- Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
-
-Paxos是什么
-P......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/30/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
 
     </footer>
   </div>
