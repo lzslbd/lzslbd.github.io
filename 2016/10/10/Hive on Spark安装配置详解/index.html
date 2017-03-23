@@ -95,15 +95,15 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -115,7 +115,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -127,11 +127,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -380,7 +380,7 @@
 <nav id="article-nav">
   
     <a href="/2016/11/30/Hive on Spark调优/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
+      <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
           Hive on Spark调优
@@ -390,7 +390,7 @@
   
   
     <a href="/2016/09/20/大数据基准测试工具TPCx-BB源码分析/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">大数据基准测试工具TPCx-BB源码分析</div>
     </a>
   
@@ -403,7 +403,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
+    <strong class="toc-title">Inhalt</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">2.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、环境说明"><span class="nav-number">3.</span> <span class="nav-text">一、环境说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、编译和安装Spark（Spark-on-YARN）"><span class="nav-number">4.</span> <span class="nav-text">二、编译和安装Spark（Spark on YARN）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-编译Spark源码"><span class="nav-number">4.1.</span> <span class="nav-text">2.1 编译Spark源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-安装Spark"><span class="nav-number">4.2.</span> <span class="nav-text">2.2 安装Spark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-配置Spark"><span class="nav-number">4.3.</span> <span class="nav-text">2.3 配置Spark</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、配置YARN"><span class="nav-number">5.</span> <span class="nav-text">三、配置YARN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、配置Hive"><span class="nav-number">6.</span> <span class="nav-text">四、配置Hive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、验证是否安装配置成功"><span class="nav-number">7.</span> <span class="nav-text">五、验证是否安装配置成功</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-验证Spark集群"><span class="nav-number">7.1.</span> <span class="nav-text">1.验证Spark集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-验证Hive-on-Spark是否可用"><span class="nav-number">7.2.</span> <span class="nav-text">2.验证Hive on Spark是否可用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、遇到的问题"><span class="nav-number">8.</span> <span class="nav-text">六、遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0"><span class="nav-number">8.1.</span> <span class="nav-text">0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1"><span class="nav-number">8.2.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2"><span class="nav-number">8.3.</span> <span class="nav-text">2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3"><span class="nav-number">8.4.</span> <span class="nav-text">3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4"><span class="nav-number">8.5.</span> <span class="nav-text">4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">9.</span> <span class="nav-text">参考资料</span></a></li></ol>
     
@@ -422,8 +422,8 @@
 	      
 	      
     		<p class="busuanzi_uv">
-				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
-				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
+				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
 		    </p>
   		   
 		</div>
