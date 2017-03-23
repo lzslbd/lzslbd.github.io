@@ -103,15 +103,15 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -123,7 +123,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -135,11 +135,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
-            TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -369,7 +369,7 @@
 <nav id="article-nav">
   
     <a href="/2017/01/03/Apache Kylin综述/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Apache Kylin综述
@@ -379,7 +379,7 @@
   
   
     <a href="/2016/12/29/分布式系列文章——Paxos算法原理与推导(PPT)/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">分布式系列文章——Paxos算法原理与推导(PPT)</div>
     </a>
   
@@ -392,7 +392,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">目录</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Paxos是什么"><span class="nav-number">1.</span> <span class="nav-text">Paxos是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题产生的背景"><span class="nav-number">2.</span> <span class="nav-text">问题产生的背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关概念"><span class="nav-number">3.</span> <span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">4.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推导过程"><span class="nav-number">5.</span> <span class="nav-text">推导过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最简单的方案——只有一个Acceptor"><span class="nav-number">5.1.</span> <span class="nav-text">最简单的方案——只有一个Acceptor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多个Acceptor"><span class="nav-number">5.2.</span> <span class="nav-text">多个Acceptor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proposer生成提案"><span class="nav-number">5.3.</span> <span class="nav-text">Proposer生成提案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Acceptor接受提案"><span class="nav-number">5.4.</span> <span class="nav-text">Acceptor接受提案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Paxos算法描述"><span class="nav-number">5.5.</span> <span class="nav-text">Paxos算法描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learner学习被选定的value"><span class="nav-number">6.</span> <span class="nav-text">Learner学习被选定的value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何保证Paxos算法的活性"><span class="nav-number">7.</span> <span class="nav-text">如何保证Paxos算法的活性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">8.</span> <span class="nav-text">参考资料</span></a></li></ol>
     
@@ -411,8 +411,8 @@
 	      
 	      
     		<p class="busuanzi_uv">
-				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
-				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
 		    </p>
   		   
 		</div>

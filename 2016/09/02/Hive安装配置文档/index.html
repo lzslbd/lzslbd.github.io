@@ -90,15 +90,15 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -110,7 +110,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -122,11 +122,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
-            TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -315,7 +315,7 @@
 <nav id="article-nav">
   
     <a href="/2016/09/02/Phoenix文档/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Phoenix综述（SQL on HBase）
@@ -325,7 +325,7 @@
   
   
     <a href="/2016/08/27/Python读书笔记（持续更新）/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">Python读书笔记（持续更新）</div>
     </a>
   
@@ -338,7 +338,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">目录</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-相关概念"><span class="nav-number">1.</span> <span class="nav-text">1. 相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Metadata、Metastore作用"><span class="nav-number">1.1.</span> <span class="nav-text">Metadata、Metastore作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种配置方式区别"><span class="nav-number">1.2.</span> <span class="nav-text">三种配置方式区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群规划"><span class="nav-number">2.</span> <span class="nav-text">集群规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MySQL"><span class="nav-number">3.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置MySQL和metastore"><span class="nav-number">4.</span> <span class="nav-text">配置MySQL和metastore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hive配置"><span class="nav-number">5.</span> <span class="nav-text">Hive配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HDFS存储位置配置"><span class="nav-number">5.1.</span> <span class="nav-text">HDFS存储位置配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hive-env-sh-所有节点）"><span class="nav-number">5.2.</span> <span class="nav-text">hive-env.sh (所有节点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hive-log4j-properties（所有节点）"><span class="nav-number">5.3.</span> <span class="nav-text">hive-log4j.properties（所有节点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端hive-site-xml"><span class="nav-number">5.4.</span> <span class="nav-text">服务端hive-site.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端hive-site-xml"><span class="nav-number">5.5.</span> <span class="nav-text">客户端hive-site.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Hive"><span class="nav-number">6.</span> <span class="nav-text">启动Hive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol>
     
@@ -357,8 +357,8 @@
 	      
 	      
     		<p class="busuanzi_uv">
-				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
-				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
 		    </p>
   		   
 		</div>

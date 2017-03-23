@@ -91,15 +91,15 @@
             <div class="navbar-collapse collapse">
               <ul class="hnav navbar-nav">
                 
-                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/categories">Kategorien</a> </li>
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
                 
-                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
                 
                   <li><div id="search-form-wrap">
 
@@ -111,7 +111,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -123,11 +123,11 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Beiträge',
-            PAGES: 'Seiten',
-            CATEGORIES: 'Kategorien',
-            TAGS: 'Tags',
-            UNTITLED: '(Unbenannt)',
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -541,7 +541,7 @@
 <nav id="article-nav">
   
     <a href="/2016/10/10/Hive on Spark安装配置详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
           Hive on Spark安装配置详解
@@ -551,7 +551,7 @@
   
   
     <a href="/2016/09/10/机器学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">机器学习笔记（持续更新）</div>
     </a>
   
@@ -564,7 +564,7 @@
 
   <aside id="sidebar">
     <div id="toc" class="toc-article">
-    <strong class="toc-title">Inhalt</strong>
+    <strong class="toc-title">目录</strong>
     
         <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码结构"><span class="nav-number">1.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据生成"><span class="nav-number">2.</span> <span class="nav-text">数据生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行流程"><span class="nav-number">3.</span> <span class="nav-text">执行流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bigBench"><span class="nav-number">3.1.</span> <span class="nav-text">bigBench</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runBenchmark"><span class="nav-number">3.2.</span> <span class="nav-text">runBenchmark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runModule"><span class="nav-number">3.3.</span> <span class="nav-text">runModule()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runCmd"><span class="nav-number">3.4.</span> <span class="nav-text">runCmd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getQueryList"><span class="nav-number">3.5.</span> <span class="nav-text">getQueryList()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parseEnvironment"><span class="nav-number">3.6.</span> <span class="nav-text">parseEnvironment()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#run"><span class="nav-number">3.7.</span> <span class="nav-text">run()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#benchmarkPhase-和-module-对应关系"><span class="nav-number">3.8.</span> <span class="nav-text">benchmarkPhase 和 module 对应关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序调用流程"><span class="nav-number">3.9.</span> <span class="nav-text">程序调用流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#module"><span class="nav-number">4.</span> <span class="nav-text">module</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cleanAll"><span class="nav-number">4.1.</span> <span class="nav-text">cleanAll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cleanQuery"><span class="nav-number">4.2.</span> <span class="nav-text">cleanQuery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cleanMetastore"><span class="nav-number">4.3.</span> <span class="nav-text">cleanMetastore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cleanData"><span class="nav-number">4.4.</span> <span class="nav-text">cleanData</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#populateMetastore"><span class="nav-number">4.5.</span> <span class="nav-text">populateMetastore</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#runQuery"><span class="nav-number">4.6.</span> <span class="nav-text">runQuery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#validateQuery"><span class="nav-number">4.7.</span> <span class="nav-text">validateQuery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#refreshMetastore"><span class="nav-number">4.8.</span> <span class="nav-text">refreshMetastore</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">5.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#23张表"><span class="nav-number">5.1.</span> <span class="nav-text">23张表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#customer-（99000行）4-03MB"><span class="nav-number">5.2.</span> <span class="nav-text">customer （99000行）4.03MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#customer-address（49500行）-0-92MB"><span class="nav-number">5.3.</span> <span class="nav-text">customer_address（49500行） 0.92MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#customer-demographics-19200800行）6-84MB"><span class="nav-number">5.4.</span> <span class="nav-text">customer_demographics (19200800行）6.84MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#date-dim-（109573行）-1-67MB"><span class="nav-number">5.5.</span> <span class="nav-text">date_dim （109573行） 1.67MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#household-demographics-（7200行）-14-31KB"><span class="nav-number">5.6.</span> <span class="nav-text">household_demographics （7200行） 14.31KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#income-band-（20行）-754B"><span class="nav-number">5.7.</span> <span class="nav-text">income_band （20行） 754B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inventory-（23255100行）-34-55MB"><span class="nav-number">5.8.</span> <span class="nav-text">inventory （23255100行） 34.55MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#item-（17820行）-2-36MB"><span class="nav-number">5.9.</span> <span class="nav-text">item （17820行） 2.36MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#item-marketprices-（89100行）-0-63MB"><span class="nav-number">5.10.</span> <span class="nav-text">item_marketprices （89100行） 0.63MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#product-reviews-（89991行）-24-36MB"><span class="nav-number">5.11.</span> <span class="nav-text">product_reviews （89991行） 24.36MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#promotion-（300行）-15-83KB"><span class="nav-number">5.12.</span> <span class="nav-text">promotion （300行） 15.83KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reason-（35行）-3-17KB"><span class="nav-number">5.13.</span> <span class="nav-text">reason （35行） 3.17KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ship-mode-（20行）-2-93KB"><span class="nav-number">5.14.</span> <span class="nav-text">ship_mode （20行） 2.93KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#store-（12行）-8-03KB"><span class="nav-number">5.15.</span> <span class="nav-text">store （12行） 8.03KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#store-returns-37902行）-1-19MB"><span class="nav-number">5.16.</span> <span class="nav-text">store_returns (37902行） 1.19MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#store-sales-（667579行）-23-49MB"><span class="nav-number">5.17.</span> <span class="nav-text">store_sales （667579行） 23.49MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-dim-（86400行）-219-49KB"><span class="nav-number">5.18.</span> <span class="nav-text">time_dim （86400行） 219.49KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#warehouse-（5行）-1-94KB"><span class="nav-number">5.19.</span> <span class="nav-text">warehouse （5行） 1.94KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-clickstreams-（6770550行）-34-11MB"><span class="nav-number">5.20.</span> <span class="nav-text">web_clickstreams （6770550行） 34.11MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-page-（60行）-6-81KB"><span class="nav-number">5.21.</span> <span class="nav-text">web_page （60行） 6.81KB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-returns-（38487行）-1-40MB"><span class="nav-number">5.22.</span> <span class="nav-text">web_returns （38487行） 1.40MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-sales-（668052行）-32-99MB"><span class="nav-number">5.23.</span> <span class="nav-text">web_sales （668052行） 32.99MB</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-site-（30行）10-31KB"><span class="nav-number">5.24.</span> <span class="nav-text">web_site （30行）10.31KB</span></a></li></ol></li></ol>
     
@@ -583,8 +583,8 @@
 	      
 	      
     		<p class="busuanzi_uv">
-				<span id="busuanzi_container_site_uv"> UV : <span id="busuanzi_value_site_uv"></span></span> |  
-				<span id="busuanzi_container_site_pv"> PV : <span id="busuanzi_value_site_pv"></span></span>
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
 		    </p>
   		   
 		</div>
