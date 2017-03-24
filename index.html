@@ -148,6 +148,64 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/24/二叉树的下一个节点/">二叉树的下一个节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/24/二叉树的下一个节点/" class="article-date">
+	  <time datetime="2017-03-24T02:02:07.000Z" itemprop="datePublished">2017-03-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+        <!-- 题目描述
+给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+
+分析
+
+如果右子树不为空，则下一节点为右子树最左边的节点。
+如果右子树为空，如果父节点为空，则返回空。
+如果该节点是其父节点的左孩子，则返回其父节点。
+否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
+
+代码:
+publi......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/24/二叉树的下一个节点/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -609,67 +667,6 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
 publ......  -->
         <p class="article-more-link">
           <a href="/2017/03/22/重建二叉树/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-二叉树的镜像"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/22/二叉树的镜像/">二叉树的镜像</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/22/二叉树的镜像/" class="article-date">
-	  <time datetime="2017-03-22T07:25:00.000Z" itemprop="datePublished">2017-03-22</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>操作给定的二叉树，将其变换为源二叉树的镜像。 </p>
-<p>输入描述:</p>
-<p>二叉树的镜像定义：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">  源二叉树 </div><div class="line">    <span class="number">8</span></div><div class="line">   /  \</div><div class="line">  <span class="number">6</span>   <span class="number">10</span></div><div class="line"> / \  / \</div><div class="line"><span class="number">5</span>  <span class="number">7</span> <span class="number">9</span>  <span class="number">11</span></div><div class="line"></div><div class="line">镜像二叉树</div><div class="line">    <span class="number">8</span></div><div class="line">   /  \</div><div class="line">  <span class="number">10</span>   <span class="number">6</span></div><div class="line"> / \  / \</div><div class="line"><span class="number">11</span> <span class="number">9</span> <span class="number">7</span>   <span class="number">5</span></div></pre></td></tr></table></figure>
-        <!-- 题目描述
-操作给定的二叉树，将其变换为源二叉树的镜像。 
-输入描述:
-二叉树的镜像定义：
-  源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5
-
-分析
-用递归可以很方便地解决。
-如果不用递归的话，可以借助队列来实现。思想类似于二叉树的层序遍历
-代码:
-递归：
-pub......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/22/二叉树的镜像/#more">阅读全文</a>
         </p>
       
     </div>
