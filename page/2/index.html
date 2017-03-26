@@ -148,64 +148,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/二叉树的下一个节点/">二叉树的下一个节点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/24/二叉树的下一个节点/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
-        <!-- 题目描述
-给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
-
-分析
-
-如果右子树不为空，则下一节点为右子树最左边的节点。
-如果右子树为空，如果父节点为空，则返回空。
-如果该节点是其父节点的左孩子，则返回其父节点。
-否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
-
-代码:
-publi......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-平衡二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -259,7 +201,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
 <!-- Table of Contents -->
 
   
-    <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -267,7 +209,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/把二叉树打印成多行/">把二叉树打印成多行</a>
+      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
     </h1>
   
 
@@ -275,7 +217,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
+	<a href="/2017/02/24/对称的二叉树/" class="article-date">
 	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
@@ -286,16 +228,74 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
         <!-- 题目描述
-从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
+请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
 
 分析
-就是层序遍历，不再赘述。
+如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
 代码:
-import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;public class Solution &#123;    ArrayList&lt;ArrayList&lt;In......  -->
+public cl......  -->
         <p class="article-more-link">
-          <a href="/2017/02/24/把二叉树打印成多行/#more">阅读全文</a>
+          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/二叉树的下一个节点/">二叉树的下一个节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/二叉树的下一个节点/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+        <!-- 题目描述
+给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+
+分析
+
+如果右子树不为空，则下一节点为右子树最左边的节点。
+如果右子树为空，如果父节点为空，则返回空。
+如果该节点是其父节点的左孩子，则返回其父节点。
+否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
+
+代码:
+publi......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -418,7 +418,7 @@ import java.util.ArrayList;public class Solution &#123;    public ......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-从上到下打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-旋转数组的最小数字"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -426,7 +426,7 @@ import java.util.ArrayList;public class Solution &#123;    public ......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/从上到下打印二叉树/">从上到下打印二叉树</a>
+      <a class="article-title" href="/2017/02/23/旋转数组的最小数字/">旋转数组的最小数字</a>
     </h1>
   
 
@@ -434,7 +434,7 @@ import java.util.ArrayList;public class Solution &#123;    public ......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/从上到下打印二叉树/" class="article-date">
+	<a href="/2017/02/23/旋转数组的最小数字/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -445,16 +445,15 @@ import java.util.ArrayList;public class Solution &#123;    public ......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
         <!-- 题目描述
-从上往下打印出二叉树的每个节点，同层节点从左至右打印。
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
 
 分析
-其实就是二叉树的层序遍历，使用一个队列即可实现。
-代码:
-public class Solution &#123;    public ArrayList&lt;Integer&gt; PrintFromTopToBottom(TreeNode root) &#123;        Queue&lt;TreeNode......  -->
+思路一：
+从前往后遍历，如果发现 array[i] &gt; array[i+1] ，则 array[......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/从上到下打印二叉树/#more">阅读全文</a>
+          <a href="/2017/02/23/旋转数组的最小数字/#more">阅读全文</a>
         </p>
       
     </div>
@@ -510,6 +509,59 @@ public class Solution &#123;    public ArrayList&lt;Integer&gt; PrintFromTopToBo
 public class Solution &#123;    public int TreeDepth(Tree......  -->
         <p class="article-more-link">
           <a href="/2017/02/23/二叉树的深度/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+        <!-- 题目描述
+输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+
+分析
+先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+代码:
+publ......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -587,7 +639,7 @@ pub......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-从上到下打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -595,7 +647,7 @@ pub......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/">LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal</a>
+      <a class="article-title" href="/2017/02/23/从上到下打印二叉树/">从上到下打印二叉树</a>
     </h1>
   
 
@@ -603,58 +655,7 @@ pub......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
-        <!-- Given inorder and postorder traversal of a tree, construct the binary tree.
-
-分析:
-本题是重建二叉树（后序加中序），跟重建二叉树（先序加中序）思路一样。
-代码:
-public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	<a href="/2017/02/23/从上到下打印二叉树/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -665,16 +666,16 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
         <!-- 题目描述
-输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+从上往下打印出二叉树的每个节点，同层节点从左至右打印。
 
 分析
-先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+其实就是二叉树的层序遍历，使用一个队列即可实现。
 代码:
-publ......  -->
+public class Solution &#123;    public ArrayList&lt;Integer&gt; PrintFromTopToBottom(TreeNode root) &#123;        Queue&lt;TreeNode......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
+          <a href="/2017/02/23/从上到下打印二叉树/#more">阅读全文</a>
         </p>
       
     </div>

@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Python用yield生成杨辉三角"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-分布式系列文章——Paxos算法原理与推导"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/16/Python用yield生成杨辉三角/">Python用yield生成杨辉三角</a>
+      <a class="article-title" href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/">分布式系列文章——Paxos算法原理与推导</a>
     </h1>
   
 
@@ -164,30 +164,32 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/16/Python用yield生成杨辉三角/" class="article-date">
-	  <time datetime="2017-03-16T08:01:11.000Z" itemprop="datePublished">2017-03-16</time>
+	<a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/" class="article-date">
+	  <time datetime="2017-03-16T16:00:00.000Z" itemprop="datePublished">2017-03-17</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>so funny</p>
-        <!-- so funny
+        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
+<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
+        <!-- Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
+网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
 
-代码：
-def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.append(0)    line = [line[i-1] + line[i] for i in range(len(line))]    n += 1for line in triangles():  pri......  -->
+Paxos是什么
+P......  -->
         <p class="article-more-link">
-          <a href="/2017/03/16/Python用yield生成杨辉三角/#more">阅读全文</a>
+          <a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
 
     </footer>
   </div>
@@ -638,7 +640,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
 <!-- Table of Contents -->
 
   
-    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -646,7 +648,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
+      <a class="article-title" href="/2017/02/24/把二叉树打印成多行/">把二叉树打印成多行</a>
     </h1>
   
 
@@ -654,7 +656,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/对称的二叉树/" class="article-date">
+	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
 	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
@@ -665,16 +667,16 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
         <!-- 题目描述
-请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
 
 分析
-如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
+就是层序遍历，不再赘述。
 代码:
-public cl......  -->
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;public class Solution &#123;    ArrayList&lt;ArrayList&lt;In......  -->
         <p class="article-more-link">
-          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
+          <a href="/2017/02/24/把二叉树打印成多行/#more">阅读全文</a>
         </p>
       
     </div>
