@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>moosefs安装配置 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="分布式系统分布式文件系统MooseFS" />
+  
+  
+  
+  
+  <meta name="description" content="简介MooseFS 是一个分布式文件系统，支持挂载的形式。
+主要角色
+
+master 节点：元数据节点，复制调度和管理元数据。
+metalogger 节点：用于备份 master 的元数据和日志。
+chunkserver 节点：数据节点，数据实际存放的节点。
+client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
+
+集群">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MooseFS安装配置">
+<meta property="og:url" content="http://linbingdong.com/2017/03/30/MooseFS安装配置/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="简介MooseFS 是一个分布式文件系统，支持挂载的形式。
+主要角色
+
+master 节点：元数据节点，复制调度和管理元数据。
+metalogger 节点：用于备份 master 的元数据和日志。
+chunkserver 节点：数据节点，数据实际存放的节点。
+client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
+
+集群">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-84150574f17280c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-30T09:28:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MooseFS安装配置">
+<meta name="twitter:description" content="简介MooseFS 是一个分布式文件系统，支持挂载的形式。
+主要角色
+
+master 节点：元数据节点，复制调度和管理元数据。
+metalogger 节点：用于备份 master 的元数据和日志。
+chunkserver 节点：数据节点，数据实际存放的节点。
+client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
+
+集群">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-84150574f17280c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-MooseFS安装配置" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      MooseFS安装配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/30/MooseFS安装配置/" class="article-date">
+	  <time datetime="2017-03-30T09:28:08.000Z" itemprop="datePublished">2017-03-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/MooseFS/">MooseFS</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MooseFS 是一个分布式文件系统，支持挂载的形式。</p>
+<p><strong>主要角色</strong></p>
+<ul>
+<li>master 节点：元数据节点，复制调度和管理元数据。</li>
+<li>metalogger 节点：用于备份 master 的元数据和日志。</li>
+<li>chunkserver 节点：数据节点，数据实际存放的节点。</li>
+<li>client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。</li>
+</ul>
+<h2 id="集群规划"><a href="#集群规划" class="headerlink" title="集群规划"></a>集群规划</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">mfsmaster</th>
+<th style="text-align:center">mfsmetalogger</th>
+<th style="text-align:center">mfschunkserver</th>
+<th style="text-align:center">mfsclient</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">192.168.20.96</td>
+<td style="text-align:center">192.168.20.97</td>
+<td style="text-align:center">192.168.20.98 192.168.20.99</td>
+<td style="text-align:center">192.168.20.96 192.168.20.97 192.168.20.98 192.168.20.99</td>
+</tr>
+</tbody>
+</table>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装fuse模块"><a href="#安装fuse模块" class="headerlink" title="安装fuse模块"></a>安装fuse模块</h3><p>确保需要安装 mfsclient 的节点上已经安装了 Linux 内核模块 FUSE 。</p>
+<p>若未安装，可通过 yum 或者编译安装的方式进行安装。</p>
+<h3 id="创建用户和用户组"><a href="#创建用户和用户组" class="headerlink" title="创建用户和用户组"></a>创建用户和用户组</h3><p>每个节点都要创建 mfs 用户和用户组。</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">groupadd  mfs</span></div><div class="line">useradd -g mfs mfs</div></pre></td></tr></table></figure>
+<h3 id="修改-etc-hosts"><a href="#修改-etc-hosts" class="headerlink" title="修改/etc/hosts"></a>修改/etc/hosts</h3><p>在每个节点上为 mfsmaster 所在节点（192.168.20.96）增加一个别名 mfsmaster 。</p>
+<p>修改 /etc/hosts ：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">192<span class="selector-class">.168</span><span class="selector-class">.20</span><span class="selector-class">.96</span> <span class="selector-tag">mfsmaster</span></div></pre></td></tr></table></figure>
+<h3 id="解压rpm包"><a href="#解压rpm包" class="headerlink" title="解压rpm包"></a>解压rpm包</h3><p>将 mfs.tar.gz 解压到每个节点的 /opt 目录下，解压后会生成 /opt/mfs 目录。</p>
+<h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><h3 id="mfsmaster-cgi"><a href="#mfsmaster-cgi" class="headerlink" title="mfsmaster+cgi"></a>mfsmaster+cgi</h3><p>节点 192.168.20.96</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-master<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-cgi<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-cgiserv<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm</div></pre></td></tr></table></figure>
+<h3 id="mfsmetalogger"><a href="#mfsmetalogger" class="headerlink" title="mfsmetalogger"></a>mfsmetalogger</h3><p>节点 192.168.20.97 </p>
+<p>安装：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-metalogger<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm</div></pre></td></tr></table></figure>
+<h3 id="mfschunkserver"><a href="#mfschunkserver" class="headerlink" title="mfschunkserver"></a>mfschunkserver</h3><p>节点 192.168.20.98 、 192.168.20.99 </p>
+<p>创建 /mnt/mfs 目录：</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">mkdir -p <span class="regexp">/mnt/</span>mfs</div><div class="line">chown -R <span class="string">mfs:</span>mfs <span class="regexp">/mnt/</span>mfs</div></pre></td></tr></table></figure>
+<p>修改 /etc/mfs/mfshdd.cfg ，在任意位置增加一行:</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line"><span class="regexp">/mnt/m</span>fs</div></pre></td></tr></table></figure>
+<p>安装：</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-chunkserver<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm</div></pre></td></tr></table></figure>
+<h3 id="mfsclient"><a href="#mfsclient" class="headerlink" title="mfsclient"></a>mfsclient</h3><p>节点 192.168.20.96 、192.168.20.97 、192.168.20.98 、192.168.20.99</p>
+<p>创建 /mnt/mfs-cli 目录：</p>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">mkdir <span class="regexp">/mnt/</span>mfs-cli</div><div class="line">chown -R <span class="string">mfs:</span>mfs <span class="regexp">/mnt/</span>mfs-cli/</div></pre></td></tr></table></figure>
+<p>安装：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">rpm</span> <span class="selector-tag">-ivh</span> <span class="selector-tag">moosefs-client-2</span><span class="selector-class">.0</span><span class="selector-class">.77-1</span><span class="selector-class">.x86_64</span><span class="selector-class">.rpm</span></div></pre></td></tr></table></figure>
+<p>挂载：</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line">mfsmount /mnt/mfs-<span class="keyword">cli</span>/ -H mfsmaster</div></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
+<li>mfsmaster</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-<span class="literal">master</span></div></pre></td></tr></table></figure>
+<ul>
+<li>mfscgiserv</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-cgiserv</div></pre></td></tr></table></figure>
+<p>启动 mfsmaster 和 mfscgiserv 后，在浏览器中输入 <code>http://192.168.20.96:9425</code> 查看Web 页面 ：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-84150574f17280c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MooseFS WebUI"></p>
+<ul>
+<li>mfsmetalogger</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-metalogger</div></pre></td></tr></table></figure>
+<ul>
+<li>mfschunkserver</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-chunkserver</div></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>所有客户端节点 /mnt/mfs-cli 目录下的内容都是相同的。<br>只需把文件放入任意客户端节点的 /mnt/mfs-cli 目录下即可，该目录对所有客户端节点可见。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/30/MooseFS安装配置/" data-title="MooseFS安装配置" data-url="http://linbingdong.com/2017/03/30/MooseFS安装配置/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linbingdong"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MooseFS/">MooseFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式文件系统/">分布式文件系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">分布式系列文章——Paxos算法原理与推导</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群规划"><span class="nav-number">2.</span> <span class="nav-text">集群规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装fuse模块"><span class="nav-number">3.1.</span> <span class="nav-text">安装fuse模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户和用户组"><span class="nav-number">3.2.</span> <span class="nav-text">创建用户和用户组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-etc-hosts"><span class="nav-number">3.3.</span> <span class="nav-text">修改/etc/hosts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压rpm包"><span class="nav-number">3.4.</span> <span class="nav-text">解压rpm包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装配置"><span class="nav-number">4.</span> <span class="nav-text">安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mfsmaster-cgi"><span class="nav-number">4.1.</span> <span class="nav-text">mfsmaster+cgi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mfsmetalogger"><span class="nav-number">4.2.</span> <span class="nav-text">mfsmetalogger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mfschunkserver"><span class="nav-number">4.3.</span> <span class="nav-text">mfschunkserver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mfsclient"><span class="nav-number">4.4.</span> <span class="nav-text">mfsclient</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-number">5.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">6.</span> <span class="nav-text">使用</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+</body>
+</html>
