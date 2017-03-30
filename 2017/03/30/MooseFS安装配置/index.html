@@ -11,42 +11,18 @@
   
   
   
-  <meta name="description" content="简介MooseFS 是一个分布式文件系统，支持挂载的形式。
-主要角色
-
-master 节点：元数据节点，复制调度和管理元数据。
-metalogger 节点：用于备份 master 的元数据和日志。
-chunkserver 节点：数据节点，数据实际存放的节点。
-client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
-
-集">
+  <meta name="description" content="记录 MooseFS 的部署过程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MooseFS安装配置">
 <meta property="og:url" content="http://linbingdong.com/2017/03/30/MooseFS安装配置/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="简介MooseFS 是一个分布式文件系统，支持挂载的形式。
-主要角色
-
-master 节点：元数据节点，复制调度和管理元数据。
-metalogger 节点：用于备份 master 的元数据和日志。
-chunkserver 节点：数据节点，数据实际存放的节点。
-client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
-
-集">
+<meta property="og:description" content="记录 MooseFS 的部署过程。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-84150574f17280c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-30T09:30:02.000Z">
+<meta property="og:updated_time" content="2017-03-30T09:32:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MooseFS安装配置">
-<meta name="twitter:description" content="简介MooseFS 是一个分布式文件系统，支持挂载的形式。
-主要角色
-
-master 节点：元数据节点，复制调度和管理元数据。
-metalogger 节点：用于备份 master 的元数据和日志。
-chunkserver 节点：数据节点，数据实际存放的节点。
-client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
-
-集">
+<meta name="twitter:description" content="记录 MooseFS 的部署过程。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-84150574f17280c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -202,7 +178,8 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>记录 MooseFS 的部署过程。</p>
+<a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MooseFS 是一个分布式文件系统，支持挂载的形式。</p>
 <p><strong>主要角色</strong></p>
 <ul>
