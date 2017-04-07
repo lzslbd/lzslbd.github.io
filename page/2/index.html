@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-字符串匹配之暴力匹配 &amp;&amp; KMP"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/二叉树的下一个节点/">二叉树的下一个节点</a>
+      <a class="article-title" href="/2017/02/26/字符串匹配之暴力匹配 && KMP/">字符串查找算法总结（暴力匹配、KMP 算法、Boyer-Moore 算法和 Sunday 算法）</a>
     </h1>
   
 
@@ -164,39 +164,29 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/二叉树的下一个节点/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	<a href="/2017/02/26/字符串匹配之暴力匹配 && KMP/" class="article-date">
+	  <time datetime="2017-02-26T14:58:07.000Z" itemprop="datePublished">2017-02-26</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/算法/">算法</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
-        <!-- 题目描述
-给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+        <p>字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。</p>
+        <!-- 字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。
 
-分析
-
-如果右子树不为空，则下一节点为右子树最左边的节点。
-如果右子树为空，如果父节点为空，则返回空。
-如果该节点是其父节点的左孩子，则返回其父节点。
-否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
-
-代码:
-publi......  -->
+KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，开头的那个K就是著名科学家 Donald Knuth 。KMP 算法的关键是求 next 数组。next 数组的长度为模式串的长度。next 数组......  -->
         <p class="article-more-link">
-          <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
+          <a href="/2017/02/26/字符串匹配之暴力匹配 && KMP/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boyer-Moore/">Boyer-Moore</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/">KMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -243,6 +233,64 @@ publi......  -->
 public cl......  -->
         <p class="article-more-link">
           <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/二叉树的下一个节点/">二叉树的下一个节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/二叉树的下一个节点/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+        <!-- 题目描述
+给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+
+分析
+
+如果右子树不为空，则下一节点为右子树最左边的节点。
+如果右子树为空，如果父节点为空，则返回空。
+如果该节点是其父节点的左孩子，则返回其父节点。
+否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
+
+代码:
+publi......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -418,7 +466,7 @@ import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;im
 <!-- Table of Contents -->
 
   
-    <article id="post-滑动窗口的最大值"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树的深度"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -426,7 +474,7 @@ import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;im
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/滑动窗口的最大值/">滑动窗口的最大值</a>
+      <a class="article-title" href="/2017/02/23/二叉树的深度/">二叉树的深度</a>
     </h1>
   
 
@@ -434,7 +482,7 @@ import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;im
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/滑动窗口的最大值/" class="article-date">
+	<a href="/2017/02/23/二叉树的深度/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -445,11 +493,18 @@ import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;im
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
         <!-- 题目描述
-给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],......  -->
+输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+
+分析
+递归：二叉树的深度为其左右子树深度中大的那个数加1。两行代码搞定。
+迭代：利用层序遍历，算出总共有几层，就是二叉树的深度。
+代码:
+递归：
+public class Solution &#123;    public int TreeDepth(Tree......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/滑动窗口的最大值/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树的深度/#more">阅读全文</a>
         </p>
       
     </div>
@@ -580,7 +635,7 @@ publ......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-二叉树的深度"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-从上到下打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -588,7 +643,7 @@ publ......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树的深度/">二叉树的深度</a>
+      <a class="article-title" href="/2017/02/23/从上到下打印二叉树/">从上到下打印二叉树</a>
     </h1>
   
 
@@ -596,7 +651,7 @@ publ......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/二叉树的深度/" class="article-date">
+	<a href="/2017/02/23/从上到下打印二叉树/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -607,71 +662,16 @@ publ......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
         <!-- 题目描述
-输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+从上往下打印出二叉树的每个节点，同层节点从左至右打印。
 
 分析
-递归：二叉树的深度为其左右子树深度中大的那个数加1。两行代码搞定。
-迭代：利用层序遍历，算出总共有几层，就是二叉树的深度。
+其实就是二叉树的层序遍历，使用一个队列即可实现。
 代码:
-递归：
-public class Solution &#123;    public int TreeDepth(Tree......  -->
+public class Solution &#123;    public ArrayList&lt;Integer&gt; PrintFromTopToBottom(TreeNode root) &#123;        Queue&lt;TreeNode......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/二叉树的深度/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
-        <!-- 题目描述
-输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
-
-分析
-递归，分别在左右子树里找符合 target = target - root.val 的路径。
-代码:
-import java.util.ArrayList;public class Solution &#123;    public ......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
+          <a href="/2017/02/23/从上到下打印二叉树/#more">阅读全文</a>
         </p>
       
     </div>
