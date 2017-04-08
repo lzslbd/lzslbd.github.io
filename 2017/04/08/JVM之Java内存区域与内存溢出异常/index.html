@@ -11,30 +11,18 @@
   
   
   
-  <meta name="description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
-简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
-先看看JVM运行时数据区包括哪几个部分：
-
-可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器">
+  <meta name="description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM之Java内存区域与内存溢出异常">
 <meta property="og:url" content="http://linbingdong.com/2017/04/08/JVM之Java内存区域与内存溢出异常/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
-简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
-先看看JVM运行时数据区包括哪几个部分：
-
-可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器">
+<meta property="og:description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-3796e589e8c67d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-04-08T13:55:34.000Z">
+<meta property="og:updated_time" content="2017-04-08T13:57:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM之Java内存区域与内存溢出异常">
-<meta name="twitter:description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
-简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
-先看看JVM运行时数据区包括哪几个部分：
-
-可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器">
+<meta name="twitter:description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-3796e589e8c67d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -191,6 +179,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。</p>
+<a id="more"></a>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。</p>
 <p>先看看JVM运行时数据区包括哪几个部分：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-3796e589e8c67d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JVM运行时数据区"></p>
