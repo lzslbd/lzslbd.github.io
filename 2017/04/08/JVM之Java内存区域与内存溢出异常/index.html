@@ -3,21 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>LBD&#39;s Blog</title>
+  <title>jvm之java内存区域与内存溢出异常 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="JVMJava" />
   
   
   
-  <meta name="description" content="大数据与分布式">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LBD's Blog">
-<meta property="og:url" content="http://linbingdong.com/index.html">
+  
+  <meta name="description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
+简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
+先看看JVM运行时数据区包括哪几个部分：
+
+可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM之Java内存区域与内存溢出异常">
+<meta property="og:url" content="http://linbingdong.com/2017/04/08/JVM之Java内存区域与内存溢出异常/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="大数据与分布式">
+<meta property="og:description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
+简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
+先看看JVM运行时数据区包括哪几个部分：
+
+可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-3796e589e8c67d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-04-08T13:55:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LBD's Blog">
-<meta name="twitter:description" content="大数据与分布式">
+<meta name="twitter:title" content="JVM之Java内存区域与内存溢出异常">
+<meta name="twitter:description" content="Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
+简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
+先看看JVM运行时数据区包括哪几个部分：
+
+可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-3796e589e8c67d04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -41,7 +59,7 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/home.css" >
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
@@ -54,7 +72,7 @@
 
 
 
-  <body>
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
 
 
   
@@ -77,7 +95,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -146,17 +164,15 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;">
-  
-    <article id="post-JVM之Java内存区域与内存溢出异常"  class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-JVM之Java内存区域与内存溢出异常" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/08/JVM之Java内存区域与内存溢出异常/">JVM之Java内存区域与内存溢出异常</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JVM之Java内存区域与内存溢出异常
     </h1>
   
 
@@ -229,526 +245,63 @@
     </div>
     <footer class="article-footer">
       
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/04/08/JVM之Java内存区域与内存溢出异常/" data-title="JVM之Java内存区域与内存溢出异常" data-url="http://linbingdong.com/2017/04/08/JVM之Java内存区域与内存溢出异常/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linbingdong"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
   
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-深入理解HashMap"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
     
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/07/深入理解HashMap/">深入理解HashMap</a>
-    </h1>
   
+    <a href="/2017/04/07/深入理解HashMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">深入理解HashMap</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/04/07/深入理解HashMap/" class="article-date">
-	  <time datetime="2017-04-07T01:36:44.000Z" itemprop="datePublished">2017-04-07</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JDK1.7和JDK1.8中HashMap的实现不尽相同，JDK1.8中做了一些优化，比如当链表多长时转化成红黑树，提高插入和查找的效率；扩容时不再重新哈希。</p>
-        <!-- JDK1.7和JDK1.8中HashMap的实现不尽相同，JDK1.8中做了一些优化，比如当链表多长时转化成红黑树，提高插入和查找的效率；扩容时不再重新哈希。
-
-HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。这里主要以提问题的形式来加深对HashMap的理解，读者可以先独立思考这些问题，再参照我的回答和文末的源码进行学习。
-实现原理数组+链表+红黑树  
-数组是一个No......  -->
-        <p class="article-more-link">
-          <a href="/2017/04/07/深入理解HashMap/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 <!-- Table of Contents -->
 
-  
-    <article id="post-MooseFS安装配置"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
     
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java堆"><span class="nav-number">2.</span> <span class="nav-text">Java堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java堆溢出"><span class="nav-number">2.1.</span> <span class="nav-text">Java堆溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下会堆溢出"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么情况下会堆溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制造堆溢出"><span class="nav-number">2.1.2.</span> <span class="nav-text">制造堆溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决堆溢出"><span class="nav-number">2.1.3.</span> <span class="nav-text">解决堆溢出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区"><span class="nav-number">3.</span> <span class="nav-text">方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法区溢出"><span class="nav-number">3.1.</span> <span class="nav-text">方法区溢出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时常量池"><span class="nav-number">4.</span> <span class="nav-text">运行时常量池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行时常量池溢出"><span class="nav-number">4.1.</span> <span class="nav-text">运行时常量池溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么时候会运行时常量池溢出"><span class="nav-number">4.1.1.</span> <span class="nav-text">什么时候会运行时常量池溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制造运行时常量池溢出"><span class="nav-number">4.1.2.</span> <span class="nav-text">制造运行时常量池溢出</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机栈"><span class="nav-number">5.</span> <span class="nav-text">虚拟机栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机栈溢出"><span class="nav-number">5.1.</span> <span class="nav-text">虚拟机栈溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么情况下会Java虚拟机栈溢出"><span class="nav-number">5.1.1.</span> <span class="nav-text">什么情况下会Java虚拟机栈溢出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制造虚拟机栈溢出（StackOverflowError）"><span class="nav-number">5.1.2.</span> <span class="nav-text">制造虚拟机栈溢出（StackOverflowError）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#制造虚拟机栈溢出（OutOfMemoryError）"><span class="nav-number">5.1.3.</span> <span class="nav-text">制造虚拟机栈溢出（OutOfMemoryError）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法栈"><span class="nav-number">6.</span> <span class="nav-text">本地方法栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器"><span class="nav-number">7.</span> <span class="nav-text">程序计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接内存"><span class="nav-number">8.</span> <span class="nav-text">直接内存</span></a></li></ol>
     
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/30/MooseFS安装配置/">MooseFS安装配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/30/MooseFS安装配置/" class="article-date">
-	  <time datetime="2017-03-30T09:28:08.000Z" itemprop="datePublished">2017-03-30</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/MooseFS/">MooseFS</a>
-
     </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录 MooseFS 的部署过程。</p>
-        <!-- 记录 MooseFS 的部署过程。
-
-简介MooseFS 是一个分布式文件系统，支持挂载的形式。
-主要角色
-
-master 节点：元数据节点，复制调度和管理元数据。
-metalogger 节点：用于备份 master 的元数据和日志。
-chunkserver 节点：数据节点，数据实际存放的节点。
-client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/30/MooseFS安装配置/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MooseFS/">MooseFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式文件系统/">分布式文件系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-分布式系列文章——Paxos算法原理与推导"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/">分布式系列文章——Paxos算法原理与推导</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/" class="article-date">
-	  <time datetime="2017-03-16T16:00:00.000Z" itemprop="datePublished">2017-03-17</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
-<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
-        <!-- Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
-
-Paxos是什么
-P......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Python函数式编程"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/15/Python函数式编程/">Python函数式编程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/15/Python函数式编程/" class="article-date">
-	  <time datetime="2017-03-15T08:18:49.000Z" itemprop="datePublished">2017-03-15</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。</p>
-        <!-- 虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。
-
-匿名函数Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表达......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/15/Python函数式编程/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-有趣的Pythonic写法"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/有趣的Pythonic写法/">有趣的Pythonic写法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/有趣的Pythonic写法/" class="article-date">
-	  <time datetime="2017-03-11T09:33:27.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。</p>
-        <!-- Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。
-
-变量替换普通写法
-a = 10b = 20tmp = aa = bb = tmp
-pythonic
-a, b = b, a
-遍历区间元素比如打印 1 3 5 7 9
-其他语言，如 Java：
-for (int i = 1; i &lt; 10; i += 2)     Sys......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/有趣的Pythonic写法/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-设计模式-观察者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/10/设计模式-观察者模式/">设计模式-观察者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/10/设计模式-观察者模式/" class="article-date">
-	  <time datetime="2017-03-10T12:56:45.000Z" itemprop="datePublished">2017-03-10</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>观察者模式又叫发布/订阅模式。</p>
-        <!-- 观察者模式又叫发布/订阅模式。
-
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
-
-具体主题（ConcreteSubject）：将有关状态存入具......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/10/设计模式-观察者模式/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Git常用命令"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/10/Git常用命令/">Git常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/10/Git常用命令/" class="article-date">
-	  <time datetime="2017-03-10T09:18:14.000Z" itemprop="datePublished">2017-03-10</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/编程工具/">编程工具</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录 Git 常用的命令。</p>
-        <!-- 记录 Git 常用的命令。
-
-
-
-
-命令
-说明
-
-
-
-
-git init
-初始化git仓库
-
-
-git add filename
-将文件添加到暂存区
-
-
-git commit -m “blablabla…”
-提交到本地仓库
-
-
-git push origin master
-将本地master分支推到远程
-
-
-git status
-查看那些文件被修改过
-
-
-git diff
-查看修改内容
-
-
-......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/10/Git常用命令/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java 中定义常量的几种方法"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/03/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/03/Java 中定义常量的几种方法/" class="article-date">
-	  <time datetime="2017-03-03T03:07:35.000Z" itemprop="datePublished">2017-03-03</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>主要有三种：接口、类和枚举。</p>
-        <!-- 主要有三种：接口、类和枚举。
-
-接口：
-
-在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
-类实现该接口即可在类中调用该常量
-
-类：
-直接用 public static final 定义常量。
-枚举：
-在枚举类中直接写上常量值。
-示例：
-public class ConstTest &#123;    public static void mai......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/03/Java 中定义常量的几种方法/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[102] Binary Tree Level Order Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/01/LeetCode[102] Binary Tree Level Order Traversal/">LeetCode[102] Binary Tree Level Order Traversal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/01/LeetCode[102] Binary Tree Level Order Traversal/" class="article-date">
-	  <time datetime="2017-03-01T06:55:55.000Z" itemprop="datePublished">2017-03-01</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
-        <!-- Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
-
-For example:Given binary tree [3,9,20,null,null,15,7],
-  3 / \9  20  /  \ 15  ......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/01/LeetCode[102] Binary Tree Level Order Traversal/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
-
+  </aside>
 </section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -850,6 +403,8 @@ For example:Given binary tree [3,9,20,null,null,15,7],
   <script src="/js/home.js"></script>
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 
