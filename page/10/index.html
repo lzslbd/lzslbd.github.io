@@ -148,6 +148,62 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-LeetCode[191] Number of 1 Bits"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/26/LeetCode[191] Number of 1 Bits/">LeetCode[191] Number of 1 Bits</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/26/LeetCode[191] Number of 1 Bits/" class="article-date">
+	  <time datetime="2016-12-26T04:50:39.000Z" itemprop="datePublished">2016-12-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).</p>
+<p>For example, the 32-bit integer ’11’ has binary representation 00000000000000000000000000001011, so the function should return 3.</p>
+<p><strong>分析：</strong></p>
+<p>题目要求算出一个int数二进制表示中1的个数。</p>
+<p>n和n-1按位与可以去掉n二进制表示中最右边一位1.</p>
+<p>令   n =1101011000</p>
+<p>则  n-1=1101010111</p>
+<p>n&amp;(n-1)=1101010000</p>
+<p>经过K次n&amp;n-1,n变为0.K即n的二进制表示中1的个数。</p>
+<p><strong>代码:</strong></p>
+        <!-- Write a function that takes an unsigned integer and returns the number of ’1’ bits it has (also known as the Hamming weight).
+For example, the 32-bit integer ’11’ has binary representation 00000000......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/26/LeetCode[191] Number of 1 Bits/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-LeetCode[190] Reverse Bits"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -597,57 +653,6 @@ For example,Given [3,2,1,5,6,4] and k = 2, return 5.
 No......  -->
         <p class="article-more-link">
           <a href="/2016/12/06/LeetCode[215] Kth Largest Element in an Array/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[137] Single Number II"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/05/LeetCode[137] Single Number II/">LeetCode[137] Single Number II</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/05/LeetCode[137] Single Number II/" class="article-date">
-	  <time datetime="2016-12-05T14:06:14.000Z" itemprop="datePublished">2016-12-05</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given an array of integers, every element appears three times except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p><strong>思路:</strong></p>
-<p>创建一个sizeof(int)长度的数组，count[sizeof(int)],count[i]表示在i位出现的1的次数。如果count[i]是3的倍数，则忽略；否则取出来组成result。</p>
-<p><strong>代码:</strong></p>
-        <!-- Given an array of integers, every element appears three times except for one. Find that single one.
-Note:Your algorithm should have a linear runtime complexity. Could you implement it without using......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/05/LeetCode[137] Single Number II/#more">阅读全文</a>
         </p>
       
     </div>
