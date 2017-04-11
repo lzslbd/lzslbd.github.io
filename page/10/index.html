@@ -148,6 +148,62 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-LeetCode[202] Happy Number"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/12/26/LeetCode[202] Happy Number/">LeetCode[202] Happy Number</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/12/26/LeetCode[202] Happy Number/" class="article-date">
+	  <time datetime="2016-12-26T05:47:45.000Z" itemprop="datePublished">2016-12-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Write an algorithm to determine if a number is “happy”.</p>
+<p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
+<p>Example: 19 is a happy number</p>
+<p>1^2 + 9^2 = 82</p>
+<p>8^2 + 2^2 = 68</p>
+<p>6^2 + 8^2 = 100</p>
+<p>1^2 + 0^2 + 0^2 = 1</p>
+<p><strong>分析：</strong></p>
+<p>这题找到规律后就简单了。如果右边的出现了某个重复的数，但不是1，说明会无限循环下去，这个数就不是快乐数，如果是1，则是快乐数。</p>
+<p><strong>代码:</strong></p>
+        <!-- Write an algorithm to determine if a number is “happy”.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares......  -->
+        <p class="article-more-link">
+          <a href="/2016/12/26/LeetCode[202] Happy Number/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-LeetCode[191] Number of 1 Bits"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -606,60 +662,6 @@ For example, given input 43261596 (represented in binary as 00000010100101000001
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[215] Kth Largest Element in an Array"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/06/LeetCode[215] Kth Largest Element in an Array/">LeetCode[215] Kth Largest Element in an Array</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/06/LeetCode[215] Kth Largest Element in an Array/" class="article-date">
-	  <time datetime="2016-12-06T15:35:56.000Z" itemprop="datePublished">2016-12-06</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
-<p>For example,<br>Given [3,2,1,5,6,4] and k = 2, return 5.</p>
-<p>Note:<br>You may assume k is always valid, 1 ≤ k ≤ array’s length.</p>
-<p><strong>分析:</strong></p>
-<p>PriorityQueue内部是由堆实现的。每次remove()都会将最小的元素删除。</p>
-<p>建一个PriorityQueue，将数组元素都加入该队列。然后移出nums.length-k个，下一个出来的就是第K大的。</p>
-<p><strong>代码:</strong></p>
-        <!-- Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
-For example,Given [3,2,1,5,6,4] and k = 2, return 5.
-No......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/06/LeetCode[215] Kth Largest Element in an Array/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
