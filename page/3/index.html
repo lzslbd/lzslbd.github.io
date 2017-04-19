@@ -199,7 +199,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
 <!-- Table of Contents -->
 
   
-    <article id="post-滑动窗口的最大值"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-旋转数组的最小数字"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -207,7 +207,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/滑动窗口的最大值/">滑动窗口的最大值</a>
+      <a class="article-title" href="/2017/02/23/旋转数组的最小数字/">旋转数组的最小数字</a>
     </h1>
   
 
@@ -215,7 +215,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/滑动窗口的最大值/" class="article-date">
+	<a href="/2017/02/23/旋转数组的最小数字/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -226,11 +226,15 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
         <!-- 题目描述
-给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],......  -->
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+
+分析
+思路一：
+从前往后遍历，如果发现 array[i] &gt; array[i+1] ，则 array[......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/滑动窗口的最大值/#more">阅读全文</a>
+          <a href="/2017/02/23/旋转数组的最小数字/#more">阅读全文</a>
         </p>
       
     </div>
@@ -416,7 +420,7 @@ public class Solution &#123;    public int TreeDepth(Tree......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-旋转数组的最小数字"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-滑动窗口的最大值"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -424,7 +428,7 @@ public class Solution &#123;    public int TreeDepth(Tree......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/旋转数组的最小数字/">旋转数组的最小数字</a>
+      <a class="article-title" href="/2017/02/23/滑动窗口的最大值/">滑动窗口的最大值</a>
     </h1>
   
 
@@ -432,7 +436,7 @@ public class Solution &#123;    public int TreeDepth(Tree......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/旋转数组的最小数字/" class="article-date">
+	<a href="/2017/02/23/滑动窗口的最大值/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -443,15 +447,11 @@ public class Solution &#123;    public int TreeDepth(Tree......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
         <!-- 题目描述
-把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
-
-分析
-思路一：
-从前往后遍历，如果发现 array[i] &gt; array[i+1] ，则 array[......  -->
+给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/旋转数组的最小数字/#more">阅读全文</a>
+          <a href="/2017/02/23/滑动窗口的最大值/#more">阅读全文</a>
         </p>
       
     </div>
@@ -582,7 +582,7 @@ publ......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/最小的k个数/">最小的k个数</a>
+      <a class="article-title" href="/2017/02/21/最小的k个数/">最小的k个数</a>
     </h1>
   
 
@@ -590,8 +590,8 @@ publ......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/最小的k个数/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+	<a href="/2017/02/21/最小的k个数/" class="article-date">
+	  <time datetime="2017-02-20T16:00:00.000Z" itemprop="datePublished">2017-02-21</time>
 	</a>
 
       
@@ -611,7 +611,7 @@ publ......  -->
 代码:
 import java.util.ArrayList;public class Solution &#123;    public ArrayList&lt;Integer&gt; GetLeastN......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/最小的k个数/#more">阅读全文</a>
+          <a href="/2017/02/21/最小的k个数/#more">阅读全文</a>
         </p>
       
     </div>
