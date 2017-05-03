@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>二叉树的深度 | LBD&#39;s Blog</title>
+  <title>序列化二叉树 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="数据结构与算法编程题" />
@@ -12,19 +12,19 @@
   
   
   <meta name="description" content="题目描述
-输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。">
+请实现两个函数，分别用来序列化和反序列化二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树的深度">
-<meta property="og:url" content="http://linbingdong.com/2017/02/23/二叉树的深度/index.html">
+<meta property="og:title" content="序列化二叉树">
+<meta property="og:url" content="http://linbingdong.com/2017/02/18/序列化二叉树/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="题目描述
-输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。">
+请实现两个函数，分别用来序列化和反序列化二叉树">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-26T14:45:56.000Z">
+<meta property="og:updated_time" content="2017-05-03T01:04:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="二叉树的深度">
+<meta name="twitter:title" content="序列化二叉树">
 <meta name="twitter:description" content="题目描述
-输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。">
+请实现两个函数，分别用来序列化和反序列化二叉树">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -154,7 +154,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-二叉树的深度" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-序列化二叉树" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -162,7 +162,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      二叉树的深度
+      序列化二叉树
     </h1>
   
 
@@ -170,8 +170,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/二叉树的深度/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+	<a href="/2017/02/18/序列化二叉树/" class="article-date">
+	  <time datetime="2017-02-17T16:00:00.000Z" itemprop="datePublished">2017-02-18</time>
 	</a>
 
       
@@ -181,16 +181,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
-<a id="more"></a>
+<p>请实现两个函数，分别用来序列化和反序列化二叉树<br><a id="more"></a></p>
 <p><strong>分析</strong></p>
-<p>递归：二叉树的深度为其左右子树深度中大的那个数加1。两行代码搞定。</p>
-<p>迭代：利用层序遍历，算出总共有几层，就是二叉树的深度。</p>
+<p>先序遍历，递归。</p>
 <p><strong>代码:</strong></p>
-<p>递归：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">TreeDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + Math.max(TreeDepth(root.left), TreeDepth(root.right));</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>迭代：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Queue;</div><div class="line"><span class="keyword">import</span> java.util.LinkedList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">TreeDepth</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</div><div class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">        q.offer(root);</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            <span class="keyword">int</span> size = q.size();</div><div class="line">        	<span class="keyword">while</span> (size-- &gt; <span class="number">0</span>) &#123;</div><div class="line">                TreeNode node = q.poll();</div><div class="line">                <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) q.offer(node.left);</div><div class="line">                <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) q.offer(node.right);</div><div class="line">            &#125;   </div><div class="line">            count++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> count;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> index = -<span class="number">1</span>;</div><div class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">    <span class="function">String <span class="title">Serialize</span><span class="params">(TreeNode root)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)&#123;</div><div class="line">            sb.append(<span class="string">"#,"</span>);</div><div class="line">            <span class="keyword">return</span> sb.toString();</div><div class="line">        &#125;</div><div class="line">        sb.append(root.val + <span class="string">","</span>);</div><div class="line">        Serialize(root.left);</div><div class="line">        Serialize(root.right);</div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">  &#125;</div><div class="line">    <span class="function">TreeNode <span class="title">Deserialize</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">		index++;</div><div class="line">        <span class="keyword">int</span> len = str.length();</div><div class="line">        <span class="keyword">if</span>(index &gt; len)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        String[] strr = str.split(<span class="string">","</span>);</div><div class="line">        TreeNode node = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">if</span>(!strr[index].equals(<span class="string">"#"</span>))&#123;</div><div class="line">            node = <span class="keyword">new</span> TreeNode(Integer.valueOf(strr[index]));</div><div class="line">            node.left = Deserialize(str);</div><div class="line">            node.right = Deserialize(str);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> node;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
@@ -201,7 +196,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/23/二叉树的深度/" data-title="二叉树的深度" data-url="http://linbingdong.com/2017/02/23/二叉树的深度/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/02/18/序列化二叉树/" data-title="序列化二叉树" data-url="http://linbingdong.com/2017/02/18/序列化二叉树/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -230,19 +225,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/23/重建二叉树/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/19/分布式一致性算法：Raft 算法（Raft 论文翻译）/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          重建二叉树
+          分布式一致性算法：Raft 算法（Raft 论文翻译）
         
       </div>
     </a>
   
   
-    <a href="/2017/02/23/滑动窗口的最大值/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/02/16/Python用yield生成杨辉三角/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">滑动窗口的最大值</div>
+      <div class="article-nav-title">Python用yield生成杨辉三角</div>
     </a>
   
 </nav>
