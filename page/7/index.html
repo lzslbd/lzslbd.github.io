@@ -148,6 +148,52 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/15/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/15/Hadoop YARN介绍/" class="article-date">
+	  <time datetime="2017-01-15T07:52:40.000Z" itemprop="datePublished">2017-01-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/15/Hadoop YARN介绍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -584,67 +630,6 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-链表中环的入口"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/07/链表中环的入口/">链表中环的入口节点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/07/链表中环的入口/" class="article-date">
-	  <time datetime="2017-01-07T01:30:38.000Z" itemprop="datePublished">2017-01-07</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
-<p><strong>分析</strong></p>
-<p>两种思路</p>
-<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
-<p>思路二：两个指针。具体分析见代码注释。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:
-
-用HashSet（取巧）
-import java.util.*;public class Solution &#123;    public ListNode......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/07/链表中环的入口/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>

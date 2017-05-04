@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>把二叉树打印成多行 | LBD&#39;s Blog</title>
+  <title>数字在排序数组中出现的次数 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="keywords" content="数据结构与算法编程题" />
@@ -12,19 +12,19 @@
   
   
   <meta name="description" content="题目描述
-从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。">
+统计一个数字在排序数组中出现的次数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="把二叉树打印成多行">
-<meta property="og:url" content="http://linbingdong.com/2017/02/24/把二叉树打印成多行/index.html">
+<meta property="og:title" content="数字在排序数组中出现的次数">
+<meta property="og:url" content="http://linbingdong.com/2017/02/17/数字在排序数组中出现的次数/index.html">
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="题目描述
-从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。">
+统计一个数字在排序数组中出现的次数。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-26T14:45:17.000Z">
+<meta property="og:updated_time" content="2017-05-04T12:40:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="把二叉树打印成多行">
+<meta name="twitter:title" content="数字在排序数组中出现的次数">
 <meta name="twitter:description" content="题目描述
-从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。">
+统计一个数字在排序数组中出现的次数。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -154,7 +154,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-把二叉树打印成多行" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-数字在排序数组中出现的次数" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -162,7 +162,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      把二叉树打印成多行
+      数字在排序数组中出现的次数
     </h1>
   
 
@@ -170,8 +170,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	<a href="/2017/02/17/数字在排序数组中出现的次数/" class="article-date">
+	  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">2017-02-17</time>
 	</a>
 
       
@@ -181,12 +181,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
-<a id="more"></a>
+<p>统计一个数字在排序数组中出现的次数。<br><a id="more"></a></p>
 <p><strong>分析</strong></p>
-<p>就是层序遍历，不再赘述。</p>
+<p>因为有序，所以二分查找。先用二分查找找到该数字的位置，再从该位置分别往左往右计算两边跟他相等的个数。最后相加。</p>
 <p><strong>代码:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.Queue;</div><div class="line"><span class="keyword">import</span> java.util.LinkedList;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    ArrayList&lt;ArrayList&lt;Integer&gt; &gt; Print(TreeNode pRoot) &#123;</div><div class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; resultList = <span class="keyword">new</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();</div><div class="line">        <span class="keyword">if</span> (pRoot == <span class="keyword">null</span>) <span class="keyword">return</span> resultList;</div><div class="line">        Queue&lt;TreeNode&gt; q = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</div><div class="line">        q.offer(pRoot);</div><div class="line">        <span class="keyword">while</span> (!q.isEmpty()) &#123;</div><div class="line">            <span class="keyword">int</span> size = q.size();</div><div class="line">            ArrayList&lt;Integer&gt; levelList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        	<span class="keyword">while</span> (size-- &gt; <span class="number">0</span>) &#123;</div><div class="line">                TreeNode node = q.poll();</div><div class="line">                levelList.add(node.val);</div><div class="line">                <span class="keyword">if</span> (node.left != <span class="keyword">null</span>) q.offer(node.left);</div><div class="line">                <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) q.offer(node.right);</div><div class="line">            &#125;   </div><div class="line">            resultList.add(levelList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> resultList;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">GetNumberOfK</span><span class="params">(<span class="keyword">int</span> [] array , <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> index = binaryFindK(array, <span class="number">0</span>, array.length - <span class="number">1</span>, k);</div><div class="line">        <span class="keyword">if</span> (index == -<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> ind = index;</div><div class="line">        <span class="keyword">int</span> leftCount, rightCount;</div><div class="line">        leftCount = rightCount = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> ((index - <span class="number">1</span>) &gt;= <span class="number">0</span> &amp;&amp; array[--index] == k)</div><div class="line">            leftCount++;</div><div class="line">        <span class="keyword">while</span> ((ind + <span class="number">1</span>) &lt; array.length  &amp;&amp; array[++ind] == k)</div><div class="line">            rightCount++;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span> + leftCount + rightCount;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">binaryFindK</span><span class="params">(<span class="keyword">int</span> [] array, <span class="keyword">int</span> low, <span class="keyword">int</span> high, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (low &lt;= high) &#123;</div><div class="line">            <span class="keyword">int</span> mid = low + (high-low) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (array[mid] == k) <span class="keyword">return</span> mid;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (array[mid] &lt; k) binaryFindK(array, mid+<span class="number">1</span>, high, k);</div><div class="line">            <span class="keyword">else</span> binaryFindK(array, low, mid-<span class="number">1</span>, k);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
@@ -197,7 +196,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/24/把二叉树打印成多行/" data-title="把二叉树打印成多行" data-url="http://linbingdong.com/2017/02/24/把二叉树打印成多行/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/02/17/数字在排序数组中出现的次数/" data-title="数字在排序数组中出现的次数" data-url="http://linbingdong.com/2017/02/17/数字在排序数组中出现的次数/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -226,19 +225,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/24/按之字形顺序打印二叉树/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/18/序列化二叉树/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          按之字形顺序打印二叉树
+          序列化二叉树
         
       </div>
     </a>
   
   
-    <a href="/2017/02/24/平衡二叉树/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/02/16/Python用yield生成杨辉三角/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">平衡二叉树</div>
+      <div class="article-nav-title">Python用yield生成杨辉三角</div>
     </a>
   
 </nav>
