@@ -11,17 +11,17 @@
   
   
   
-  <meta name="description" content="CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.util.concurrent.*;/** * Created by lbd. */public class CountDownLatchDemo &amp;#123;    public static void main(String[] args)">
+  <meta name="description" content="CountDownLatch &amp;amp;&amp;amp; CyclicBarrier example">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CountDownLatch && CyclicBarrier example">
-<meta property="og:url" content="http://linbingdong.com/2017/05/07/CountDownLatch && CyclicBarrier example/index.html">
+<meta property="og:url" content="http://linbingdong.com/2017/07/11/CountDownLatch && CyclicBarrier example/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.util.concurrent.*;/** * Created by lbd. */public class CountDownLatchDemo &amp;#123;    public static void main(String[] args)">
+<meta property="og:description" content="CountDownLatch &amp;amp;&amp;amp; CyclicBarrier example">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-05-07T13:48:20.000Z">
+<meta property="og:updated_time" content="2017-07-11T14:24:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CountDownLatch && CyclicBarrier example">
-<meta name="twitter:description" content="CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.util.concurrent.*;/** * Created by lbd. */public class CountDownLatchDemo &amp;#123;    public static void main(String[] args)">
+<meta name="twitter:description" content="CountDownLatch &amp;amp;&amp;amp; CyclicBarrier example">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -167,8 +167,8 @@
     
     <div class="article-meta">
       
-	<a href="/2017/05/07/CountDownLatch && CyclicBarrier example/" class="article-date">
-	  <time datetime="2017-05-07T13:48:20.000Z" itemprop="datePublished">2017-05-07</time>
+	<a href="/2017/07/11/CountDownLatch && CyclicBarrier example/" class="article-date">
+	  <time datetime="2017-07-11T14:24:57.000Z" itemprop="datePublished">2017-07-11</time>
 	</a>
 
       
@@ -177,7 +177,8 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>CountDownLatch &amp;&amp; CyclicBarrier example</p>
+<a id="more"></a>
 <h2 id="CountDownLatch"><a href="#CountDownLatch" class="headerlink" title="CountDownLatch"></a>CountDownLatch</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lbd.concurrent;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.*;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by lbd.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDownLatchDemo</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ExecutorService executor = Executors.newCachedThreadPool();</div><div class="line">        CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">3</span>);</div><div class="line">        Worker w1 = <span class="keyword">new</span> Worker(<span class="string">"worker1"</span>, latch);</div><div class="line">        Worker w2 = <span class="keyword">new</span> Worker(<span class="string">"worker2"</span>, latch);</div><div class="line">        Worker w3 = <span class="keyword">new</span> Worker(<span class="string">"worker3"</span>, latch);</div><div class="line"></div><div class="line">        Boss boss = <span class="keyword">new</span> Boss(latch);</div><div class="line"></div><div class="line">        executor.execute(w1);</div><div class="line">        executor.execute(w2);</div><div class="line">        executor.execute(w3);</div><div class="line">        executor.execute(boss);</div><div class="line"></div><div class="line">        executor.shutdown();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> CountDownLatch downLatch;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Worker</span><span class="params">(String name, CountDownLatch downLatch)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.downLatch = downLatch;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="keyword">this</span>.name + <span class="string">" is working..."</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Thread.sleep(<span class="number">3000</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="keyword">this</span>.name + <span class="string">" is done!"</span>);</div><div class="line">        downLatch.countDown();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Boss</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> CountDownLatch downLatch;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Boss</span><span class="params">(CountDownLatch downLatch)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.downLatch = downLatch;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"boss is waiting for all workers..."</span>);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            downLatch.await();</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"all work is done! Boss gonna check"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>output:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">worker1 is working...</div><div class="line">worker2 is working...</div><div class="line">worker3 is working...</div><div class="line">boss is waiting <span class="keyword">for</span> all workers...</div><div class="line">worker2 is done!</div><div class="line">worker3 is done!</div><div class="line">worker1 is done!</div><div class="line">all work is done! Boss gonna check</div></pre></td></tr></table></figure>
@@ -194,7 +195,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/05/07/CountDownLatch && CyclicBarrier example/" data-title="CountDownLatch && CyclicBarrier example" data-url="http://linbingdong.com/2017/05/07/CountDownLatch && CyclicBarrier example/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/07/11/CountDownLatch && CyclicBarrier example/" data-title="CountDownLatch && CyclicBarrier example" data-url="http://linbingdong.com/2017/07/11/CountDownLatch && CyclicBarrier example/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -223,19 +224,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/05/10/复杂链表的复制/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          复杂链表的复制
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/14/生产者消费者模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/10/复杂链表的复制/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">生产者消费者模式</div>
+      <div class="article-nav-title">复杂链表的复制</div>
     </a>
   
 </nav>
