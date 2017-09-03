@@ -196,7 +196,7 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
 <!-- Table of Contents -->
 
   
-    <article id="post-复杂链表的复制"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-分布式系列文章——Paxos算法原理与推导"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -204,7 +204,7 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/05/10/复杂链表的复制/">复杂链表的复制</a>
+      <a class="article-title" href="/2017/04/17/分布式系列文章——Paxos算法原理与推导/">分布式系列文章——Paxos算法原理与推导</a>
     </h1>
   
 
@@ -212,33 +212,32 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
     
     <div class="article-meta">
       
-	<a href="/2017/05/10/复杂链表的复制/" class="article-date">
-	  <time datetime="2017-05-10T02:22:06.000Z" itemprop="datePublished">2017-05-10</time>
+	<a href="/2017/04/17/分布式系列文章——Paxos算法原理与推导/" class="article-date">
+	  <time datetime="2017-04-16T16:00:00.000Z" itemprop="datePublished">2017-04-17</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）<br>
-        <!-- 题目描述
-输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
-分析
-本题的Node多了一个random指针，比较复杂，可以分三步走：
+        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
+<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
+        <!-- Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
+网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
 
-在原链表中复制节点（在旧链表每个节点后插入一个跟它值相同的节点。如原来是A-&gt;B-C,复......  -->
+Paxos是什么
+P......  -->
         <p class="article-more-link">
-          <a href="/2017/05/10/复杂链表的复制/#more">阅读全文</a>
+          <a href="/2017/04/17/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
 
     </footer>
   </div>
@@ -553,7 +552,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 <!-- Table of Contents -->
 
   
-    <article id="post-分布式系列文章——Paxos算法原理与推导"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-复杂链表的复制"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -561,7 +560,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/">分布式系列文章——Paxos算法原理与推导</a>
+      <a class="article-title" href="/2017/03/24/复杂链表的复制/">复杂链表的复制</a>
     </h1>
   
 
@@ -569,32 +568,33 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     
     <div class="article-meta">
       
-	<a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/" class="article-date">
-	  <time datetime="2017-03-16T16:00:00.000Z" itemprop="datePublished">2017-03-17</time>
+	<a href="/2017/03/24/复杂链表的复制/" class="article-date">
+	  <time datetime="2017-03-23T16:00:00.000Z" itemprop="datePublished">2017-03-24</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
-<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
-        <!-- Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
+        <p><strong>题目描述</strong></p>
+<p>输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）<br>
+        <!-- 题目描述
+输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针指向任意一个节点），返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
+分析
+本题的Node多了一个random指针，比较复杂，可以分三步走：
 
-Paxos是什么
-P......  -->
+在原链表中复制节点（在旧链表每个节点后插入一个跟它值相同的节点。如原来是A-&gt;B-C,复......  -->
         <p class="article-more-link">
-          <a href="/2017/03/17/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
+          <a href="/2017/03/24/复杂链表的复制/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
