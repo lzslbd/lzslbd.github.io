@@ -11,37 +11,19 @@
   
   
   
-  <meta name="description" content="定义适配器模式将一个类的接口，转换成客户端期待的另一个接口。
-比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。
-
-图中玫瑰金色的就是适配器。
-角色
-目标（Target）：即期望的接口。
-适配器（Adapter）：用于将源接">
+  <meta name="description" content="本文介绍适配器模式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式-适配器模式">
 <meta property="og:url" content="http://linbingdong.com/2017/11/11/设计模式-适配器模式/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="定义适配器模式将一个类的接口，转换成客户端期待的另一个接口。
-比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。
-
-图中玫瑰金色的就是适配器。
-角色
-目标（Target）：即期望的接口。
-适配器（Adapter）：用于将源接">
+<meta property="og:description" content="本文介绍适配器模式。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-44cc41182016b5e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-ebc5c6a53ad679d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-11T03:52:02.000Z">
+<meta property="og:updated_time" content="2017-11-11T03:53:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式-适配器模式">
-<meta name="twitter:description" content="定义适配器模式将一个类的接口，转换成客户端期待的另一个接口。
-比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。
-
-图中玫瑰金色的就是适配器。
-角色
-目标（Target）：即期望的接口。
-适配器（Adapter）：用于将源接">
+<meta name="twitter:description" content="本文介绍适配器模式。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-44cc41182016b5e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -197,7 +179,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>适配器模式</strong>将一个类的接口，转换成客户端期待的另一个接口。</p>
+        <p>本文介绍适配器模式。</p>
+<a id="more"></a>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>适配器模式</strong>将一个类的接口，转换成客户端期待的另一个接口。</p>
 <p>比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-44cc41182016b5e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Adapter.jpg"></p>
 <p>图中玫瑰金色的就是适配器。</p>
