@@ -148,6 +148,55 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-关于Java Map的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/09/关于Java Map的几个常见问题/">关于Java Map的几个常见问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/09/关于Java Map的几个常见问题/" class="article-date">
+	  <time datetime="2017-01-09T11:50:11.000Z" itemprop="datePublished">2017-01-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>列举几个关于Java Map的常见问题并给出答案。</p>
+        <!-- 列举几个关于Java Map的常见问题并给出答案。
+
+1. 将Map转化成ListMap接口提供了三种collection：key set,value set 和 key-value set，每一种都可以转成List。如下：
+//mapHashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();map.put(1,10);map.pu......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/09/关于Java Map的几个常见问题/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-关于Java字符串的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -626,60 +675,6 @@ public class Solution &#123;    public double Power(double base, int exponent) &
 本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。但是......  -->
         <p class="article-more-link">
           <a href="/2017/01/05/数组中只出现一次的数字II/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-第一个只出现一次的字符"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/05/第一个只出现一次的字符/">第一个只出现一次的字符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/05/第一个只出现一次的字符/" class="article-date">
-	  <time datetime="2017-01-05T08:55:41.000Z" itemprop="datePublished">2017-01-05</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由大小写字母组成)中找到第一个只出现一次的字符,并返回它的位置</p>
-<p><strong>分析</strong></p>
-<p>遍历一遍字符串，用counts数组存储每个字母出现的次数。<code>str.charAt[i] - &#39;A&#39;</code>作为该字母在counts数组中的下标。数组大小为58（’A’的ASCLL码为65 ‘a’为97 ‘z’为122  122-65+1=58）</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-在一个字符串(1&lt;=字符串长度&lt;=10000，全部由大小写字母组成)中找到第一个只出现一次的字符,并返回它的位置
-分析
-遍历一遍字符串，用counts数组存储每个字母出现的次数。str.charAt[i] - &#39;A&#39;作为该字母在counts数组中的下标。数组大小为58（’A’的ASCLL码为65 ‘a’为97 ‘z’为122  122-65+1=58）
-......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/05/第一个只出现一次的字符/#more">阅读全文</a>
         </p>
       
     </div>

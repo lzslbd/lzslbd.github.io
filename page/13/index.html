@@ -148,6 +148,56 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
+	  <time datetime="2016-11-30T06:16:55.000Z" itemprop="datePublished">2016-11-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
+<p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
+        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region s......  -->
+        <p class="article-more-link">
+          <a href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Parquet调研"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -587,69 +637,6 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/统计每个单词出现的次数/">统计每个单词出现的次数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/08/27/统计每个单词出现的次数/" class="article-date">
-	  <time datetime="2016-08-27T11:57:33.000Z" itemprop="datePublished">2016-08-27</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>/**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-</code></pre>
-        <!-- /**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-
-package cn.lbd.Collection;import java.ut......  -->
-        <p class="article-more-link">
-          <a href="/2016/08/27/统计每个单词出现的次数/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
