@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-设计模式-适配器模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Python函数式编程"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-适配器模式/">设计模式-适配器模式</a>
+      <a class="article-title" href="/2017/03/15/Python函数式编程/">Python函数式编程</a>
     </h1>
   
 
@@ -164,42 +164,29 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/设计模式-适配器模式/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2017/03/15/Python函数式编程/" class="article-date">
+	  <time datetime="2017-03-15T08:18:49.000Z" itemprop="datePublished">2017-03-15</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>适配器模式</strong>将一个类的接口，转换成客户端期待的另一个接口。</p>
-<p>比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1752522-44cc41182016b5e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Adapter.jpg"></p>
-<p>图中玫瑰金色的就是适配器。</p>
-<h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><ul>
-<li><strong>目标（Target）</strong>：即期望的接口。</li>
-<li><strong>适配器（Adapter）</strong>：用于将源接口转换成目标接口。</li>
-<li><strong>被适配者（Adaptee）</strong>：即源接口。</li>
-</ul>
-<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="http://upload-images.jianshu.io/upload_images/1752522-ebc5c6a53ad679d5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="适配器模式类图.png"></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdapterDP</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        AppleLightning appleLighting = <span class="keyword">new</span> AppleLightning();</div><div class="line">        System.out.println(<span class="string">"use lightning to charge"</span>);</div><div class="line">        appleLighting.chargeWithLightning();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">'\n'</span> + <span class="string">"use type-c to charge"</span>);</div><div class="line">        AndroidTypeC androidTypeC = <span class="keyword">new</span> AndroidTypeC();</div><div class="line">        androidTypeC.chargeWithTypeC();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">'\n'</span> + <span class="string">"use lightning to charge"</span>);</div><div class="line">        Lightning adapter = <span class="keyword">new</span> Adapter(androidTypeC);</div><div class="line">        adapter.chargeWithLightning();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Lightning</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">chargeWithLightning</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppleLightning</span> <span class="keyword">implements</span> <span class="title">Lightning</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithLightning</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"charging iPhone..."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AndroidTypeC</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithTypeC</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"charging android..."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">Lightning</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> AndroidTypeC androidTypeC;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Adapter</span><span class="params">(AndroidTypeC androidTypeC)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.androidTypeC = androidTypeC;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithLightning</span><span class="params">()</span> </span>&#123;</div><div class="line">        androidTypeC.chargeWithTypeC();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">use lightning to charge</div><div class="line">charging iPhone...</div><div class="line"></div><div class="line">use type-c to charge</div><div class="line">charging android...</div><div class="line"></div><div class="line">use lightning to charge</div><div class="line">charging android...</div></pre></td></tr></table></figure>
-<p>注：以上的例子是对象适配器模式，还有另一种适配器模式叫类适配器模式，这里不再赘述。</p>
-<h2 id="适配器模式在Hadoop源码中的应用"><a href="#适配器模式在Hadoop源码中的应用" class="headerlink" title="适配器模式在Hadoop源码中的应用"></a>适配器模式在Hadoop源码中的应用</h2><p>Hadoop作为广泛应用的大数据组件，其本质是一个分布式系统，在分布式系统中，各个节点之间的通信和交互是必不可少的，为此，Hadoop实现了一套自己的RPC框架，该RPC框架默认使用Protocol Buffer作为序列化工具。</p>
-<p>ClientProtocol协议定义了HDFS Client和NameNode交互的所有方法，但是ClientProtocol协议中方法的参数是无法在网络中传输的，需要对参数进行序列化操作，所以HDFS又定义了ClientNamenodeProtocolPB协议，该协议包含了ClientProtocol定义的所有方法，但是参数却是使用protobuf序列化后的格式。</p>
-<p>ClientNamenodeProtocolTranslatorPB类作为Client侧的<strong>适配器</strong>类，<strong>实现</strong>了ClientProtocol接口，它<strong>内部拥有</strong>一个实现了ClientNamenodeProtocolPB接口的对象，可以将ClientProtocol调用适配成ClientNamenodeProtocolPB调用。以rename()调用为例，ClientNamenodeProtocolPB将rename(String, String)调用中的两个String参数序列化成一个RenameRequestProto对象，然后调用ClientNamenodeProtocolPB对象的rename(RenameRequestProto)方法，这样就完成了ClientProtocol接口到ClientNamenodeProtocolPB接口的适配。</p>
-<p>在该例子中，ClientNamenodeProtocolTranslatorPB类为<strong>适配器</strong>，ClientProtocol为<strong>目标接口</strong>（这里的目标是对客户端来说的），ClientNamenodeProtocolPB为<strong>源接口</strong>。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+        <p>虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。</p>
+        <!-- 虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。
 
+匿名函数Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表达......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/15/Python函数式编程/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -602,6 +589,59 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
 <!-- Table of Contents -->
 
   
+    <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/按之字形顺序打印二叉树/">按之字形顺序打印二叉树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/按之字形顺序打印二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。</p>
+        <!-- 题目描述
+请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+
+分析
+跟把二叉树打印成多行一样，只不过在偶数行需要反转一下。
+代码:
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;impor......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/按之字形顺序打印二叉树/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -644,59 +684,6 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
 publi......  -->
         <p class="article-more-link">
           <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/把二叉树打印成多行/">把二叉树打印成多行</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
-        <!-- 题目描述
-从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
-
-分析
-就是层序遍历，不再赘述。
-代码:
-import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;public class Solution &#123;    ArrayList&lt;ArrayList&lt;In......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/24/把二叉树打印成多行/#more">阅读全文</a>
         </p>
       
     </div>
