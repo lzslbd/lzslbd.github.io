@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Phoenix查询测试经验总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/11/30/Phoenix查询测试经验总结/">Phoenix查询经验总结</a>
+      <a class="article-title" href="/2017/02/24/把二叉树打印成多行/">把二叉树打印成多行</a>
     </h1>
   
 
@@ -164,30 +164,34 @@
     
     <div class="article-meta">
       
-	<a href="/2016/11/30/Phoenix查询测试经验总结/" class="article-date">
-	  <time datetime="2016-11-30T06:19:42.000Z" itemprop="datePublished">2016-11-30</time>
+	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。</p>
-        <!-- 适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。
+        <p><strong>题目描述</strong></p>
+<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
+        <!-- 题目描述
+从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
 
-1. 背景适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，在此记录下来。
-2. 问题及解决2.1. 创建索引时报错，报错如下：//创......  -->
+分析
+就是层序遍历，不再赘述。
+代码:
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;public class Solution &#123;    ArrayList&lt;ArrayList&lt;In......  -->
         <p class="article-more-link">
-          <a href="/2016/11/30/Phoenix查询测试经验总结/#more">阅读全文</a>
+          <a href="/2017/02/24/把二叉树打印成多行/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -197,7 +201,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-平衡二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -205,7 +209,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
+      <a class="article-title" href="/2017/02/24/平衡二叉树/">平衡二叉树</a>
     </h1>
   
 
@@ -213,31 +217,34 @@
     
     <div class="article-meta">
       
-	<a href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
-	  <time datetime="2016-11-30T06:16:55.000Z" itemprop="datePublished">2016-11-30</time>
+	<a href="/2017/02/24/平衡二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
-<p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
-        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
-通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+        <p><strong>题目描述</strong></p>
+<p>输入一棵二叉树，判断该二叉树是否是平衡二叉树。</p>
+        <!-- 题目描述
+输入一棵二叉树，判断该二叉树是否是平衡二叉树。
 
-1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region s......  -->
+分析
+判断是否平衡二叉树的关键就是判断左右子树的高度差是否大于1。问题转化成分别求左右子树的高度。树的高度为其左右字数高度的较大值加1。
+代码:
+public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root) &#123;      ......  -->
         <p class="article-more-link">
-          <a href="/2016/11/30/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
+          <a href="/2017/02/24/平衡二叉树/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -247,7 +254,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Parquet调研"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -255,7 +262,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/11/30/Parquet调研/">浅析列式存储格式Parquet</a>
+      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
     </h1>
   
 
@@ -263,27 +270,34 @@
     
     <div class="article-meta">
       
-	<a href="/2016/11/30/Parquet调研/" class="article-date">
-	  <time datetime="2016-11-30T06:07:14.000Z" itemprop="datePublished">2016-11-30</time>
+	<a href="/2017/02/24/对称的二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/列式存储/">列式存储</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Apache Parquet是Hadoop生态圈中一种<strong>新型列式存储格式</strong>，它可以兼容Hadoop生态圈中大多数计算框架(Hadoop、Spark等)，被多种查询引擎支持(Hive、Impala、Drill等)，并且它是语言和平台无关的。Parquet最初是由Twitter和Cloudera(由于Impala的缘故)合作开发完成并开源，2015年5月从Apache的孵化器里毕业成为Apache顶级项目，最新的版本是1.8.1。</p>
-        <!-- Apache Parquet是Hadoop生态圈中一种新型列式存储格式，它可以兼容Hadoop生态圈中大多数计算框架(Hadoop、Spark等)，被多种查询引擎支持(Hive、Impala、Drill等)，并且它是语言和平台无关的。Parquet最初是由Twitter和Cloudera(由于Impala的缘故)合作开发完成并开源，2015年5月从Apache的孵化器里毕业成为Apache顶......  -->
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+        <!-- 题目描述
+请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+
+分析
+如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
+代码:
+public cl......  -->
         <p class="article-more-link">
-          <a href="/2016/11/30/Parquet调研/#more">阅读全文</a>
+          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Parquet/">Parquet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/列式存储/">列式存储</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -293,7 +307,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive on Spark调优"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -301,7 +315,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/11/30/Hive on Spark调优/">Hive on Spark调优</a>
+      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
     </h1>
   
 
@@ -309,30 +323,34 @@
     
     <div class="article-meta">
       
-	<a href="/2016/11/30/Hive on Spark调优/" class="article-date">
-	  <time datetime="2016-11-29T16:00:00.000Z" itemprop="datePublished">2016-11-30</time>
+	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前在<code>Hive on Spark</code>跑<code>TPCx-BB</code>测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    <code>POWER_TEST</code>阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。</p>
-        <!-- 之前在Hive on Spark跑TPCx-BB测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    POWER_TEST阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。
+        <p><strong>题目描述</strong></p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+        <!-- 题目描述
+输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
 
-Spark作业运行原理
-详细原理见上图。我们使用spark-submit提交一个Spark......  -->
+分析
+先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+代码:
+publ......  -->
         <p class="article-more-link">
-          <a href="/2016/11/30/Hive on Spark调优/#more">阅读全文</a>
+          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -342,7 +360,7 @@ Spark作业运行原理
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive on Spark安装配置详解"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-旋转数组的最小数字"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -350,7 +368,7 @@ Spark作业运行原理
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/10/10/Hive on Spark安装配置详解/">Hive on Spark安装配置详解</a>
+      <a class="article-title" href="/2017/02/23/旋转数组的最小数字/">旋转数组的最小数字</a>
     </h1>
   
 
@@ -358,29 +376,33 @@ Spark作业运行原理
     
     <div class="article-meta">
       
-	<a href="/2016/10/10/Hive on Spark安装配置详解/" class="article-date">
-	  <time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished">2016-10-10</time>
+	<a href="/2017/02/23/旋转数组的最小数字/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。</p>
-        <!-- 简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
+        <p><strong>题目描述</strong></p>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+        <!-- 题目描述
+把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
 
-背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduce......  -->
+分析
+思路一：
+从前往后遍历，如果发现 array[i] &gt; array[i+1] ，则 array[......  -->
         <p class="article-more-link">
-          <a href="/2016/10/10/Hive on Spark安装配置详解/#more">阅读全文</a>
+          <a href="/2017/02/23/旋转数组的最小数字/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -390,7 +412,7 @@ Spark作业运行原理
 <!-- Table of Contents -->
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -398,7 +420,7 @@ Spark作业运行原理
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/09/20/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
     </h1>
   
 
@@ -406,29 +428,34 @@ Spark作业运行原理
     
     <div class="article-meta">
       
-	<a href="/2016/09/20/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
-	  <time datetime="2016-09-20T02:22:22.000Z" itemprop="datePublished">2016-09-20</time>
+	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
-        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+        <p><strong>题目描述</strong></p>
+<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+        <!-- 题目描述
+输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
 
-代码结构主目录（$BENCH......  -->
+分析
+递归，分别在左右子树里找符合 target = target - root.val 的路径。
+代码:
+import java.util.ArrayList;public class Solution &#123;    public ......  -->
         <p class="article-more-link">
-          <a href="/2016/09/20/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -438,7 +465,7 @@ Spark作业运行原理
 <!-- Table of Contents -->
 
   
-    <article id="post-机器学习"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -446,7 +473,7 @@ Spark作业运行原理
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/09/10/机器学习/">机器学习笔记（持续更新）</a>
+      <a class="article-title" href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/">LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal</a>
     </h1>
   
 
@@ -454,31 +481,32 @@ Spark作业运行原理
     
     <div class="article-meta">
       
-	<a href="/2016/09/10/机器学习/" class="article-date">
-	  <time datetime="2016-09-10T08:30:46.000Z" itemprop="datePublished">2016-09-10</time>
+	<a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
-        <!-- 
-任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
-“奥卡姆剃刀”原则：如无必要，勿增实体 Entities should not be multiplied unnecessarily
-NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某些......  -->
+        <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
+        <!-- Given inorder and postorder traversal of a tree, construct the binary tree.
+
+分析:
+本题是重建二叉树（后序加中序），跟重建二叉树（先序加中序）思路一样。
+代码:
+public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[......  -->
         <p class="article-more-link">
-          <a href="/2016/09/10/机器学习/#more">阅读全文</a>
+          <a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -488,7 +516,7 @@ NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某�
 <!-- Table of Contents -->
 
   
-    <article id="post-Phoenix文档"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-滑动窗口的最大值"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -496,7 +524,7 @@ NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/09/02/Phoenix文档/">Phoenix综述（SQL on HBase）</a>
+      <a class="article-title" href="/2017/02/23/滑动窗口的最大值/">滑动窗口的最大值</a>
     </h1>
   
 
@@ -504,33 +532,29 @@ NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某�
     
     <div class="article-meta">
       
-	<a href="/2016/09/02/Phoenix文档/" class="article-date">
-	  <time datetime="2016-09-02T09:06:16.000Z" itemprop="datePublished">2016-09-02</time>
+	<a href="/2017/02/23/滑动窗口的最大值/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-Phoenix概述"><a href="#1-Phoenix概述" class="headerlink" title="1. Phoenix概述"></a>1. Phoenix概述</h2><p>Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。</p>
-        <!-- 1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
-
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。
-
-put the SQL back in NoSQL
-
-Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
+        <p><strong>题目描述</strong></p>
+<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+        <!-- 题目描述
+给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],......  -->
         <p class="article-more-link">
-          <a href="/2016/09/02/Phoenix文档/#more">阅读全文</a>
+          <a href="/2017/02/23/滑动窗口的最大值/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -540,7 +564,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive安装配置文档"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树的深度"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -548,7 +572,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/09/02/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+      <a class="article-title" href="/2017/02/23/二叉树的深度/">二叉树的深度</a>
     </h1>
   
 
@@ -556,30 +580,36 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/09/02/Hive安装配置文档/" class="article-date">
-	  <time datetime="2016-09-02T09:06:04.000Z" itemprop="datePublished">2016-09-02</time>
+	<a href="/2017/02/23/二叉树的深度/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
-        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+        <p><strong>题目描述</strong></p>
+<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+        <!-- 题目描述
+输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
 
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
-......  -->
+分析
+递归：二叉树的深度为其左右子树深度中大的那个数加1。两行代码搞定。
+迭代：利用层序遍历，算出总共有几层，就是二叉树的深度。
+代码:
+递归：
+public class Solution &#123;    public int TreeDepth(Tree......  -->
         <p class="article-more-link">
-          <a href="/2016/09/02/Hive安装配置文档/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树的深度/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -589,7 +619,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Python读书笔记（持续更新）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树的镜像"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -597,7 +627,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/Python读书笔记（持续更新）/">Python读书笔记（持续更新）</a>
+      <a class="article-title" href="/2017/02/23/二叉树的镜像/">二叉树的镜像</a>
     </h1>
   
 
@@ -605,36 +635,42 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/08/27/Python读书笔记（持续更新）/" class="article-date">
-	  <time datetime="2016-08-27T13:47:49.000Z" itemprop="datePublished">2016-08-27</time>
+	<a href="/2017/02/23/二叉树的镜像/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>书籍：《Python基础教程》《Python核心编程》《Python Cookbook》《Python源码剖析》</p>
-</blockquote>
-        <!-- 
-书籍：《Python基础教程》《Python核心编程》《Python Cookbook》《Python源码剖析》
+        <p><strong>题目描述</strong></p>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。 </p>
+<p>输入描述:</p>
+<p>二叉树的镜像定义：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">  源二叉树 </div><div class="line">    8</div><div class="line">   /  \</div><div class="line">  6   10</div><div class="line"> / \  / \</div><div class="line">5  7 9  11</div><div class="line"></div><div class="line">镜像二叉树</div><div class="line">    8</div><div class="line">   /  \</div><div class="line">  10   6</div><div class="line"> / \  / \</div><div class="line">11 9 7   5</div></pre></td></tr></table></figure>
+        <!-- 题目描述
+操作给定的二叉树，将其变换为源二叉树的镜像。 
+输入描述:
+二叉树的镜像定义：
+  源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5
 
-
-
-在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言
-
-在Python中，通常用全部大写的变量名表示常量。用全部大写的变量名表示常量只是一个习惯......  -->
+分析
+用递归可以很方便地解决。
+如果不用递归的话，可以借助队列来实现。思想类似于二叉树的层序遍历
+代码:
+递归：
+pub......  -->
         <p class="article-more-link">
-          <a href="/2016/08/27/Python读书笔记（持续更新）/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树的镜像/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>

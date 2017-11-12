@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Apache Kylin综述"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 关键字 static 、final 总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/03/Apache Kylin综述/">Apache Kylin综述</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -164,30 +164,32 @@
     
     <div class="article-meta">
       
-	<a href="/2017/01/03/Apache Kylin综述/" class="article-date">
-	  <time datetime="2017-01-03T01:28:17.000Z" itemprop="datePublished">2017-01-03</time>
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Kylin/">Kylin</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/1752522-b24bc950f45d2666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-        <!-- 
+        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
+        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
-1. 简介1.1 Kylin概览Apache Kylin是一个开源的分布式分析引擎，提供Hadoop之上的SQL查询接口及多维分析（OLAP）能力（可以把Kylin定义为OLAP on Hadoop）。Apache Kylin于2015年11月正式毕业成为Apache基金会(ASF) 顶级项目，是第一个由中国团队完整贡献到Apache的顶级项目。
-Apache Kyiln构建在Hadoo......  -->
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+stat......  -->
         <p class="article-more-link">
-          <a href="/2017/01/03/Apache Kylin综述/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kylin/">Kylin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -197,7 +199,7 @@ Apache Kyiln构建在Hadoo......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-分布式系列文章——Paxos算法原理与推导(PPT)"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-字符串匹配之暴力匹配 &amp;&amp; KMP"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -205,7 +207,7 @@ Apache Kyiln构建在Hadoo......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/29/分布式系列文章——Paxos算法原理与推导(PPT)/">分布式系列文章——Paxos算法原理与推导(PPT)</a>
+      <a class="article-title" href="/2017/03/11/字符串匹配之暴力匹配 && KMP/">字符串查找算法总结（暴力匹配、KMP 算法、Boyer-Moore 算法和 Sunday 算法）</a>
     </h1>
   
 
@@ -213,49 +215,29 @@ Apache Kyiln构建在Hadoo......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/12/29/分布式系列文章——Paxos算法原理与推导(PPT)/" class="article-date">
-	  <time datetime="2016-12-29T08:21:48.000Z" itemprop="datePublished">2016-12-29</time>
+	<a href="/2017/03/11/字符串匹配之暴力匹配 && KMP/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/算法/">算法</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前在公司内部分享了Paxos算法的原理和推导过程，现将PPT分享给大家，有疑问欢迎随时交流讨论。</p>
-        <!-- 之前在公司内部分享了Paxos算法的原理和推导过程，现将PPT分享给大家，有疑问欢迎随时交流讨论。
+        <p>字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。</p>
+        <!-- 字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-...  -->
+KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，开头的那个K就是著名科学家 Donald Knuth 。KMP 算法的关键是求 next 数组。next 数组的长度为模式串的长度。next 数组......  -->
         <p class="article-more-link">
-          <a href="/2016/12/29/分布式系列文章——Paxos算法原理与推导(PPT)/#more">阅读全文</a>
+          <a href="/2017/03/11/字符串匹配之暴力匹配 && KMP/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boyer-Moore/">Boyer-Moore</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/">KMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -265,7 +247,7 @@ Apache Kyiln构建在Hadoo......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-疯狂跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-字符流中第一个不重复的字符"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -273,7 +255,7 @@ Apache Kyiln构建在Hadoo......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/27/疯狂跳台阶/">疯狂跳台阶</a>
+      <a class="article-title" href="/2017/03/11/字符流中第一个不重复的字符/">字符流中第一个不重复的字符</a>
     </h1>
   
 
@@ -281,8 +263,8 @@ Apache Kyiln构建在Hadoo......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/12/27/疯狂跳台阶/" class="article-date">
-	  <time datetime="2016-12-27T11:01:43.000Z" itemprop="datePublished">2016-12-27</time>
+	<a href="/2017/03/11/字符流中第一个不重复的字符/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -291,18 +273,17 @@ Apache Kyiln构建在Hadoo......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数用来找出字符流中第一个只出现一次的字符。例如，当从字符流中只读出前两个字符”go”时，第一个只出现一次的字符是”g”。当从该字符流中读出前六个字符“google”时，第一个只出现一次的字符是”l”。 </p>
 <p><strong>分析</strong></p>
-<p>分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。</p>
+<p>创建一个长度为128的数组charArr[]。用字符的ASCII码作为数组的下标，字符在字符流中的位置作为值。刚开始数组初始化为-1。若该字符未出现过，即charArr[ch] == -1，则令charArr[ch] = index(字符在字符流中的位置)，否则令charArr[ch] = -2。最后只要扫描整个数组，并从中找出最小的大于等于0的值对应的字符即可。</p>
 <p><strong>代码:</strong></p>
-        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+        <!-- 题目描述
+请实现一个函数用来找出字符流中第一个只出现一次的字符。例如，当从字符流中只读出前两个字符”go”时，第一个只出现一次的字符是”g”。当从该字符流中读出前六个字符“google”时，第一个只出现一次的字符是”l”。 
 分析
-分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。
-代码:
-
-public class Solution &#123;    public int JumpFloorII(int target) &#123;        return 1 &......  -->
+创建一个长度为128的数组charArr[]。用字符的ASCII码作为数组的下标，字符在字符流中的位置作为值。刚开始数组初始化为-1。若该字符未出现过，即char......  -->
         <p class="article-more-link">
-          <a href="/2016/12/27/疯狂跳台阶/#more">阅读全文</a>
+          <a href="/2017/03/11/字符流中第一个不重复的字符/#more">阅读全文</a>
         </p>
       
     </div>
@@ -319,7 +300,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
 <!-- Table of Contents -->
 
   
-    <article id="post-跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-计算糖果"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -327,7 +308,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/27/跳台阶/">跳台阶</a>
+      <a class="article-title" href="/2017/03/11/计算糖果/">计算糖果</a>
     </h1>
   
 
@@ -335,8 +316,8 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
     
     <div class="article-meta">
       
-	<a href="/2016/12/27/跳台阶/" class="article-date">
-	  <time datetime="2016-12-27T10:45:11.000Z" itemprop="datePublished">2016-12-27</time>
+	<a href="/2017/03/11/计算糖果/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -345,18 +326,13 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
-<p><strong>分析</strong></p>
-<p>其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。</p>
-<p><strong>代码:</strong></p>
-        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
-分析
-其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。
-代码:
+        <p>A,B,C三个人是好朋友,每个人手里都有一些糖果,我们不知道他们每个人手上具体有多少个糖果,但是我们知道以下的信息：<br>A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有的糖果数.<br>现在需要通过这四个数值计算出每个人手里有多少个糖果,即A,B,C。这里保证最多只有一组整数A,B,C满足所有题设条件。 </p>
+        <!-- A,B,C三个人是好朋友,每个人手里都有一些糖果,我们不知道他们每个人手上具体有多少个糖果,但是我们知道以下的信息：A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有的糖果数.现在需要通过这四个数值计算出每个人手里有多少个糖果,即A,B,C。这里保证最多只有一组整数A,B,C满足所有题设条件。 
 
-public class Solution &#123;    public int JumpFloor(int target) &#123;        if(target &lt;= 2)            retur......  -->
+输入描述:
+输入为一行，一共4个整数，分别为A - ......  -->
         <p class="article-more-link">
-          <a href="/2016/12/27/跳台阶/#more">阅读全文</a>
+          <a href="/2017/03/11/计算糖果/#more">阅读全文</a>
         </p>
       
     </div>
@@ -373,7 +349,7 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
 <!-- Table of Contents -->
 
   
-    <article id="post-斐波那契数列"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-左旋转字符串"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -381,7 +357,7 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/27/斐波那契数列/">斐波那契数列</a>
+      <a class="article-title" href="/2017/03/11/左旋转字符串/">左旋转字符串</a>
     </h1>
   
 
@@ -389,8 +365,8 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
     
     <div class="article-meta">
       
-	<a href="/2016/12/27/斐波那契数列/" class="article-date">
-	  <time datetime="2016-12-27T10:37:13.000Z" itemprop="datePublished">2016-12-27</time>
+	<a href="/2017/03/11/左旋转字符串/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -399,18 +375,20 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。<br>n&lt;=39</p>
+        <p><strong>题目描述</strong></p>
+<p>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！</p>
 <p><strong>分析</strong></p>
-<p>不要用递归！！！</p>
+<p>确实很简单，一行代码搞定它！</p>
 <p><strong>代码:</strong></p>
-        <!-- 大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。n&lt;=39
+        <!-- 题目描述
+汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
 分析
-不要用递归！！！
+确实很简单，一行代码搞定它！
 代码:
 
-public class Solution &#123;    public int Fibonacci(int n) &#123;        int first = 0,second = 1,result = 0......  -->
+public class Solution &......  -->
         <p class="article-more-link">
-          <a href="/2016/12/27/斐波那契数列/#more">阅读全文</a>
+          <a href="/2017/03/11/左旋转字符串/#more">阅读全文</a>
         </p>
       
     </div>
@@ -427,7 +405,7 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
 <!-- Table of Contents -->
 
   
-    <article id="post-从尾到头打印链表"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-学习PostgreSQL不可错过的一篇文章"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -435,7 +413,7 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/27/从尾到头打印链表/">从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/11/学习PostgreSQL不可错过的一篇文章/">PostgreSQL综合</a>
     </h1>
   
 
@@ -443,8 +421,56 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
     
     <div class="article-meta">
       
-	<a href="/2016/12/27/从尾到头打印链表/" class="article-date">
-	  <time datetime="2016-12-27T10:11:44.000Z" itemprop="datePublished">2016-12-27</time>
+	<a href="/2017/03/11/学习PostgreSQL不可错过的一篇文章/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PostgreSQL是以加州大学伯克利分校计算机系开发的<a href="http://db.cs.berkeley.edu/postgres.html"> POSTGRES, Version 4.2</a>为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。</p>
+        <!-- PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。
+
+1. 简介PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/学习PostgreSQL不可错过的一篇文章/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-表示数值的字符串"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/表示数值的字符串/">表示数值的字符串</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/表示数值的字符串/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -453,18 +479,20 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>输入一个链表，从尾到头打印链表每个节点的值。</p>
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。</p>
 <p><strong>分析</strong></p>
-<p>将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。</p>
+<p>用正则表达式,一行搞定。</p>
 <p><strong>代码:</strong></p>
-        <!-- 输入一个链表，从尾到头打印链表每个节点的值。
+        <!-- 题目描述
+请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。
 分析
-将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。
+用正则表达式,一行搞定。
 代码:
 
-/***    public class ListNode &#123;*        int val;*        ListNode next = null;**        ListNode(int val) &#123;*      ......  -->
+public class Solution &#123;    public boolean......  -->
         <p class="article-more-link">
-          <a href="/2016/12/27/从尾到头打印链表/#more">阅读全文</a>
+          <a href="/2017/03/11/表示数值的字符串/#more">阅读全文</a>
         </p>
       
     </div>
@@ -481,7 +509,7 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
 <!-- Table of Contents -->
 
   
-    <article id="post-替换空格"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-经典编程书籍"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -489,7 +517,7 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/27/替换空格/">替换空格</a>
+      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
     </h1>
   
 
@@ -497,8 +525,58 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
     
     <div class="article-meta">
       
-	<a href="/2016/12/27/替换空格/" class="article-date">
-	  <time datetime="2016-12-27T09:21:56.000Z" itemprop="datePublished">2016-12-27</time>
+	<a href="/2017/03/11/经典编程书籍/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。</p>
+<p><a href="https://github.com/jobbole/awesome-programming-books">原文</a></p>
+        <!-- 经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
+原文
+
+这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典编程书籍/">经典编程书籍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-翻转单词顺序列"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/翻转单词顺序列/">翻转单词顺序列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/翻转单词顺序列/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -507,18 +585,17 @@ public class Solution &#123;    public int Fibonacci(int n) &#123;        int fi
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+        <p><strong>题目描述</strong></p>
+<p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
 <p><strong>分析</strong></p>
-<p>这道题有很多种方法，最简单的是直接调用String的replace方法</p>
+<p>先用String.split()将字符串按空格切分成一个String数组,然后创建一个StringBuilder将该数组从后往前拼接。</p>
 <p><strong>代码:</strong></p>
-        <!-- 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+        <!-- 题目描述
+牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
 分析
-这道题有很多种方法，最简单的是直接调用String的replace方法
-代码:
-
-public class Solution &#123;    public String replaceSpace(StringBuffer str......  -->
+先用Stri......  -->
         <p class="article-more-link">
-          <a href="/2016/12/27/替换空格/#more">阅读全文</a>
+          <a href="/2017/03/11/翻转单词顺序列/#more">阅读全文</a>
         </p>
       
     </div>
@@ -535,7 +612,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
 <!-- Table of Contents -->
 
   
-    <article id="post-二维数组中的查找"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -543,7 +620,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/26/二维数组中的查找/">二维数组中的查找</a>
+      <a class="article-title" href="/2017/03/11/统计每个单词出现的次数/">统计每个单词出现的次数</a>
     </h1>
   
 
@@ -551,8 +628,8 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     
     <div class="article-meta">
       
-	<a href="/2016/12/26/二维数组中的查找/" class="article-date">
-	  <time datetime="2016-12-26T15:10:30.000Z" itemprop="datePublished">2016-12-26</time>
+	<a href="/2017/03/11/统计每个单词出现的次数/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -561,18 +638,27 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p><strong>分析</strong></p>
-<p>从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。</p>
-<p><strong>代码:</strong></p>
-        <!-- 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
-分析
-从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。
-代码:
+        <pre><code>/**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
+</code></pre>
+        <!-- /**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
 
-public class Solution &#123;    public boolea......  -->
+package cn.lbd.Collection;import java.ut......  -->
         <p class="article-more-link">
-          <a href="/2016/12/26/二维数组中的查找/#more">阅读全文</a>
+          <a href="/2017/03/11/统计每个单词出现的次数/#more">阅读全文</a>
         </p>
       
     </div>
@@ -580,118 +666,6 @@ public class Solution &#123;    public boolea......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[50] Pow(x, n)"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/26/LeetCode[50] Pow(x, n)/">LeetCode[50] Pow(x, n)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/26/LeetCode[50] Pow(x, n)/" class="article-date">
-	  <time datetime="2016-12-26T08:03:18.000Z" itemprop="datePublished">2016-12-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Implement pow(x, n).</p>
-<p><strong>分析：</strong></p>
-<p>直接用二分法。要考虑n为负数的情况。</p>
-<p>x^n = x^{n/2} <em> x^{n/2} </em> x^{n%2}</p>
-<p><strong>代码:</strong></p>
-        <!-- Implement pow(x, n).
-分析：
-直接用二分法。要考虑n为负数的情况。
-x^n = x^{n/2}  x^{n/2}  x^{n%2}
-代码:
-
-public class Solution &#123;    public double myPow(double x, int n) &#123;        if (n &lt; 0)&#123;            re......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/26/LeetCode[50] Pow(x, n)/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[202] Happy Number"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/26/LeetCode[202] Happy Number/">LeetCode[202] Happy Number</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/26/LeetCode[202] Happy Number/" class="article-date">
-	  <time datetime="2016-12-26T05:47:45.000Z" itemprop="datePublished">2016-12-26</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Write an algorithm to determine if a number is “happy”.</p>
-<p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
-<p>Example: 19 is a happy number</p>
-<p>1^2 + 9^2 = 82</p>
-<p>8^2 + 2^2 = 68</p>
-<p>6^2 + 8^2 = 100</p>
-<p>1^2 + 0^2 + 0^2 = 1</p>
-<p><strong>分析：</strong></p>
-<p>这题找到规律后就简单了。如果右边的出现了某个重复的数，但不是1，说明会无限循环下去，这个数就不是快乐数，如果是1，则是快乐数。</p>
-<p><strong>代码:</strong></p>
-        <!-- Write an algorithm to determine if a number is “happy”.
-A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/26/LeetCode[202] Happy Number/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>

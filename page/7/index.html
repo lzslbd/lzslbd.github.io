@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-表示数值的字符串"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Python读书笔记（持续更新）"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/16/表示数值的字符串/">表示数值的字符串</a>
+      <a class="article-title" href="/2017/03/11/Python读书笔记（持续更新）/">Python读书笔记（持续更新）</a>
     </h1>
   
 
@@ -164,37 +164,36 @@
     
     <div class="article-meta">
       
-	<a href="/2017/01/16/表示数值的字符串/" class="article-date">
-	  <time datetime="2017-01-16T15:15:13.000Z" itemprop="datePublished">2017-01-16</time>
+	<a href="/2017/03/11/Python读书笔记（持续更新）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。</p>
-<p><strong>分析</strong></p>
-<p>用正则表达式,一行搞定。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。
-分析
-用正则表达式,一行搞定。
-代码:
+        <blockquote>
+<p>书籍：《Python基础教程》《Python核心编程》《Python Cookbook》《Python源码剖析》</p>
+</blockquote>
+        <!-- 
+书籍：《Python基础教程》《Python核心编程》《Python Cookbook》《Python源码剖析》
 
-public class Solution &#123;    public boolean......  -->
+
+
+在Python中，等号=是赋值语句，可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量。这种变量本身类型不固定的语言称之为动态语言，与之对应的是静态语言
+
+在Python中，通常用全部大写的变量名表示常量。用全部大写的变量名表示常量只是一个习惯......  -->
         <p class="article-more-link">
-          <a href="/2017/01/16/表示数值的字符串/#more">阅读全文</a>
+          <a href="/2017/03/11/Python读书笔记（持续更新）/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -204,7 +203,7 @@ public class Solution &#123;    public boolean......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-构建乘积数组"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Stack Overflow上关于Java Collections的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -212,7 +211,7 @@ public class Solution &#123;    public boolean......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/16/构建乘积数组/">构建乘积数组</a>
+      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
     </h1>
   
 
@@ -220,212 +219,8 @@ public class Solution &#123;    public boolean......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/01/16/构建乘积数组/" class="article-date">
-	  <time datetime="2017-01-16T14:21:29.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素<code>B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]</code>。不能使用除法。</p>
-<p><strong>分析</strong></p>
-<p>既然不能用除法，那就用乘法吧。把B[i]分成i左边的左半部分和i右边的右半部分。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。不能使用除法。
-分析
-既然不能用除法，那就用乘法吧。把B[i]分成i左边的左半部分和i右边的右半部分。
-代码:
-
-import java.util.ArrayList;public class Solut......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/16/构建乘积数组/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-数组中重复的数字"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/16/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/16/数组中重复的数字/" class="article-date">
-	  <time datetime="2017-01-16T12:58:15.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<p><strong>分析</strong></p>
-<p>新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如果arr[numbers[i]] == true，说明numbers[i]重复了。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。
-分析
-新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/16/数组中重复的数字/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/16/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/16/纠删码（Erasure Code）浅析/" class="article-date">
-	  <time datetime="2017-01-16T08:29:08.000Z" itemprop="datePublished">2017-01-16</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
-        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
-
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/16/纠删码（Erasure Code）浅析/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/15/Hadoop YARN介绍/">Hadoop YARN介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/15/Hadoop YARN介绍/" class="article-date">
-	  <time datetime="2017-01-15T07:52:40.000Z" itemprop="datePublished">2017-01-15</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/15/Hadoop YARN介绍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/13/Java I:O 操作示例/">Java I/O 操作示例</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/13/Java I:O 操作示例/" class="article-date">
-	  <time datetime="2017-01-13T11:22:53.000Z" itemprop="datePublished">2017-01-13</time>
+	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -434,12 +229,12 @@ import java.util.ArrayList;public class Solut......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给出几个Java I/O 操作的示例代码。</p>
-        <!-- 给出几个Java I/O 操作的示例代码。
+        <p>列举几个关于Java Collections的常见问题并给出答案。</p>
+        <!-- 列举几个关于Java Collections的常见问题并给出答案。
 
-创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
+1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组......  -->
         <p class="article-more-link">
-          <a href="/2017/01/13/Java I:O 操作示例/#more">阅读全文</a>
+          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
         </p>
       
     </div>
@@ -456,7 +251,7 @@ import java.util.ArrayList;public class Solut......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-ZeroMQ初探"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -464,7 +259,7 @@ import java.util.ArrayList;public class Solut......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/11/Java I:O总结/">Java I/O 总结</a>
+      <a class="article-title" href="/2017/03/11/ZeroMQ初探/">ZeroMQ初探</a>
     </h1>
   
 
@@ -472,29 +267,29 @@ import java.util.ArrayList;public class Solut......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/01/11/Java I:O总结/" class="article-date">
-	  <time datetime="2017-01-11T11:08:38.000Z" itemprop="datePublished">2017-01-11</time>
+	<a href="/2017/03/11/ZeroMQ初探/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/ZeroMQ/">ZeroMQ</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
-        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
+        <p>ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。</p>
+        <!-- ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。
 
-数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
+概述ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N ......  -->
         <p class="article-more-link">
-          <a href="/2017/01/11/Java I:O总结/#more">阅读全文</a>
+          <a href="/2017/03/11/ZeroMQ初探/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket编程/">Socket编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZeroMQ/">ZeroMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息队列/">消息队列</a></li></ul>
 
     </footer>
   </div>
@@ -512,7 +307,7 @@ import java.util.ArrayList;public class Solut......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
+      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
     </h1>
   
 
@@ -520,8 +315,8 @@ import java.util.ArrayList;public class Solut......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/01/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
-	  <time datetime="2017-01-11T04:05:56.000Z" itemprop="datePublished">2017-01-11</time>
+	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -536,7 +331,7 @@ import java.util.ArrayList;public class Solut......  -->
 如下：
 BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
         <p class="article-more-link">
-          <a href="/2017/01/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
       
     </div>
@@ -553,7 +348,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 <!-- Table of Contents -->
 
   
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-丑数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -561,7 +356,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
+      <a class="article-title" href="/2017/03/11/丑数/">丑数</a>
     </h1>
   
 
@@ -569,8 +364,72 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     
     <div class="article-meta">
       
-	<a href="/2017/01/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
-	  <time datetime="2017-01-11T02:56:05.000Z" itemprop="datePublished">2017-01-11</time>
+	<a href="/2017/03/11/丑数/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<p><strong>分析</strong></p>
+<p>这里的因子指的是质因子。</p>
+<p>每个丑数等于某个比它小的丑数x2或x3或x5。<br>根据提示中的信息，我们知道丑数可以拆分成3个子序列:</p>
+<ol>
+<li>1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… </li>
+<li>1x3, 2x3, 3x3, 4x3, 5x3, 6x2, 8x2… </li>
+<li>1x5, 2x5, 3x5, 4x5, 5x5, 6x2, 8x2…</li>
+</ol>
+<p>其中1，2，3，4，5，6，8（注意，没有7）是前几个丑数。7有因子7，所以不是丑数。</p>
+<p>每次从三个子序列中取出当前最小的那个加入序列，直到第N个为止。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
+分析
+这里的因子指的是质因子。
+每个丑数等于某个比它小的丑数x2或x3或x5。根据提示中的信息，我们知道丑数可以拆分成3个子序列:
+
+1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/丑数/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -579,13 +438,12 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
+        <p>给出几个Java I/O 操作的示例代码。</p>
+        <!-- 给出几个Java I/O 操作的示例代码。
 
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一......  -->
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
         <p class="article-more-link">
-          <a href="/2017/01/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -602,7 +460,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 <!-- Table of Contents -->
 
   
-    <article id="post-ZooKeeper原理及其在Hadoop和HBase中的应用"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-两个链表的第一个公共节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -610,7 +468,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/10/ZooKeeper原理及其在Hadoop和HBase中的应用/">ZooKeeper原理及其在Hadoop和HBase中的应用</a>
+      <a class="article-title" href="/2017/03/11/两个链表的第一个公共节点/">两个链表的第一个公共节点</a>
     </h1>
   
 
@@ -618,29 +476,226 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     
     <div class="article-meta">
       
-	<a href="/2017/01/10/ZooKeeper原理及其在Hadoop和HBase中的应用/" class="article-date">
-	  <time datetime="2017-01-10T09:10:23.000Z" itemprop="datePublished">2017-01-10</time>
+	<a href="/2017/03/11/两个链表的第一个公共节点/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/ZooKeeper/">ZooKeeper</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ZooKeeper是一个开源的<strong>分布式协调服务</strong>，由雅虎创建，是Google <strong>Chubby的开源实现</strong>。分布式应用程序可以基于ZooKeeper实现诸如<strong>数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列</strong>等功能。</p>
-        <!-- ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。
+        <p><strong>题目描述</strong></p>
+<p>输入两个链表，找出它们的第一个公共结点。</p>
+<p><strong>分析</strong></p>
+<p>先遍历一遍分别算出两个链表的长度。算出长度差mins。<br>较长的链表先走mins步，然后两个链表同时走。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+输入两个链表，找出它们的第一个公共结点。
+分析
+先遍历一遍分别算出两个链表的长度。算出长度差mins。较长的链表先走mins步，然后两个链表同时走。
+代码:
 
-简介ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKe......  -->
+/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        this.val ......  -->
         <p class="article-more-link">
-          <a href="/2017/01/10/ZooKeeper原理及其在Hadoop和HBase中的应用/#more">阅读全文</a>
+          <a href="/2017/03/11/两个链表的第一个公共节点/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZooKeeper/">ZooKeeper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-买苹果"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/买苹果/">买苹果</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/买苹果/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。 </p>
+        <!-- 小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。 
+
+输入描述:
+输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果
+输出描述:
+输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1
+输入例子:
+20
+输......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/买苹果/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/跳台阶/">跳台阶</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/跳台阶/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p><strong>分析</strong></p>
+<p>其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。</p>
+<p><strong>代码:</strong></p>
+        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+分析
+其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。
+代码:
+
+public class Solution &#123;    public int JumpFloor(int target) &#123;        if(target &lt;= 2)            retur......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/跳台阶/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Git常用命令"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Git常用命令/">Git常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Git常用命令/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/编程工具/">编程工具</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录 Git 常用的命令。</p>
+        <!-- 记录 Git 常用的命令。
+
+
+
+
+命令
+说明
+
+
+
+
+git init
+初始化git仓库
+
+
+git add filename
+将文件添加到暂存区
+
+
+git commit -m “blablabla…”
+提交到本地仓库
+
+
+git push origin master
+将本地master分支推到远程
+
+
+git status
+查看那些文件被修改过
+
+
+git diff
+查看修改内容
+
+
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Git常用命令/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 
     </footer>
   </div>

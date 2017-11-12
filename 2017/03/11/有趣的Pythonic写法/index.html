@@ -168,7 +168,7 @@
     <div class="article-meta">
       
 	<a href="/2017/03/11/有趣的Pythonic写法/" class="article-date">
-	  <time datetime="2017-03-11T09:33:27.000Z" itemprop="datePublished">2017-03-11</time>
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -180,7 +180,7 @@
         <p>Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。</p>
 <a id="more"></a>
 <h4 id="变量替换"><a href="#变量替换" class="headerlink" title="变量替换"></a>变量替换</h4><p>普通写法</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">a</span> = <span class="number">10</span></div><div class="line"><span class="selector-tag">b</span> = <span class="number">20</span></div><div class="line">tmp = <span class="selector-tag">a</span></div><div class="line"><span class="selector-tag">a</span> = <span class="selector-tag">b</span></div><div class="line"><span class="selector-tag">b</span> = tmp</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">a = 10</div><div class="line">b = 20</div><div class="line">tmp = a</div><div class="line">a = b</div><div class="line">b = tmp</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">a, b = b, a</div></pre></td></tr></table></figure>
 <h4 id="遍历区间元素"><a href="#遍历区间元素" class="headerlink" title="遍历区间元素"></a>遍历区间元素</h4><p>比如打印 1 3 5 7 9</p>
@@ -203,7 +203,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">ls = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    ls.append(i*<span class="number">3</span>)</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">[i*<span class="number">3</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>)]</div></pre></td></tr></table></figure>
-<h4 id="序列解包"><a href="#序列解包" class="headerlink" title="序列解包"></a>序列解包</h4><figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="attr">lbd</span> = <span class="string">'lbd'</span>, <span class="string">'male'</span>, <span class="string">'25'</span>, <span class="string">'beijing'</span></div><div class="line"><span class="attr">name</span> = lbd[<span class="number">0</span>]</div><div class="line"><span class="attr">gender</span> = lbd[<span class="number">1</span>]</div><div class="line"><span class="attr">age</span> = lbd[<span class="number">2</span>]</div><div class="line"><span class="attr">location</span> = lbd[<span class="number">3</span>]</div></pre></td></tr></table></figure>
+<h4 id="序列解包"><a href="#序列解包" class="headerlink" title="序列解包"></a>序列解包</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">lbd = &apos;lbd&apos;, &apos;male&apos;, &apos;25&apos;, &apos;beijing&apos;</div><div class="line">name = lbd[0]</div><div class="line">gender = lbd[1]</div><div class="line">age = lbd[2]</div><div class="line">location = lbd[3]</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line">name, gender, age, location = lbd</div></pre></td></tr></table></figure>
 <h4 id="遍历字典的-key-和-value"><a href="#遍历字典的-key-和-value" class="headerlink" title="遍历字典的 key  和 value"></a>遍历字典的 key  和 value</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> k <span class="keyword">in</span> d:</div><div class="line">    <span class="keyword">print</span> (k, <span class="string">'----&gt;'</span>, d[k])</div></pre></td></tr></table></figure>
@@ -220,8 +220,8 @@
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment">#子区间</span></div><div class="line">sub_items = items[<span class="number">1</span>:<span class="number">4</span>]</div><div class="line"><span class="comment">#奇数</span></div><div class="line">odd_items = items[<span class="number">1</span>::<span class="number">2</span>]</div><div class="line"><span class="comment">#拷贝</span></div><div class="line">copy_items = items[:] <span class="keyword">or</span> items[::]</div></pre></td></tr></table></figure>
 <p>列表元素的下标不仅可以用正数表示，还可以用负数表示，最后一个元素的位置是 -1，从右往左，依次递减。</p>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><div class="line"><span class="code">--------------------------</span></div><div class="line"> | P | y | t | h | o | n |</div><div class="line">--------------------------</div><div class="line"><span class="code">   0   1   2   3   4   5 </span></div><div class="line"><span class="section">  -6  -5  -4  -3  -2  -1</span></div><div class="line">--------------------------</div></pre></td></tr></table></figure>
-<h4 id="获取字典元素"><a href="#获取字典元素" class="headerlink" title="获取字典元素"></a>获取字典元素</h4><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line">d = &#123;<span class="string">'name'</span>: <span class="string">'lbd'</span>&#125;</div><div class="line"><span class="keyword">if</span> d.<span class="built_in">has_key</span>(<span class="string">'name'</span>):</div><div class="line">    <span class="keyword">print</span>(d[<span class="string">'name'</span>])</div><div class="line"><span class="keyword">else</span>:</div><div class="line">    <span class="keyword">print</span>(<span class="string">'unkonwn'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">--------------------------</div><div class="line"> | P | y | t | h | o | n |</div><div class="line">--------------------------</div><div class="line">   0   1   2   3   4   5 </div><div class="line">  -6  -5  -4  -3  -2  -1</div><div class="line">--------------------------</div></pre></td></tr></table></figure>
+<h4 id="获取字典元素"><a href="#获取字典元素" class="headerlink" title="获取字典元素"></a>获取字典元素</h4><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">d = &#123;&apos;name&apos;: &apos;lbd&apos;&#125;</div><div class="line">if d.has_key(&apos;name&apos;):</div><div class="line">    print(d[&apos;name&apos;])</div><div class="line">else:</div><div class="line">    print(&apos;unkonwn&apos;)</div></pre></td></tr></table></figure>
 <p>pythonic</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">print</span> (d.get(<span class="string">'name'</span>, <span class="string">'unknown'</span>))</div></pre></td></tr></table></figure>
 <h4 id="预设字典默认值"><a href="#预设字典默认值" class="headerlink" title="预设字典默认值"></a>预设字典默认值</h4><p>当字典 value 为列表时，需要判断 key 是否在字典中。</p>
@@ -271,19 +271,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/15/Python函数式编程/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java中Comparable与Comparator的区别/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Python函数式编程
+          Java中Comparable与Comparator的区别
         
       </div>
     </a>
   
   
-    <a href="/2017/03/10/设计模式-观察者模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/机器学习/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">设计模式-观察者模式</div>
+      <div class="article-nav-title">机器学习笔记（持续更新）</div>
     </a>
   
 </nav>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于java collections的几个常见问题 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Java" />
+  
+  
+  
+  
+  <meta name="description" content="列举几个关于Java Collections的常见问题并给出答案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Java Collections的几个常见问题">
+<meta property="og:url" content="http://linbingdong.com/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="列举几个关于Java Collections的常见问题并给出答案。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Java Collections的几个常见问题">
+<meta name="twitter:description" content="列举几个关于Java Collections的常见问题并给出答案。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Stack Overflow上关于Java Collections的几个常见问题" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      关于Java Collections的几个常见问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>列举几个关于Java Collections的常见问题并给出答案。</p>
+<a id="more"></a>
+<h3 id="1-什么时候用LinkedList，什么时候用ArrayList？"><a href="#1-什么时候用LinkedList，什么时候用ArrayList？" class="headerlink" title="1. 什么时候用LinkedList，什么时候用ArrayList？"></a>1. 什么时候用LinkedList，什么时候用ArrayList？</h3><p><code>ArrayList</code>是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。</p>
+<p><code>LinkedList</code>是一个双向链表。因此，当需要获取list中某个元素，需要从头到尾遍历list。另一方面，在链表中添加或删除元素很快，只需要O(1)的时间复杂度。从空间上来说，在链表中一个节点需要两个额外的指针来指向它的previous和next节点。</p>
+<p>总结：</p>
+<p>从<strong>时间复杂度</strong>来说，如果对list增加或删除操作较多，优先用LinkedList；如果查询操作较多，优先用ArrayList。</p>
+<p>从<strong>空间复杂度</strong>来说，LinkedList会占用较多空间。</p>
+<h3 id="2-如何边遍历边移除Collection中的元素"><a href="#2-如何边遍历边移除Collection中的元素" class="headerlink" title="2. 如何边遍历边移除Collection中的元素"></a>2. 如何边遍历边移除Collection中的元素</h3><p>边遍历边修改Collection的唯一正确方式是使用<code>Iterator.remove()</code>方法，如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Iterator&lt;Integer&gt; it = list.iterator();</div><div class="line"><span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">	<span class="comment">// do something</span></div><div class="line">	it.remove();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一种最常见的<strong>错误</strong>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(Integer i : list)&#123;</div><div class="line">	list.remove(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行以上错误代码会报<code>ConcurrentModificationException</code>异常。这是因为当使用<code>foreach</code>(for(Integer i : list))语句时，会自动生成一个iterator来遍历该list，但同时该list正在被<code>Iterator.remove()</code>修改。在Java中，一般不允许一个线程在遍历collection时另一个线程在修改它。</p>
+<h3 id="3-如何将List转化成int-？"><a href="#3-如何将List转化成int-？" class="headerlink" title="3. 如何将List转化成int[]？"></a>3. 如何将List转化成int[]？</h3><p>很多人可能认为只需用<code>List.toArray()</code>即可，其实不然。List.toArray()方法只可能得到Integer[]，无法得到int[]。</p>
+<p>最简单的方法是使用<code>Apache Commons Lang</code>库中的<code>ArrayUtils</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span>[] array = ArrayUtils.toPrimitive(list.toArray(<span class="keyword">new</span> Integer[<span class="number">0</span>]));</div></pre></td></tr></table></figure>
+<p>在JDK中，没有捷径。需要注意的是，不能直接使用<code>List.toArray()</code>,因为这样会将List转化成Integer[]而不是int[]。正确的做法如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[list.size()];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++)&#123;</div><div class="line">	array[i] = list.get(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-如何将int-转化成List？"><a href="#4-如何将int-转化成List？" class="headerlink" title="4. 如何将int[]转化成List？"></a>4. 如何将int[]转化成List？</h3><p>同上，很多人以为只需用<code>Arrays.asList()</code>即可，其实不然。因为不能以int[]作为该方法的参数，要的话也只能是Integer[]。</p>
+<p>关于<code>Arrays.asList()</code>方法有如下特性：</p>
+<ul>
+<li>1.该方法对于基本数据类型的数组支持并不好,当数组是基本数据类型时不建议使用 </li>
+<li>2.当使用asList()方法时，数组就和列表链接在一起了。当更新其中之一时，另一个将自动获得更新。因为asList获得的List实际引用的就是数组  注意:仅仅针对对象数组类型,基本数据类型数组不具备该特性。</li>
+<li>3.asList得到的数组是的没有add和remove方法的。因为asList返回的List是Arrays中的内部类,而该类并没有定义add和remove方法。</li>
+</ul>
+<p>那么如何将int[]转化成List呢？</p>
+<p>还是得自己实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span>[] array = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</div><div class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i: array) &#123;</div><div class="line">  list.add(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-过滤一个Collection最好的方法是什么？"><a href="#5-过滤一个Collection最好的方法是什么？" class="headerlink" title="5. 过滤一个Collection最好的方法是什么？"></a>5. 过滤一个Collection最好的方法是什么？</h3><p>如过滤掉list中大于5的整数。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Iterator&lt;Integer&gt; it = list.iterator();</div><div class="line"><span class="keyword">while</span>(it.hasNext())&#123;</div><div class="line">	<span class="keyword">int</span> i = it.next();</div><div class="line">	<span class="keyword">if</span>(i &gt; <span class="number">5</span>) &#123;  <span class="comment">//过滤掉大于5的整数</span></div><div class="line">		it.remove(); </div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6-将List转化成Set最简单的方法？"><a href="#6-将List转化成Set最简单的方法？" class="headerlink" title="6. 将List转化成Set最简单的方法？"></a>6. 将List转化成Set最简单的方法？</h3><p>有两种方法，取决于你怎么要怎么定义两个元素相等。第一种方法是将list放入<code>HashSet</code>里，该方法元素是否相等是通过它们的hashCode()来比较的。如果需要自己定义比较的方法，需要用<code>TreeSet</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(list);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> TreeSet&lt;Integer&gt;(aComparator);</div><div class="line">set.addAll(list);</div></pre></td></tr></table></figure>
+<h3 id="7-如何删除ArrayList中重复的元素？"><a href="#7-如何删除ArrayList中重复的元素？" class="headerlink" title="7. 如何删除ArrayList中重复的元素？"></a>7. 如何删除ArrayList中重复的元素？</h3><p>如果不关心元素在ArrayList中的顺序，可以将list放入set中来删除重复元素，然后在放回list。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;Integer&gt;(list);</div><div class="line">list.clear();</div><div class="line">list.addAll(set);</div></pre></td></tr></table></figure>
+<p>如果关心元素在ArrayList中的顺序，可以用<code>LinkedHashSet</code>。</p>
+<h3 id="8-有序的collection"><a href="#8-有序的collection" class="headerlink" title="8. 有序的collection"></a>8. 有序的collection</h3><p>Java里有很多方法来维持一个collection有序。有的需要实现Comparable接口，有的需要自己指定Comparator。</p>
+<ol>
+<li><code>Collections.sort()</code>可以用来对list排序。该排序是稳定的，并且可以保证nlog(n)的性能。</li>
+<li><code>PriorityQueue</code>提供排序的队列。<code>PriorityQueue</code>和<code>Collections.sort()</code>的区别是，<code>PriorityQueue</code>动态维护一个有序的队列（每添加或删除一个元素就会重新排序），但是只能获队列中的头元素。</li>
+<li>如果collection中没有重复的元素，<code>TreeSet</code>是另一个选择。跟<code>PriorityQueue</code>一样的是，<code>TreeSet</code>也动态维护一个有序的集合。可以从<code>TreeSet</code>中获取最大和最小的元素。</li>
+</ol>
+<p>总结：<code>Collections.sort()</code>提供一个一次排序的list。<code>PriorityQueue</code>和<code>TreeSet</code>动态维护排序的collection。</p>
+<h3 id="9-拷贝list"><a href="#9-拷贝list" class="headerlink" title="9. 拷贝list"></a>9. 拷贝list</h3><p>有两种方法可以用来拷贝list。一种是使用<code>ArrayList</code>构造器。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ArrayList&lt;Integer&gt; dstList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(srcList);</div></pre></td></tr></table></figure>
+<p>另一种是使用<code>Collections.copy()</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ArrayList&lt;Integer&gt; dstList = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(srcList.size());</div><div class="line">Collections.copy(dstList, srcList);</div></pre></td></tr></table></figure>
+<p>需要注意的是，使用该方法的话目标list至少跟源list长度一样长。否则会报<code>IndexOutOfBoundsException</code>异常。</p>
+<p>另外有两点需要注意：</p>
+<ol>
+<li>两种方法都是浅拷贝</li>
+<li><code>Collections.copy()</code>方法的两个参数必须都是list，而<code>ArrayList</code>方法参数只要是collection即可，因此<code>ArrayList</code>方法更通用。</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" data-title="关于Java Collections的几个常见问题" data-url="http://linbingdong.com/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linbingdong"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/11/Python读书笔记（持续更新）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Python读书笔记（持续更新）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/ZeroMQ初探/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">ZeroMQ初探</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么时候用LinkedList，什么时候用ArrayList？"><span class="nav-number">1.</span> <span class="nav-text">1. 什么时候用LinkedList，什么时候用ArrayList？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何边遍历边移除Collection中的元素"><span class="nav-number">2.</span> <span class="nav-text">2. 如何边遍历边移除Collection中的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-如何将List转化成int-？"><span class="nav-number">3.</span> <span class="nav-text">3. 如何将List转化成int[]？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-如何将int-转化成List？"><span class="nav-number">4.</span> <span class="nav-text">4. 如何将int[]转化成List？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-过滤一个Collection最好的方法是什么？"><span class="nav-number">5.</span> <span class="nav-text">5. 过滤一个Collection最好的方法是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-将List转化成Set最简单的方法？"><span class="nav-number">6.</span> <span class="nav-text">6. 将List转化成Set最简单的方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-如何删除ArrayList中重复的元素？"><span class="nav-number">7.</span> <span class="nav-text">7. 如何删除ArrayList中重复的元素？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-有序的collection"><span class="nav-number">8.</span> <span class="nav-text">8. 有序的collection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-拷贝list"><span class="nav-number">9.</span> <span class="nav-text">9. 拷贝list</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+</body>
+</html>

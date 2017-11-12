@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>postgresql单机部署（centos7） | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="关系数据库PostgreSQL" />
+  
+  
+  
+  
+  <meta name="description" content="本文介绍Contos7上用yum部署PostgreSQL9.4的过程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL单机部署（CentOS7）">
+<meta property="og:url" content="http://linbingdong.com/2017/03/11/PostgreSQL单机部署（CentOS7）/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="本文介绍Contos7上用yum部署PostgreSQL9.4的过程。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PostgreSQL单机部署（CentOS7）">
+<meta name="twitter:description" content="本文介绍Contos7上用yum部署PostgreSQL9.4的过程。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-PostgreSQL单机部署（CentOS7）" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      PostgreSQL单机部署（CentOS7）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍Contos7上用yum部署PostgreSQL9.4的过程。</p>
+<a id="more"></a>
+<h2 id="1-安装PostgreSQL源"><a href="#1-安装PostgreSQL源" class="headerlink" title="1. 安装PostgreSQL源"></a>1. 安装PostgreSQL源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm</div></pre></td></tr></table></figure>
+<h2 id="2-执行安装命令"><a href="#2-执行安装命令" class="headerlink" title="2. 执行安装命令"></a>2. 执行安装命令</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum update</div><div class="line">yum install postgresql94-server postgresql94-contrib</div></pre></td></tr></table></figure>
+<h2 id="3-验证是否安装成功"><a href="#3-验证是否安装成功" class="headerlink" title="3. 验证是否安装成功"></a>3. 验证是否安装成功</h2><p>执行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -qa | grep postgres</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">postgresql94-9.4.10-1PGDG.rhel7.x86_64</div><div class="line">postgresql94-server-9.4.10-1PGDG.rhel7.x86_64</div><div class="line">postgresql94-libs-9.4.10-1PGDG.rhel7.x86_64</div><div class="line">postgresql94-contrib-9.4.10-1PGDG.rhel7.x86_64</div></pre></td></tr></table></figure>
+<p>说明安装成功</p>
+<h2 id="4-初始化数据库"><a href="#4-初始化数据库" class="headerlink" title="4. 初始化数据库"></a>4. 初始化数据库</h2><p>先创建数据存放目录：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir -p /opt/pgsql/data</div></pre></td></tr></table></figure>
+<p>赋予postgres用户该目录的权限：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chown postgres /opt/pgsql/data</div></pre></td></tr></table></figure>
+<p>切换到postgres用户：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">su postgres</div></pre></td></tr></table></figure>
+<p>执行初始化：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">initdb -D /opt/pgsql/data</div></pre></td></tr></table></figure>
+<p>注：</p>
+<p>-D 后面是数据库文件存放的目录，如果不指定则默认在/var/lib/pgsql/9.4/data下</p>
+<p>初始化的日志如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">属于此数据库系统的文件宿主为用户 &quot;postgres&quot;.</div><div class="line">此用户也必须为服务器进程的宿主.</div><div class="line">数据库簇将使用本地化语言 &quot;zh_CN.UTF-8&quot;进行初始化.</div><div class="line">默认的数据库编码已经相应的设置为 &quot;UTF8&quot;.</div><div class="line">initdb: 无法为本地化语言环境&quot;zh_CN.UTF-8&quot;找到合适的文本搜索配置</div><div class="line">缺省的文本搜索配置将会被设置到&quot;simple&quot;</div><div class="line"></div><div class="line">禁止为数据页生成校验和.</div><div class="line"></div><div class="line">修复已存在目录 /opt/pgsql/data 的权限 ... 成功</div><div class="line">正在创建子目录 ... 成功</div><div class="line">选择默认最大联接数 (max_connections) ... 100</div><div class="line">选择默认共享缓冲区大小 (shared_buffers) ... 128MB</div><div class="line">选择动态共享内存实现 ......posix</div><div class="line">创建配置文件 ... 成功</div><div class="line">在 /opt/pgsql/data/base/1 中创建 template1 数据库 ... 成功</div><div class="line">初始化 pg_authid ...  成功</div><div class="line">初始化dependencies ... 成功</div><div class="line">创建系统视图 ... 成功</div><div class="line">正在加载系统对象描述 ...成功</div><div class="line">创建(字符集)校对规则 ... 成功</div><div class="line">创建字符集转换 ... 成功</div><div class="line">正在创建字典 ... 成功</div><div class="line">对内建对象设置权限 ... 成功</div><div class="line">创建信息模式 ... 成功</div><div class="line">正在装载PL/pgSQL服务器端编程语言...成功</div><div class="line">清理数据库 template1 ... 成功</div><div class="line">拷贝 template1 到 template0 ... 成功</div><div class="line">拷贝 template1 到 template0 ... 成功</div><div class="line">同步数据到磁盘...成功</div><div class="line"></div><div class="line">成功. 您现在可以用下面的命令运行数据库服务器:</div><div class="line"></div><div class="line">    /usr/pgsql-9.4/bin/postmaster -D /opt/pgsql/data/</div><div class="line">或者</div><div class="line">    /usr/pgsql-9.4/bin/pg_ctl -D /opt/pgsql/data/ -l logfile start</div></pre></td></tr></table></figure>
+<h2 id="5-启动服务"><a href="#5-启动服务" class="headerlink" title="5. 启动服务"></a>5. 启动服务</h2><p>1.切换到postgres用户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">su postgres</div></pre></td></tr></table></figure>
+<p>这个步骤同样必须以PostgreSQL用户帐户登录来做。 </p>
+<p>2.启动服务</p>
+<p>没有-D选项，服务器将使用环境变量PGDATA命名的目录； 如果这个环境变量也没有，将导致失败。通常，最好在后台启动postgres，使用下面的 Unix shell 语法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pg_ctl -D /opt/pgsql/data/ -l logfile start</div></pre></td></tr></table></figure>
+<p>3.设置开机自动启动</p>
+<p>在Linux系统里，要么往/etc/rc.d/rc.local或 /etc/rc.local文件里加上下面几行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/pgsql/bin/pg_ctl start -l logfile -D /usr/local/pgsql/data</div></pre></td></tr></table></figure>
+<h2 id="6-创建用户"><a href="#6-创建用户" class="headerlink" title="6. 创建用户"></a>6. 创建用户</h2><p>PostgreSQL使用<em>角色</em>的概念管理数据库访问权限。 根据角色自身的设置不同，一个角色可以看做是一个数据库用户，或者一组数据库用户。 角色可以拥有数据库对象(比如表)以及可以把这些对象上的权限赋予其它角色， 以控制谁拥有访问哪些对象的权限。另外，我们也可以把一个角色的<em>成员</em> 权限赋予其它角色，这样就允许成员角色使用分配给另一个角色的权限。<br>角色的概念替换了”用户”和”组”。在PostgreSQL 版本 8.1 之前，用户和组是独立类型的记录，但现在它们只是角色。 任何角色都可以是一个用户、一个组、或者两者。</p>
+<p>数据库角色从概念上与操作系统用户是完全无关的。在实际使用中把它们对应起来可能比较方便， 但这不是必须的。数据库角色在整个数据库集群中是全局的(而不是每个库不同)。 要创建一个角色，使用 SQL 命令<a href="http://www.postgres.cn/docs/9.4/sql-createrole.html" target="_blank" rel="external">CREATE ROLE</a>执行：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">CREATE ROLE name;</div></pre></td></tr></table></figure>
+<p><em>name</em>遵循 SQL 标识的规则：要么完全没有特殊字符， 要么用双引号包围(实际上你通常会给命令增加额外的选项，比如LOGIN。 下面显示更多细节)。要删除一个现有角色，使用类似的<a href="http://www.postgres.cn/docs/9.4/sql-droprole.html" target="_blank" rel="external">DROP ROLE</a>命令：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DROP ROLE name;</div></pre></td></tr></table></figure>
+<p>为了方便，程序<a href="http://www.postgres.cn/docs/9.4/app-createuser.html" target="_blank" rel="external">createuser</a>和<a href="http://www.postgres.cn/docs/9.4/app-dropuser.html" target="_blank" rel="external">dropuser</a> 提供了对了这些 SQL 命令的封装。我们可以在 shell 命令上直接调用它们：</p>
+<p>直接在shell里输入：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">createuser lbd;</div></pre></td></tr></table></figure>
+<p>这样就创建了lbd这个角色。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">dropuser lbd;</div></pre></td></tr></table></figure>
+<p>这样就创建了lbd这个角色。</p>
+<p>要检查现有角色的集合，可以检查pg_roles系统表，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT rolname FROM pg_roles;</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">postgres=# SELECT rolname FROM pg_roles;</div><div class="line"> rolname</div><div class="line">----------</div><div class="line"> postgres</div><div class="line"> lbd</div><div class="line">(2 行记录)</div></pre></td></tr></table></figure>
+<p><a href="http://www.postgres.cn/docs/9.4/app-psql.html" target="_blank" rel="external">psql</a>的元命令\du<br>也可以用于列出现有角色。</p>
+<p>结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">postgres=# \du</div><div class="line">                        角色列表</div><div class="line"> 角色名称 |               属性                | 成员属于</div><div class="line">---------+----------------------------------+----------</div><div class="line"> lbd     |                                   | &#123;&#125;</div><div class="line"> postgres| 超级用户, 建立角色, 建立 DB, 复制     | &#123;&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/11/PostgreSQL单机部署（CentOS7）/" data-title="PostgreSQL单机部署（CentOS7）" data-url="http://linbingdong.com/2017/03/11/PostgreSQL单机部署（CentOS7）/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linbingdong"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/11/PostgreSQL主从流复制部署/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          PostgreSQL主从流复制部署
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">大数据基准测试工具TPCx-BB源码分析</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-安装PostgreSQL源"><span class="nav-number">1.</span> <span class="nav-text">1. 安装PostgreSQL源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-执行安装命令"><span class="nav-number">2.</span> <span class="nav-text">2. 执行安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-验证是否安装成功"><span class="nav-number">3.</span> <span class="nav-text">3. 验证是否安装成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-初始化数据库"><span class="nav-number">4.</span> <span class="nav-text">4. 初始化数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-启动服务"><span class="nav-number">5.</span> <span class="nav-text">5. 启动服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-创建用户"><span class="nav-number">6.</span> <span class="nav-text">6. 创建用户</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+</body>
+</html>

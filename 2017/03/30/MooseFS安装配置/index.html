@@ -169,7 +169,7 @@
     <div class="article-meta">
       
 	<a href="/2017/03/30/MooseFS安装配置/" class="article-date">
-	  <time datetime="2017-03-30T09:28:08.000Z" itemprop="datePublished">2017-03-30</time>
+	  <time datetime="2017-03-30T09:32:18.000Z" itemprop="datePublished">2017-03-30</time>
 	</a>
 
       
@@ -209,48 +209,48 @@
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="安装fuse模块"><a href="#安装fuse模块" class="headerlink" title="安装fuse模块"></a>安装fuse模块</h3><p>确保需要安装 mfsclient 的节点上已经安装了 Linux 内核模块 FUSE 。</p>
 <p>若未安装，可通过 yum 或者编译安装的方式进行安装。</p>
 <h3 id="创建用户和用户组"><a href="#创建用户和用户组" class="headerlink" title="创建用户和用户组"></a>创建用户和用户组</h3><p>每个节点都要创建 mfs 用户和用户组。</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><div class="line"><span class="attribute">groupadd  mfs</span></div><div class="line">useradd -g mfs mfs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">groupadd  mfs</div><div class="line">useradd -g mfs mfs</div></pre></td></tr></table></figure>
 <h3 id="修改-etc-hosts"><a href="#修改-etc-hosts" class="headerlink" title="修改/etc/hosts"></a>修改/etc/hosts</h3><p>在每个节点上为 mfsmaster 所在节点（192.168.20.96）增加一个别名 mfsmaster 。</p>
 <p>修改 /etc/hosts ：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line">192<span class="selector-class">.168</span><span class="selector-class">.20</span><span class="selector-class">.96</span> <span class="selector-tag">mfsmaster</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">192.168.20.96 mfsmaster</div></pre></td></tr></table></figure>
 <h3 id="解压rpm包"><a href="#解压rpm包" class="headerlink" title="解压rpm包"></a>解压rpm包</h3><p>将 mfs.tar.gz 解压到每个节点的 /opt 目录下，解压后会生成 /opt/mfs 目录。</p>
 <h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><h3 id="mfsmaster-cgi"><a href="#mfsmaster-cgi" class="headerlink" title="mfsmaster+cgi"></a>mfsmaster+cgi</h3><p>节点 192.168.20.96</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-master<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-cgi<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-cgiserv<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs-2.0.77-1.x86_64.rpm moosefs-master-2.0.77-1.x86_64.rpm moosefs-cgi-2.0.77-1.x86_64.rpm moosefs-cgiserv-2.0.77-1.x86_64.rpm</div></pre></td></tr></table></figure>
 <h3 id="mfsmetalogger"><a href="#mfsmetalogger" class="headerlink" title="mfsmetalogger"></a>mfsmetalogger</h3><p>节点 192.168.20.97 </p>
 <p>安装：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-metalogger<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs-2.0.77-1.x86_64.rpm moosefs-metalogger-2.0.77-1.x86_64.rpm</div></pre></td></tr></table></figure>
 <h3 id="mfschunkserver"><a href="#mfschunkserver" class="headerlink" title="mfschunkserver"></a>mfschunkserver</h3><p>节点 192.168.20.98 、 192.168.20.99 </p>
 <p>创建 /mnt/mfs 目录：</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">mkdir -p <span class="regexp">/mnt/</span>mfs</div><div class="line">chown -R <span class="string">mfs:</span>mfs <span class="regexp">/mnt/</span>mfs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir -p /mnt/mfs</div><div class="line">chown -R mfs:mfs /mnt/mfs</div></pre></td></tr></table></figure>
 <p>修改 /etc/mfs/mfshdd.cfg ，在任意位置增加一行:</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><div class="line"><span class="regexp">/mnt/m</span>fs</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/mnt/mfs</div></pre></td></tr></table></figure>
 <p>安装：</p>
-<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm moosefs-chunkserver<span class="number">-2.0</span><span class="number">.77</span><span class="number">-1.</span>x86_64.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /opt/mfs</div><div class="line">rpm -ivh moosefs-2.0.77-1.x86_64.rpm moosefs-chunkserver-2.0.77-1.x86_64.rpm</div></pre></td></tr></table></figure>
 <h3 id="mfsclient"><a href="#mfsclient" class="headerlink" title="mfsclient"></a>mfsclient</h3><p>节点 192.168.20.96 、192.168.20.97 、192.168.20.98 、192.168.20.99</p>
 <p>创建 /mnt/mfs-cli 目录：</p>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">mkdir <span class="regexp">/mnt/</span>mfs-cli</div><div class="line">chown -R <span class="string">mfs:</span>mfs <span class="regexp">/mnt/</span>mfs-cli/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir /mnt/mfs-cli</div><div class="line">chown -R mfs:mfs /mnt/mfs-cli/</div></pre></td></tr></table></figure>
 <p>安装：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">rpm</span> <span class="selector-tag">-ivh</span> <span class="selector-tag">moosefs-client-2</span><span class="selector-class">.0</span><span class="selector-class">.77-1</span><span class="selector-class">.x86_64</span><span class="selector-class">.rpm</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -ivh moosefs-client-2.0.77-1.x86_64.rpm</div></pre></td></tr></table></figure>
 <p>挂载：</p>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><div class="line">mfsmount /mnt/mfs-<span class="keyword">cli</span>/ -H mfsmaster</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mfsmount /mnt/mfs-cli/ -H mfsmaster</div></pre></td></tr></table></figure>
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><ul>
 <li>mfsmaster</li>
 </ul>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-<span class="literal">master</span></div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">systemctl start moosefs-master</div></pre></td></tr></table></figure>
 <ul>
 <li>mfscgiserv</li>
 </ul>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-cgiserv</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">systemctl start moosefs-cgiserv</div></pre></td></tr></table></figure>
 <p>启动 mfsmaster 和 mfscgiserv 后，在浏览器中输入 <code>http://192.168.20.96:9425</code> 查看Web 页面 ：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-84150574f17280c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MooseFS WebUI"></p>
 <ul>
 <li>mfsmetalogger</li>
 </ul>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-metalogger</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">systemctl start moosefs-metalogger</div></pre></td></tr></table></figure>
 <ul>
 <li>mfschunkserver</li>
 </ul>
-<figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">systemctl <span class="literal">start</span> moosefs-chunkserver</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">systemctl start moosefs-chunkserver</div></pre></td></tr></table></figure>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>所有客户端节点 /mnt/mfs-cli 目录下的内容都是相同的。<br>只需把文件放入任意客户端节点的 /mnt/mfs-cli 目录下即可，该目录对所有客户端节点可见。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
@@ -301,9 +301,9 @@
     </a>
   
   
-    <a href="/2017/03/24/复杂链表的复制/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/25/PostgreSQL安装PostGISC插件并使用/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">复杂链表的复制</div>
+      <div class="article-nav-title">PostgreSQL安装PostGIS插件并使用</div>
     </a>
   
 </nav>

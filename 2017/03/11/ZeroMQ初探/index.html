@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>zeromq初探 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="消息队列Socket编程ZeroMQ" />
+  
+  
+  
+  
+  <meta name="description" content="ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;amp;&amp;amp; Python)。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZeroMQ初探">
+<meta property="og:url" content="http://linbingdong.com/2017/03/11/ZeroMQ初探/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;amp;&amp;amp; Python)。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-bdc5fcaa6a2fa8c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-3faf1defd6c84b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-b407a578492a4ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZeroMQ初探">
+<meta name="twitter:description" content="ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;amp;&amp;amp; Python)。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-bdc5fcaa6a2fa8c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-ZeroMQ初探" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      ZeroMQ初探
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/ZeroMQ初探/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/ZeroMQ/">ZeroMQ</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。</p>
+<a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N 的 socket 连接。 ZeroMQ 的异步 I / O 模型为我们提供可扩展的基于异步消息处理任务的多核应用程序。 它有一系列语言API（几乎囊括所有编程语言），并能够在大多数操作系统上运行。</p>
+<p>传统的 TCP Socket 的连接是1对1的，可以认为“1个 socket = 1个连接”，每一个线程独立维护一个 socket 。但是 ZMQ 摒弃了这种1对1的模式，ZMQ的 Socket 可以很轻松地实现1对N和N对N的连接模式，一个 ZMQ 的 socket 可以自动地维护一组连接，用户无法操作这些连接，用户只能操作套接字而不是连接本身。所以说在 ZMQ 的世界里，连接是私有的。</p>
+<h2 id="三种基本模型"><a href="#三种基本模型" class="headerlink" title="三种基本模型"></a>三种基本模型</h2><p>ZMQ 提供了三种基本的通信模型，分别是 Request-Reply 、Publish-Subscribe 和 Parallel Pipeline ，接下来举例说明三种模型并给出相应的代码实现。</p>
+<h3 id="Request-Reply（请求-回复）"><a href="#Request-Reply（请求-回复）" class="headerlink" title="Request-Reply（请求-回复）"></a>Request-Reply（请求-回复）</h3><p>以 “Hello World” 为例。客户端发起请求，并等待服务端回应请求。客户端发送一个简单的 “Hello”，服务端则回应一个 “World”。可以有 N 个客户端，一个服务端，因此是 1-N 连接。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-bdc5fcaa6a2fa8c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Request-Reply"></p>
+<p>服务端代码如下：</p>
+<ul>
+<li>hwserver.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hwserver</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        ZMQ.Context context = ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket responder = context.socket(ZMQ.REP);</div><div class="line">        responder.bind(<span class="string">"tcp://*:5555"</span>);</div><div class="line">        <span class="keyword">while</span> (!Thread.currentThread().isInterrupted()) &#123;</div><div class="line">            <span class="keyword">byte</span>[] request = responder.recv(<span class="number">0</span>);</div><div class="line">            System.out.println(<span class="string">"Received"</span> + <span class="keyword">new</span> String(request));</div><div class="line">            Thread.sleep(<span class="number">1000</span>);</div><div class="line">            String reply = <span class="string">"World"</span>;</div><div class="line">            responder.send(reply.getBytes(),<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">        responder.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>hwserver.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> zmq</div><div class="line">context = zmq.Context()</div><div class="line">socket = context.socket(zmq.REP)</div><div class="line">socket.bind(<span class="string">"tcp://*:5555"</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    message = socket.recv()</div><div class="line">    print(<span class="string">"Received request: %s"</span> % message)</div><div class="line">    <span class="comment"># Do some 'work'</span></div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line">    socket.send(<span class="string">b"World"</span>)</div></pre></td></tr></table></figure>
+<p>客户端代码如下：</p>
+<ul>
+<li>hwclient.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">hwclient</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ZMQ.Context context = ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket requester = context.socket(ZMQ.REQ);</div><div class="line">        requester.connect(<span class="string">"tcp://localhost:5555"</span>);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> requestNbr = <span class="number">0</span>; requestNbr != <span class="number">10</span>; requestNbr++) &#123;</div><div class="line">            String request = <span class="string">"Hello"</span>;</div><div class="line">            System.out.println(<span class="string">"Sending Hello"</span> + requestNbr);</div><div class="line">            requester.send(request.getBytes(),<span class="number">0</span>);</div><div class="line">            <span class="keyword">byte</span>[] reply = requester.recv(<span class="number">0</span>);</div><div class="line">            System.out.println(<span class="string">"Reveived "</span> + <span class="keyword">new</span> String(reply) + <span class="string">" "</span> + requestNbr);</div><div class="line">        &#125;</div><div class="line">        requester.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>hwclient.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> zmq</div><div class="line">context = zmq.Context()</div><div class="line">print(<span class="string">"Connecting to hello world server..."</span>)</div><div class="line">socket = context.socket(zmq.REQ)</div><div class="line">socket.connect(<span class="string">"tcp://localhost:5555"</span>)</div><div class="line"><span class="keyword">for</span> request <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">    print(<span class="string">"Sending request %s ..."</span> % request)</div><div class="line">    socket.send(<span class="string">b"Hello"</span>)</div><div class="line">    message = socket.recv()</div><div class="line">    print(<span class="string">"Received reply %s [ %s ]"</span> % (request,message))</div></pre></td></tr></table></figure>
+<p>从以上的过程，我们可以了解到使用 ZMQ 写基本的程序的方法，需要注意的是：</p>
+<ol>
+<li>服务端和客户端无论谁先启动，效果是相同的，这点不同于 Socket。</li>
+<li>在服务端收到信息以前，程序是阻塞的，会一直等待客户端连接上来。</li>
+<li>服务端收到信息后，会发送一个 “World” 给客户端。值得注意的是一定是客户端连接上来以后，发消息给服务端，服务端接受消息然后响应客户端，这样一问一答。</li>
+<li>ZMQ 的通信单元是消息，它只知道消息的长度，并不关心消息格式。因此，你可以使用任何你觉得好用的数据格式，如 Xml、Protocol Buffers、Thrift、json 等等。</li>
+</ol>
+<h3 id="Publish-Subscribe（发布-订阅）"><a href="#Publish-Subscribe（发布-订阅）" class="headerlink" title="Publish-Subscribe（发布-订阅）"></a>Publish-Subscribe（发布-订阅）</h3><p>下面以一个天气预报的例子来介绍该模式。</p>
+<p>服务端不断地更新各个城市的天气，客户端可以订阅自己感兴趣（通过一个过滤器）的城市的天气信息。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-3faf1defd6c84b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Publish-Subscribe"></p>
+<p>服务端代码如下：</p>
+<ul>
+<li>wuserver.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wuserver</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ZMQ.Context context = ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket publisher = context.socket(ZMQ.PUB);</div><div class="line">        publisher.bind(<span class="string">"tcp://*:5556"</span>);</div><div class="line">        publisher.bind(<span class="string">"icp://weather"</span>);</div><div class="line">        Random srandom = <span class="keyword">new</span> Random(System.currentTimeMillis());</div><div class="line">        <span class="keyword">while</span> (!Thread.currentThread().isInterrupted()) &#123;</div><div class="line">            <span class="keyword">int</span> zipcode, temperature, relhumidity;</div><div class="line">            zipcode = <span class="number">10000</span> + srandom.nextInt(<span class="number">10000</span>);</div><div class="line">            temperature = srandom.nextInt(<span class="number">215</span>) - <span class="number">80</span> + <span class="number">1</span>;</div><div class="line">            relhumidity = srandom.nextInt(<span class="number">50</span>) + <span class="number">10</span> + <span class="number">1</span>;</div><div class="line">            String update = String.format(<span class="string">"%05d %d %d"</span>, zipcode, temperature, relhumidity);</div><div class="line">        &#125;</div><div class="line">        publisher.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>wuserver.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randrange</div><div class="line"><span class="keyword">import</span> zmq</div><div class="line">context = zmq.Context()</div><div class="line">socket = context.socket(zmq.PUB)</div><div class="line">socket.bind(<span class="string">"tcp://*:5556"</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    zipcode = randrange(<span class="number">1</span>, <span class="number">100000</span>)</div><div class="line">    temperature = randrange(<span class="number">-80</span>, <span class="number">135</span>)</div><div class="line">    relhumidity = randrange(<span class="number">10</span>, <span class="number">60</span>)</div><div class="line">    socket.send_string(<span class="string">"%i %i %i"</span> % (zipcode, temperature, relhumidity))</div></pre></td></tr></table></figure>
+<p>客户端代码如下：</p>
+<ul>
+<li>wuclient.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">import</span> java.util.StringTokenizer;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">wuclient</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ZMQ.Context context = ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket suscriber = context.socket(ZMQ.SUB);</div><div class="line">        suscriber.connect(<span class="string">"tcp://localhost:5556"</span>);</div><div class="line">        String filter = (args.length &gt; <span class="number">0</span>) ? args[<span class="number">0</span>] : <span class="string">"10001"</span>;</div><div class="line">        suscriber.suscribe(filter.getBytes());  <span class="comment">//过滤条件</span></div><div class="line">        <span class="keyword">int</span> update_nbr;</div><div class="line">        <span class="keyword">long</span> total_temp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (update_nbr = <span class="number">0</span>; update_nbr &lt; <span class="number">100</span>; update_nbr++) &#123;</div><div class="line">            String string = suscriber.recvStr(<span class="number">0</span>).trim();</div><div class="line">            StringTokenizer sscanf = <span class="keyword">new</span> StringTokenizer(string, <span class="string">" "</span>);</div><div class="line">            <span class="keyword">int</span> zipcode = Integer.valueOf(sscanf.nextToken());</div><div class="line">            <span class="keyword">int</span> temperature = Integer.valueOf(sscanf.nextToken());</div><div class="line">            <span class="keyword">int</span> relhumidity = Integer.valueOf(sscanf.nextToken());</div><div class="line">            total_temp += temperature;</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"Average temperature for zipcode '"</span> + filter + <span class="string">"' was "</span> + (<span class="keyword">int</span>) (total_temp / update_nbr));</div><div class="line">        suscriber.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>wuclient.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> zmq</div><div class="line">context = zmq.Context()</div><div class="line">socket = context.socket(zmq.SUB)</div><div class="line">print(<span class="string">"Collecting updates from weather server..."</span>)</div><div class="line">socket.connect(<span class="string">"tcp://localhost:5556"</span>)</div><div class="line">zip_filter = sys.argv[<span class="number">1</span>] <span class="keyword">if</span> len(sys.argv) &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="string">"10001"</span></div><div class="line"><span class="keyword">if</span> isinstance(zip_filter, bytes):</div><div class="line">    zip_filter = zip_filter.decode(<span class="string">'ascii'</span>)</div><div class="line">socket.setsockopt_string(zmq.SUBSCRIBE, zip_filter)</div><div class="line">total_temp = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> update_nbr <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    string = socket.recv_string()</div><div class="line">    zipcode, temperature, relhumidity = string.split()</div><div class="line">    total_temp += int(temperature)</div><div class="line">print(<span class="string">"Average temperature for zipcode '%s' was %dF"</span> % (zip_filter, total_temp / (update_nbr + <span class="number">1</span>)))</div></pre></td></tr></table></figure>
+<p>服务器端生成随机数 zipcode、temperature、relhumidity 分别代表城市代码、温度值和湿度值，然后不断地广播信息。而客户端通过设置过滤参数，接受特定城市代码的信息，最终将收集到的温度求平均值。</p>
+<p>需要注意的是：</p>
+<ol>
+<li>与 “Hello World” 例子不同的是，Socket 的类型变成 ZMQ.PUB 和 ZMQ.SUB 。</li>
+<li>客户端需要设置一个过滤条件，接收自己感兴趣的消息。</li>
+<li>发布者一直不断地发布新消息，如果中途有订阅者退出，其他均不受影响。当订阅者再连接上来的时候，收到的就是后来发送的消息了。这样比较晚加入的或者是中途离开的订阅者必然会丢失掉一部分信息。这是该模式的一个问题，即所谓的 “Slow joiner” 。</li>
+</ol>
+<h3 id="Parallel-Pipeline"><a href="#Parallel-Pipeline" class="headerlink" title="Parallel Pipeline"></a>Parallel Pipeline</h3><p>Parallel Pipeline 处理模式如下：</p>
+<ul>
+<li>ventilator 分发任务到各个 worker</li>
+<li>每个 worker 执行分配到的任务</li>
+<li>最后由 sink 收集从 worker 发来的结果</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-b407a578492a4ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Parallel Pipeline"></p>
+<ul>
+<li>taskvent.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">import</span> java.util.StringTokenizer;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">taskvent</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        ZMQ.Context context = <span class="keyword">new</span> ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket sender = context.socket(ZMQ.PUSH);</div><div class="line">        sender.bind(<span class="string">"tcp://*:5557"</span>);</div><div class="line">        ZMQ.Socket sink = context.socket(ZMQ.PUSH);</div><div class="line">        sink.connect(<span class="string">"tcp://localhost:5558"</span>);</div><div class="line">        System.out.println(<span class="string">"Please enter when the workers are ready: "</span>);</div><div class="line">        System.in.read();</div><div class="line">        System.out.println(<span class="string">"Sending task to workes\n"</span>);</div><div class="line">        sink.send(<span class="string">"0"</span>,<span class="number">0</span>);</div><div class="line">        Random srandom = <span class="keyword">new</span> Random(System.currentTimeMillis());</div><div class="line">        <span class="keyword">int</span> task_nbr;</div><div class="line">        <span class="keyword">int</span> total_msec = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (task_nbr = <span class="number">0</span>; task_nbr &lt; <span class="number">100</span>; task_nbr++) &#123;</div><div class="line">            <span class="keyword">int</span> workload;</div><div class="line">            workload = srandom.nextInt(<span class="number">100</span>) + <span class="number">1</span>;</div><div class="line">            total_msec += workload;</div><div class="line">            System.out.print(workload + <span class="string">"."</span>);</div><div class="line">            String string = String.format(<span class="string">"%d"</span>, workload);</div><div class="line">            sender.send(string, <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">        System.out.println(<span class="string">"Total expected cost: "</span> + total_msec + <span class="string">" msec"</span>);</div><div class="line">        sink.close();</div><div class="line">        sender.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>taskvent.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> zmq</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> random</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    raw_input</div><div class="line"><span class="keyword">except</span> NameError:</div><div class="line">    raw_input = input</div><div class="line">context = zmq.Context()</div><div class="line">sender = context.socket(zmq.PUSH)</div><div class="line">sender.bind(<span class="string">"tcp://*:5557"</span>)</div><div class="line">sink = context.socket(zmq.PUSH)</div><div class="line">sink.connect(<span class="string">"tcp://localhost:5558"</span>)</div><div class="line">print(<span class="string">"Please enter when workers are ready: "</span>)</div><div class="line">_ = raw_input()</div><div class="line">print(<span class="string">"Sending tasks to workers..."</span>)</div><div class="line">sink.send(<span class="string">b'0'</span>)</div><div class="line">random.seed()</div><div class="line">total_msec = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> task_nbr <span class="keyword">in</span> range(<span class="number">100</span>):</div><div class="line">    workload = random.randint(<span class="number">1</span>, <span class="number">100</span>)</div><div class="line">    total_msec += workload</div><div class="line">    sender.send_string(<span class="string">u'%i'</span> % workload)</div><div class="line">print(<span class="string">"Total expected cost: %s msec"</span> % total_msec)</div><div class="line">time.sleep(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>taskwork.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">taskwork</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ZMQ.Context context = ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket receiver = context.socket(ZMQ.PULL);</div><div class="line">        receiver.connect(<span class="string">"tcp://localhost:5557"</span>);</div><div class="line">        ZMQ.Socket sender = context.socket(ZMQ.PUSH);</div><div class="line">        sender.connect(<span class="string">"tcp://localhost:5558"</span>);</div><div class="line">        <span class="keyword">while</span> (!Thread.currentThread().isInterrupted()) &#123;</div><div class="line">            String string = receiver.recv(<span class="number">0</span>).trim();</div><div class="line">            Long mesc = Long.parseLong(string);</div><div class="line">            System.out.flush();</div><div class="line">            System.out.print(string + <span class="string">"."</span>);</div><div class="line">            Sleep(mesc);</div><div class="line">            sender.send(<span class="string">""</span>.getBytes(), <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">        sender.close();</div><div class="line">        receiver.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>taskwork.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> zmq</div><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> sys</div><div class="line">context = zmq.Context()</div><div class="line">receiver = context.socket(zmq.PULL)</div><div class="line">receiver.connect(<span class="string">"tcp://localhost:5557"</span>)</div><div class="line">sender = context.socket(zmq.PUSH)</div><div class="line">sender.connect(<span class="string">"tcp://localhost:5558"</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    s = receiver.recv()</div><div class="line">    sys.stdout.write(<span class="string">'.'</span>)</div><div class="line">    sys.stdout.flush()</div><div class="line">    time.sleep(int(s) * <span class="number">0.001</span>)</div><div class="line">    sender.send(<span class="string">b''</span>)</div></pre></td></tr></table></figure>
+<ul>
+<li>tasksink.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> org.zeromq.ZMQ;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">tasksink</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ZMQ.Context context = ZMQ.context(<span class="number">1</span>);</div><div class="line">        ZMQ.Socket receiver = context.socket(ZMQ.PULL);</div><div class="line">        receiver.bind(<span class="string">"tcp://*:5558"</span>);</div><div class="line">        String string = <span class="keyword">new</span> String(receiver.recv(<span class="number">0</span>));</div><div class="line">        <span class="keyword">long</span> tstart = System.currentTimeMillis();</div><div class="line">        <span class="keyword">int</span> task_nbr;</div><div class="line">        <span class="keyword">int</span> total_mesc = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (task_nbr = <span class="number">0</span>; task_nbr &lt; <span class="number">100</span>; task_nbr++) &#123;</div><div class="line">            string = <span class="keyword">new</span> String(receiver.recv(<span class="number">0</span>).trim());</div><div class="line">            <span class="keyword">if</span> ((task_nbr / <span class="number">10</span>) * <span class="number">10</span> == task_nbr) &#123;</div><div class="line">                System.out.print(<span class="string">":"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                System.out.print(<span class="string">"."</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">long</span> tend = System.currentTimeMillis();</div><div class="line">        System.out.println(<span class="string">"\nTotal elapsed time: "</span> + (tend - tstart) + <span class="string">"msec"</span>);</div><div class="line">        receiver.close();</div><div class="line">        context.term();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>tasksink.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> time</div><div class="line"><span class="keyword">import</span> zmq</div><div class="line"><span class="keyword">import</span> sys</div><div class="line">context = zmq.Context()</div><div class="line">receiver = context.socket(zmq.PULL)</div><div class="line">receiver.bind(<span class="string">"tcp://*:5558"</span>)</div><div class="line">s = receiver.recv()</div><div class="line">tstart = time.time()</div><div class="line"><span class="keyword">for</span> task_nbr <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</div><div class="line">    s = receiver.recv()</div><div class="line">    <span class="keyword">if</span> task_nbr % <span class="number">10</span> == <span class="number">0</span>:</div><div class="line">        sys.stdout.write(<span class="string">':'</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        sys.stdout.write(<span class="string">'.'</span>)</div><div class="line">    sys.stdout.flush()</div><div class="line">tend = time.time()</div><div class="line">print(<span class="string">"Total elapsed time: %d msec"</span> % ((tend - tstart) * <span class="number">1000</span>))</div></pre></td></tr></table></figure>
+<p>以下两点需要注意：</p>
+<ol>
+<li>ventilator 使用 ZMQ.PUSH 来分发任务；worker 用 ZMQ.PULL 来接收任务，用 ZMQ.PUSH 来发送结果；sink 用 ZMQ.PULL 来接收 worker 发来的结果。</li>
+<li>ventilator 既是服务端，也是客户端（此时服务端是 sink）；worker 在两个过程中都是客户端；sink 也一直都是服务端。</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://zguide.zeromq.org/page:all#advanced-request-reply" target="_blank" rel="external">ZeroMQ官方用户指南</a><br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/11/ZeroMQ初探/" data-title="ZeroMQ初探" data-url="http://linbingdong.com/2017/03/11/ZeroMQ初探/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"linbingdong"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket编程/">Socket编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZeroMQ/">ZeroMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息队列/">消息队列</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          关于Java Collections的几个常见问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java 7新机制之自动关闭资源——try-with-resources</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种基本模型"><span class="nav-number">2.</span> <span class="nav-text">三种基本模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request-Reply（请求-回复）"><span class="nav-number">2.1.</span> <span class="nav-text">Request-Reply（请求-回复）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Publish-Subscribe（发布-订阅）"><span class="nav-number">2.2.</span> <span class="nav-text">Publish-Subscribe（发布-订阅）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parallel-Pipeline"><span class="nav-number">2.3.</span> <span class="nav-text">Parallel Pipeline</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				<span id="busuanzi_container_site_uv"> 访客数 : <span id="busuanzi_value_site_uv"></span></span> |  
+				<span id="busuanzi_container_site_pv"> 访问量 : <span id="busuanzi_value_site_pv"></span></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+</body>
+</html>

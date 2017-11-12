@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-从上到下打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+      <a class="article-title" href="/2017/02/23/从上到下打印二叉树/">从上到下打印二叉树</a>
     </h1>
   
 
@@ -164,59 +164,8 @@
     
     <div class="article-meta">
       
-	<a href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
-	  <time datetime="2016-08-27T12:00:43.000Z" itemprop="datePublished">2016-08-27</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>先看看System.arraycopy()的声明：</p>
-<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
-</code></pre>
-        <!-- 先看看System.arraycopy()的声明：
-public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
-
-src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
-        <p class="article-more-link">
-          <a href="/2016/08/27/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/统计每个单词出现的次数/">统计每个单词出现的次数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/08/27/统计每个单词出现的次数/" class="article-date">
-	  <time datetime="2016-08-27T11:57:33.000Z" itemprop="datePublished">2016-08-27</time>
+	<a href="/2017/02/23/从上到下打印二叉树/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
       
@@ -225,27 +174,17 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>/**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-</code></pre>
-        <!-- /**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
+        <p><strong>题目描述</strong></p>
+<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
+        <!-- 题目描述
+从上往下打印出二叉树的每个节点，同层节点从左至右打印。
 
-package cn.lbd.Collection;import java.ut......  -->
+分析
+其实就是二叉树的层序遍历，使用一个队列即可实现。
+代码:
+public class Solution &#123;    public ArrayList&lt;Integer&gt; PrintFromTopToBottom(TreeNode root) &#123;        Queue&lt;TreeNode......  -->
         <p class="article-more-link">
-          <a href="/2016/08/27/统计每个单词出现的次数/#more">阅读全文</a>
+          <a href="/2017/02/23/从上到下打印二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -262,7 +201,7 @@ package cn.lbd.Collection;import java.ut......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[7] 反转整数"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-最小的k个数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -270,7 +209,7 @@ package cn.lbd.Collection;import java.ut......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/LeetCode[7] 反转整数/">LeetCode[7] 反转整数</a>
+      <a class="article-title" href="/2017/02/21/最小的k个数/">最小的k个数</a>
     </h1>
   
 
@@ -278,8 +217,8 @@ package cn.lbd.Collection;import java.ut......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/08/27/LeetCode[7] 反转整数/" class="article-date">
-	  <time datetime="2016-08-27T11:55:54.000Z" itemprop="datePublished">2016-08-27</time>
+	<a href="/2017/02/21/最小的k个数/" class="article-date">
+	  <time datetime="2017-02-20T16:00:00.000Z" itemprop="datePublished">2017-02-21</time>
 	</a>
 
       
@@ -288,75 +227,24 @@ package cn.lbd.Collection;import java.ut......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Reverse-digits-of-an-integer"><a href="#Reverse-digits-of-an-integer" class="headerlink" title="Reverse digits of an integer."></a>Reverse digits of an integer.</h3><p>Example1: x = 123, return 321</p>
-<p>Example2: x = -123, return -321</p>
-<h3 id="My-Solution"><a href="#My-Solution" class="headerlink" title="My Solution"></a>My Solution</h3>
-        <!-- Reverse digits of an integer.Example1: x = 123, return 321
-Example2: x = -123, return -321
-My Solution
-public class Solution &#123;    public int reverse(int x) &#123;        long result=0;        ......  -->
-        <p class="article-more-link">
-          <a href="/2016/08/27/LeetCode[7] 反转整数/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[3] 最大字符不重复的子串"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/">LeetCode[3] 最大字符不重复的子串</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/" class="article-date">
-	  <time datetime="2016-08-27T11:47:15.000Z" itemprop="datePublished">2016-08-27</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for “abcabcbb” is “abc”, which the length is 3. For “bbbbb” the longest substring is “b”, with the length of 1.</p>
-</blockquote>
-<p>即给定一个字符串，返回最长的没有重复字符的子串的长度</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用一个HashMap来存储字符串。其中key为字符，value为该字符在字符串中的位置。</p>
-<p>使用两个指针i，j来指示最长子串的位置。刚开始i，j都为0，指向第一个字符。然后i开始向右遍历。若遍历到的字符已在HashMap中，则更新它的value为现在i的位置。并且将j指向该字符的下一个位置（j只能往右移，或者不移，不能左移）。若未在HashMap中，则将该字符以及它的位置放入HashMap中。最大的（i-j+1）即为最长子串的长度。</p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3>
+        <p><strong>题目描述</strong></p>
+<p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
         <!-- 题目描述
-Given a string, find the length of the longest substring without repeating characters. For example, the longest substring without repeating letters for “abcabcbb” is “abc”, which the length is......  -->
+输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
+
+分析
+堆排序。小根堆。
+代码:
+import java.util.ArrayList;public class Solution &#123;    public ArrayList&lt;Integer&gt; GetLeastNumbers_Soluti......  -->
         <p class="article-more-link">
-          <a href="/2016/08/27/LeetCode[3] 最大字符不重复的子串/#more">阅读全文</a>
+          <a href="/2017/02/21/最小的k个数/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -366,7 +254,7 @@ Given a string, find the length of the longest substring without repeating chara
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[5] 最长的回文子串"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-把字符串转换成整数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -374,7 +262,7 @@ Given a string, find the length of the longest substring without repeating chara
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/LeetCode[5] 最长的回文子串/">LeetCode[5] 最长的回文子串</a>
+      <a class="article-title" href="/2017/02/20/把字符串转换成整数/">把字符串转换成整数</a>
     </h1>
   
 
@@ -382,8 +270,8 @@ Given a string, find the length of the longest substring without repeating chara
     
     <div class="article-meta">
       
-	<a href="/2016/08/27/LeetCode[5] 最长的回文子串/" class="article-date">
-	  <time datetime="2016-08-27T11:45:22.000Z" itemprop="datePublished">2016-08-27</time>
+	<a href="/2017/02/20/把字符串转换成整数/" class="article-date">
+	  <time datetime="2017-02-19T16:00:00.000Z" itemprop="datePublished">2017-02-20</time>
 	</a>
 
       
@@ -392,25 +280,61 @@ Given a string, find the length of the longest substring without repeating chara
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
+        <p><strong>题目描述</strong></p>
+<p>将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。数值为0或者字符串不是一个合法的数值则返回0。</p>
+<p>输入描述:</p>
+<blockquote>
+<p>输入一个字符串,包括数字字母符号,可以为空</p>
 </blockquote>
-<p>即给定一个字符串，返回该字符串最长的回文子串<br>如给出“acabcddcbadike”,返回“abcddcba”。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>回文子串分为长度为偶数（中间两个字符相同，就像示例）和长度为奇数两种。<br>从头往后遍历s.length()趟，第i趟指针j，k从i（奇数）或j从i，k从i+1（偶数）向两边扩散（s.charAt(i)和s.charAt(j)相等才扩散），k-j-1为该回文子串长度，若比之前maxlen大，则更新maxlen。</p>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3>
+<p>输出描述:</p>
+<blockquote>
+<p>如果是合法的数值表达则返回该数字，否则返回0</p>
+</blockquote>
+<p>输入例子:</p>
+<blockquote>
+<p>+2147483647</p>
+<p>   1a33</p>
+</blockquote>
+<p>输出例子:</p>
+<blockquote>
+<p>2147483647</p>
+<p>   0</p>
+</blockquote>
         <!-- 题目描述
-Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
+将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数。数值为0或者字符串不是一个合法的数值则返回0。
+输入描述:
 
-即给定一个字符串，返回该字符串最......  -->
+输入一个字符串,包括数字字母符号,可以为空
+
+输出描述:
+
+如果是合法的数值表达则返回该数字，否则返回0
+
+输入例子:
+
++2147483647
+   1a33
+
+输出例子:
+
+2147483647
+   0
+
+
+分析
+首先判断特殊情况：
+
+字符串为空
+除符......  -->
         <p class="article-more-link">
-          <a href="/2016/08/27/LeetCode[5] 最长的回文子串/#more">阅读全文</a>
+          <a href="/2017/02/20/把字符串转换成整数/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -420,7 +344,7 @@ Given a string S, find the longest palindromic substring in S. You may assume th
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-序列化二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -428,7 +352,7 @@ Given a string S, find the longest palindromic substring in S. You may assume th
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+      <a class="article-title" href="/2017/02/18/序列化二叉树/">序列化二叉树</a>
     </h1>
   
 
@@ -436,39 +360,33 @@ Given a string S, find the longest palindromic substring in S. You may assume th
     
     <div class="article-meta">
       
-	<a href="/2016/08/27/Java中Comparable与Comparator的区别/" class="article-date">
-	  <time datetime="2016-08-27T11:43:01.000Z" itemprop="datePublished">2016-08-27</time>
+	<a href="/2017/02/18/序列化二叉树/" class="article-date">
+	  <time datetime="2017-02-17T16:00:00.000Z" itemprop="datePublished">2017-02-18</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
-<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
-<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
-<li>Comparable和Comparator都是Java的接口</li>
-</ul>
-        <!-- 相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口
-
- 
-区别
-Comparator位于java.util包下，而Comparable位于java.lang包下
-Comparable接口的实现是在类的内部（如 String、In......  -->
+        <p><strong>题目描述</strong></p>
+<p>请实现两个函数，分别用来序列化和反序列化二叉树<br>
+        <!-- 题目描述
+请实现两个函数，分别用来序列化和反序列化二叉树
+分析
+先序遍历，递归。
+代码:
+public class Solution &#123;    public int index = -1;    StringBuilder sb = new StringBuilder();    String Serialize(TreeNode root) &#123;        if (r......  -->
         <p class="article-more-link">
-          <a href="/2016/08/27/Java中Comparable与Comparator的区别/#more">阅读全文</a>
+          <a href="/2017/02/18/序列化二叉树/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -478,7 +396,7 @@ Comparable接口的实现是在类的内部（如 String、In......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中四种引用"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-数字在排序数组中出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -486,7 +404,7 @@ Comparable接口的实现是在类的内部（如 String、In......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/08/27/Java中四种引用/">Java中四种引用</a>
+      <a class="article-title" href="/2017/02/17/数字在排序数组中出现的次数/">数字在排序数组中出现的次数</a>
     </h1>
   
 
@@ -494,36 +412,179 @@ Comparable接口的实现是在类的内部（如 String、In......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/08/27/Java中四种引用/" class="article-date">
-	  <time datetime="2016-08-27T11:39:10.000Z" itemprop="datePublished">2016-08-27</time>
+	<a href="/2017/02/17/数字在排序数组中出现的次数/" class="article-date">
+	  <time datetime="2017-02-16T16:00:00.000Z" itemprop="datePublished">2017-02-17</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
-</blockquote>
-        <!-- 
-为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
-
- 
-
-强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
-
-软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
+        <p><strong>题目描述</strong></p>
+<p>统计一个数字在排序数组中出现的次数。<br>
+        <!-- 题目描述
+统计一个数字在排序数组中出现的次数。
+分析
+因为有序，所以二分查找。先用二分查找找到该数字的位置，再从该位置分别往左往右计算两边跟他相等的个数。最后相加。
+代码:
+public class Solution &#123;    public int GetNumberOfK(int [] array , int k) &#123;        int index = binary......  -->
         <p class="article-more-link">
-          <a href="/2016/08/27/Java中四种引用/#more">阅读全文</a>
+          <a href="/2017/02/17/数字在排序数组中出现的次数/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Python用yield生成杨辉三角"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/16/Python用yield生成杨辉三角/">Python用yield生成杨辉三角</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/16/Python用yield生成杨辉三角/" class="article-date">
+	  <time datetime="2017-02-15T16:00:00.000Z" itemprop="datePublished">2017-02-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>so funny</p>
+        <!-- so funny
+
+代码：
+def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.append(0)    line = [line[i-1] + line[i] for i in range(len(line))]    n += 1for line in triangles():  pri......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/16/Python用yield生成杨辉三角/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Hive on Spark调优"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/11/30/Hive on Spark调优/">Hive on Spark调优</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/11/30/Hive on Spark调优/" class="article-date">
+	  <time datetime="2016-11-29T16:00:00.000Z" itemprop="datePublished">2016-11-30</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前在<code>Hive on Spark</code>跑<code>TPCx-BB</code>测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    <code>POWER_TEST</code>阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。</p>
+        <!-- 之前在Hive on Spark跑TPCx-BB测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    POWER_TEST阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。
+
+Spark作业运行原理
+详细原理见上图。我们使用spark-submit提交一个Spark......  -->
+        <p class="article-more-link">
+          <a href="/2016/11/30/Hive on Spark调优/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Hive on Spark安装配置详解"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/10/10/Hive on Spark安装配置详解/">Hive on Spark安装配置详解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2016/10/10/Hive on Spark安装配置详解/" class="article-date">
+	  <time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished">2016-10-10</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。</p>
+        <!-- 简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
+
+背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduce......  -->
+        <p class="article-more-link">
+          <a href="/2016/10/10/Hive on Spark安装配置详解/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>

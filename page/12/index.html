@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-LeetCode[137] Single Number II"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-替换空格"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/05/LeetCode[137] Single Number II/">LeetCode[137] Single Number II</a>
+      <a class="article-title" href="/2017/03/11/替换空格/">替换空格</a>
     </h1>
   
 
@@ -164,8 +164,8 @@
     
     <div class="article-meta">
       
-	<a href="/2016/12/05/LeetCode[137] Single Number II/" class="article-date">
-	  <time datetime="2016-12-05T14:06:14.000Z" itemprop="datePublished">2016-12-05</time>
+	<a href="/2017/03/11/替换空格/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -174,22 +174,25 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given an array of integers, every element appears three times except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p><strong>思路:</strong></p>
-<p>创建一个sizeof(int)长度的数组，count[sizeof(int)],count[i]表示在i位出现的1的次数。如果count[i]是3的倍数，则忽略；否则取出来组成result。</p>
+        <p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<p><strong>分析</strong></p>
+<p>这道题有很多种方法，最简单的是直接调用String的replace方法</p>
 <p><strong>代码:</strong></p>
-        <!-- Given an array of integers, every element appears three times except for one. Find that single one.
-Note:Your algorithm should have a linear runtime complexity. Could you implement it without using......  -->
+        <!-- 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+分析
+这道题有很多种方法，最简单的是直接调用String的replace方法
+代码:
+
+public class Solution &#123;    public String replaceSpace(StringBuffer str......  -->
         <p class="article-more-link">
-          <a href="/2016/12/05/LeetCode[137] Single Number II/#more">阅读全文</a>
+          <a href="/2017/03/11/替换空格/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -199,7 +202,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[80] Remove Duplicates from Sorted Array II"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -207,7 +210,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/LeetCode[80] Remove Duplicates from Sorted Array II/">LeetCode[80] Remove Duplicates from Sorted Array II</a>
+      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
     </h1>
   
 
@@ -215,33 +218,39 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/LeetCode[80] Remove Duplicates from Sorted Array II/" class="article-date">
-	  <time datetime="2016-12-04T15:05:30.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Follow up for “Remove Duplicates”:<br>What if duplicates are allowed at most twice?</p>
-<p>For example,<br>Given sorted array nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3. It doesn’t matter what you leave beyond the new length.</p>
-<p>Subscribe to see which companies asked this question</p>
-<p><strong>代码:</strong></p>
-        <!-- Follow up for “Remove Duplicates”:What if duplicates are allowed at most twice?
-For example,Given sorted array nums = [1,1,1,2,2,3],
-Your function should return length = 5, with the first five elem......  -->
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
+<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
+<li>Comparable和Comparator都是Java的接口</li>
+</ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
+
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/LeetCode[80] Remove Duplicates from Sorted Array II/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -251,7 +260,7 @@ Your function should return length = 5, with the first five elem......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[26] Remove Duplicates from Sorted Array"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-有趣的Pythonic写法"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -259,7 +268,7 @@ Your function should return length = 5, with the first five elem......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/LeetCode[26] Remove Duplicates from Sorted Array/">LeetCode[26] Remove Duplicates from Sorted Array</a>
+      <a class="article-title" href="/2017/03/11/有趣的Pythonic写法/">有趣的Pythonic写法</a>
     </h1>
   
 
@@ -267,32 +276,35 @@ Your function should return length = 5, with the first five elem......  -->
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/LeetCode[26] Remove Duplicates from Sorted Array/" class="article-date">
-	  <time datetime="2016-12-04T13:44:06.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/03/11/有趣的Pythonic写法/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
-<p>For example,<br>Given input array nums = [1,1,2],</p>
-<p>Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn’t matter what you leave beyond the new length.</p>
-<p><strong>代码:</strong></p>
-        <!-- Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
-Do not allocate extra space for another array, you must do this in place with......  -->
+        <p>Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。</p>
+        <!-- Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。
+
+变量替换普通写法
+a = 10b = 20tmp = aa = bb = tmp
+pythonic
+a, b = b, a
+遍历区间元素比如打印 1 3 5 7 9
+其他语言，如 Java：
+for (int i = 1; i &lt; 10; i += 2)     Sys......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/LeetCode[26] Remove Duplicates from Sorted Array/#more">阅读全文</a>
+          <a href="/2017/03/11/有趣的Pythonic写法/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -302,7 +314,7 @@ Do not allocate extra space for another array, you must do this in place with...
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[136] Single Number"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-机器学习"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -310,7 +322,7 @@ Do not allocate extra space for another array, you must do this in place with...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/LeetCode[136] Single Number/">LeetCode[136] Single Number</a>
+      <a class="article-title" href="/2017/03/11/机器学习/">机器学习笔记（持续更新）</a>
     </h1>
   
 
@@ -318,8 +330,58 @@ Do not allocate extra space for another array, you must do this in place with...
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/LeetCode[136] Single Number/" class="article-date">
-	  <time datetime="2016-12-04T13:02:34.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/03/11/机器学习/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
+        <!-- 
+任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
+“奥卡姆剃刀”原则：如无必要，勿增实体 Entities should not be multiplied unnecessarily
+NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某些......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/机器学习/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-构建乘积数组"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/构建乘积数组/">构建乘积数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/构建乘积数组/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -328,22 +390,27 @@ Do not allocate extra space for another array, you must do this in place with...
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p><strong>思路:</strong></p>
-<p>直接用异或搞定，简单粗暴效率高。</p>
+        <p><strong>题目描述</strong></p>
+<p>给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素<code>B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]</code>。不能使用除法。</p>
+<p><strong>分析</strong></p>
+<p>既然不能用除法，那就用乘法吧。把B[i]分成i左边的左半部分和i右边的右半部分。</p>
 <p><strong>代码:</strong></p>
-        <!-- Given an array of integers, every element appears twice except for one. Find that single one.
-Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra......  -->
+        <!-- 题目描述
+给定一个数组A[0,1,…,n-1],请构建一个数组B[0,1,…,n-1],其中B中的元素B[i]=A[0]*A[1]*...*A[i-1]*A[i+1]*...*A[n-1]。不能使用除法。
+分析
+既然不能用除法，那就用乘法吧。把B[i]分成i左边的左半部分和i右边的右半部分。
+代码:
+
+import java.util.ArrayList;public class Solut......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/LeetCode[136] Single Number/#more">阅读全文</a>
+          <a href="/2017/03/11/构建乘积数组/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -361,7 +428,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/洗牌/">洗牌</a>
+      <a class="article-title" href="/2017/03/11/洗牌/">洗牌</a>
     </h1>
   
 
@@ -369,8 +436,8 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/洗牌/" class="article-date">
-	  <time datetime="2016-12-04T09:00:56.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/03/11/洗牌/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -391,7 +458,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <p><strong>代码:</strong></p>
         <!-- 洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/洗牌/#more">阅读全文</a>
+          <a href="/2017/03/11/洗牌/#more">阅读全文</a>
         </p>
       
     </div>
@@ -408,7 +475,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-优雅的点"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-疯狂跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -416,7 +483,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/优雅的点/">优雅的点</a>
+      <a class="article-title" href="/2017/03/11/疯狂跳台阶/">疯狂跳台阶</a>
     </h1>
   
 
@@ -424,8 +491,8 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/优雅的点/" class="article-date">
-	  <time datetime="2016-12-04T08:59:34.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/03/11/疯狂跳台阶/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
@@ -434,22 +501,18 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。<br>例如：半径的平方如果为25<br>优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 </p>
-<p><strong>输入描述:</strong></p>
-<p>输入为一个整数，即为圆半径的平方,范围在32位int范围内。</p>
-<p><strong>输出描述:</strong></p>
-<p>输出为一个整数，即为优雅的点的个数</p>
-<p><strong>输入例子:</strong></p>
-<p>25</p>
-<p><strong>输出例子:</strong></p>
-<p>12</p>
+        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p><strong>分析</strong></p>
+<p>分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。</p>
 <p><strong>代码:</strong></p>
-        <!-- 小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。例如：半径的平方如果为25优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 
-输入描述:
-输入为一个整数，即为圆半径的平方,范围在32位int范围内。
-输......  -->
+        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+分析
+分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。
+代码:
+
+public class Solution &#123;    public int JumpFloorII(int target) &#123;        return 1 &......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/优雅的点/#more">阅读全文</a>
+          <a href="/2017/03/11/疯狂跳台阶/#more">阅读全文</a>
         </p>
       
     </div>
@@ -466,7 +529,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-回文序列"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -474,7 +537,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/回文序列/">回文序列</a>
+      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
     </h1>
   
 
@@ -482,8 +545,59 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/回文序列/" class="article-date">
-	  <time datetime="2016-12-04T08:58:04.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看看System.arraycopy()的声明：</p>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+</code></pre>
+        <!-- 先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/二叉树的下一个节点/">二叉树的下一个节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/二叉树的下一个节点/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
@@ -492,19 +606,22 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如果一个数字序列逆置之后跟原序列是一样的就称这样的数字序列为回文序列。例如：<br>{1, 2, 1}, {15, 78, 78, 15} , {112} 是回文序列,<br>{1, 2, 2}, {15, 78, 87, 51} ,{112, 2, 11} 不是回文序列。<br>现在给出一个数字序列，允许使用一种转换操作：<br>选择任意两个相邻的数，然后从序列移除这两个数，并用这两个数字的和插入到这两个数之前的位置(只插入一个和)。<br>现在对于所给序列要求出最少需要多少次操作可以将其变成回文序列。</p>
-<p><strong>输入描述:</strong></p>
-<p>输入为两行，第一行为序列长度n ( 1 ≤ n ≤ 50)<br>第二行为序列中的n个整数item[i]  (1 ≤ iteam[i] ≤ 1000)，以空格分隔。</p>
-<p><strong>输出描述:</strong></p>
-<p>输出一个数，表示最少需要的转换次数</p>
-<p><strong>输入例子:</strong></p>
-<p>4<br>1 1 1 3</p>
-<p><strong>输出例子:</strong></p>
-<p>2</p>
-<p><strong>代码:</strong></p>
-        <!-- 如果一个数字序列逆置之后跟原序列是一样的就称这样的数字序列为回文序列。例如：{1, 2, 1}, {15, 78, 78, 15} , {112} 是回文序列,{1, 2, 2}, {15, 78, 87, 51} ,{112, 2, 11} 不是回文序列。现在给出一个数字序列，允许使用一种转换操作：选择任意两个相邻的数，然后从序列移除这两个数，并用这两个数字的和插入到这两个数之前的位置(只......  -->
+        <p><strong>题目描述</strong></p>
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+        <!-- 题目描述
+给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+
+分析
+
+如果右子树不为空，则下一节点为右子树最左边的节点。
+如果右子树为空，如果父节点为空，则返回空。
+如果该节点是其父节点的左孩子，则返回其父节点。
+否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
+
+代码:
+publi......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/回文序列/#more">阅读全文</a>
+          <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -521,7 +638,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-买苹果"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -529,7 +646,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/买苹果/">买苹果</a>
+      <a class="article-title" href="/2017/02/24/按之字形顺序打印二叉树/">按之字形顺序打印二叉树</a>
     </h1>
   
 
@@ -537,8 +654,8 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2016/12/04/买苹果/" class="article-date">
-	  <time datetime="2016-12-04T08:56:10.000Z" itemprop="datePublished">2016-12-04</time>
+	<a href="/2017/02/24/按之字形顺序打印二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
@@ -547,18 +664,17 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。 </p>
-        <!-- 小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。 
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。</p>
+        <!-- 题目描述
+请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
 
-输入描述:
-输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果
-输出描述:
-输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1
-输入例子:
-20
-输......  -->
+分析
+跟把二叉树打印成多行一样，只不过在偶数行需要反转一下。
+代码:
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;impor......  -->
         <p class="article-more-link">
-          <a href="/2016/12/04/买苹果/#more">阅读全文</a>
+          <a href="/2017/02/24/按之字形顺序打印二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -566,105 +682,6 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-计算糖果"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/12/04/计算糖果/">计算糖果</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/12/04/计算糖果/" class="article-date">
-	  <time datetime="2016-12-04T08:54:22.000Z" itemprop="datePublished">2016-12-04</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A,B,C三个人是好朋友,每个人手里都有一些糖果,我们不知道他们每个人手上具体有多少个糖果,但是我们知道以下的信息：<br>A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有的糖果数.<br>现在需要通过这四个数值计算出每个人手里有多少个糖果,即A,B,C。这里保证最多只有一组整数A,B,C满足所有题设条件。 </p>
-        <!-- A,B,C三个人是好朋友,每个人手里都有一些糖果,我们不知道他们每个人手上具体有多少个糖果,但是我们知道以下的信息：A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有的糖果数.现在需要通过这四个数值计算出每个人手里有多少个糖果,即A,B,C。这里保证最多只有一组整数A,B,C满足所有题设条件。 
-
-输入描述:
-输入为一行，一共4个整数，分别为A - ......  -->
-        <p class="article-more-link">
-          <a href="/2016/12/04/计算糖果/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Phoenix安装配置"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/11/30/Phoenix安装配置/">Phoenix安装配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/11/30/Phoenix安装配置/" class="article-date">
-	  <time datetime="2016-11-30T06:24:02.000Z" itemprop="datePublished">2016-11-30</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
-        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
-
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoenix......  -->
-        <p class="article-more-link">
-          <a href="/2016/11/30/Phoenix安装配置/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
