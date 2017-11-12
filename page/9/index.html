@@ -148,6 +148,59 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-数组中只出现一次的数字II"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/01/05/数组中只出现一次的数字II/">数组中只出现一次的数字II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/01/05/数组中只出现一次的数字II/" class="article-date">
+	  <time datetime="2017-01-05T09:33:06.000Z" itemprop="datePublished">2017-01-05</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p>
+<p><strong>分析</strong></p>
+<p>本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?<br>设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。<br>但是仅仅是通过最后异或出来的值，是没办法区分出x和y的，但是足以帮助我们把 x和y划分到不同的子数组中去。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
+分析
+本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。但是......  -->
+        <p class="article-more-link">
+          <a href="/2017/01/05/数组中只出现一次的数字II/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-第一个只出现一次的字符"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -636,55 +689,6 @@ import......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Apache Kylin综述"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/01/03/Apache Kylin综述/">Apache Kylin综述</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/01/03/Apache Kylin综述/" class="article-date">
-	  <time datetime="2017-01-03T01:28:17.000Z" itemprop="datePublished">2017-01-03</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Kylin/">Kylin</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://upload-images.jianshu.io/upload_images/1752522-b24bc950f45d2666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-        <!-- 
-
-1. 简介1.1 Kylin概览Apache Kylin是一个开源的分布式分析引擎，提供Hadoop之上的SQL查询接口及多维分析（OLAP）能力（可以把Kylin定义为OLAP on Hadoop）。Apache Kylin于2015年11月正式毕业成为Apache基金会(ASF) 顶级项目，是第一个由中国团队完整贡献到Apache的顶级项目。
-Apache Kyiln构建在Hadoo......  -->
-        <p class="article-more-link">
-          <a href="/2017/01/03/Apache Kylin综述/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kylin/">Kylin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>

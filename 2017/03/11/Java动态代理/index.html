@@ -3,28 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>最小的k个数 | LBD&#39;s Blog</title>
+  <title>java动态代理 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="数据结构与算法编程题" />
+  <meta name="keywords" content="Java" />
   
   
   
   
-  <meta name="description" content="题目描述
-输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。">
+  <meta name="description" content="给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最小的k个数">
-<meta property="og:url" content="http://linbingdong.com/2017/02/21/最小的k个数/index.html">
+<meta property="og:title" content="Java动态代理">
+<meta property="og:url" content="http://linbingdong.com/2017/03/11/Java动态代理/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="题目描述
-输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。">
+<meta property="og:description" content="给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-04-19T15:39:40.000Z">
+<meta property="og:updated_time" content="2017-11-12T03:13:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最小的k个数">
-<meta name="twitter:description" content="题目描述
-输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。">
+<meta name="twitter:title" content="Java动态代理">
+<meta name="twitter:description" content="给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -154,7 +151,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-最小的k个数" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Java动态代理" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -162,7 +159,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      最小的k个数
+      Java动态代理
     </h1>
   
 
@@ -170,23 +167,20 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/21/最小的k个数/" class="article-date">
-	  <time datetime="2017-02-20T16:00:00.000Z" itemprop="datePublished">2017-02-21</time>
+	<a href="/2017/03/11/Java动态代理/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
+        <p>给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。</p>
 <a id="more"></a>
-<p><strong>分析</strong></p>
-<p>堆排序。小根堆。</p>
-<p><strong>代码:</strong></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">GetLeastNumbers_Solution</span><span class="params">(<span class="keyword">int</span> [] input, <span class="keyword">int</span> k)</span> </span>&#123;</div><div class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">        <span class="keyword">if</span> (input.length &lt; k) <span class="keyword">return</span> list;</div><div class="line">        <span class="keyword">int</span> len = input.length;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = (len - <span class="number">2</span>) / <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">            adjustHeap(input, i, len - <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt; len - <span class="number">1</span> - k; i--) &#123;</div><div class="line">            list.add(input[<span class="number">0</span>]);</div><div class="line">            input[<span class="number">0</span>] = input[i];</div><div class="line">            adjustHeap(input, <span class="number">0</span>, i-<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> list;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">adjustHeap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> head, <span class="keyword">int</span> tail)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> i = head;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>*i + <span class="number">1</span>; j &lt; tail; j = <span class="number">2</span>*i + <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (a[j+<span class="number">1</span>] &lt; a[j]) j++;</div><div class="line">            <span class="keyword">if</span> (a[i] &lt;= a[j]) <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">int</span> temp = a[i];</div><div class="line">            a[i] = a[j];</div><div class="line">            a[j] = temp;</div><div class="line">            i = j;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>示例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Method;</div><div class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * DynamicProxyDemo</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicProxyDemo</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">consumer</span><span class="params">(Interface iface)</span> </span>&#123;</div><div class="line">        iface.doSomething();</div><div class="line">        iface.somethingElse(<span class="string">"hahaha"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        RealObject real = <span class="keyword">new</span> RealObject();</div><div class="line">        consumer(real);</div><div class="line"></div><div class="line">        System.out.println(<span class="string">'\n'</span> + <span class="string">"-------------------------"</span> + <span class="string">'\n'</span>);</div><div class="line"></div><div class="line">        Interface proxy = (Interface)Proxy.newProxyInstance(Interface.class.getClassLoader(), <span class="keyword">new</span> Class[] &#123;Interface.class&#125;, <span class="keyword">new</span> DynamicProxyHandler(real));</div><div class="line">        consumer(proxy);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Interface</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">somethingElse</span><span class="params">(String arg)</span></span>;     </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealObject</span> <span class="keyword">implements</span> <span class="title">Interface</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"doSomething"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">somethingElse</span><span class="params">(String arg)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"somethingElse "</span> + arg);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">DynamicProxyHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Object proxied;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DynamicProxyHandler</span><span class="params">(Object proxied)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.proxied = proxied;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</div><div class="line">        System.out.println(<span class="string">"**** proxy: "</span> + proxy.getClass() + <span class="string">", method: "</span> + method + <span class="string">", args: "</span> + args);</div><div class="line">        <span class="keyword">return</span> method.invoke(proxied, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
@@ -197,7 +191,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/21/最小的k个数/" data-title="最小的k个数" data-url="http://linbingdong.com/2017/02/21/最小的k个数/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/03/11/Java动态代理/" data-title="Java动态代理" data-url="http://linbingdong.com/2017/03/11/Java动态代理/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -218,7 +212,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -226,19 +220,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/23/从上到下打印二叉树/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/15/Python函数式编程/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          从上到下打印二叉树
+          Python函数式编程
         
       </div>
     </a>
   
   
-    <a href="/2017/02/20/Python日志模块示例/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/有趣的Pythonic写法/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Python日志模块示例</div>
+      <div class="article-nav-title">有趣的Pythonic写法</div>
     </a>
   
 </nav>
