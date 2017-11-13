@@ -299,7 +299,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Java 7新机制之自动关闭资源——try-with-resources"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -307,7 +307,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
+      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
     </h1>
   
 
@@ -315,7 +315,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
+	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -325,13 +325,12 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
-        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
+        <p>给出几个Java I/O 操作的示例代码。</p>
+        <!-- 给出几个Java I/O 操作的示例代码。
 
-如下：
-BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -412,7 +411,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 <!-- Table of Contents -->
 
   
-    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -420,7 +419,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
+      <a class="article-title" href="/2017/03/11/Java I:O总结/">Java I/O 总结</a>
     </h1>
   
 
@@ -428,7 +427,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
+	<a href="/2017/03/11/Java I:O总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -438,12 +437,12 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给出几个Java I/O 操作的示例代码。</p>
-        <!-- 给出几个Java I/O 操作的示例代码。
+        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
+        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
 
-创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
+数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -570,7 +569,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 <!-- Table of Contents -->
 
   
-    <article id="post-跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -578,7 +577,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/跳台阶/">跳台阶</a>
+      <a class="article-title" href="/2017/03/11/链表中倒数第k个节点/">链表中倒数第k个节点</a>
     </h1>
   
 
@@ -586,7 +585,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/跳台阶/" class="article-date">
+	<a href="/2017/03/11/链表中倒数第k个节点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -596,18 +595,20 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+        <p><strong>题目描述</strong></p>
+<p>输入一个链表，输出该链表中倒数第k个结点。</p>
 <p><strong>分析</strong></p>
-<p>其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。</p>
+<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
 <p><strong>代码:</strong></p>
-        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+        <!-- 题目描述
+输入一个链表，输出该链表中倒数第k个结点。
 分析
-其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。
+两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
 代码:
 
-public class Solution &#123;    public int JumpFloor(int target) &#123;        if(target &lt;= 2)            retur......  -->
+/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/跳台阶/#more">阅读全文</a>
+          <a href="/2017/03/11/链表中倒数第k个节点/#more">阅读全文</a>
         </p>
       
     </div>

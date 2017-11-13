@@ -148,6 +148,59 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/按之字形顺序打印二叉树/">按之字形顺序打印二叉树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/按之字形顺序打印二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。</p>
+        <!-- 题目描述
+请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+
+分析
+跟把二叉树打印成多行一样，只不过在偶数行需要反转一下。
+代码:
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;impor......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/按之字形顺序打印二叉树/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -307,7 +360,7 @@ public cl......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -315,7 +368,7 @@ public cl......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
+      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
     </h1>
   
 
@@ -323,7 +376,7 @@ public cl......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -334,16 +387,16 @@ public cl......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
         <!-- 题目描述
-输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
 
 分析
-先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+递归，分别在左右子树里找符合 target = target - root.val 的路径。
 代码:
-publ......  -->
+import java.util.ArrayList;public class Solution &#123;    public ......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
         </p>
       
     </div>
@@ -412,7 +465,7 @@ publ......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -420,7 +473,7 @@ publ......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
+      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
     </h1>
   
 
@@ -428,7 +481,7 @@ publ......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
+	<a href="/2017/02/23/重建二叉树/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -439,16 +492,16 @@ publ......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
         <!-- 题目描述
-输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
 
 分析
-递归，分别在左右子树里找符合 target = target - root.val 的路径。
+先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
 代码:
-import java.util.ArrayList;public class Solution &#123;    public ......  -->
+publ......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
+          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -603,67 +656,6 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
 public class Solution &#123;    public int TreeDepth(Tree......  -->
         <p class="article-more-link">
           <a href="/2017/02/23/二叉树的深度/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-二叉树的镜像"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树的镜像/">二叉树的镜像</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/23/二叉树的镜像/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>操作给定的二叉树，将其变换为源二叉树的镜像。 </p>
-<p>输入描述:</p>
-<p>二叉树的镜像定义：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">  源二叉树 </div><div class="line">    8</div><div class="line">   /  \</div><div class="line">  6   10</div><div class="line"> / \  / \</div><div class="line">5  7 9  11</div><div class="line"></div><div class="line">镜像二叉树</div><div class="line">    8</div><div class="line">   /  \</div><div class="line">  10   6</div><div class="line"> / \  / \</div><div class="line">11 9 7   5</div></pre></td></tr></table></figure>
-        <!-- 题目描述
-操作给定的二叉树，将其变换为源二叉树的镜像。 
-输入描述:
-二叉树的镜像定义：
-  源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5
-
-分析
-用递归可以很方便地解决。
-如果不用递归的话，可以借助队列来实现。思想类似于二叉树的层序遍历
-代码:
-递归：
-pub......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/23/二叉树的镜像/#more">阅读全文</a>
         </p>
       
     </div>
