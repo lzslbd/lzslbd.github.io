@@ -254,6 +254,64 @@ import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;pu
 <!-- Table of Contents -->
 
   
+    <article id="post-二叉树的下一个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/二叉树的下一个节点/">二叉树的下一个节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/二叉树的下一个节点/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+        <!-- 题目描述
+给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。
+
+分析
+
+如果右子树不为空，则下一节点为右子树最左边的节点。
+如果右子树为空，如果父节点为空，则返回空。
+如果该节点是其父节点的左孩子，则返回其父节点。
+否则依次往上找父节点，知道某个节点是其父节点的左孩子，返回该节点的父节点
+
+代码:
+publi......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/二叉树的下一个节点/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-平衡二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -360,7 +418,7 @@ public cl......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-从上到下打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -368,7 +426,7 @@ public cl......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
+      <a class="article-title" href="/2017/02/23/从上到下打印二叉树/">从上到下打印二叉树</a>
     </h1>
   
 
@@ -376,7 +434,7 @@ public cl......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
+	<a href="/2017/02/23/从上到下打印二叉树/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -387,16 +445,16 @@ public cl......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+<p>从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
         <!-- 题目描述
-输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+从上往下打印出二叉树的每个节点，同层节点从左至右打印。
 
 分析
-递归，分别在左右子树里找符合 target = target - root.val 的路径。
+其实就是二叉树的层序遍历，使用一个队列即可实现。
 代码:
-import java.util.ArrayList;public class Solution &#123;    public ......  -->
+public class Solution &#123;    public ArrayList&lt;Integer&gt; PrintFromTopToBottom(TreeNode root) &#123;        Queue&lt;TreeNode......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
+          <a href="/2017/02/23/从上到下打印二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -449,59 +507,6 @@ import java.util.ArrayList;public class Solution &#123;    public ......  -->
 从前往后遍历，如果发现 array[i] &gt; array[i+1] ，则 array[......  -->
         <p class="article-more-link">
           <a href="/2017/02/23/旋转数组的最小数字/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/23/重建二叉树/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
-        <!-- 题目描述
-输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
-
-分析
-先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
-代码:
-publ......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -617,7 +622,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
 <!-- Table of Contents -->
 
   
-    <article id="post-二叉树的深度"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -625,7 +630,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树的深度/">二叉树的深度</a>
+      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
     </h1>
   
 
@@ -633,7 +638,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/二叉树的深度/" class="article-date">
+	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -644,18 +649,16 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
         <!-- 题目描述
-输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。
+输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
 
 分析
-递归：二叉树的深度为其左右子树深度中大的那个数加1。两行代码搞定。
-迭代：利用层序遍历，算出总共有几层，就是二叉树的深度。
+递归，分别在左右子树里找符合 target = target - root.val 的路径。
 代码:
-递归：
-public class Solution &#123;    public int TreeDepth(Tree......  -->
+import java.util.ArrayList;public class Solution &#123;    public ......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/二叉树的深度/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
         </p>
       
     </div>

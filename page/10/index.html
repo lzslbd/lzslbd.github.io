@@ -307,7 +307,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
 <!-- Table of Contents -->
 
   
-    <article id="post-设计模式-观察者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -315,7 +315,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
+      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
     </h1>
   
 
@@ -323,33 +323,32 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
+	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>观察者模式又叫发布/订阅模式。</p>
-        <!-- 观察者模式又叫发布/订阅模式。
+        <p>先看看System.arraycopy()的声明：</p>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+</code></pre>
+        <!-- 先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
 
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
-
-具体主题（ConcreteSubject）：将有关状态存入具......  -->
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -454,6 +453,58 @@ public class Solution &......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-设计模式-观察者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>观察者模式又叫发布/订阅模式。</p>
+        <!-- 观察者模式又叫发布/订阅模式。
+
+定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
+角色
+抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
+
+具体主题（ConcreteSubject）：将有关状态存入具......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -609,59 +660,6 @@ public class Solution &#123;    public boolean......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典编程书籍/">经典编程书籍</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-翻转单词顺序列"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/翻转单词顺序列/">翻转单词顺序列</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/翻转单词顺序列/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
-<p><strong>分析</strong></p>
-<p>先用String.split()将字符串按空格切分成一个String数组,然后创建一个StringBuilder将该数组从后往前拼接。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
-分析
-先用Stri......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/翻转单词顺序列/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
