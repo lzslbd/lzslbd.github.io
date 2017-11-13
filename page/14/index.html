@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
+      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
     </h1>
   
 
@@ -164,7 +164,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -175,16 +175,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
         <!-- 题目描述
-输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
 
 分析
-先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+递归，分别在左右子树里找符合 target = target - root.val 的路径。
 代码:
-publ......  -->
+import java.util.ArrayList;public class Solution &#123;    public ......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
         </p>
       
     </div>
@@ -246,6 +246,59 @@ publ......  -->
 pub......  -->
         <p class="article-more-link">
           <a href="/2017/02/23/二叉树的镜像/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+        <!-- 题目描述
+输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+
+分析
+先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+代码:
+publ......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -662,59 +715,11 @@ Spark作业运行原理
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive on Spark安装配置详解"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2016/10/10/Hive on Spark安装配置详解/">Hive on Spark安装配置详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2016/10/10/Hive on Spark安装配置详解/" class="article-date">
-	  <time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished">2016-10-10</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。</p>
-        <!-- 简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
-
-背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduce......  -->
-        <p class="article-more-link">
-          <a href="/2016/10/10/Hive on Spark安装配置详解/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/13/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
+    <a class="extend prev" rel="prev" href="/page/13/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/">下一页 &raquo;</a>
   </nav>
 
 </section>

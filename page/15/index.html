@@ -3,44 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>链表中环的入口节点 | LBD&#39;s Blog</title>
+  <title>LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="数据结构与算法编程题" />
   
   
   
-  
-  <meta name="description" content="题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:">
-<meta property="og:type" content="article">
-<meta property="og:title" content="链表中环的入口节点">
-<meta property="og:url" content="http://linbingdong.com/2017/03/11/链表中环的入口/index.html">
+  <meta name="description" content="大数据与分布式">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LBD's Blog">
+<meta property="og:url" content="http://linbingdong.com/page/15/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta property="og:description" content="大数据与分布式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="链表中环的入口节点">
-<meta name="twitter:description" content="题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="LBD's Blog">
+<meta name="twitter:description" content="大数据与分布式">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -64,7 +41,7 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
+    <link rel="stylesheet" href="/css/home.css" >
   
 
   
@@ -77,7 +54,7 @@
 
 
 
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
+  <body>
 
 
   
@@ -100,7 +77,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 >
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -169,15 +146,17 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-链表中环的入口" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;">
+  
+    <article id="post-Hive on Spark安装配置详解"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
-      链表中环的入口节点
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2016/10/10/Hive on Spark安装配置详解/">Hive on Spark安装配置详解</a>
     </h1>
   
 
@@ -185,100 +164,50 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/链表中环的入口/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2016/10/10/Hive on Spark安装配置详解/" class="article-date">
+	  <time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished">2016-10-10</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
-<p><strong>分析</strong></p>
-<p>两种思路</p>
-<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
-<p>思路二：两个指针。具体分析见代码注释。</p>
-<p><strong>代码:</strong></p>
-<a id="more"></a>
-<p>用HashSet（取巧）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode p = pHead;</div><div class="line">        HashSet&lt;ListNode&gt; set = <span class="keyword">new</span> HashSet&lt;ListNode&gt;();</div><div class="line">        <span class="keyword">while</span> (p != <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span> (!set.add(p))</div><div class="line">                <span class="keyword">return</span> p;</div><div class="line">            p = p.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;      </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>两个指针（巧妙）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123; </div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span> || pHead.next == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode p1 = pHead, p2 = pHead;</div><div class="line">        <span class="keyword">while</span> (p2 != <span class="keyword">null</span>)&#123;</div><div class="line">            p1 = p1.next;  <span class="comment">//p1每次走一步</span></div><div class="line">            p2 = p2.next.next; <span class="comment">//p2每次走两步</span></div><div class="line">            <span class="keyword">if</span> (p1 == p2)&#123;  <span class="comment">//第一次相遇，此时p2刚好比p1多走一个环的长度，又因为p2走的距离是p1的两倍，所以p1刚好走了一个环的距离</span></div><div class="line">                p1 = pHead;  <span class="comment">//p1回到头节点，p2不动。此时p1，p2刚好相差一个环的距离</span></div><div class="line">                <span class="keyword">while</span> (p1 != p2)&#123; <span class="comment">//p1、p2每次都只走一步，下次相遇必定在环的入口节点</span></div><div class="line">                    p1 = p1.next;</div><div class="line">                    p2 = p2.next;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> p1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。</p>
+        <!-- 简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
 
+背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduce......  -->
+        <p class="article-more-link">
+          <a href="/2016/10/10/Hive on Spark安装配置详解/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
-        
-	<div id="comment">
-	
-	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/03/11/链表中环的入口/" data-title="链表中环的入口节点" data-url="http://linbingdong.com/2017/03/11/链表中环的入口/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"linbingdong"};
-	  (function() {
-	    var ds = document.createElement('script');
-	    ds.type = 'text/javascript';ds.async = true;
-	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	    ds.charset = 'UTF-8';
-	    (document.getElementsByTagName('head')[0] 
-	     || document.getElementsByTagName('body')[0]).appendChild(ds);
-	  })();
-	  </script>
-	<!-- 多说公共JS代码 end -->
-	
-	</div>
-
-
       
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          分布式一致性算法：Raft 算法（Raft 论文翻译）
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/11/Git常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Git常用命令</div>
-    </a>
-  
-</nav>
-
   
 </article>
 
 <!-- Table of Contents -->
 
-  <aside id="sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">目录</strong>
+  
+
+
+  <nav id="page-nav">
     
-        <ol class="artnav">.........</ol>
-    
-    </div>
-  </aside>
+    <a class="extend prev" rel="prev" href="/page/14/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span>
+  </nav>
+
 </section>
         
       </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -380,8 +309,6 @@
   <script src="/js/home.js"></script>
 
 
-
-  <script src="/js/dialog.js"></script>
 
 
 

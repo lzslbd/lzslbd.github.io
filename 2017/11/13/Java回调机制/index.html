@@ -3,43 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>链表中环的入口节点 | LBD&#39;s Blog</title>
+  <title>java回调机制 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="数据结构与算法编程题" />
+  <meta name="keywords" content="Java" />
   
   
   
   
-  <meta name="description" content="题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:">
+  <meta name="description" content="对Java回调机制进行简单的介绍，并给出简单的示例。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="链表中环的入口节点">
-<meta property="og:url" content="http://linbingdong.com/2017/03/11/链表中环的入口/index.html">
+<meta property="og:title" content="Java回调机制">
+<meta property="og:url" content="http://linbingdong.com/2017/11/13/Java回调机制/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:">
+<meta property="og:description" content="对Java回调机制进行简单的介绍，并给出简单的示例。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta property="og:updated_time" content="2017-11-13T14:09:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="链表中环的入口节点">
-<meta name="twitter:description" content="题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:">
+<meta name="twitter:title" content="Java回调机制">
+<meta name="twitter:description" content="对Java回调机制进行简单的介绍，并给出简单的示例。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -169,7 +151,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-链表中环的入口" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Java回调机制" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -177,7 +159,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      链表中环的入口节点
+      Java回调机制
     </h1>
   
 
@@ -185,28 +167,37 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/链表中环的入口/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2017/11/13/Java回调机制/" class="article-date">
+	  <time datetime="2017-11-12T16:00:00.000Z" itemprop="datePublished">2017-11-13</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
-<p><strong>分析</strong></p>
-<p>两种思路</p>
-<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
-<p>思路二：两个指针。具体分析见代码注释。</p>
-<p><strong>代码:</strong></p>
+        <p>对Java回调机制进行简单的介绍，并给出简单的示例。</p>
 <a id="more"></a>
-<p>用HashSet（取巧）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode p = pHead;</div><div class="line">        HashSet&lt;ListNode&gt; set = <span class="keyword">new</span> HashSet&lt;ListNode&gt;();</div><div class="line">        <span class="keyword">while</span> (p != <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">if</span> (!set.add(p))</div><div class="line">                <span class="keyword">return</span> p;</div><div class="line">            p = p.next;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;      </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>两个指针（巧妙）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123; </div><div class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">EntryNodeOfLoop</span><span class="params">(ListNode pHead)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (pHead == <span class="keyword">null</span> || pHead.next == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        ListNode p1 = pHead, p2 = pHead;</div><div class="line">        <span class="keyword">while</span> (p2 != <span class="keyword">null</span>)&#123;</div><div class="line">            p1 = p1.next;  <span class="comment">//p1每次走一步</span></div><div class="line">            p2 = p2.next.next; <span class="comment">//p2每次走两步</span></div><div class="line">            <span class="keyword">if</span> (p1 == p2)&#123;  <span class="comment">//第一次相遇，此时p2刚好比p1多走一个环的长度，又因为p2走的距离是p1的两倍，所以p1刚好走了一个环的距离</span></div><div class="line">                p1 = pHead;  <span class="comment">//p1回到头节点，p2不动。此时p1，p2刚好相差一个环的距离</span></div><div class="line">                <span class="keyword">while</span> (p1 != p2)&#123; <span class="comment">//p1、p2每次都只走一步，下次相遇必定在环的入口节点</span></div><div class="line">                    p1 = p1.next;</div><div class="line">                    p2 = p2.next;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> p1;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="什么是回调"><a href="#什么是回调" class="headerlink" title="什么是回调"></a>什么是回调</h2><p>回调，即callback。简单来讲，回调就是A包含B，A的函数Af1调用B的函数Bf1，Bf1又调用A的另一个函数Af2。这个Af2是回调接口中的方法，即A实现了回调接口。那么，Bf1为什么能调用Af2呢，是因为A将自身作为参数传给了Bf1。回调一般用在异步调用中。</p>
+<p>举个通俗点的例子：A是Boss，B是worker。Boss让Worker去干活，并且让worker干完活后向Boss报告。Boss分发任务（dispatchWork），让woker去执行（startWork）。worker执行完后调用回调接口的report()函数报告任务完成。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
+<li>CallbackReport.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CallbackReport</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">report</span><span class="params">(String msg)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Boss.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boss</span> <span class="keyword">implements</span> <span class="title">CallbackReport</span></span>&#123;</div><div class="line">    Worker worker;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Boss</span><span class="params">(Worker worker)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.worker = worker;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dispatchWork</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    worker.startWork(Boss.<span class="keyword">this</span>);</div><div class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;).start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">report</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"worker reported: "</span> + msg);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Worker.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Worker</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startWork</span><span class="params">(CallbackReport callback)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        System.out.println(<span class="string">"worker starts working..."</span>);</div><div class="line">        Thread.sleep(<span class="number">3000</span>);</div><div class="line">        callback.report(<span class="string">"work is done!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>CallbackTest.java</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallbackTest</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</div><div class="line">        Worker worker = <span class="keyword">new</span> Worker();</div><div class="line">        Boss boss = <span class="keyword">new</span> Boss(worker);</div><div class="line">        boss.dispatchWork();</div><div class="line">        System.out.println(<span class="string">"dispatched work,wait for done!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">worker starts working...</div><div class="line">dispatched work,wait for done!</div><div class="line">worker reported: work is done!</div><div class="line"></div><div class="line">Process finished with exit code 0</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
@@ -217,7 +208,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/03/11/链表中环的入口/" data-title="链表中环的入口节点" data-url="http://linbingdong.com/2017/03/11/链表中环的入口/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/11/13/Java回调机制/" data-title="Java回调机制" data-url="http://linbingdong.com/2017/11/13/Java回调机制/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -238,7 +229,7 @@
 
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -246,19 +237,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          分布式一致性算法：Raft 算法（Raft 论文翻译）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/11/Git常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/11/13/Java NIO示例/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Git常用命令</div>
+      <div class="article-nav-title">Java NIO示例</div>
     </a>
   
 </nav>
@@ -272,7 +254,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
     
-        <ol class="artnav">.........</ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是回调"><span class="nav-number">1.</span> <span class="nav-text">什么是回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输出"><span class="nav-number">3.</span> <span class="nav-text">输出</span></a></li></ol>
     
     </div>
   </aside>

@@ -299,7 +299,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -307,7 +307,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java I:O总结/">Java I/O 总结</a>
+      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
     </h1>
   
 
@@ -315,7 +315,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java I:O总结/" class="article-date">
+	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -325,12 +325,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
-        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
+        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
+        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
 
-数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
+内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
+那么，如何将一......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
+          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
         </p>
       
     </div>
@@ -411,7 +412,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 中定义常量的几种方法"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -419,7 +420,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
+      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
     </h1>
   
 
@@ -427,7 +428,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
+	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -437,13 +438,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
+        <p>主要有三种：接口、类和枚举。</p>
+        <!-- 主要有三种：接口、类和枚举。
 
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一......  -->
+接口：
+
+在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
+类实现该接口即可在类中调用该常量
+
+类：
+直接用 public static final 定义常量。
+枚举：
+在枚举类中直接写上常量值。
+示例：
+public class ConstTest &#123;    public static void mai......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
       
     </div>
@@ -570,6 +580,54 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
+        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
+
+摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-链表中环的入口"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -631,67 +689,11 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/链表中倒数第k个节点/">链表中倒数第k个节点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/链表中倒数第k个节点/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>输入一个链表，输出该链表中倒数第k个结点。</p>
-<p><strong>分析</strong></p>
-<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-输入一个链表，输出该链表中倒数第k个结点。
-分析
-两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
-代码:
-
-/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/链表中倒数第k个节点/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/">下一页 &raquo;</a>
   </nav>
 
 </section>

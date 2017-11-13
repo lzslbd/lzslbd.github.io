@@ -148,6 +148,55 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-tmpfs"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/04/11/tmpfs/">tmpfs</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/04/11/tmpfs/" class="article-date">
+	  <time datetime="2017-04-11T06:03:33.000Z" itemprop="datePublished">2017-04-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。</p>
+        <!-- tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。
+
+用一个简单的mount命令就可以创建tmpfs文件系统：
+mou......  -->
+        <p class="article-more-link">
+          <a href="/2017/04/11/tmpfs/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmpfs/">tmpfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-分布式系统(Distributed System)资料大全"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -550,52 +599,6 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 <!-- Table of Contents -->
 
   
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-Java对象流与序列化"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -650,7 +653,7 @@ import java.io.......  -->
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
   </nav>
 
 </section>

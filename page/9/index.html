@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Java 中定义常量的几种方法"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 关键字 static 、final 总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -164,7 +164,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -174,22 +174,15 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>主要有三种：接口、类和枚举。</p>
-        <!-- 主要有三种：接口、类和枚举。
+        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
+        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
-接口：
-
-在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
-类实现该接口即可在类中调用该常量
-
-类：
-直接用 public static final 定义常量。
-枚举：
-在枚举类中直接写上常量值。
-示例：
-public class ConstTest &#123;    public static void mai......  -->
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+stat......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -537,7 +530,7 @@ import java.util.ArrayList;public class Solution &#123; ......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java 关键字 static 、final 总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -545,7 +538,7 @@ import java.util.ArrayList;public class Solution &#123; ......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
+      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
     </h1>
   
 
@@ -553,7 +546,7 @@ import java.util.ArrayList;public class Solution &#123; ......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
+	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -563,15 +556,22 @@ import java.util.ArrayList;public class Solution &#123; ......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
-        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
+<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
+<li>Comparable和Comparator都是Java的接口</li>
+</ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
 
-static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
-static 域：
-如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
-stat......  -->
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -701,7 +701,7 @@ stat......  -->
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">下一页 &raquo;</a>
   </nav>
 
 </section>

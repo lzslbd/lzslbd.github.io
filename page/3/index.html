@@ -296,7 +296,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
 <!-- Table of Contents -->
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hive安装配置文档"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -304,7 +304,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
     </h1>
   
 
@@ -312,29 +312,30 @@ For example:Given binary tree [3,9,20,null,null,15,7],
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
-        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
+        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
 
-代码结构主目录（$BENCH......  -->
+网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
+......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -686,7 +687,7 @@ top() – Get ......  -->
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
   </nav>
 
 </section>

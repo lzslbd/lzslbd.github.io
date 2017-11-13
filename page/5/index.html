@@ -575,7 +575,7 @@ return [1,3,2].
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive安装配置文档"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 7新机制之自动关闭资源——try-with-resources"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -583,7 +583,7 @@ return [1,3,2].
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
     </h1>
   
 
@@ -591,30 +591,30 @@ return [1,3,2].
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
+	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
-        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
+        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
 
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
-......  -->
+如下：
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -674,7 +674,7 @@ return [1,3,2].
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
   </nav>
 
 </section>

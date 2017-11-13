@@ -148,7 +148,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Java RPC"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java回调机制"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -156,7 +156,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/13/Java RPC/">Java RPC</a>
+      <a class="article-title" href="/2017/11/13/Java回调机制/">Java回调机制</a>
     </h1>
   
 
@@ -164,7 +164,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/11/13/Java RPC/" class="article-date">
+	<a href="/2017/11/13/Java回调机制/" class="article-date">
 	  <time datetime="2017-11-12T16:00:00.000Z" itemprop="datePublished">2017-11-13</time>
 	</a>
 
@@ -174,26 +174,20 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用Java原生的序列化、动态代理、反射等实现简单的RPC框架。本示例来源于《分布式服务框架》。</p>
-        <!-- 使用Java原生的序列化、动态代理、反射等实现简单的RPC框架。本示例来源于《分布式服务框架》。
+        <p>对Java回调机制进行简单的介绍，并给出简单的示例。</p>
+        <!-- 对Java回调机制进行简单的介绍，并给出简单的示例。
 
-示例
-EchoService.java
-
-public interface EchoService &#123;    String echo(String ping);&#125;
-
-EchoServiceImpl.java
-
-public class EchoServiceImpl imp......  -->
+什么是回调回调，即callback。简单来讲，回调就是A包含B，A的函数Af1调用B的函数Bf1，Bf1又调用A的另一个函数Af2。这个Af2是回调接口中的方法，即A实现了回调接口。那么，Bf1为什么能调用Af2呢，是因为A将自身作为参数传给了Bf1。回调一般用在异步调用中。
+举个通俗点的例子：A是Boss，B是worker。Boss让......  -->
         <p class="article-more-link">
-          <a href="/2017/11/13/Java RPC/#more">阅读全文</a>
+          <a href="/2017/11/13/Java回调机制/#more">阅读全文</a>
         </p>
       
     </div>
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RPC/">RPC</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -245,6 +239,61 @@ import java.io.IOException;import java.net.InetSocketAddress;import java.nio.Byt
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NIO/">NIO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java RPC"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/11/13/Java RPC/">Java RPC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/11/13/Java RPC/" class="article-date">
+	  <time datetime="2017-11-12T16:00:00.000Z" itemprop="datePublished">2017-11-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用Java原生的序列化、动态代理、反射等实现简单的RPC框架。本示例来源于《分布式服务框架》。</p>
+        <!-- 使用Java原生的序列化、动态代理、反射等实现简单的RPC框架。本示例来源于《分布式服务框架》。
+
+示例
+EchoService.java
+
+public interface EchoService &#123;    String echo(String ping);&#125;
+
+EchoServiceImpl.java
+
+public class EchoServiceImpl imp......  -->
+        <p class="article-more-link">
+          <a href="/2017/11/13/Java RPC/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RPC/">RPC</a></li></ul>
 
     </footer>
   </div>
@@ -601,60 +650,11 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
 <!-- Table of Contents -->
 
   
-    <article id="post-tmpfs"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/11/tmpfs/">tmpfs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/04/11/tmpfs/" class="article-date">
-	  <time datetime="2017-04-11T06:03:33.000Z" itemprop="datePublished">2017-04-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。</p>
-        <!-- tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。
-
-用一个简单的mount命令就可以创建tmpfs文件系统：
-mou......  -->
-        <p class="article-more-link">
-          <a href="/2017/04/11/tmpfs/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmpfs/">tmpfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
 
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
