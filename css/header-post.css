@@ -10,7 +10,7 @@
 	letter-spacing: .1px;
 }
 
-#allheader {
+.allheader {
 	background: linear-gradient(120deg, #155799, #159957);
 	z-index: 2;
 }
