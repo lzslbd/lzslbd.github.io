@@ -159,6 +159,69 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-链表中环的入口"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/链表中环的入口/">链表中环的入口节点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/链表中环的入口/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
+<p><strong>分析</strong></p>
+<p>两种思路</p>
+<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
+<p>思路二：两个指针。具体分析见代码注释。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+一个链表中包含环，请找出该链表的环的入口节点。
+分析
+两种思路
+思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
+思路二：两个指针。具体分析见代码注释。
+代码:
+
+用HashSet（取巧）
+import java.util.*;public class Solution &#123;    public ListNode......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/链表中环的入口/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Git常用命令"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -242,64 +305,6 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/链表中倒数第k个节点/">链表中倒数第k个节点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/链表中倒数第k个节点/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>输入一个链表，输出该链表中倒数第k个结点。</p>
-<p><strong>分析</strong></p>
-<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-输入一个链表，输出该链表中倒数第k个结点。
-分析
-两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
-代码:
-
-/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/链表中倒数第k个节点/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-二维数组中的查找"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -356,7 +361,7 @@ public class Solution &#123;    public boolea......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -364,7 +369,7 @@ public class Solution &#123;    public boolea......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/跳台阶/">跳台阶</a>
+      <a class="article-title" href="/2017/03/11/链表中倒数第k个节点/">链表中倒数第k个节点</a>
     </h1>
   
 
@@ -372,7 +377,7 @@ public class Solution &#123;    public boolea......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/跳台阶/" class="article-date">
+	<a href="/2017/03/11/链表中倒数第k个节点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -383,18 +388,20 @@ public class Solution &#123;    public boolea......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+        <p><strong>题目描述</strong></p>
+<p>输入一个链表，输出该链表中倒数第k个结点。</p>
 <p><strong>分析</strong></p>
-<p>其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。</p>
+<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
 <p><strong>代码:</strong></p>
-        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+        <!-- 题目描述
+输入一个链表，输出该链表中倒数第k个结点。
 分析
-其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。
+两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
 代码:
 
-public class Solution &#123;    public int JumpFloor(int target) &#123;        if(target &lt;= 2)            retur......  -->
+/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/跳台阶/#more">阅读全文</a>
+          <a href="/2017/03/11/链表中倒数第k个节点/#more">阅读全文</a>
         </p>
       
     </div>

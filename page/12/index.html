@@ -215,7 +215,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
 <!-- Table of Contents -->
 
   
-    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +223,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
+      <a class="article-title" href="/2017/03/11/统计每个单词出现的次数/">统计每个单词出现的次数</a>
     </h1>
   
 
@@ -231,24 +231,38 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
+	<a href="/2017/03/11/统计每个单词出现的次数/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
-        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
+        <pre><code>/**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
+</code></pre>
+        <!-- /**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
 
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
+package cn.lbd.Collection;import java.ut......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
+          <a href="/2017/03/11/统计每个单词出现的次数/#more">阅读全文</a>
         </p>
       
     </div>
@@ -256,7 +270,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -489,7 +503,7 @@ import java.util.ArrayList;public class Solut......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-程序员资料大全"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -497,7 +511,7 @@ import java.util.ArrayList;public class Solut......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/程序员资料大全/">程序员资料大全</a>
+      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
     </h1>
   
 
@@ -505,55 +519,24 @@ import java.util.ArrayList;public class Solut......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/程序员资料大全/" class="article-date">
+	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>活到老，学到老。</p>
-        <!-- 活到老，学到老。
+        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
+        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
 
-本文由stanzhai整理。
-目录
-
-
-资料篇
-技术站点
-必看书籍
-大牛博客
-GitHub篇
-
-
-工具篇
-平台工具
-常用工具
-第三方服务
-爬虫相关(好玩的工具)
-安全相关
-Web服务器性能/压力测试工具/负载均衡器
-
-
-大数据处理/数据分析/分布式工具
-Web前端
-语言篇
-Scala
-Java
-Python
-Swift
-.NET
-C &amp; C++
-
-
-其他
-游戏开发......  -->
+多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
+纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/程序员资料大全/#more">阅读全文</a>
+          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
         </p>
       
     </div>
@@ -561,7 +544,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/好文转载/">好文转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
 
     </footer>
   </div>
@@ -571,7 +554,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中四种引用"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -579,7 +562,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中四种引用/">Java中四种引用</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -587,30 +570,21 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中四种引用/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
-</blockquote>
-        <!-- 
-为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
-
- 
-
-强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
-
-软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
       
     </div>
@@ -618,7 +592,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
 
     </footer>
   </div>
@@ -684,7 +658,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
 <!-- Table of Contents -->
 
   
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java对象流与序列化"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -692,7 +666,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+      <a class="article-title" href="/2017/03/11/Java对象流与序列化/">Java对象流与序列化</a>
     </h1>
   
 
@@ -700,21 +674,25 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	<a href="/2017/03/11/Java对象流与序列化/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p>Java语言支持一种称为<strong>对象序列化（object serialization）</strong>的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。</p>
+        <!-- Java语言支持一种称为对象序列化（object serialization）的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。
+ 
+示例：
+ObjectStreamTest.java
+import java.io.......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+          <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
         </p>
       
     </div>
@@ -722,7 +700,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
