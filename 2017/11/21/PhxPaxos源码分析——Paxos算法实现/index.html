@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="LBD's Blog">
 <meta property="og:description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-21T08:45:18.000Z">
+<meta property="og:updated_time" content="2017-11-21T11:11:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PhxPaxos源码分析——Paxos算法实现">
 <meta name="twitter:description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
@@ -200,13 +200,13 @@
 <p>Paxos算法中最重要的两个角色是<strong>Proposer</strong>和<strong>Acceptor</strong>。当然Leaner也很重要，特别是在PhxPaxos的实现中，Leaner具有重要的功能。但是因为《Paxos Made Simple》论文中主要还是Proposer和Acceptor，因此这篇文章还是以这两个角色为主，通过源码来回顾论文中Paxos算法的过程，同时也看看工程实现和论文的描述有什么区别。</p>
 <p>这里先贴出Paxos算法的过程，方便大家对照接下来的工程实现。</p>
 <ul>
-<li><p><strong>prepare阶段：</strong></p>
-<p>(a) Proposer选择一个<strong>提案编号N</strong>，然后向<strong>半数以上</strong>的Acceptor发送编号为N的<strong>Prepare请求</strong>。</p>
-<p>(b) 如果一个Acceptor收到一个编号为N的Prepare请求，且N<strong>大于</strong>该Acceptor已经<strong>响应过的</strong>所有<strong>Prepare请求</strong>的编号，那么它就会将它已经<strong>接受过的编号最大的提案（如果有的话）</strong>作为响应反馈给Proposer，同时该Acceptor承诺<strong>不再接受</strong>任何<strong>编号小于N的提案</strong>。</p>
+<li><p><strong>Prepare阶段：</strong></p>
+<p>(a) Proposer选择一个提案编号N，然后向半数以上的Acceptor发送编号为N的Prepare请求。</p>
+<p>(b) 如果一个Acceptor收到一个编号为N的Prepare请求，且N大于该Acceptor已经响应过的所有Prepare请求的编号，那么它就会将它已经接受过的编号最大的提案（如果有的话）作为响应反馈给Proposer，同时该Acceptor承诺不再接受任何编号小于N的提案。</p>
 </li>
-<li><p><strong>accept阶段：</strong></p>
-<p>(a) 如果Proposer收到<strong>半数以上</strong>Acceptor对其发出的编号为N的Prepare请求的<strong>响应</strong>，那么它就会发送一个针对<strong>[N,V]提案</strong>的<strong>Accept请求</strong>给<strong>半数以上</strong>的Acceptor。注意：V就是收到的<strong>响应</strong>中<strong>编号最大的提案的value</strong>，如果响应中<strong>不包含任何提案</strong>，那么V就由Proposer<strong>自己决定</strong>。</p>
-<p>(b) 如果Acceptor收到一个针对编号为N的提案的Accept请求，只要该Acceptor<strong>没有</strong>对编号<strong>大于N</strong>的<strong>Prepare请求</strong>做出过<strong>响应</strong>，它就<strong>接受该提案</strong>。</p>
+<li><p><strong>Accept阶段：</strong></p>
+<p>(a) 如果Proposer收到半数以上Acceptor对其发出的编号为N的Prepare请求的响应，那么它就会发送一个针对[N,V]提案的Accept请求给半数以上的Acceptor。注意：V就是收到的响应中编号最大的提案的value，如果响应中不包含任何提案，那么V就由Proposer自己决定。</p>
+<p>(b) 如果Acceptor收到一个针对编号为N的提案的Accept请求，只要该Acceptor没有对编号大于N的Prepare请求做出过响应，它就接受该提案。</p>
 </li>
 </ul>
 <h2 id="Proposer"><a href="#Proposer" class="headerlink" title="Proposer"></a>Proposer</h2><p>因为Proposer需要维护或者说记录一些状态信息，包括自己的提案编号ProposalID、提出的Value、其他Proposer提出的最大的提案编号HighestOtherProposalID、Acceptor已经接受过的编号最大的提案的值等，因此这里专门有一个ProposerState类来管理这些信息。同样Acceptor也有一个AcceptorState类来管理Acceptor相关的信息。</p>
