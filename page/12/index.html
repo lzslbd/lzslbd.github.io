@@ -159,6 +159,281 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-数组中只出现一次的数字II"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/数组中只出现一次的数字II/">数组中只出现一次的数字II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/数组中只出现一次的数字II/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p>
+<p><strong>分析</strong></p>
+<p>本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?<br>设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。<br>但是仅仅是通过最后异或出来的值，是没办法区分出x和y的，但是足以帮助我们把 x和y划分到不同的子数组中去。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
+分析
+本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。但是......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/数组中只出现一次的数字II/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-数组中重复的数字"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/数组中重复的数字/">数组中重复的数字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/数组中重复的数字/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
+<p><strong>分析</strong></p>
+<p>新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如果arr[numbers[i]] == true，说明numbers[i]重复了。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。
+分析
+新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/数组中重复的数字/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-整数中1出现的次数（从1到n整数中1出现的次数）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/整数中1出现的次数（从1到n整数中1出现的次数）/">整数中1出现的次数（从1到n整数中1出现的次数）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/整数中1出现的次数（从1到n整数中1出现的次数）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。</p>
+<p><strong>分析</strong></p>
+<p>将每个数组转成字符串，算出每个字符串里的“1”的个数。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。
+分析
+将每个数组转成字符串，算出每个字符串里的“1”的个数。
+代码:
+
+public class S......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/整数中1出现的次数（从1到n整数中1出现的次数）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-斐波那契数列"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/斐波那契数列/">斐波那契数列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/斐波那契数列/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。<br>n&lt;=39</p>
+<p><strong>分析</strong></p>
+<p>不要用递归！！！</p>
+<p><strong>代码:</strong></p>
+        <!-- 大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。n&lt;=39
+分析
+不要用递归！！！
+代码:
+
+public class Solution &#123;    public int Fibonacci(int n) &#123;        int first = 0,second = 1,result = 0......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/斐波那契数列/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Apache Kylin综述"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Apache Kylin综述/">Apache Kylin综述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Apache Kylin综述/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Kylin/">Kylin</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/1752522-b24bc950f45d2666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+        <!-- 
+
+1. 简介1.1 Kylin概览Apache Kylin是一个开源的分布式分析引擎，提供Hadoop之上的SQL查询接口及多维分析（OLAP）能力（可以把Kylin定义为OLAP on Hadoop）。Apache Kylin于2015年11月正式毕业成为Apache基金会(ASF) 顶级项目，是第一个由中国团队完整贡献到Apache的顶级项目。
+Apache Kyiln构建在Hadoo......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Apache Kylin综述/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kylin/">Kylin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-替换空格"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -215,7 +490,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
 <!-- Table of Contents -->
 
   
-    <article id="post-翻转单词顺序列"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-疯狂跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +498,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/翻转单词顺序列/">翻转单词顺序列</a>
+      <a class="article-title" href="/2017/03/11/疯狂跳台阶/">疯狂跳台阶</a>
     </h1>
   
 
@@ -231,7 +506,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/翻转单词顺序列/" class="article-date">
+	<a href="/2017/03/11/疯狂跳台阶/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -242,17 +517,18 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
 <p><strong>分析</strong></p>
-<p>先用String.split()将字符串按空格切分成一个String数组,然后创建一个StringBuilder将该数组从后往前拼接。</p>
+<p>分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。</p>
 <p><strong>代码:</strong></p>
-        <!-- 题目描述
-牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
+        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
 分析
-先用Stri......  -->
+分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。
+代码:
+
+public class Solution &#123;    public int JumpFloorII(int target) &#123;        return 1 &......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/翻转单词顺序列/#more">阅读全文</a>
+          <a href="/2017/03/11/疯狂跳台阶/#more">阅读全文</a>
         </p>
       
     </div>
@@ -427,288 +703,6 @@ import java.util.ArrayList;public class Solut......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-洗牌"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/洗牌/">洗牌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/洗牌/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把牌合并起来就可以了。 例如有6张牌，最开始牌的序列是1,2,3,4,5,6。首先分成两组，左手拿着1,2,3；右手拿着4,5,6。在洗牌过程中按顺序放下了6,3,5,2,4,1。把这六张牌再次合成一组牌之后，我们按照从上往下的顺序看这组牌，就变成了序列1,4,2,5,3,6。 现在给出一个原始牌组，请输出这副牌洗牌k次之后从上往下的序列。 </p>
-<p><strong>输入描述:</strong></p>
-<p>第一行一个数T(T ≤ 100)，表示数据组数。对于每组数据，第一行两个数n,k(1 ≤ n,k ≤ 100)，接下来一行有2n个数a1,a2,…,a2n(1 ≤ ai ≤ 1000000000)。表示原始牌组从上到下的序列。</p>
-<p><strong>输出描述:</strong></p>
-<p>对于每组数据，输出一行，最终的序列。数字之间用空格隔开，不要在行末输出多余的空格。</p>
-<p><strong>输入例子:</strong></p>
-<p>3<br>3 1<br>1 2 3 4 5 6<br>3 2<br>1 2 3 4 5 6<br>2 2<br>1 1 1 1</p>
-<p><strong>输出例子:</strong></p>
-<p>1 4 2 5 3 6<br>1 5 4 3 2 6<br>1 1 1 1</p>
-<p><strong>代码:</strong></p>
-        <!-- 洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/洗牌/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/统计每个单词出现的次数/">统计每个单词出现的次数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/统计每个单词出现的次数/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>/**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-</code></pre>
-        <!-- /**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-
-package cn.lbd.Collection;import java.ut......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/统计每个单词出现的次数/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java对象流与序列化"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java对象流与序列化/">Java对象流与序列化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java对象流与序列化/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Java语言支持一种称为<strong>对象序列化（object serialization）</strong>的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。</p>
-        <!-- Java语言支持一种称为对象序列化（object serialization）的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。
- 
-示例：
-ObjectStreamTest.java
-import java.io.......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-疯狂跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/疯狂跳台阶/">疯狂跳台阶</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/疯狂跳台阶/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
-<p><strong>分析</strong></p>
-<p>分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。</p>
-<p><strong>代码:</strong></p>
-        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
-分析
-分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。
-代码:
-
-public class Solution &#123;    public int JumpFloorII(int target) &#123;        return 1 &......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/疯狂跳台阶/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java文件管理操作"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
-<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
-        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
-Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
- 
-Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>

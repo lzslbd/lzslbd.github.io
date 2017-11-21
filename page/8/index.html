@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-丑数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+      <a class="article-title" href="/2017/03/11/丑数/">丑数</a>
     </h1>
   
 
@@ -175,23 +175,39 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	<a href="/2017/03/11/丑数/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
-        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
+        <p><strong>题目描述</strong></p>
+<p>把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<p><strong>分析</strong></p>
+<p>这里的因子指的是质因子。</p>
+<p>每个丑数等于某个比它小的丑数x2或x3或x5。<br>根据提示中的信息，我们知道丑数可以拆分成3个子序列:</p>
+<ol>
+<li>1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… </li>
+<li>1x3, 2x3, 3x3, 4x3, 5x3, 6x2, 8x2… </li>
+<li>1x5, 2x5, 3x5, 4x5, 5x5, 6x2, 8x2…</li>
+</ol>
+<p>其中1，2，3，4，5，6，8（注意，没有7）是前几个丑数。7有因子7，所以不是丑数。</p>
+<p>每次从三个子序列中取出当前最小的那个加入序列，直到第N个为止。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+把只包含因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
+分析
+这里的因子指的是质因子。
+每个丑数等于某个比它小的丑数x2或x3或x5。根据提示中的信息，我们知道丑数可以拆分成3个子序列:
 
-摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
+1x2, 2x2, 3x2, 4x2, 5x2, 6x2, 8x2… ......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/丑数/#more">阅读全文</a>
         </p>
       
     </div>
@@ -199,7 +215,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -292,7 +308,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-二维数组中的查找"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-买苹果"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -300,7 +316,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/二维数组中的查找/">二维数组中的查找</a>
+      <a class="article-title" href="/2017/03/11/买苹果/">买苹果</a>
     </h1>
   
 
@@ -308,7 +324,7 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/二维数组中的查找/" class="article-date">
+	<a href="/2017/03/11/买苹果/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -319,18 +335,18 @@ git diff
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p><strong>分析</strong></p>
-<p>从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。</p>
-<p><strong>代码:</strong></p>
-        <!-- 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
-分析
-从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。
-代码:
+        <p>小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。 </p>
+        <!-- 小易去附近的商店买苹果，奸诈的商贩使用了捆绑交易，只提供6个每袋和8个每袋的包装(包装不可拆分)。 可是小易现在只想购买恰好n个苹果，小易想购买尽量少的袋数方便携带。如果不能购买恰好n个苹果，小易将不会购买。 
 
-public class Solution &#123;    public boolea......  -->
+输入描述:
+输入一个整数n，表示小易想购买n(1 ≤ n ≤ 100)个苹果
+输出描述:
+输出一个整数表示最少需要购买的袋数，如果不能买恰好n个苹果则输出-1
+输入例子:
+20
+输......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/二维数组中的查找/#more">阅读全文</a>
+          <a href="/2017/03/11/买苹果/#more">阅读全文</a>
         </p>
       
     </div>
@@ -411,7 +427,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-从尾到头打印链表"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -419,7 +435,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/从尾到头打印链表/">从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/11/链表中倒数第k个节点/">链表中倒数第k个节点</a>
     </h1>
   
 
@@ -427,7 +443,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/从尾到头打印链表/" class="article-date">
+	<a href="/2017/03/11/链表中倒数第k个节点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -438,18 +454,20 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>输入一个链表，从尾到头打印链表每个节点的值。</p>
+        <p><strong>题目描述</strong></p>
+<p>输入一个链表，输出该链表中倒数第k个结点。</p>
 <p><strong>分析</strong></p>
-<p>将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。</p>
+<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
 <p><strong>代码:</strong></p>
-        <!-- 输入一个链表，从尾到头打印链表每个节点的值。
+        <!-- 题目描述
+输入一个链表，输出该链表中倒数第k个结点。
 分析
-将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。
+两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
 代码:
 
-/***    public class ListNode &#123;*        int val;*        ListNode next = null;**        ListNode(int val) &#123;*      ......  -->
+/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/从尾到头打印链表/#more">阅读全文</a>
+          <a href="/2017/03/11/链表中倒数第k个节点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -467,7 +485,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-优雅的点"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -475,7 +493,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/优雅的点/">优雅的点</a>
+      <a class="article-title" href="/2017/03/11/跳台阶/">跳台阶</a>
     </h1>
   
 
@@ -483,7 +501,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/优雅的点/" class="article-date">
+	<a href="/2017/03/11/跳台阶/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -494,22 +512,18 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。<br>例如：半径的平方如果为25<br>优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 </p>
-<p><strong>输入描述:</strong></p>
-<p>输入为一个整数，即为圆半径的平方,范围在32位int范围内。</p>
-<p><strong>输出描述:</strong></p>
-<p>输出为一个整数，即为优雅的点的个数</p>
-<p><strong>输入例子:</strong></p>
-<p>25</p>
-<p><strong>输出例子:</strong></p>
-<p>12</p>
+        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p><strong>分析</strong></p>
+<p>其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。</p>
 <p><strong>代码:</strong></p>
-        <!-- 小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。例如：半径的平方如果为25优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 
-输入描述:
-输入为一个整数，即为圆半径的平方,范围在32位int范围内。
-输......  -->
+        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+分析
+其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。
+代码:
+
+public class Solution &#123;    public int JumpFloor(int target) &#123;        if(target &lt;= 2)            retur......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/优雅的点/#more">阅读全文</a>
+          <a href="/2017/03/11/跳台阶/#more">阅读全文</a>
         </p>
       
     </div>
@@ -527,7 +541,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-关于Java Map的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-调整数组顺序使奇数在偶数前面（相对位置不变）"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -535,7 +549,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/关于Java Map的几个常见问题/">关于Java Map的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/调整数组顺序使奇数在偶数前面（相对位置不变）/">调整数组顺序使奇数在偶数前面（相对位置不变）</a>
     </h1>
   
 
@@ -543,7 +557,175 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/关于Java Map的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/调整数组顺序使奇数在偶数前面（相对位置不变）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
+<p><strong>分析</strong></p>
+<p>新建一个数组，对原数组做两个for循环。第一次将奇数写入新数组，第二次将偶数写入新数组。最后将新数组拷贝到原数组。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
+分析
+新建一个数组，对原数组做两个for循环。第一次将奇数写入新数组，第二次将偶数写入新数组。最后将新数组拷贝到原数组。
+代码:
+
+public class Solution &#123;    public ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/调整数组顺序使奇数在偶数前面（相对位置不变）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-二维数组中的查找"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/二维数组中的查找/">二维数组中的查找</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/二维数组中的查找/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p><strong>分析</strong></p>
+<p>从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。</p>
+<p><strong>代码:</strong></p>
+        <!-- 在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+分析
+从左下角元素开始，若比target大，则上移；若比target小，则右移。如果移出边界还未找到，说明没有target。
+代码:
+
+public class Solution &#123;    public boolea......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/二维数组中的查找/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-设计模式-观察者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>观察者模式又叫发布/订阅模式。</p>
+        <!-- 观察者模式又叫发布/订阅模式。
+
+定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
+角色
+抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
+
+具体主题（ConcreteSubject）：将有关状态存入具......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -554,13 +736,22 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>列举几个关于Java Map的常见问题并给出答案。</p>
-        <!-- 列举几个关于Java Map的常见问题并给出答案。
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
+<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
+<li>Comparable和Comparator都是Java的接口</li>
+</ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
 
-1. 将Map转化成ListMap接口提供了三种collection：key set,value set 和 key-value set，每一种都可以转成List。如下：
-//mapHashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();map.put(1,10);map.pu......  -->
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/关于Java Map的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -569,181 +760,6 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-关于Java字符串的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/关于Java字符串的几个常见问题/">关于Java字符串的几个常见问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/关于Java字符串的几个常见问题/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>列举几个关于Java字符串的常见问题并给出答案。</p>
-        <!-- 列举几个关于Java字符串的常见问题并给出答案。
-
-1. 如何比较两个字符串？用”==”还是”equals”?
-“==”对比的是引用是否相同（是否同一个对象）
-“equals”对比的是值是否相同
-
-除非想要比较两个字符串是否是同一个对象，否则应该一直使用”equals”。
-2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？因为String是不可变对象，这就意味着只要......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/关于Java字符串的几个常见问题/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-全球分布式数据库：Google Spanner（论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。</p>
-<p>【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不采用锁机制的只读事务、原子模式变更。</p>
-        <!-- 本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 A......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spanner/">Spanner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式数据库/">分布式数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-分布式系列文章——Paxos算法原理与推导(PPT)"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式系列文章——Paxos算法原理与推导(PPT)/">分布式系列文章——Paxos算法原理与推导(PPT)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/分布式系列文章——Paxos算法原理与推导(PPT)/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Paxos/">Paxos</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在公司内部分享了Paxos算法的原理和推导过程，现将PPT分享给大家，有疑问欢迎随时交流讨论。</p>
-        <!-- 之前在公司内部分享了Paxos算法的原理和推导过程，现将PPT分享给大家，有疑问欢迎随时交流讨论。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-...  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/分布式系列文章——Paxos算法原理与推导(PPT)/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
 
     </footer>
   </div>

@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-第一个只出现一次的字符"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-洗牌"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/第一个只出现一次的字符/">第一个只出现一次的字符</a>
+      <a class="article-title" href="/2017/03/11/洗牌/">洗牌</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/第一个只出现一次的字符/" class="article-date">
+	<a href="/2017/03/11/洗牌/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -186,18 +186,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由大小写字母组成)中找到第一个只出现一次的字符,并返回它的位置</p>
-<p><strong>分析</strong></p>
-<p>遍历一遍字符串，用counts数组存储每个字母出现的次数。<code>str.charAt[i] - &#39;A&#39;</code>作为该字母在counts数组中的下标。数组大小为58（’A’的ASCLL码为65 ‘a’为97 ‘z’为122  122-65+1=58）</p>
+        <p>洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把牌合并起来就可以了。 例如有6张牌，最开始牌的序列是1,2,3,4,5,6。首先分成两组，左手拿着1,2,3；右手拿着4,5,6。在洗牌过程中按顺序放下了6,3,5,2,4,1。把这六张牌再次合成一组牌之后，我们按照从上往下的顺序看这组牌，就变成了序列1,4,2,5,3,6。 现在给出一个原始牌组，请输出这副牌洗牌k次之后从上往下的序列。 </p>
+<p><strong>输入描述:</strong></p>
+<p>第一行一个数T(T ≤ 100)，表示数据组数。对于每组数据，第一行两个数n,k(1 ≤ n,k ≤ 100)，接下来一行有2n个数a1,a2,…,a2n(1 ≤ ai ≤ 1000000000)。表示原始牌组从上到下的序列。</p>
+<p><strong>输出描述:</strong></p>
+<p>对于每组数据，输出一行，最终的序列。数字之间用空格隔开，不要在行末输出多余的空格。</p>
+<p><strong>输入例子:</strong></p>
+<p>3<br>3 1<br>1 2 3 4 5 6<br>3 2<br>1 2 3 4 5 6<br>2 2<br>1 1 1 1</p>
+<p><strong>输出例子:</strong></p>
+<p>1 4 2 5 3 6<br>1 5 4 3 2 6<br>1 1 1 1</p>
 <p><strong>代码:</strong></p>
-        <!-- 题目描述
-在一个字符串(1&lt;=字符串长度&lt;=10000，全部由大小写字母组成)中找到第一个只出现一次的字符,并返回它的位置
-分析
-遍历一遍字符串，用counts数组存储每个字母出现的次数。str.charAt[i] - &#39;A&#39;作为该字母在counts数组中的下标。数组大小为58（’A’的ASCLL码为65 ‘a’为97 ‘z’为122  122-65+1=58）
-......  -->
+        <!-- 洗牌在生活中十分常见，现在需要写一个程序模拟洗牌的过程。 现在需要洗2n张牌，从上到下依次是第1张，第2张，第3张一直到第2n张。首先，我们把这2n张牌分成两堆，左手拿着第1张到第n张（上半堆），右手拿着第n+1张到第2n张（下半堆）。接着就开始洗牌的过程，先放下右手的最后一张牌，再放下左手的最后一张牌，接着放下右手的倒数第二张牌，再放下左手的倒数第二张牌，直到最后放下左手的第一张牌。接着把......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/第一个只出现一次的字符/#more">阅读全文</a>
+          <a href="/2017/03/11/洗牌/#more">阅读全文</a>
         </p>
       
     </div>
@@ -215,7 +216,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-程序员资料大全"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +224,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/程序员资料大全/">程序员资料大全</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -231,55 +232,21 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/程序员资料大全/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>活到老，学到老。</p>
-        <!-- 活到老，学到老。
-
-本文由stanzhai整理。
-目录
-
-
-资料篇
-技术站点
-必看书籍
-大牛博客
-GitHub篇
-
-
-工具篇
-平台工具
-常用工具
-第三方服务
-爬虫相关(好玩的工具)
-安全相关
-Web服务器性能/压力测试工具/负载均衡器
-
-
-大数据处理/数据分析/分布式工具
-Web前端
-语言篇
-Scala
-Java
-Python
-Swift
-.NET
-C &amp; C++
-
-
-其他
-游戏开发......  -->
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/程序员资料大全/#more">阅读全文</a>
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
       
     </div>
@@ -287,7 +254,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/好文转载/">好文转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
 
     </footer>
   </div>
@@ -297,7 +264,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-两个链表的第一个公共节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -305,7 +272,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
+      <a class="article-title" href="/2017/03/11/两个链表的第一个公共节点/">两个链表的第一个公共节点</a>
     </h1>
   
 
@@ -313,59 +280,8 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
+	<a href="/2017/03/11/两个链表的第一个公共节点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
-        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
-
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/24/对称的二叉树/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
@@ -376,16 +292,19 @@ C &amp; C++
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+<p>输入两个链表，找出它们的第一个公共结点。</p>
+<p><strong>分析</strong></p>
+<p>先遍历一遍分别算出两个链表的长度。算出长度差mins。<br>较长的链表先走mins步，然后两个链表同时走。</p>
+<p><strong>代码:</strong></p>
         <!-- 题目描述
-请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
-
+输入两个链表，找出它们的第一个公共结点。
 分析
-如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
+先遍历一遍分别算出两个链表的长度。算出长度差mins。较长的链表先走mins步，然后两个链表同时走。
 代码:
-public cl......  -->
+
+/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        this.val ......  -->
         <p class="article-more-link">
-          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
+          <a href="/2017/03/11/两个链表的第一个公共节点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -628,7 +547,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
 <!-- Table of Contents -->
 
   
-    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -636,7 +555,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
+      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
     </h1>
   
 
@@ -644,8 +563,8 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+	<a href="/2017/02/24/对称的二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
       
@@ -656,16 +575,16 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
         <!-- 题目描述
-输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
+请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
 
 分析
-递归，分别在左右子树里找符合 target = target - root.val 的路径。
+如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
 代码:
-import java.util.ArrayList;public class Solution &#123;    public ......  -->
+public cl......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
+          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -728,6 +647,59 @@ import java.util.ArrayList;public class Solution &#123;    public ......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/">LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" class="article-date">
+	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
+        <!-- Given inorder and postorder traversal of a tree, construct the binary tree.
+
+分析:
+本题是重建二叉树（后序加中序），跟重建二叉树（先序加中序）思路一样。
+代码:
+public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
