@@ -297,6 +297,112 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
+    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
+        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
+
+多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
+纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/24/对称的二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+        <!-- 题目描述
+请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+
+分析
+如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
+代码:
+public cl......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -522,7 +628,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
 <!-- Table of Contents -->
 
   
-    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-二叉树中和为某一值的路径"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -530,7 +636,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
+      <a class="article-title" href="/2017/02/23/二叉树中和为某一值的路径/">二叉树中和为某一值的路径</a>
     </h1>
   
 
@@ -538,62 +644,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/对称的二叉树/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
-        <!-- 题目描述
-请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
-
-分析
-如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
-代码:
-public cl......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-重建二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/重建二叉树/">重建二叉树</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/23/重建二叉树/" class="article-date">
+	<a href="/2017/02/23/二叉树中和为某一值的路径/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -605,16 +656,16 @@ public cl......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
+<p>输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
         <!-- 题目描述
-输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。
+输入一颗二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
 
 分析
-先序遍历第一个数为根节点。找到根节点在中序遍历中的位置，可得左子树的长度，进而可分别得到左右子树的先序和中序遍历，递归。
+递归，分别在左右子树里找符合 target = target - root.val 的路径。
 代码:
-publ......  -->
+import java.util.ArrayList;public class Solution &#123;    public ......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/重建二叉树/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树中和为某一值的路径/#more">阅读全文</a>
         </p>
       
     </div>
@@ -677,59 +728,6 @@ publ......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/">LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" class="article-date">
-	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
-        <!-- Given inorder and postorder traversal of a tree, construct the binary tree.
-
-分析:
-本题是重建二叉树（后序加中序），跟重建二叉树（先序加中序）思路一样。
-代码:
-public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>

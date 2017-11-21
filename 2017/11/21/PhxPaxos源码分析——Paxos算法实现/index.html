@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>phxpaxos源码分析——paxos算法实现 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="PaxosPhxPaxos" />
+  
+  
+  
+  
+  <meta name="description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PhxPaxos源码分析——Paxos算法实现">
+<meta property="og:url" content="http://linbingdong.com/2017/11/21/PhxPaxos源码分析——Paxos算法实现/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-11-21T08:35:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PhxPaxos源码分析——Paxos算法实现">
+<meta name="twitter:description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-PhxPaxos源码分析——Paxos算法实现" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      PhxPaxos源码分析——Paxos算法实现
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/11/21/PhxPaxos源码分析——Paxos算法实现/" class="article-date">
+	  <time datetime="2017-11-20T16:00:00.000Z" itemprop="datePublished">2017-11-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：<a href="http://linbingdong.com/2017/04/17/分布式系列文章——Paxos算法原理与推导/">Paxos算法原理与推导</a>，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。</p>
+<a id="more"></a>
+<p>Paxos算法中最重要的两个角色是<strong>Proposer</strong>和<strong>Acceptor</strong>。当然Leaner也很重要，特别是在PhxPaxos的实现中，Leaner具有重要的功能。但是因为《Paxos Made Simple》论文中主要还是Proposer和Acceptor，因此这篇文章还是以这两个角色为主，通过源码来回顾论文中Paxos算法的过程，同时也看看工程实现和论文的描述有什么区别。</p>
+<p>这里先贴出Paxos算法的过程，方便大家对照接下来的工程实现。</p>
+<ul>
+<li><p><strong>prepare阶段：</strong></p>
+<p>(a) Proposer选择一个<strong>提案编号N</strong>，然后向<strong>半数以上</strong>的Acceptor发送编号为N的<strong>Prepare请求</strong>。</p>
+<p>(b) 如果一个Acceptor收到一个编号为N的Prepare请求，且N<strong>大于</strong>该Acceptor已经<strong>响应过的</strong>所有<strong>Prepare请求</strong>的编号，那么它就会将它已经<strong>接受过的编号最大的提案（如果有的话）</strong>作为响应反馈给Proposer，同时该Acceptor承诺<strong>不再接受</strong>任何<strong>编号小于N的提案</strong>。</p>
+</li>
+<li><p><strong>accept阶段：</strong></p>
+<p>(a) 如果Proposer收到<strong>半数以上</strong>Acceptor对其发出的编号为N的Prepare请求的<strong>响应</strong>，那么它就会发送一个针对<strong>[N,V]提案</strong>的<strong>Accept请求</strong>给<strong>半数以上</strong>的Acceptor。注意：V就是收到的<strong>响应</strong>中<strong>编号最大的提案的value</strong>，如果响应中<strong>不包含任何提案</strong>，那么V就由Proposer<strong>自己决定</strong>。</p>
+<p>(b) 如果Acceptor收到一个针对编号为N的提案的Accept请求，只要该Acceptor<strong>没有</strong>对编号<strong>大于N</strong>的<strong>Prepare请求</strong>做出过<strong>响应</strong>，它就<strong>接受该提案</strong>。</p>
+</li>
+</ul>
+<h2 id="Proposer"><a href="#Proposer" class="headerlink" title="Proposer"></a>Proposer</h2><p>因为Proposer需要维护或者说记录一些状态信息，包括自己的提案编号ProposalID、提出的Value、其他Proposer提出的最大的提案编号HighestOtherProposalID、Acceptor已经接受过的编号最大的提案的值等，因此这里专门有一个ProposerState类来管理这些信息。同样Acceptor也有一个AcceptorState类来管理Acceptor相关的信息。</p>
+<p>先来看下AcceptorState的定义：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">class</span> ProposerState</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ProposerState(<span class="keyword">const</span> Config * poConfig);</div><div class="line">    ~ProposerState();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetStartProposalID</span><span class="params">(<span class="keyword">const</span> <span class="keyword">uint64_t</span> llProposalID)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">NewPrepare</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddPreAcceptValue</span><span class="params">(<span class="keyword">const</span> BallotNumber &amp; oOtherPreAcceptBallot, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; sOtherPreAcceptValue)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/////////////////////////</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">const</span> uint64_t <span class="title">GetProposalID</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> &amp; <span class="title">GetValue</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetValue</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; sValue)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetOtherProposalID</span><span class="params">(<span class="keyword">const</span> <span class="keyword">uint64_t</span> llOtherProposalID)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ResetHighestOtherPreAcceptBallot</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">uint64_t</span> m_llProposalID;</div><div class="line">    <span class="keyword">uint64_t</span> m_llHighestOtherProposalID;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> m_sValue;</div><div class="line"></div><div class="line">    BallotNumber m_oHighestOtherPreAcceptBallot;</div><div class="line"></div><div class="line">    Config * m_poConfig;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>基本都是对这些信息的set跟get，很容易理解。直接来看Proposer类的定义：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">class</span> Proposer : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Proposer(</div><div class="line">            <span class="keyword">const</span> Config * poConfig, </div><div class="line">            <span class="keyword">const</span> MsgTransport * poMsgTransport,</div><div class="line">            <span class="keyword">const</span> Instance * poInstance,</div><div class="line">            <span class="keyword">const</span> Learner * poLearner,</div><div class="line">            <span class="keyword">const</span> IOLoop * poIOLoop);</div><div class="line">    ~Proposer();</div><div class="line"></div><div class="line">    <span class="comment">//设置起始的ProposalID</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SetStartProposalID</span><span class="params">(<span class="keyword">const</span> <span class="keyword">uint64_t</span> llProposalID)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//初始化新的一轮Paxos过程，每一轮叫做一个Paxos Instance，每一轮确定一个值</span></div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">InitForNewPaxosInstance</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Proposer发起提案的入口函数。参数sValue即Proposer自己想提出的value，当然最终提出的value不一定是这个，需要根据Acceptor再Prepare阶段的回复来确定</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">NewValue</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; sValue)</span></span>;</div><div class="line">    </div><div class="line">    <span class="comment">//判断Proposer是否处于Prepare阶段或Accept阶段</span></div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsWorking</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/////////////////////////////</span></div><div class="line"></div><div class="line">    <span class="comment">//对应Paxos算法中的Prepare阶段</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Prepare</span><span class="params">(<span class="keyword">const</span> <span class="keyword">bool</span> bNeedNewBallot = <span class="literal">true</span>)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Prepare阶段等待Acceptor的回复，统计投票并确定是否进入Accept阶段</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnPrepareReply</span><span class="params">(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Prepare阶段被拒绝</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnExpiredPrepareReply</span><span class="params">(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//对应Paxos算法中的Accept阶段</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Accept</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Accept阶段等待Acceptor的回复，统计投票并确定值(Value)是否被选定(Chosen)</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnAcceptReply</span><span class="params">(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Accept阶段被拒绝</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnExpiredAcceptReply</span><span class="params">(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Prepare阶段超时</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnPrepareTimeout</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Accept阶段超时</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnAcceptTimeout</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//退出Prepare阶段</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ExitPrepare</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//退出Accept阶段</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ExitAccept</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//取消跳过Prepare阶段，也就是必须先Prepare阶段再Accept阶段</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">CancelSkipPrepare</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/////////////////////////////</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddPrepareTimer</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> iTimeoutMs = <span class="number">0</span>)</span></span>;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddAcceptTimer</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span> iTimeoutMs = <span class="number">0</span>)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ProposerState m_oProposerState;</div><div class="line">    MsgCounter m_oMsgCounter;</div><div class="line">    Learner * m_poLearner;</div><div class="line"></div><div class="line">    <span class="keyword">bool</span> m_bIsPreparing;</div><div class="line">    <span class="keyword">bool</span> m_bIsAccepting;</div><div class="line"></div><div class="line">    IOLoop * m_poIOLoop;</div><div class="line"></div><div class="line">    <span class="keyword">uint32_t</span> m_iPrepareTimerID;</div><div class="line">    <span class="keyword">int</span> m_iLastPrepareTimeoutMs;</div><div class="line">    <span class="keyword">uint32_t</span> m_iAcceptTimerID;</div><div class="line">    <span class="keyword">int</span> m_iLastAcceptTimeoutMs;</div><div class="line">    <span class="keyword">uint64_t</span> m_llTimeoutInstanceID;</div><div class="line"></div><div class="line">    <span class="keyword">bool</span> m_bCanSkipPrepare;</div><div class="line"></div><div class="line">    <span class="keyword">bool</span> m_bWasRejectBySomeone;</div><div class="line"></div><div class="line">    TimeStat m_oTimeStat;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="NewValue"><a href="#NewValue" class="headerlink" title="NewValue"></a>NewValue</h3><p>下面就从NewValue方法入手：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> Proposer :: NewValue(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp; sValue)</div><div class="line">&#123;</div><div class="line">    BP-&gt;GetProposerBP()-&gt;NewProposal(sValue);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (m_oProposerState.GetValue().size() == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        m_oProposerState.SetValue(sValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    m_iLastPrepareTimeoutMs = START_PREPARE_TIMEOUTMS;</div><div class="line">    m_iLastAcceptTimeoutMs = START_ACCEPT_TIMEOUTMS;</div><div class="line">    </div><div class="line">    <span class="comment">//如果可以跳过Prepare阶段并且没有被Acceptor拒绝过，则直接进入Accept阶段</span></div><div class="line">    <span class="keyword">if</span> (m_bCanSkipPrepare &amp;&amp; !m_bWasRejectBySomeone)</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetProposerBP()-&gt;NewProposalSkipPrepare();</div><div class="line"></div><div class="line">        PLGHead(<span class="string">"skip prepare, directly start accept"</span>);</div><div class="line">        Accept();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//否则先进入Prepare阶段</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">//if not reject by someone, no need to increase ballot</span></div><div class="line">        Prepare(m_bWasRejectBySomeone);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里可以直接进入Accept阶段的前提是该Proposer已经发起过Prepare请求且得到半数以上的同意（即通过了Prepare阶段），并且没有被任何Acceptor拒绝（说明没有Acceptor响应过比该Proposer的提案编号更高的提案）。那么，什么情况下可以跳过Prepare请求呢，这里应该对应的是选出一个master的情况？相当于raft里的leader？</p>
+<h3 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h3><p>接下来直接看Prepare阶段：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">void</span> Proposer :: Prepare(<span class="keyword">const</span> <span class="keyword">bool</span> bNeedNewBallot)</div><div class="line">&#123;</div><div class="line">    PLGHead(<span class="string">"START Now.InstanceID %lu MyNodeID %lu State.ProposalID %lu State.ValueLen %zu"</span>,</div><div class="line">            GetInstanceID(), m_poConfig-&gt;GetMyNodeID(), m_oProposerState.GetProposalID(),</div><div class="line">            m_oProposerState.GetValue().size());</div><div class="line"></div><div class="line">    BP-&gt;GetProposerBP()-&gt;Prepare();</div><div class="line">    m_oTimeStat.Point();</div><div class="line">    </div><div class="line">    ExitAccept();</div><div class="line"></div><div class="line">    <span class="comment">//表明Proposer正处于Prepare阶段</span></div><div class="line">    m_bIsPreparing = <span class="literal">true</span>;</div><div class="line"></div><div class="line">    <span class="comment">//不能跳过Prepare阶段</span></div><div class="line">    m_bCanSkipPrepare = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="comment">//目前还未被任意一个Acceptor拒绝</span></div><div class="line">    m_bWasRejectBySomeone = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    m_oProposerState.ResetHighestOtherPreAcceptBallot();</div><div class="line"></div><div class="line">    <span class="comment">//如果需要产生新的投票，就调用NewPrepare产生新的ProposalID，新的ProposalID为当前已知的最大ProposalID+1</span></div><div class="line">    <span class="keyword">if</span> (bNeedNewBallot)</div><div class="line">    &#123;</div><div class="line">        m_oProposerState.NewPrepare();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    PaxosMsg oPaxosMsg;</div><div class="line"></div><div class="line">    <span class="comment">//设置Prepare消息的各个字段</span></div><div class="line">    oPaxosMsg.set_msgtype(MsgType_PaxosPrepare);</div><div class="line">    oPaxosMsg.set_instanceid(GetInstanceID());</div><div class="line">    oPaxosMsg.set_nodeid(m_poConfig-&gt;GetMyNodeID());</div><div class="line">    oPaxosMsg.set_proposalid(m_oProposerState.GetProposalID());</div><div class="line"></div><div class="line">    <span class="comment">//MsgCount是专门用来统计票数的，根据计算的结果确定是否通过Prepare阶段或者Accept阶段</span></div><div class="line">    m_oMsgCounter.StartNewRound();</div><div class="line"></div><div class="line">    <span class="comment">//Prepare超时定时器</span></div><div class="line">    AddPrepareTimer();</div><div class="line"></div><div class="line">    PLGHead(<span class="string">"END OK"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//将Prepare消息发送到各个节点</span></div><div class="line">    BroadcastMessage(oPaxosMsg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Proposer在Prepare阶段主要做了这么几件事：</p>
+<ol>
+<li>重置各个状态位，表明当前正处于Prepare阶段。</li>
+<li>获取提案编号ProposalID。当bNeedNewBallot为true时需要将ProposalID+1。否则沿用之前的ProposalID。bNeedNewBallot是在NewValue中调用Prepare方法时传入的m_bWasRejectBySomeone参数。也就是如果之前没有被任何Acceptor拒绝（说明还没有明确出现更大的ProposalID），则不需要获取新的ProposalID。对应的场景是Prepare阶段超时了，在超时时间内没有收到过半Acceptor同意的消息，因此需要重新执行Prepare阶段，此时只需要沿用原来的ProposalID即可。</li>
+<li>发送Prepare请求。该请求PaxosMsg是Protocol Buffer定义的一个message，包含MsgType、InstanceID、NodeID、ProposalID等字段。在BroadcastMessage(oPaxosMsg)中还会将oPaxosMsg序列化后才发送出去。</li>
+</ol>
+<p>PaxosMsg的定义如下，Prepare和Accept阶段Proposer和Acceptor的所有消息都用PaxosMsg来表示：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line">message PaxosMsg</div><div class="line">&#123;</div><div class="line">	required int32 MsgType = <span class="number">1</span>;</div><div class="line">	optional uint64 InstanceID = <span class="number">2</span>;</div><div class="line">	optional uint64 NodeID = <span class="number">3</span>;</div><div class="line">	optional uint64 ProposalID = <span class="number">4</span>;</div><div class="line">	optional uint64 ProposalNodeID = <span class="number">5</span>;</div><div class="line">	optional bytes Value = <span class="number">6</span>;</div><div class="line">	optional uint64 PreAcceptID = <span class="number">7</span>;</div><div class="line">	optional uint64 PreAcceptNodeID = <span class="number">8</span>;</div><div class="line">	optional uint64 RejectByPromiseID = <span class="number">9</span>;</div><div class="line">	optional uint64 NowInstanceID = <span class="number">10</span>;</div><div class="line">	optional uint64 MinChosenInstanceID = <span class="number">11</span>;</div><div class="line">	optional uint32 LastChecksum = <span class="number">12</span>;</div><div class="line">	optional uint32 Flag = <span class="number">13</span>;</div><div class="line">	optional bytes SystemVariables = <span class="number">14</span>;</div><div class="line">	optional bytes MasterVariables = <span class="number">15</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="OnPrepareReply"><a href="#OnPrepareReply" class="headerlink" title="OnPrepareReply"></a>OnPrepareReply</h3><p>Proposer发出Prepare请求后就开始等待Acceptor的回复。当Proposer所在节点收到PaxosPrepareReply消息后，就会调用Proposer的OnPrepareReply(oPaxosMsg)，其中oPaxosMsg是Acceptor回复的消息。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">void Proposer :: OnPrepareReply(const PaxosMsg &amp; oPaxosMsg)</div><div class="line">&#123;</div><div class="line">    PLGHead("START Msg.ProposalID %lu State.ProposalID %lu Msg.from_nodeid %lu RejectByPromiseID %lu",</div><div class="line">            oPaxosMsg.proposalid(), m_oProposerState.GetProposalID(), </div><div class="line">            oPaxosMsg.nodeid(), oPaxosMsg.rejectbypromiseid());</div><div class="line"></div><div class="line">    BP-&gt;GetProposerBP()-&gt;OnPrepareReply();</div><div class="line">    </div><div class="line">    //如果Proposer不是在Prepare阶段，则忽略该消息</div><div class="line">    if (!m_bIsPreparing)</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetProposerBP()-&gt;OnPrepareReplyButNotPreparing();</div><div class="line">        //PLGErr("Not preparing, skip this msg");</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //如果ProposalID不同，也忽略</div><div class="line">    if (oPaxosMsg.proposalid() != m_oProposerState.GetProposalID())</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetProposerBP()-&gt;OnPrepareReplyNotSameProposalIDMsg();</div><div class="line">        //PLGErr("ProposalID not same, skip this msg");</div><div class="line">        return;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //加入一个收到的消息，用于MsgCounter统计</div><div class="line">    m_oMsgCounter.AddReceive(oPaxosMsg.nodeid());</div><div class="line"></div><div class="line">    //如果该消息不是拒绝，即Acceptor同意本次Prepare请求</div><div class="line">    if (oPaxosMsg.rejectbypromiseid() == 0)</div><div class="line">    &#123;</div><div class="line">        BallotNumber oBallot(oPaxosMsg.preacceptid(), oPaxosMsg.preacceptnodeid());</div><div class="line">        PLGDebug("[Promise] PreAcceptedID %lu PreAcceptedNodeID %lu ValueSize %zu", </div><div class="line">                oPaxosMsg.preacceptid(), oPaxosMsg.preacceptnodeid(), oPaxosMsg.value().size());</div><div class="line">        //加入MsgCounter用于统计投票</div><div class="line">        m_oMsgCounter.AddPromiseOrAccept(oPaxosMsg.nodeid());</div><div class="line">        //将Acceptor返回的它接受过的编号最大的提案记录下来（如果有的话），用于确定Accept阶段的Value</div><div class="line">        m_oProposerState.AddPreAcceptValue(oBallot, oPaxosMsg.value());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //Acceptor拒绝了Prepare请求</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        PLGDebug("[Reject] RejectByPromiseID %lu", oPaxosMsg.rejectbypromiseid());</div><div class="line"></div><div class="line">        //同样也要记录到MsgCounter用于统计投票</div><div class="line">        m_oMsgCounter.AddReject(oPaxosMsg.nodeid());</div><div class="line"></div><div class="line">        //记录被Acceptor拒绝过，待会儿如果重新进入Prepare阶段的话就需要获取更大的ProposalID</div><div class="line">        m_bWasRejectBySomeone = true;</div><div class="line"></div><div class="line">        //记录下别的Proposer提出的更大的ProposalID。这样重新发起Prepare请求时才知道需要用多大的ProposalID</div><div class="line">        m_oProposerState.SetOtherProposalID(oPaxosMsg.rejectbypromiseid());</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    //本次Prepare请求通过了。也就是得到了半数以上Acceptor的同意</div><div class="line">    if (m_oMsgCounter.IsPassedOnThisRound())</div><div class="line">    &#123;</div><div class="line">        int iUseTimeMs = m_oTimeStat.Point();</div><div class="line">        BP-&gt;GetProposerBP()-&gt;PreparePass(iUseTimeMs);</div><div class="line">        PLGImp("[Pass] start accept, usetime %dms", iUseTimeMs);</div><div class="line">        m_bCanSkipPrepare = true;</div><div class="line"></div><div class="line">        //进入Accept阶段</div><div class="line">        Accept();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //本次Prepare请求没有通过</div><div class="line">    else if (m_oMsgCounter.IsRejectedOnThisRound()</div><div class="line">            || m_oMsgCounter.IsAllReceiveOnThisRound())</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetProposerBP()-&gt;PrepareNotPass();</div><div class="line">        PLGImp("[Not Pass] wait 30ms and restart prepare");</div><div class="line"></div><div class="line">         //随机等待一段时间后重新发起Prepare请求</div><div class="line">        AddPrepareTimer(OtherUtils::FastRand() % 30 + 10);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    PLGHead("END");</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>该阶段Proposer主要做了以下事情：</p>
+<ol>
+<li><p>判断消息是否有效。包括ProposalID是否相同，自身是否处于Prepare阶段等。因为网络是不可靠的，有些消息可能延迟很久，等收到的时候已经不需要了，所以需要做这些判断。</p>
+</li>
+<li><p>将收到的消息加入MsgCounter用于统计。</p>
+</li>
+<li><p>根据收到的消息更新自身状态。包括Acceptor承诺过的ProposalID，以及Acceptor接受过的编号最大的提案等。</p>
+</li>
+<li><p>根据MsgCounter统计的Acceptor投票结果决定是进入Acceptor阶段还是重新发起Prepare请求。这里如果判断需要重新发起Prepare请求的话，也不是立即进行，而是等待一段随机的时间，这样做的好处是减少不同Proposer之间的冲突，采取的策略跟raft中leader选举冲突时在一段随机的选举超时时间后重新发起选举的做法类似。</p>
+</li>
+</ol>
+<p>注：这里跟Paxos算法中提案编号对应的并不是ProposalID，而是BallotNumber。BallotNumber由ProposalID和NodeID组成。还实现了运算符重载。如果ProposalID大，则BallotNumber（即提案编号）大。在ProposalID相同的情况下，NodeID大的BallotNumber大。</p>
+<h3 id="Accept"><a href="#Accept" class="headerlink" title="Accept"></a>Accept</h3><p>接下来Proposer就进入Accept阶段：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">void</span> Proposer :: Accept()</div><div class="line">&#123;</div><div class="line">    PLGHead(<span class="string">"START ProposalID %lu ValueSize %zu ValueLen %zu"</span>, </div><div class="line">            m_oProposerState.GetProposalID(), m_oProposerState.GetValue().size(), m_oProposerState.GetValue().size());</div><div class="line"></div><div class="line">    BP-&gt;GetProposerBP()-&gt;Accept();</div><div class="line">    m_oTimeStat.Point();</div><div class="line">    </div><div class="line">    ExitPrepare();</div><div class="line">    m_bIsAccepting = <span class="literal">true</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//设置Accept请求的消息内容</span></div><div class="line">    PaxosMsg oPaxosMsg;</div><div class="line">    oPaxosMsg.set_msgtype(MsgType_PaxosAccept);</div><div class="line">    oPaxosMsg.set_instanceid(GetInstanceID());</div><div class="line">    oPaxosMsg.set_nodeid(m_poConfig-&gt;GetMyNodeID());</div><div class="line">    oPaxosMsg.set_proposalid(m_oProposerState.GetProposalID());</div><div class="line">    oPaxosMsg.set_value(m_oProposerState.GetValue());</div><div class="line">    oPaxosMsg.set_lastchecksum(GetLastChecksum());</div><div class="line"></div><div class="line">    m_oMsgCounter.StartNewRound();</div><div class="line"></div><div class="line">    AddAcceptTimer();</div><div class="line"></div><div class="line">    PLGHead(<span class="string">"END"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//发给各个节点</span></div><div class="line">    BroadcastMessage(oPaxosMsg, BroadcastMessage_Type_RunSelf_Final);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Accept请求中PaxosMsg里的Value是这样确定的：如果Prepare阶段有Acceptor的回复中带有提案值，则该Value为所有的Acceptor的回复中，编号最大的提案的值。否则就是Proposer在最初调用NewValue时传入的值。</p>
+<h3 id="OnAcceptReply"><a href="#OnAcceptReply" class="headerlink" title="OnAcceptReply"></a>OnAcceptReply</h3><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">void</span> Proposer :: OnAcceptReply(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</div><div class="line">&#123;</div><div class="line">    PLGHead(<span class="string">"START Msg.ProposalID %lu State.ProposalID %lu Msg.from_nodeid %lu RejectByPromiseID %lu"</span>,</div><div class="line">            oPaxosMsg.proposalid(), m_oProposerState.GetProposalID(), </div><div class="line">            oPaxosMsg.nodeid(), oPaxosMsg.rejectbypromiseid());</div><div class="line"></div><div class="line">    BP-&gt;GetProposerBP()-&gt;OnAcceptReply();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!m_bIsAccepting)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//PLGErr("Not proposing, skip this msg");</span></div><div class="line">        BP-&gt;GetProposerBP()-&gt;OnAcceptReplyButNotAccepting();</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (oPaxosMsg.proposalid() != m_oProposerState.GetProposalID())</div><div class="line">    &#123;</div><div class="line">        <span class="comment">//PLGErr("ProposalID not same, skip this msg");</span></div><div class="line">        BP-&gt;GetProposerBP()-&gt;OnAcceptReplyNotSameProposalIDMsg();</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    m_oMsgCounter.AddReceive(oPaxosMsg.nodeid());</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (oPaxosMsg.rejectbypromiseid() == <span class="number">0</span>)</div><div class="line">    &#123;</div><div class="line">        PLGDebug(<span class="string">"[Accept]"</span>);</div><div class="line">        m_oMsgCounter.AddPromiseOrAccept(oPaxosMsg.nodeid());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">        PLGDebug(<span class="string">"[Reject]"</span>);</div><div class="line">        m_oMsgCounter.AddReject(oPaxosMsg.nodeid());</div><div class="line"></div><div class="line">        m_bWasRejectBySomeone = <span class="literal">true</span>;</div><div class="line"></div><div class="line">        m_oProposerState.SetOtherProposalID(oPaxosMsg.rejectbypromiseid());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (m_oMsgCounter.IsPassedOnThisRound())</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> iUseTimeMs = m_oTimeStat.Point();</div><div class="line">        BP-&gt;GetProposerBP()-&gt;AcceptPass(iUseTimeMs);</div><div class="line">        PLGImp(<span class="string">"[Pass] Start send learn, usetime %dms"</span>, iUseTimeMs);</div><div class="line">        ExitAccept();</div><div class="line"></div><div class="line">        <span class="comment">//让Leaner学习被选定（Chosen）的值</span></div><div class="line">        m_poLearner-&gt;ProposerSendSuccess(GetInstanceID(), m_oProposerState.GetProposalID());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (m_oMsgCounter.IsRejectedOnThisRound()</div><div class="line">            || m_oMsgCounter.IsAllReceiveOnThisRound())</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetProposerBP()-&gt;AcceptNotPass();</div><div class="line">        PLGImp(<span class="string">"[Not pass] wait 30ms and Restart prepare"</span>);</div><div class="line">        AddAcceptTimer(OtherUtils::FastRand() % <span class="number">30</span> + <span class="number">10</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    PLGHead(<span class="string">"END"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里跟OnPrepareReply的过程基本一致，因此就不加太多注释了。比较大的区别在于最后如果过半的Acceptor接受了该Accept请求，则说明该Value被选定（Chosen）了，就发送消息，让每个节点上的Learner学习该Value。因为Leaner不是本文的重点，这里就不详细介绍了。</p>
+<h2 id="Acceptor"><a href="#Acceptor" class="headerlink" title="Acceptor"></a>Acceptor</h2><p>Acceptor的逻辑比Proposer更简单。同样先看它的定义：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">class</span> Acceptor : <span class="keyword">public</span> Base</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Acceptor(</div><div class="line">            <span class="keyword">const</span> Config * poConfig, </div><div class="line">            <span class="keyword">const</span> MsgTransport * poMsgTransport, </div><div class="line">            <span class="keyword">const</span> Instance * poInstance,</div><div class="line">            <span class="keyword">const</span> LogStorage * poLogStorage);</div><div class="line">    ~Acceptor();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">InitForNewPaxosInstance</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">Init</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function">AcceptorState * <span class="title">GetAcceptorState</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Prepare阶段回复Prepare请求</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">OnPrepare</span><span class="params">(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//Accept阶段回复Accept请求</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnAccept</span><span class="params">(<span class="keyword">const</span> PaxosMsg &amp; oPaxosMsg)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//private:</span></div><div class="line">    AcceptorState m_oAcceptorState;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="OnPrepare"><a href="#OnPrepare" class="headerlink" title="OnPrepare"></a>OnPrepare</h3><p>OnPrepare用于处理收到的Prepare请求，逻辑如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">int Acceptor :: OnPrepare(const PaxosMsg &amp; oPaxosMsg)</div><div class="line">&#123;</div><div class="line">    PLGHead("START Msg.InstanceID %lu Msg.from_nodeid %lu Msg.ProposalID %lu",</div><div class="line">            oPaxosMsg.instanceid(), oPaxosMsg.nodeid(), oPaxosMsg.proposalid());</div><div class="line"></div><div class="line">    BP-&gt;GetAcceptorBP()-&gt;OnPrepare();</div><div class="line">    </div><div class="line">    PaxosMsg oReplyPaxosMsg;</div><div class="line">    oReplyPaxosMsg.set_instanceid(GetInstanceID());</div><div class="line">    oReplyPaxosMsg.set_nodeid(m_poConfig-&gt;GetMyNodeID());</div><div class="line">    oReplyPaxosMsg.set_proposalid(oPaxosMsg.proposalid());</div><div class="line">    oReplyPaxosMsg.set_msgtype(MsgType_PaxosPrepareReply);</div><div class="line"></div><div class="line">    //构造接收到的Prepare请求里的提案编号</div><div class="line">    BallotNumber oBallot(oPaxosMsg.proposalid(), oPaxosMsg.nodeid());</div><div class="line">    </div><div class="line">    //提案编号大于承诺过的提案编号</div><div class="line">    if (oBallot &gt;= m_oAcceptorState.GetPromiseBallot())</div><div class="line">    &#123;</div><div class="line">        PLGDebug("[Promise] State.PromiseID %lu State.PromiseNodeID %lu "</div><div class="line">                "State.PreAcceptedID %lu State.PreAcceptedNodeID %lu",</div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llProposalID, </div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llNodeID,</div><div class="line">                m_oAcceptorState.GetAcceptedBallot().m_llProposalID,</div><div class="line">                m_oAcceptorState.GetAcceptedBallot().m_llNodeID);</div><div class="line">        </div><div class="line">//返回之前接受过的提案的编号        oReplyPaxosMsg.set_preacceptid(m_oAcceptorState.GetAcceptedBallot().m_llProposalID);</div><div class="line">        oReplyPaxosMsg.set_preacceptnodeid(m_oAcceptorState.GetAcceptedBallot().m_llNodeID);</div><div class="line">        //如果接受过的提案编号大于0（&lt;=0说明没有接受过提案），则设置接受过的提案的Value</div><div class="line">        if (m_oAcceptorState.GetAcceptedBallot().m_llProposalID &gt; 0)</div><div class="line">        &#123;</div><div class="line">            oReplyPaxosMsg.set_value(m_oAcceptorState.GetAcceptedValue());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        //更新承诺的提案编号为新的提案编号（因为新的提案编号更大）</div><div class="line">        m_oAcceptorState.SetPromiseBallot(oBallot);</div><div class="line"></div><div class="line">        //信息持久化</div><div class="line">        int ret = m_oAcceptorState.Persist(GetInstanceID(), GetLastChecksum());</div><div class="line">        if (ret != 0)</div><div class="line">        &#123;</div><div class="line">            BP-&gt;GetAcceptorBP()-&gt;OnPreparePersistFail();</div><div class="line">            PLGErr("Persist fail, Now.InstanceID %lu ret %d",</div><div class="line">                    GetInstanceID(), ret);</div><div class="line">            </div><div class="line">            return -1;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        BP-&gt;GetAcceptorBP()-&gt;OnPreparePass();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //提案编号小于承诺过的提案编号，需要拒绝</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetAcceptorBP()-&gt;OnPrepareReject();</div><div class="line"></div><div class="line">        PLGDebug("[Reject] State.PromiseID %lu State.PromiseNodeID %lu", </div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llProposalID, </div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llNodeID);</div><div class="line">        </div><div class="line">//拒绝该Prepare请求，并返回承诺过的ProposalID      oReplyPaxosMsg.set_rejectbypromiseid(m_oAcceptorState.GetPromiseBallot().m_llProposalID);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    nodeid_t iReplyNodeID = oPaxosMsg.nodeid();</div><div class="line"></div><div class="line">    PLGHead("END Now.InstanceID %lu ReplyNodeID %lu",</div><div class="line">            GetInstanceID(), oPaxosMsg.nodeid());;</div><div class="line"></div><div class="line">    //向发出Prepare请求的Proposer回复消息</div><div class="line">    SendMessage(iReplyNodeID, oReplyPaxosMsg);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="OnAccept"><a href="#OnAccept" class="headerlink" title="OnAccept"></a>OnAccept</h3><p>再来看看OnAccept：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">void Acceptor :: OnAccept(const PaxosMsg &amp; oPaxosMsg)</div><div class="line">&#123;</div><div class="line">    PLGHead("START Msg.InstanceID %lu Msg.from_nodeid %lu Msg.ProposalID %lu Msg.ValueLen %zu",</div><div class="line">            oPaxosMsg.instanceid(), oPaxosMsg.nodeid(), oPaxosMsg.proposalid(), oPaxosMsg.value().size());</div><div class="line"></div><div class="line">    BP-&gt;GetAcceptorBP()-&gt;OnAccept();</div><div class="line"></div><div class="line">    PaxosMsg oReplyPaxosMsg;</div><div class="line">    oReplyPaxosMsg.set_instanceid(GetInstanceID());</div><div class="line">    oReplyPaxosMsg.set_nodeid(m_poConfig-&gt;GetMyNodeID());</div><div class="line">    oReplyPaxosMsg.set_proposalid(oPaxosMsg.proposalid());</div><div class="line">    oReplyPaxosMsg.set_msgtype(MsgType_PaxosAcceptReply);</div><div class="line"></div><div class="line">    BallotNumber oBallot(oPaxosMsg.proposalid(), oPaxosMsg.nodeid());</div><div class="line"></div><div class="line">    //提案编号不小于承诺过的提案编号（注意：这里是“&gt;=”，而再OnPrepare中是“&gt;”，可以先思考下为什么），需要接受该提案</div><div class="line">    if (oBallot &gt;= m_oAcceptorState.GetPromiseBallot())</div><div class="line">    &#123;</div><div class="line">        PLGDebug("[Promise] State.PromiseID %lu State.PromiseNodeID %lu "</div><div class="line">                "State.PreAcceptedID %lu State.PreAcceptedNodeID %lu",</div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llProposalID, </div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llNodeID,</div><div class="line">                m_oAcceptorState.GetAcceptedBallot().m_llProposalID,</div><div class="line">                m_oAcceptorState.GetAcceptedBallot().m_llNodeID);</div><div class="line"></div><div class="line">        //更新承诺的提案编号；接受的提案编号、提案值</div><div class="line">        m_oAcceptorState.SetPromiseBallot(oBallot);</div><div class="line">        m_oAcceptorState.SetAcceptedBallot(oBallot);</div><div class="line">        m_oAcceptorState.SetAcceptedValue(oPaxosMsg.value());</div><div class="line">        </div><div class="line">        //信息持久化</div><div class="line">        int ret = m_oAcceptorState.Persist(GetInstanceID(), GetLastChecksum());</div><div class="line">        if (ret != 0)</div><div class="line">        &#123;</div><div class="line">            BP-&gt;GetAcceptorBP()-&gt;OnAcceptPersistFail();</div><div class="line"></div><div class="line">            PLGErr("Persist fail, Now.InstanceID %lu ret %d",</div><div class="line">                    GetInstanceID(), ret);</div><div class="line">            </div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        BP-&gt;GetAcceptorBP()-&gt;OnAcceptPass();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //需要拒绝该提案</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        BP-&gt;GetAcceptorBP()-&gt;OnAcceptReject();</div><div class="line"></div><div class="line">        PLGDebug("[Reject] State.PromiseID %lu State.PromiseNodeID %lu", </div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llProposalID, </div><div class="line">                m_oAcceptorState.GetPromiseBallot().m_llNodeID);</div><div class="line">        </div><div class="line">        //拒绝的消息中附上承诺过的ProposalID</div><div class="line">        oReplyPaxosMsg.set_rejectbypromiseid(m_oAcceptorState.GetPromiseBallot().m_llProposalID);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    nodeid_t iReplyNodeID = oPaxosMsg.nodeid();</div><div class="line"></div><div class="line">    PLGHead("END Now.InstanceID %lu ReplyNodeID %lu",</div><div class="line">            GetInstanceID(), oPaxosMsg.nodeid());</div><div class="line"></div><div class="line">    //将响应发送给Proposer</div><div class="line">    SendMessage(iReplyNodeID, oReplyPaxosMsg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过阅读源码可以发现，整个PhxPaxos完全基于Lamport的《Paxos Made Simple》进行工程化，没有进行任何算法变种。这对于学习Paxos算法的人来说真的是一笔宝贵的财富，所以如果对Paxos算法感兴趣，应该深入地去阅读PhxPaxos的源码，相信看完后大家对Paxos会有更深的理解。同时我们也发现，在工程实现上还是有很多细节需要注意，这比单纯理解算法要难得多。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '欢迎打赏~', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://upload-images.jianshu.io/upload_images/1752522-36613fdaddaabe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+  alipayImage: 'http://upload-images.jianshu.io/upload_images/1752522-e25c8a72b44c418e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Paxos/">Paxos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PhxPaxos/">PhxPaxos</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/20/PhxPaxos源码分析——网络/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">PhxPaxos源码分析——网络</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Proposer"><span class="nav-number">1.</span> <span class="nav-text">Proposer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NewValue"><span class="nav-number">1.1.</span> <span class="nav-text">NewValue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Prepare"><span class="nav-number">1.2.</span> <span class="nav-text">Prepare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnPrepareReply"><span class="nav-number">1.3.</span> <span class="nav-text">OnPrepareReply</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Accept"><span class="nav-number">1.4.</span> <span class="nav-text">Accept</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnAcceptReply"><span class="nav-number">1.5.</span> <span class="nav-text">OnAcceptReply</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Acceptor"><span class="nav-number">2.</span> <span class="nav-text">Acceptor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OnPrepare"><span class="nav-number">2.1.</span> <span class="nav-text">OnPrepare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OnAccept"><span class="nav-number">2.2.</span> <span class="nav-text">OnAccept</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

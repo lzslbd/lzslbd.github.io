@@ -215,7 +215,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
 <!-- Table of Contents -->
 
   
-    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-翻转单词顺序列"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -223,7 +223,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/统计每个单词出现的次数/">统计每个单词出现的次数</a>
+      <a class="article-title" href="/2017/03/11/翻转单词顺序列/">翻转单词顺序列</a>
     </h1>
   
 
@@ -231,7 +231,7 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/统计每个单词出现的次数/" class="article-date">
+	<a href="/2017/03/11/翻转单词顺序列/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -242,27 +242,17 @@ public class Solution &#123;    public String replaceSpace(StringBuffer str.....
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>/**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-</code></pre>
-        <!-- /**统计单词出现的次数
- * this is a cat and this is a mice and where is the food?
- * 思路
- * 1.分割字符串
- * 2.分拣存储
- * 3.查看单词出现的次数
- * Created by linbingdong on 16/3/19.
- */
-
-package cn.lbd.Collection;import java.ut......  -->
+        <p><strong>题目描述</strong></p>
+<p>牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？</p>
+<p><strong>分析</strong></p>
+<p>先用String.split()将字符串按空格切分成一个String数组,然后创建一个StringBuilder将该数组从后往前拼接。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+牛客最近来了一个新员工Fish，每天早晨总是会拿着一本英文杂志，写些句子在本子上。同事Cat对Fish写的内容颇感兴趣，有一天他向Fish借来翻看，但却读不懂它的意思。例如，“student. a am I”。后来才意识到，这家伙原来把句子单词的顺序翻转了，正确的句子应该是“I am a student.”。Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
+分析
+先用Stri......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/统计每个单词出现的次数/#more">阅读全文</a>
+          <a href="/2017/03/11/翻转单词顺序列/#more">阅读全文</a>
         </p>
       
     </div>
@@ -503,7 +493,7 @@ import java.util.ArrayList;public class Solut......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-纠删码（Erasure Code）浅析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-统计每个单词出现的次数"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -511,7 +501,7 @@ import java.util.ArrayList;public class Solut......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
+      <a class="article-title" href="/2017/03/11/统计每个单词出现的次数/">统计每个单词出现的次数</a>
     </h1>
   
 
@@ -519,24 +509,38 @@ import java.util.ArrayList;public class Solut......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
+	<a href="/2017/03/11/统计每个单词出现的次数/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
-        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
+        <pre><code>/**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
+</code></pre>
+        <!-- /**统计单词出现的次数
+ * this is a cat and this is a mice and where is the food?
+ * 思路
+ * 1.分割字符串
+ * 2.分拣存储
+ * 3.查看单词出现的次数
+ * Created by linbingdong on 16/3/19.
+ */
 
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
+package cn.lbd.Collection;import java.ut......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
+          <a href="/2017/03/11/统计每个单词出现的次数/#more">阅读全文</a>
         </p>
       
     </div>
@@ -544,7 +548,7 @@ import java.util.ArrayList;public class Solut......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -554,7 +558,7 @@ import java.util.ArrayList;public class Solut......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java对象流与序列化"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -562,7 +566,7 @@ import java.util.ArrayList;public class Solut......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+      <a class="article-title" href="/2017/03/11/Java对象流与序列化/">Java对象流与序列化</a>
     </h1>
   
 
@@ -570,21 +574,25 @@ import java.util.ArrayList;public class Solut......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	<a href="/2017/03/11/Java对象流与序列化/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p>Java语言支持一种称为<strong>对象序列化（object serialization）</strong>的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。</p>
+        <!-- Java语言支持一种称为对象序列化（object serialization）的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。
+ 
+示例：
+ObjectStreamTest.java
+import java.io.......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+          <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
         </p>
       
     </div>
@@ -592,7 +600,7 @@ import java.util.ArrayList;public class Solut......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -658,7 +666,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
 <!-- Table of Contents -->
 
   
-    <article id="post-Java对象流与序列化"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java文件管理操作"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -666,7 +674,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java对象流与序列化/">Java对象流与序列化</a>
+      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
     </h1>
   
 
@@ -674,7 +682,7 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java对象流与序列化/" class="article-date">
+	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -685,14 +693,14 @@ public class Solution &#123;    public int JumpFloorII(int target) &#123;       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java语言支持一种称为<strong>对象序列化（object serialization）</strong>的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。</p>
-        <!-- Java语言支持一种称为对象序列化（object serialization）的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。
+        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
+<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
+        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
+Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
  
-示例：
-ObjectStreamTest.java
-import java.io.......  -->
+Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
+          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
       
     </div>
