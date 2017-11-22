@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-从尾到头打印链表"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-优雅的点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/从尾到头打印链表/">从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/11/优雅的点/">优雅的点</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/从尾到头打印链表/" class="article-date">
+	<a href="/2017/03/11/优雅的点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -186,18 +186,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>输入一个链表，从尾到头打印链表每个节点的值。</p>
-<p><strong>分析</strong></p>
-<p>将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。</p>
+        <p>小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。<br>例如：半径的平方如果为25<br>优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 </p>
+<p><strong>输入描述:</strong></p>
+<p>输入为一个整数，即为圆半径的平方,范围在32位int范围内。</p>
+<p><strong>输出描述:</strong></p>
+<p>输出为一个整数，即为优雅的点的个数</p>
+<p><strong>输入例子:</strong></p>
+<p>25</p>
+<p><strong>输出例子:</strong></p>
+<p>12</p>
 <p><strong>代码:</strong></p>
-        <!-- 输入一个链表，从尾到头打印链表每个节点的值。
-分析
-将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。
-代码:
-
-/***    public class ListNode &#123;*        int val;*        ListNode next = null;**        ListNode(int val) &#123;*      ......  -->
+        <!-- 小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。例如：半径的平方如果为25优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 
+输入描述:
+输入为一个整数，即为圆半径的平方,范围在32位int范围内。
+输......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/从尾到头打印链表/#more">阅读全文</a>
+          <a href="/2017/03/11/优雅的点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -206,61 +210,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-关于Java字符串的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/关于Java字符串的几个常见问题/">关于Java字符串的几个常见问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/关于Java字符串的几个常见问题/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>列举几个关于Java字符串的常见问题并给出答案。</p>
-        <!-- 列举几个关于Java字符串的常见问题并给出答案。
-
-1. 如何比较两个字符串？用”==”还是”equals”?
-“==”对比的是引用是否相同（是否同一个对象）
-“equals”对比的是值是否相同
-
-除非想要比较两个字符串是否是同一个对象，否则应该一直使用”equals”。
-2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？因为String是不可变对象，这就意味着只要......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/关于Java字符串的几个常见问题/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -321,7 +270,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-全球分布式数据库：Google Spanner（论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-关于Java字符串的几个常见问题"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -329,7 +278,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
+      <a class="article-title" href="/2017/03/11/关于Java字符串的几个常见问题/">关于Java字符串的几个常见问题</a>
     </h1>
   
 
@@ -337,23 +286,28 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
+	<a href="/2017/03/11/关于Java字符串的几个常见问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。</p>
-<p>【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不采用锁机制的只读事务、原子模式变更。</p>
-        <!-- 本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 A......  -->
+        <p>列举几个关于Java字符串的常见问题并给出答案。</p>
+        <!-- 列举几个关于Java字符串的常见问题并给出答案。
+
+1. 如何比较两个字符串？用”==”还是”equals”?
+“==”对比的是引用是否相同（是否同一个对象）
+“equals”对比的是值是否相同
+
+除非想要比较两个字符串是否是同一个对象，否则应该一直使用”equals”。
+2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？因为String是不可变对象，这就意味着只要......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/关于Java字符串的几个常见问题/#more">阅读全文</a>
         </p>
       
     </div>
@@ -361,7 +315,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spanner/">Spanner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式数据库/">分布式数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -492,6 +446,63 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-分布式系列文章——从ACID到CAP:BASE"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。</p>
+        <!-- 本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+
+事务事务的定义：
+
+事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
+
+事务的作用：
+
+当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
+......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-分布式系列文章——分布式系统的特点及问题"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -544,7 +555,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-分布式系列文章——从ACID到CAP:BASE"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-删除链表中重复的节点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -552,7 +563,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
+      <a class="article-title" href="/2017/03/11/删除链表中重复的节点/">删除链表中重复的节点!</a>
     </h1>
   
 
@@ -560,30 +571,32 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	<a href="/2017/03/11/删除链表中重复的节点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。</p>
-        <!-- 本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+        <p><strong>题目描述</strong></p>
+<p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5；链表1-&gt;1-&gt;1-&gt;2-&gt;3 , 处理后为2-&gt;3。</p>
+<p><strong>分析</strong></p>
+<p>可以用递归，也可以用迭代法。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5；链表1-&gt;1-&gt;1-&gt;2-&gt;3 , 处理后为2-&gt;3。
+分析
+可以用递归，也可以用迭代法。
+代码:
 
-事务事务的定义：
-
-事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
-
-事务的作用：
-
-当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
-......  -->
+递归版
+/* public c......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
+          <a href="/2017/03/11/删除链表中重复的节点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -591,7 +604,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -659,7 +672,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-删除链表中重复的节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-全球分布式数据库：Google Spanner（论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -667,7 +680,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/删除链表中重复的节点/">删除链表中重复的节点!</a>
+      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
     </h1>
   
 
@@ -675,32 +688,23 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/删除链表中重复的节点/" class="article-date">
+	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5；链表1-&gt;1-&gt;1-&gt;2-&gt;3 , 处理后为2-&gt;3。</p>
-<p><strong>分析</strong></p>
-<p>可以用递归，也可以用迭代法。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5 处理后为 1-&gt;2-&gt;5；链表1-&gt;1-&gt;1-&gt;2-&gt;3 , 处理后为2-&gt;3。
-分析
-可以用递归，也可以用迭代法。
-代码:
-
-递归版
-/* public c......  -->
+        <p>本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。</p>
+<p>【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不采用锁机制的只读事务、原子模式变更。</p>
+        <!-- 本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
+【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 A......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/删除链表中重复的节点/#more">阅读全文</a>
+          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
@@ -708,7 +712,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spanner/">Spanner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式数据库/">分布式数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
 
     </footer>
   </div>
