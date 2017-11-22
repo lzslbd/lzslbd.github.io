@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-PostgreSQL单机部署（CentOS7）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-PostgreSQL主从流复制部署"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
+      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
+	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -186,13 +186,13 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Contos7上用yum部署PostgreSQL9.4的过程。</p>
-        <!-- 本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
+        <p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
+        <!-- PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
 
-1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
-2. 执行安装命令yum updateyum install postgresql94-server po......  -->
+192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
+1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
         </p>
       
     </div>
@@ -210,7 +210,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -218,7 +218,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
     </h1>
   
 
@@ -226,7 +226,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -237,15 +237,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先看看System.arraycopy()的声明：</p>
-<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
-</code></pre>
-        <!-- 先看看System.arraycopy()的声明：
-public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
+<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
+<li>Comparable和Comparator都是Java的接口</li>
+</ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
 
-src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -324,6 +331,56 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
 <!-- Table of Contents -->
 
   
+    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
+        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
+
+摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Python日志模块示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -366,56 +423,6 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
-        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
-
-摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
 
     </footer>
   </div>
@@ -639,7 +646,7 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive安装配置文档"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 7新机制之自动关闭资源——try-with-resources"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -647,7 +654,7 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
     </h1>
   
 
@@ -655,24 +662,24 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
+	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
-        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
+        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
 
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
-......  -->
+如下：
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
       
     </div>
@@ -680,7 +687,7 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>

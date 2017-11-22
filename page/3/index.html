@@ -209,7 +209,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-从尾到头打印链表"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-优雅的点"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -217,7 +217,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/从尾到头打印链表/">从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/11/优雅的点/">优雅的点</a>
     </h1>
   
 
@@ -225,7 +225,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/从尾到头打印链表/" class="article-date">
+	<a href="/2017/03/11/优雅的点/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -236,18 +236,22 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>输入一个链表，从尾到头打印链表每个节点的值。</p>
-<p><strong>分析</strong></p>
-<p>将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。</p>
+        <p>小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。<br>例如：半径的平方如果为25<br>优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 </p>
+<p><strong>输入描述:</strong></p>
+<p>输入为一个整数，即为圆半径的平方,范围在32位int范围内。</p>
+<p><strong>输出描述:</strong></p>
+<p>输出为一个整数，即为优雅的点的个数</p>
+<p><strong>输入例子:</strong></p>
+<p>25</p>
+<p><strong>输出例子:</strong></p>
+<p>12</p>
 <p><strong>代码:</strong></p>
-        <!-- 输入一个链表，从尾到头打印链表每个节点的值。
-分析
-将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。
-代码:
-
-/***    public class ListNode &#123;*        int val;*        ListNode next = null;**        ListNode(int val) &#123;*      ......  -->
+        <!-- 小易有一个圆心在坐标原点的圆，小易知道圆的半径的平方。小易认为在圆上的点而且横纵坐标都是整数的点是优雅的，小易现在想寻找一个算法计算出优雅的点的个数，请你来帮帮他。例如：半径的平方如果为25优雅的点就有：(+/-3, +/-4), (+/-4, +/-3), (0, +/-5) (+/-5, 0)，一共12个点。 
+输入描述:
+输入为一个整数，即为圆半径的平方,范围在32位int范围内。
+输......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/从尾到头打印链表/#more">阅读全文</a>
+          <a href="/2017/03/11/优雅的点/#more">阅读全文</a>
         </p>
       
     </div>
@@ -256,57 +260,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
-
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -351,6 +304,56 @@ ObjectStreamTest.java
 import java.io.......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java I:O总结/">Java I/O 总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java I:O总结/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
+        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
+
+数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -420,7 +423,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-LeetCode[136] Single Number"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -428,7 +431,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/LeetCode[136] Single Number/">LeetCode[136] Single Number</a>
     </h1>
   
 
@@ -436,23 +439,26 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/LeetCode[136] Single Number/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
-        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
-
-代码结构主目录（$BENCH......  -->
+        <p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
+<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+<p><strong>思路:</strong></p>
+<p>直接用异或搞定，简单粗暴效率高。</p>
+<p><strong>代码:</strong></p>
+        <!-- Given an array of integers, every element appears twice except for one. Find that single one.
+Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/LeetCode[136] Single Number/#more">阅读全文</a>
         </p>
       
     </div>
@@ -460,7 +466,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -504,59 +510,6 @@ For example:Given binary tree [3,9,20,null,null,15,7],
   3 / \9  20  /  \ 15  ......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/LeetCode[102] Binary Tree Level Order Traversal/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[136] Single Number"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[136] Single Number/">LeetCode[136] Single Number</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/LeetCode[136] Single Number/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p><strong>思路:</strong></p>
-<p>直接用异或搞定，简单粗暴效率高。</p>
-<p><strong>代码:</strong></p>
-        <!-- Given an array of integers, every element appears twice except for one. Find that single one.
-Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[136] Single Number/#more">阅读全文</a>
         </p>
       
     </div>
@@ -627,7 +580,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[144] Binary Tree Preorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -635,7 +588,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/">LeetCode[144] Binary Tree Preorder Traversal</a>
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
     </h1>
   
 
@@ -643,7 +596,57 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/" class="article-date">
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
+        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+
+代码结构主目录（$BENCH......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-LeetCode[150] Evaluate Reverse Polish Notation"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/LeetCode[150] Evaluate Reverse Polish Notation/">LeetCode[150] Evaluate Reverse Polish Notation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/LeetCode[150] Evaluate Reverse Polish Notation/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -654,22 +657,19 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given a binary tree, return the preorder traversal of its nodes’ values.</p>
-        <!-- Given a binary tree, return the preorder traversal of its nodes’ values.
-
-For example:Given binary tree {1,#,2,3},
-1 \  2 /3
-return [1,2,3].
-分析:
-两种种方法：
-
-递归法
- 递归是最简单的。
-
-迭代法
- 迭代法使用一个栈来保存每个节点的右节点。列表 r......  -->
+        <p>Evaluate the value of an arithmetic expression in Reverse Polish Notation.</p>
+<p>Valid operators are +, -, *, /. Each operand may be an integer or another expression.</p>
+<p>Some examples:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[&quot;2&quot;, &quot;1&quot;, &quot;+&quot;, &quot;3&quot;, &quot;*&quot;] -&gt; ((2 + 1) * 3) -&gt; 9</div><div class="line">[&quot;4&quot;, &quot;13&quot;, &quot;5&quot;, &quot;/&quot;, &quot;+&quot;] -&gt; (4 + (13 / 5)) -&gt; 6</div></pre></td></tr></table></figure>
+<p><strong>分析:</strong></p>
+<p>使用栈，很简单。</p>
+<p><strong>代码:</strong></p>
+        <!-- Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+Some examples:
+[&quot;2&quot;, &quot......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/#more">阅读全文</a>
+          <a href="/2017/03/11/LeetCode[150] Evaluate Reverse Polish Notation/#more">阅读全文</a>
         </p>
       
     </div>

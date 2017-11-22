@@ -216,7 +216,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-疯狂跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -224,7 +224,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+      <a class="article-title" href="/2017/03/11/疯狂跳台阶/">疯狂跳台阶</a>
     </h1>
   
 
@@ -232,21 +232,29 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	<a href="/2017/03/11/疯狂跳台阶/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<p><strong>分析</strong></p>
+<p>分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。</p>
+<p><strong>代码:</strong></p>
+        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+分析
+分析前几级可得出规律：跳法为2的n次方。这里用左移运算符效率较高。只需要一行代码。
+代码:
+
+public class Solution &#123;    public int JumpFloorII(int target) &#123;        return 1 &......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+          <a href="/2017/03/11/疯狂跳台阶/#more">阅读全文</a>
         </p>
       
     </div>
@@ -254,7 +262,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -322,7 +330,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -330,7 +338,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/按之字形顺序打印二叉树/">按之字形顺序打印二叉树</a>
+      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
     </h1>
   
 
@@ -338,7 +346,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/按之字形顺序打印二叉树/" class="article-date">
+	<a href="/2017/02/24/对称的二叉树/" class="article-date">
 	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
@@ -350,71 +358,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。</p>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
         <!-- 题目描述
-请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
 
 分析
-跟把二叉树打印成多行一样，只不过在偶数行需要反转一下。
+如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
 代码:
-import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;impor......  -->
+public cl......  -->
         <p class="article-more-link">
-          <a href="/2017/02/24/按之字形顺序打印二叉树/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/把二叉树打印成多行/">把二叉树打印成多行</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
-	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
-        <!-- 题目描述
-从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
-
-分析
-就是层序遍历，不再赘述。
-代码:
-import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;public class Solution &#123;    ArrayList&lt;ArrayList&lt;In......  -->
-        <p class="article-more-link">
-          <a href="/2017/02/24/把二叉树打印成多行/#more">阅读全文</a>
+          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
         </p>
       
     </div>
@@ -547,7 +500,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
 <!-- Table of Contents -->
 
   
-    <article id="post-对称的二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-把二叉树打印成多行"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -555,7 +508,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/24/对称的二叉树/">对称的二叉树</a>
+      <a class="article-title" href="/2017/02/24/把二叉树打印成多行/">把二叉树打印成多行</a>
     </h1>
   
 
@@ -563,7 +516,7 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     
     <div class="article-meta">
       
-	<a href="/2017/02/24/对称的二叉树/" class="article-date">
+	<a href="/2017/02/24/把二叉树打印成多行/" class="article-date">
 	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
 	</a>
 
@@ -575,16 +528,16 @@ public class Solution &#123;    public boolean IsBalanced_Solution(TreeNode root
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+<p>从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。</p>
         <!-- 题目描述
-请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
 
 分析
-如果该二叉树的左右子树互为镜像，则该二叉树为对称的二叉树。两个二叉树 a,b 互为镜像，即 a 的左子树跟 b 的右子树互为镜像，且 a 的右子树跟 b 的左子树互为镜像。递归一下，so easy ! 妈妈再也不用担心我的二叉树问题了。
+就是层序遍历，不再赘述。
 代码:
-public cl......  -->
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;public class Solution &#123;    ArrayList&lt;ArrayList&lt;In......  -->
         <p class="article-more-link">
-          <a href="/2017/02/24/对称的二叉树/#more">阅读全文</a>
+          <a href="/2017/02/24/把二叉树打印成多行/#more">阅读全文</a>
         </p>
       
     </div>
@@ -602,7 +555,7 @@ public cl......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-旋转数组的最小数字"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-按之字形顺序打印二叉树"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -610,7 +563,7 @@ public cl......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/旋转数组的最小数字/">旋转数组的最小数字</a>
+      <a class="article-title" href="/2017/02/24/按之字形顺序打印二叉树/">按之字形顺序打印二叉树</a>
     </h1>
   
 
@@ -618,7 +571,62 @@ public cl......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/旋转数组的最小数字/" class="article-date">
+	<a href="/2017/02/24/按之字形顺序打印二叉树/" class="article-date">
+	  <time datetime="2017-02-23T16:00:00.000Z" itemprop="datePublished">2017-02-24</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。</p>
+        <!-- 题目描述
+请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+
+分析
+跟把二叉树打印成多行一样，只不过在偶数行需要反转一下。
+代码:
+import java.util.ArrayList;import java.util.Queue;import java.util.LinkedList;impor......  -->
+        <p class="article-more-link">
+          <a href="/2017/02/24/按之字形顺序打印二叉树/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-二叉树的镜像"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/23/二叉树的镜像/">二叉树的镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/23/二叉树的镜像/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -630,15 +638,24 @@ public cl......  -->
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。<br>输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。<br>例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。<br>NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p>操作给定的二叉树，将其变换为源二叉树的镜像。 </p>
+<p>输入描述:</p>
+<p>二叉树的镜像定义：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">  源二叉树 </div><div class="line">    8</div><div class="line">   /  \</div><div class="line">  6   10</div><div class="line"> / \  / \</div><div class="line">5  7 9  11</div><div class="line"></div><div class="line">镜像二叉树</div><div class="line">    8</div><div class="line">   /  \</div><div class="line">  10   6</div><div class="line"> / \  / \</div><div class="line">11 9 7   5</div></pre></td></tr></table></figure>
         <!-- 题目描述
-把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
+操作给定的二叉树，将其变换为源二叉树的镜像。 
+输入描述:
+二叉树的镜像定义：
+  源二叉树     8   /  \  6   10 / \  / \5  7 9  11镜像二叉树    8   /  \  10   6 / \  / \11 9 7   5
 
 分析
-思路一：
-从前往后遍历，如果发现 array[i] &gt; array[i+1] ，则 array[......  -->
+用递归可以很方便地解决。
+如果不用递归的话，可以借助队列来实现。思想类似于二叉树的层序遍历
+代码:
+递归：
+pub......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/旋转数组的最小数字/#more">阅读全文</a>
+          <a href="/2017/02/23/二叉树的镜像/#more">阅读全文</a>
         </p>
       
     </div>
@@ -656,7 +673,7 @@ public cl......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-滑动窗口的最大值"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -664,7 +681,7 @@ public cl......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/">LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal</a>
+      <a class="article-title" href="/2017/02/23/滑动窗口的最大值/">滑动窗口的最大值</a>
     </h1>
   
 
@@ -672,7 +689,7 @@ public cl......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/" class="article-date">
+	<a href="/2017/02/23/滑动窗口的最大值/" class="article-date">
 	  <time datetime="2017-02-22T16:00:00.000Z" itemprop="datePublished">2017-02-23</time>
 	</a>
 
@@ -683,15 +700,12 @@ public cl......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
-        <!-- Given inorder and postorder traversal of a tree, construct the binary tree.
-
-分析:
-本题是重建二叉树（后序加中序），跟重建二叉树（先序加中序）思路一样。
-代码:
-public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[......  -->
+        <p><strong>题目描述</strong></p>
+<p>给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}， {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。</p>
+        <!-- 题目描述
+给定一个数组和滑动窗口的大小，找出所有滑动窗口里数值的最大值。例如，如果输入数组{2,3,4,2,6,2,5,1}及滑动窗口的大小3，那么一共存在6个滑动窗口，他们的最大值分别为{4,4,6,6,6,5}； 针对数组{2,3,4,2,6,2,5,1}的滑动窗口有以下6个： {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],......  -->
         <p class="article-more-link">
-          <a href="/2017/02/23/LeetCode[106] Construct Binary Tree from Inorder and Postorder Traversal/#more">阅读全文</a>
+          <a href="/2017/02/23/滑动窗口的最大值/#more">阅读全文</a>
         </p>
       
     </div>
@@ -699,7 +713,7 @@ public class Solution &#123;    public TreeNode buildTree(int[] inorder, int[...
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>

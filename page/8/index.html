@@ -655,7 +655,7 @@ public class Solution &#123;    public boolea......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-设计模式-观察者模式"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Apache Kylin综述"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -663,7 +663,7 @@ public class Solution &#123;    public boolea......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
+      <a class="article-title" href="/2017/03/11/Apache Kylin综述/">Apache Kylin综述</a>
     </h1>
   
 
@@ -671,27 +671,24 @@ public class Solution &#123;    public boolea......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
+	<a href="/2017/03/11/Apache Kylin综述/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/Kylin/">Kylin</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>观察者模式又叫发布/订阅模式。</p>
-        <!-- 观察者模式又叫发布/订阅模式。
+        <p><img src="http://upload-images.jianshu.io/upload_images/1752522-b24bc950f45d2666.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+        <!-- 
 
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
-
-具体主题（ConcreteSubject）：将有关状态存入具......  -->
+1. 简介1.1 Kylin概览Apache Kylin是一个开源的分布式分析引擎，提供Hadoop之上的SQL查询接口及多维分析（OLAP）能力（可以把Kylin定义为OLAP on Hadoop）。Apache Kylin于2015年11月正式毕业成为Apache基金会(ASF) 顶级项目，是第一个由中国团队完整贡献到Apache的顶级项目。
+Apache Kyiln构建在Hadoo......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
+          <a href="/2017/03/11/Apache Kylin综述/#more">阅读全文</a>
         </p>
       
     </div>
@@ -699,7 +696,7 @@ public class Solution &#123;    public boolea......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kylin/">Kylin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -709,7 +706,7 @@ public class Solution &#123;    public boolea......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -717,7 +714,7 @@ public class Solution &#123;    public boolea......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
     </h1>
   
 
@@ -725,7 +722,7 @@ public class Solution &#123;    public boolea......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
+	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -736,22 +733,15 @@ public class Solution &#123;    public boolea......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
-<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
-<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
-<li>Comparable和Comparator都是Java的接口</li>
-</ul>
-        <!-- 相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口
+        <p>先看看System.arraycopy()的声明：</p>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+</code></pre>
+        <!-- 先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
 
- 
-区别
-Comparator位于java.util包下，而Comparable位于java.lang包下
-Comparable接口的实现是在类的内部（如 String、In......  -->
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
         </p>
       
     </div>

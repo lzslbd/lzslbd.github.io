@@ -159,6 +159,129 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-LeetCode[155] Min Stack"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/LeetCode[155] Min Stack/">LeetCode[155] Min Stack</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/LeetCode[155] Min Stack/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
+<ul>
+<li>push(x) – Push element x onto stack.</li>
+<li>pop() – Removes the element on top of the stack.</li>
+<li>top() – Get the top element.</li>
+<li>getMin() – Retrieve the minimum element in the stack.</li>
+</ul>
+<p>Example:</p>
+<p>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; Returns -3.<br>minStack.pop();<br>minStack.top();      –&gt; Returns 0.<br>minStack.getMin();   –&gt; Returns -2.</p>
+<p><strong>分析:</strong></p>
+<p>Java中本来就有Stack。本题跟普通Stack的区别是需要记住最小值，关键在于push和pop方法。在push时，若x比当前的min更小，则先push值min，再push值x，并令min = x。在pop时，若该值为min值，需要pop两次，并且让第二次pop的值为min值。push和pop相呼应。</p>
+<p><strong>代码:</strong></p>
+        <!-- Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) – Push element x onto stack.
+pop() – Removes the element on top of the stack.
+top() – Get ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/LeetCode[155] Min Stack/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-LeetCode[144] Binary Tree Preorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/">LeetCode[144] Binary Tree Preorder Traversal</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Given a binary tree, return the preorder traversal of its nodes’ values.</p>
+        <!-- Given a binary tree, return the preorder traversal of its nodes’ values.
+
+For example:Given binary tree {1,#,2,3},
+1 \  2 /3
+return [1,2,3].
+分析:
+两种种方法：
+
+递归法
+ 递归是最简单的。
+
+迭代法
+ 迭代法使用一个栈来保存每个节点的右节点。列表 r......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-LeetCode[145] Binary Tree Postorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -214,126 +337,6 @@ public class......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[150] Evaluate Reverse Polish Notation"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[150] Evaluate Reverse Polish Notation/">LeetCode[150] Evaluate Reverse Polish Notation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/LeetCode[150] Evaluate Reverse Polish Notation/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Evaluate the value of an arithmetic expression in Reverse Polish Notation.</p>
-<p>Valid operators are +, -, *, /. Each operand may be an integer or another expression.</p>
-<p>Some examples:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[&quot;2&quot;, &quot;1&quot;, &quot;+&quot;, &quot;3&quot;, &quot;*&quot;] -&gt; ((2 + 1) * 3) -&gt; 9</div><div class="line">[&quot;4&quot;, &quot;13&quot;, &quot;5&quot;, &quot;/&quot;, &quot;+&quot;] -&gt; (4 + (13 / 5)) -&gt; 6</div></pre></td></tr></table></figure>
-<p><strong>分析:</strong></p>
-<p>使用栈，很简单。</p>
-<p><strong>代码:</strong></p>
-        <!-- Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-Valid operators are +, -, *, /. Each operand may be an integer or another expression.
-Some examples:
-[&quot;2&quot;, &quot......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[150] Evaluate Reverse Polish Notation/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-LeetCode[155] Min Stack"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[155] Min Stack/">LeetCode[155] Min Stack</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/LeetCode[155] Min Stack/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.</p>
-<ul>
-<li>push(x) – Push element x onto stack.</li>
-<li>pop() – Removes the element on top of the stack.</li>
-<li>top() – Get the top element.</li>
-<li>getMin() – Retrieve the minimum element in the stack.</li>
-</ul>
-<p>Example:</p>
-<p>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; Returns -3.<br>minStack.pop();<br>minStack.top();      –&gt; Returns 0.<br>minStack.getMin();   –&gt; Returns -2.</p>
-<p><strong>分析:</strong></p>
-<p>Java中本来就有Stack。本题跟普通Stack的区别是需要记住最小值，关键在于push和pop方法。在push时，若x比当前的min更小，则先push值min，再push值x，并令min = x。在pop时，若该值为min值，需要pop两次，并且让第二次pop的值为min值。push和pop相呼应。</p>
-<p><strong>代码:</strong></p>
-        <!-- Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get ......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[155] Min Stack/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
 
     </footer>
   </div>
@@ -573,59 +576,6 @@ All occurrences of a character must be replaced with another......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[20] Valid Parentheses"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[20] Valid Parentheses/">LeetCode[20] Valid Parentheses</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/LeetCode[20] Valid Parentheses/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
-<p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p>
-<p><strong>分析:</strong></p>
-<p>使用栈。</p>
-<p><strong>代码:</strong></p>
-        <!-- Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.
-The brackets must close in the correct order, “()” and “()[]{}” are all valid ......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[20] Valid Parentheses/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-LeetCode[215] Kth Largest Element in an Array"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -682,7 +632,7 @@ No......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[225] Implement Stack using Queues"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-LeetCode[20] Valid Parentheses"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -690,7 +640,7 @@ No......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[225] Implement Stack using Queues/">LeetCode[225] Implement Stack using Queues</a>
+      <a class="article-title" href="/2017/03/11/LeetCode[20] Valid Parentheses/">LeetCode[20] Valid Parentheses</a>
     </h1>
   
 
@@ -698,7 +648,7 @@ No......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/LeetCode[225] Implement Stack using Queues/" class="article-date">
+	<a href="/2017/03/11/LeetCode[20] Valid Parentheses/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -709,21 +659,74 @@ No......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Implement the following operations of a stack using queues.</p>
-<ul>
-<li>push(x) – Push element x onto stack.</li>
-<li>pop() – Removes the element on top of the stack.</li>
-<li>top() – Get the top element.</li>
-<li>empty() – Return whether the stack is empty.</li>
-</ul>
-        <!-- Implement the following operations of a stack using queues.
-
-push(x) – Push element x onto stack.
-pop() – Removes the element on top of the stack.
-top() – Get the top element.
-empty() – Return whet......  -->
+        <p>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.</p>
+<p>The brackets must close in the correct order, “()” and “()[]{}” are all valid but “(]” and “([)]” are not.</p>
+<p><strong>分析:</strong></p>
+<p>使用栈。</p>
+<p><strong>代码:</strong></p>
+        <!-- Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.
+The brackets must close in the correct order, “()” and “()[]{}” are all valid ......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[225] Implement Stack using Queues/#more">阅读全文</a>
+          <a href="/2017/03/11/LeetCode[20] Valid Parentheses/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-LeetCode[232] Implement Queue using Stacks"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/LeetCode[232] Implement Queue using Stacks/">LeetCode[232] Implement Queue using Stacks</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/LeetCode[232] Implement Queue using Stacks/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Implement the following operations of a queue using stacks.</p>
+<ul>
+<li>push(x) – Push element x to the back of queue.</li>
+<li>pop() – Removes the element from in front of queue.</li>
+<li>peek() – Get the front element.</li>
+<li>empty() – Return whether the queue is empty.</li>
+</ul>
+        <!-- Implement the following operations of a queue using stacks.
+
+push(x) – Push element x to the back of queue.
+pop() – Removes the element from in front of queue.
+peek() – Get the front element.
+empty......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/LeetCode[232] Implement Queue using Stacks/#more">阅读全文</a>
         </p>
       
     </div>
