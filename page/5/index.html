@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-未命名文件夹/调整数组顺序使奇数在偶数前面（相对位置不变）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/未命名文件夹/调整数组顺序使奇数在偶数前面（相对位置不变）/">调整数组顺序使奇数在偶数前面（相对位置不变）</a>
+      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
     </h1>
   
 
@@ -175,31 +175,33 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/未命名文件夹/调整数组顺序使奇数在偶数前面（相对位置不变）/" class="article-date">
+	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
-<p><strong>分析</strong></p>
-<p>新建一个数组，对原数组做两个for循环。第一次将奇数写入新数组，第二次将偶数写入新数组。最后将新数组拷贝到原数组。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。
-分析
-新建一个数组，对原数组做两个for循环。第一次将奇数写入新数组，第二次将偶数写入新数组。最后将新数组拷贝到原数组。
-代码:
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
+<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
+<li>Comparable和Comparator都是Java的接口</li>
+</ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
 
-public class Solution &#123;    public ......  -->
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/未命名文件夹/调整数组顺序使奇数在偶数前面（相对位置不变）/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -207,7 +209,7 @@ public class Solution &#123;    public ......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -323,7 +325,7 @@ public class Solution &#123;    public ......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java 中定义常量的几种方法"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -331,7 +333,7 @@ public class Solution &#123;    public ......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -339,33 +341,21 @@ public class Solution &#123;    public ......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>主要有三种：接口、类和枚举。</p>
-        <!-- 主要有三种：接口、类和枚举。
-
-接口：
-
-在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
-类实现该接口即可在类中调用该常量
-
-类：
-直接用 public static final 定义常量。
-枚举：
-在枚举类中直接写上常量值。
-示例：
-public class ConstTest &#123;    public static void mai......  -->
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
       
     </div>
@@ -373,7 +363,7 @@ public class ConstTest &#123;    public static void mai......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
 
     </footer>
   </div>
@@ -542,7 +532,7 @@ public class ConstTest &#123;    public static void mai......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java 关键字 static 、final 总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -550,7 +540,7 @@ public class ConstTest &#123;    public static void mai......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
+      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
     </h1>
   
 
@@ -558,7 +548,7 @@ public class ConstTest &#123;    public static void mai......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
+	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -569,15 +559,15 @@ public class ConstTest &#123;    public static void mai......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
-        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+        <p>先看看System.arraycopy()的声明：</p>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+</code></pre>
+        <!-- 先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
 
-static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
-static 域：
-如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
-stat......  -->
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -645,7 +635,7 @@ stat......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中wait、sleep和yield的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -653,7 +643,7 @@ stat......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+      <a class="article-title" href="/2017/03/11/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
     </h1>
   
 
@@ -661,7 +651,7 @@ stat......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
+	<a href="/2017/03/11/Java中wait、sleep和yield的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -672,23 +662,24 @@ stat......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
-<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
-<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
-<li>Comparable和Comparator都是Java的接口</li>
-</ul>
-        <!-- 相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口
+        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
+<p>本质上，wait方法是用来让线程<strong>等待某个条件</strong>，进入该条件的等待集中。而sleep和yield方法是用来让线程<strong>让出CPU时间</strong>，把CPU交给线程调度器，使得其他线程能获得CPU时间。</p>
+<p>接下来详细比较三个方法。</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p>常用的wait方法有<strong>wait( )</strong>和<strong>wait(long timeout)</strong></p>
+<p>wait( )方法导致当前线程进入等待状态直到它被通知（其他线程调用notify或notifyAll方法。notify/notifyAll方法解除等待线程的阻塞状态）。    </p>
+<p>wait(long timeout) 方法导致当前线程进入等待状态直到它被通知或者经过指定的时间。</p>
+<p> <strong>wait( )后，线程会释放掉它所占有的对象的锁</strong>，从而使线程所在对象中的其它synchronized数据可被别的线程使用。</p>
+<p><strong>wait方法只能在一个同步方法中调用</strong>。如果当前线程不是对象锁的持有者，该方法抛出一个IllegalMonitorStateException异常。</p>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>Thread.sleep(long millis),<strong>必须带有一个时间参数</strong>。</p>
+<p> sleep(long millis)使当前线程进入停滞状态，所以执行sleep()的线程<strong>在指定的时间内肯定不会被执行</strong>。</p>
+<p> sleep(long millis)可能使<strong>任意优先级</strong>的其他线程得到执行机会。</p>
+<p>sleep(long millis)<strong>不会释放锁</strong>。</p>
+<p>调用sleep方法的线程在唤醒之后<strong>不保证</strong>能获取到CPU，它会先进入就绪态，与其他线程<strong>竞争CPU</strong>。</p>
+<h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
+<p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
+<p>yield方法也<strong>不会释放锁</strong>。</p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
- 
-区别
-Comparator位于java.util包下，而Comparable位于java.lang包下
-Comparable接口的实现是在类的内部（如 String、In......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
-        </p>
       
     </div>
     <footer class="article-footer">
@@ -709,7 +700,7 @@ Comparable接口的实现是在类的内部（如 String、In......  -->
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/">下一页 &raquo;</a>
   </nav>
 
 </section>

@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中四种引用"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+      <a class="article-title" href="/2017/03/11/Java中四种引用/">Java中四种引用</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	<a href="/2017/03/11/Java中四种引用/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -186,15 +186,19 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先看看System.arraycopy()的声明：</p>
-<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
-</code></pre>
-        <!-- 先看看System.arraycopy()的声明：
-public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+        <blockquote>
+<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
+</blockquote>
+        <!-- 
+为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
 
-src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+ 
+
+强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
+
+软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
         </p>
       
     </div>
@@ -451,7 +455,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中wait、sleep和yield的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Python日志模块示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -459,7 +463,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
+      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
     </h1>
   
 
@@ -467,42 +471,32 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中wait、sleep和yield的区别/" class="article-date">
+	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
-<p>本质上，wait方法是用来让线程<strong>等待某个条件</strong>，进入该条件的等待集中。而sleep和yield方法是用来让线程<strong>让出CPU时间</strong>，把CPU交给线程调度器，使得其他线程能获得CPU时间。</p>
-<p>接下来详细比较三个方法。</p>
-<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p>常用的wait方法有<strong>wait( )</strong>和<strong>wait(long timeout)</strong></p>
-<p>wait( )方法导致当前线程进入等待状态直到它被通知（其他线程调用notify或notifyAll方法。notify/notifyAll方法解除等待线程的阻塞状态）。    </p>
-<p>wait(long timeout) 方法导致当前线程进入等待状态直到它被通知或者经过指定的时间。</p>
-<p> <strong>wait( )后，线程会释放掉它所占有的对象的锁</strong>，从而使线程所在对象中的其它synchronized数据可被别的线程使用。</p>
-<p><strong>wait方法只能在一个同步方法中调用</strong>。如果当前线程不是对象锁的持有者，该方法抛出一个IllegalMonitorStateException异常。</p>
-<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>Thread.sleep(long millis),<strong>必须带有一个时间参数</strong>。</p>
-<p> sleep(long millis)使当前线程进入停滞状态，所以执行sleep()的线程<strong>在指定的时间内肯定不会被执行</strong>。</p>
-<p> sleep(long millis)可能使<strong>任意优先级</strong>的其他线程得到执行机会。</p>
-<p>sleep(long millis)<strong>不会释放锁</strong>。</p>
-<p>调用sleep方法的线程在唤醒之后<strong>不保证</strong>能获取到CPU，它会先进入就绪态，与其他线程<strong>竞争CPU</strong>。</p>
-<h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
-<p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
-<p>yield方法也<strong>不会释放锁</strong>。</p>
-<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+        <p>给出Python日志模块显示配置和文件配置两种方式的示例</p>
+        <!-- 给出Python日志模块显示配置和文件配置两种方式的示例
 
+显示配置在程序中直接调用函数来设置参数
+#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的h......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -512,7 +506,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Python用yield生成杨辉三角"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -520,7 +514,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+      <a class="article-title" href="/2017/02/16/Python用yield生成杨辉三角/">Python用yield生成杨辉三角</a>
     </h1>
   
 
@@ -528,23 +522,24 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2017/02/16/Python用yield生成杨辉三角/" class="article-date">
+	  <time datetime="2017-02-15T16:00:00.000Z" itemprop="datePublished">2017-02-16</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
-        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
+        <p>so funny</p>
+        <!-- so funny
 
-摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
+代码：
+def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.append(0)    line = [line[i-1] + line[i] for i in range(len(line))]    n += 1for line in triangles():  pri......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+          <a href="/2017/02/16/Python用yield生成杨辉三角/#more">阅读全文</a>
         </p>
       
     </div>
@@ -552,7 +547,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -562,7 +557,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hive on Spark调优"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -570,7 +565,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2016/11/30/Hive on Spark调优/">Hive on Spark调优</a>
     </h1>
   
 
@@ -578,23 +573,24 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2016/11/30/Hive on Spark调优/" class="article-date">
+	  <time datetime="2016-11-29T16:00:00.000Z" itemprop="datePublished">2016-11-30</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
-        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+        <p>之前在<code>Hive on Spark</code>跑<code>TPCx-BB</code>测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    <code>POWER_TEST</code>阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。</p>
+        <!-- 之前在Hive on Spark跑TPCx-BB测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    POWER_TEST阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。
 
-代码结构主目录（$BENCH......  -->
+Spark作业运行原理
+详细原理见上图。我们使用spark-submit提交一个Spark......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2016/11/30/Hive on Spark调优/#more">阅读全文</a>
         </p>
       
     </div>
@@ -602,7 +598,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -612,7 +608,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中四种引用"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hive on Spark安装配置详解"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -620,7 +616,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中四种引用/">Java中四种引用</a>
+      <a class="article-title" href="/2016/10/10/Hive on Spark安装配置详解/">Hive on Spark安装配置详解</a>
     </h1>
   
 
@@ -628,30 +624,23 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中四种引用/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2016/10/10/Hive on Spark安装配置详解/" class="article-date">
+	  <time datetime="2016-10-09T16:00:00.000Z" itemprop="datePublished">2016-10-10</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
-</blockquote>
-        <!-- 
-为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。</p>
+        <!-- 简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
 
- 
-
-强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
-
-软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
+背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduce......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
+          <a href="/2016/10/10/Hive on Spark安装配置详解/#more">阅读全文</a>
         </p>
       
     </div>
@@ -659,58 +648,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-未命名文件夹/计算糖果"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/未命名文件夹/计算糖果/">计算糖果</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/未命名文件夹/计算糖果/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>A,B,C三个人是好朋友,每个人手里都有一些糖果,我们不知道他们每个人手上具体有多少个糖果,但是我们知道以下的信息：<br>A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有的糖果数.<br>现在需要通过这四个数值计算出每个人手里有多少个糖果,即A,B,C。这里保证最多只有一组整数A,B,C满足所有题设条件。 </p>
-        <!-- A,B,C三个人是好朋友,每个人手里都有一些糖果,我们不知道他们每个人手上具体有多少个糖果,但是我们知道以下的信息：A - B, B - C, A + B, B + C. 这四个数值.每个字母代表每个人所拥有的糖果数.现在需要通过这四个数值计算出每个人手里有多少个糖果,即A,B,C。这里保证最多只有一组整数A,B,C满足所有题设条件。 
-
-输入描述:
-输入为一行，一共4个整数，分别为A - ......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/未命名文件夹/计算糖果/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -724,7 +662,7 @@ C &amp; C++
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
   </nav>
 
 </section>

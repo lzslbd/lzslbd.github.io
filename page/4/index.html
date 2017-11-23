@@ -210,7 +210,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -218,7 +218,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java I:O总结/">Java I/O 总结</a>
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
     </h1>
   
 
@@ -226,23 +226,23 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java I:O总结/" class="article-date">
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
-        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
+        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
+        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
 
-数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
+代码结构主目录（$BENCH......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
         </p>
       
     </div>
@@ -250,7 +250,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -311,7 +311,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 7新机制之自动关闭资源——try-with-resources"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -319,7 +319,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
     </h1>
   
 
@@ -327,21 +327,24 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
+        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
+
+如下：
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
       
     </div>
@@ -349,58 +352,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Python日志模块示例"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给出Python日志模块显示配置和文件配置两种方式的示例</p>
-        <!-- 给出Python日志模块显示配置和文件配置两种方式的示例
-
-显示配置在程序中直接调用函数来设置参数
-#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的h......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -461,7 +413,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-未命名文件夹/跳台阶"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 中定义常量的几种方法"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -469,7 +421,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/未命名文件夹/跳台阶/">跳台阶</a>
+      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
     </h1>
   
 
@@ -477,29 +429,33 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/未命名文件夹/跳台阶/" class="article-date">
+	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
-<p><strong>分析</strong></p>
-<p>其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。</p>
-<p><strong>代码:</strong></p>
-        <!-- 一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
-分析
-其实这题跟斐波那契数列那题一模一样。这里用递归搞定就好。
-代码:
+        <p>主要有三种：接口、类和枚举。</p>
+        <!-- 主要有三种：接口、类和枚举。
 
-public class Solution &#123;    public int JumpFloor(int target) &#123;        if(target &lt;= 2)            retur......  -->
+接口：
+
+在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
+类实现该接口即可在类中调用该常量
+
+类：
+直接用 public static final 定义常量。
+枚举：
+在枚举类中直接写上常量值。
+示例：
+public class ConstTest &#123;    public static void mai......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/未命名文件夹/跳台阶/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
       
     </div>
@@ -507,7 +463,57 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
+        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
+
+摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
 
     </footer>
   </div>
@@ -617,7 +623,7 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
 <!-- Table of Contents -->
 
   
-    <article id="post-未命名文件夹/链表中倒数第k个节点"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 关键字 static 、final 总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -625,7 +631,7 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/未命名文件夹/链表中倒数第k个节点/">链表中倒数第k个节点</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -633,31 +639,26 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/未命名文件夹/链表中倒数第k个节点/" class="article-date">
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>输入一个链表，输出该链表中倒数第k个结点。</p>
-<p><strong>分析</strong></p>
-<p>两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-输入一个链表，输出该链表中倒数第k个结点。
-分析
-两个节点p和q，刚开始都指向头结点。q先走k-1步，然后p、q一起走。当q走到尾节点时，p刚好在倒数第k个结点。
-代码:
+        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
+        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
-/*public class ListNode &#123;    int val;    ListNode next = null;    ListNode(int val) &#123;        th......  -->
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+stat......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/未命名文件夹/链表中倒数第k个节点/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -665,7 +666,7 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -679,7 +680,7 @@ public class Solution &#123;    public int JumpFloor(int target) &#123;        i
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
   </nav>
 
 </section>

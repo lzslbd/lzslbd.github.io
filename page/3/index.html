@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Python函数式编程"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/15/Python函数式编程/">Python函数式编程</a>
+      <a class="article-title" href="/2017/03/11/Java I:O总结/">Java I/O 总结</a>
     </h1>
   
 
@@ -175,23 +175,23 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/15/Python函数式编程/" class="article-date">
-	  <time datetime="2017-03-15T08:24:20.000Z" itemprop="datePublished">2017-03-15</time>
+	<a href="/2017/03/11/Java I:O总结/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。</p>
-        <!-- 虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。
+        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
+        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
 
-匿名函数Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表达......  -->
+数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
         <p class="article-more-link">
-          <a href="/2017/03/15/Python函数式编程/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -199,7 +199,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -209,7 +209,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-未命名文件夹/链表中环的入口"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hive安装配置文档"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -217,7 +217,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/未命名文件夹/链表中环的入口/">链表中环的入口节点</a>
+      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
     </h1>
   
 
@@ -225,36 +225,24 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/未命名文件夹/链表中环的入口/" class="article-date">
+	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>题目描述</strong></p>
-<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
-<p><strong>分析</strong></p>
-<p>两种思路</p>
-<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
-<p>思路二：两个指针。具体分析见代码注释。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-一个链表中包含环，请找出该链表的环的入口节点。
-分析
-两种思路
-思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
-思路二：两个指针。具体分析见代码注释。
-代码:
+        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
+        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
 
-用HashSet（取巧）
-import java.util.*;public class Solution &#123;    public ListNode......  -->
+网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
+......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/未命名文件夹/链表中环的入口/#more">阅读全文</a>
+          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
         </p>
       
     </div>
@@ -262,7 +250,7 @@ import java.util.*;public class Solution &#123;    public ListNode......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -376,7 +364,7 @@ import java.io.......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java 7新机制之自动关闭资源——try-with-resources"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -384,7 +372,7 @@ import java.io.......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
+      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
     </h1>
   
 
@@ -392,7 +380,7 @@ import java.io.......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
+	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -403,13 +391,12 @@ import java.io.......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
-        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
+        <p>给出几个Java I/O 操作的示例代码。</p>
+        <!-- 给出几个Java I/O 操作的示例代码。
 
-如下：
-BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -636,7 +623,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Git常用命令"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -644,7 +631,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
+      <a class="article-title" href="/2017/03/11/Git常用命令/">Git常用命令</a>
     </h1>
   
 
@@ -652,23 +639,56 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
+	<a href="/2017/03/11/Git常用命令/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/编程工具/">编程工具</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给出几个Java I/O 操作的示例代码。</p>
-        <!-- 给出几个Java I/O 操作的示例代码。
+        <p>记录 Git 常用的命令。</p>
+        <!-- 记录 Git 常用的命令。
 
-创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
+
+
+
+命令
+说明
+
+
+
+
+git init
+初始化git仓库
+
+
+git add filename
+将文件添加到暂存区
+
+
+git commit -m “blablabla…”
+提交到本地仓库
+
+
+git push origin master
+将本地master分支推到远程
+
+
+git status
+查看那些文件被修改过
+
+
+git diff
+查看修改内容
+
+
+......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
+          <a href="/2017/03/11/Git常用命令/#more">阅读全文</a>
         </p>
       
     </div>
@@ -676,7 +696,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 
     </footer>
   </div>
@@ -690,7 +710,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
   </nav>
 
 </section>
