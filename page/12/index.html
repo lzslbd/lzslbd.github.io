@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-数组中只出现一次的数字II"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-未命名文件夹/左旋转字符串"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/数组中只出现一次的数字II/">数组中只出现一次的数字II</a>
+      <a class="article-title" href="/2017/03/11/未命名文件夹/左旋转字符串/">左旋转字符串</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/数组中只出现一次的数字II/" class="article-date">
+	<a href="/2017/03/11/未命名文件夹/左旋转字符串/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -187,129 +187,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>题目描述</strong></p>
-<p>一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。</p>
+<p>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！</p>
 <p><strong>分析</strong></p>
-<p>本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?<br>设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。<br>但是仅仅是通过最后异或出来的值，是没办法区分出x和y的，但是足以帮助我们把 x和y划分到不同的子数组中去。</p>
+<p>确实很简单，一行代码搞定它！</p>
 <p><strong>代码:</strong></p>
         <!-- 题目描述
-一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
+汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
 分析
-本题是有两个未知数，是”Single Number”这道题的扩展，直接做异或肯定是不行的。有没有办法把两个未知数分开，使得可以分别应用Single Number的解法呢?设x,y是那两个未知数，那么如果对这个数组做异或的话，结果实质上等于x^y，因为其他数都出现了两次，被抵消了。但是......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/数组中只出现一次的数字II/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-数组中重复的数字"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/数组中重复的数字/">数组中重复的数字</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/数组中重复的数字/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。</p>
-<p><strong>分析</strong></p>
-<p>新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如果arr[numbers[i]] == true，说明numbers[i]重复了。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-在一个长度为n的数组里的所有数字都在0到n-1的范围内。 数组中某些数字是重复的，但不知道有几个数字是重复的。也不知道每个数字重复几次。请找出数组中任意一个重复的数字。 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是重复的数字2或者3。
-分析
-新建一个boolean数组arr，遍历numbers数组，并令arr[numbers[i]] = true。如......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/数组中重复的数字/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-整数中1出现的次数（从1到n整数中1出现的次数）"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/整数中1出现的次数（从1到n整数中1出现的次数）/">整数中1出现的次数（从1到n整数中1出现的次数）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/整数中1出现的次数（从1到n整数中1出现的次数）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>题目描述</strong></p>
-<p>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。</p>
-<p><strong>分析</strong></p>
-<p>将每个数组转成字符串，算出每个字符串里的“1”的个数。</p>
-<p><strong>代码:</strong></p>
-        <!-- 题目描述
-求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。
-分析
-将每个数组转成字符串，算出每个字符串里的“1”的个数。
+确实很简单，一行代码搞定它！
 代码:
 
-public class S......  -->
+public class Solution &......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/整数中1出现的次数（从1到n整数中1出现的次数）/#more">阅读全文</a>
+          <a href="/2017/03/11/未命名文件夹/左旋转字符串/#more">阅读全文</a>
         </p>
       
     </div>
@@ -327,7 +217,7 @@ public class S......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-斐波那契数列"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-未命名文件夹/构建乘积数组"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -335,7 +225,7 @@ public class S......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/斐波那契数列/">斐波那契数列</a>
+      <a class="article-title" href="/2017/03/11/未命名文件夹/构建乘积数组/">构建乘积数组</a>
     </h1>
   
 
@@ -343,357 +233,7 @@ public class S......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/斐波那契数列/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。<br>n&lt;=39</p>
-<p><strong>分析</strong></p>
-<p>不要用递归！！！</p>
-<p><strong>代码:</strong></p>
-        <!-- 大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。n&lt;=39
-分析
-不要用递归！！！
-代码:
-
-public class Solution &#123;    public int Fibonacci(int n) &#123;        int first = 0,second = 1,result = 0......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/斐波那契数列/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-程序员资料大全"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/程序员资料大全/">程序员资料大全</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/程序员资料大全/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>活到老，学到老。</p>
-        <!-- 活到老，学到老。
-
-本文由stanzhai整理。
-目录
-
-
-资料篇
-技术站点
-必看书籍
-大牛博客
-GitHub篇
-
-
-工具篇
-平台工具
-常用工具
-第三方服务
-爬虫相关(好玩的工具)
-安全相关
-Web服务器性能/压力测试工具/负载均衡器
-
-
-大数据处理/数据分析/分布式工具
-Web前端
-语言篇
-Scala
-Java
-Python
-Swift
-.NET
-C &amp; C++
-
-
-其他
-游戏开发......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/程序员资料大全/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/好文转载/">好文转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-替换空格"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/替换空格/">替换空格</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/替换空格/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
-<p><strong>分析</strong></p>
-<p>这道题有很多种方法，最简单的是直接调用String的replace方法</p>
-<p><strong>代码:</strong></p>
-        <!-- 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
-分析
-这道题有很多种方法，最简单的是直接调用String的replace方法
-代码:
-
-public class Solution &#123;    public String replaceSpace(StringBuffer str......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/替换空格/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-有趣的Pythonic写法"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/有趣的Pythonic写法/">有趣的Pythonic写法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/有趣的Pythonic写法/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。</p>
-        <!-- Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。
-
-变量替换普通写法
-a = 10b = 20tmp = aa = bb = tmp
-pythonic
-a, b = b, a
-遍历区间元素比如打印 1 3 5 7 9
-其他语言，如 Java：
-for (int i = 1; i &lt; 10; i += 2)     Sys......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/有趣的Pythonic写法/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-机器学习"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/机器学习/">机器学习笔记（持续更新）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/机器学习/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
-        <!-- 
-任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
-“奥卡姆剃刀”原则：如无必要，勿增实体 Entities should not be multiplied unnecessarily
-NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某些......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/机器学习/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-构建乘积数组"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/构建乘积数组/">构建乘积数组</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/构建乘积数组/" class="article-date">
+	<a href="/2017/03/11/未命名文件夹/构建乘积数组/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -717,7 +257,457 @@ NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某�
 
 import java.util.ArrayList;public class Solut......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/构建乘积数组/#more">阅读全文</a>
+          <a href="/2017/03/11/未命名文件夹/构建乘积数组/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/机器学习"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/机器学习/">机器学习笔记（持续更新）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/机器学习/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
+        <!-- 
+任何一个有效的机器学习算法必须有一个归纳偏好（bias），否则无法产生确定的学习结果  bias的大小决定学习算法尽可能特殊或尽可能一般 可用“奥卡姆剃刀”原则来选择bias
+“奥卡姆剃刀”原则：如无必要，勿增实体 Entities should not be multiplied unnecessarily
+NFL（No Free Lunch)原理：在某些问题上算法A比B好，必定存在某些......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/机器学习/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/有趣的Pythonic写法"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/有趣的Pythonic写法/">有趣的Pythonic写法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/有趣的Pythonic写法/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。</p>
+        <!-- Python 这门编程语言最大的特点就是简单易用。本文列举一些典型的 Pythonic （优雅、地道、简洁）写法。
+
+变量替换普通写法
+a = 10b = 20tmp = aa = bb = tmp
+pythonic
+a, b = b, a
+遍历区间元素比如打印 1 3 5 7 9
+其他语言，如 Java：
+for (int i = 1; i &lt; 10; i += 2)     Sys......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/有趣的Pythonic写法/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/替换空格"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/替换空格/">替换空格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/替换空格/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。</p>
+<p><strong>分析</strong></p>
+<p>这道题有很多种方法，最简单的是直接调用String的replace方法</p>
+<p><strong>代码:</strong></p>
+        <!-- 请实现一个函数，将一个字符串中的空格替换成“%20”。例如，当字符串为We Are Happy.则经过替换之后的字符串为We%20Are%20Happy。
+分析
+这道题有很多种方法，最简单的是直接调用String的replace方法
+代码:
+
+public class Solution &#123;    public String replaceSpace(StringBuffer str......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/替换空格/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/把数组排成最小的数"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/把数组排成最小的数/">把数组排成最小的数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/把数组排成最小的数/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。</p>
+<p><strong>分析</strong></p>
+<p>先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。</p>
+<p>排序规则如下：<br>若ab &gt; ba 则 a &gt; b，<br>若ab &lt; ba 则 a &lt; b，<br>若ab = ba 则 a = b；</p>
+<p>解释说明：比如 “3” &lt; “31”但是 “331” &gt; “313”，所以要将二者拼接起来进行比较</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。
+分析
+先将整型数组转换成String数组，然后将String数组排序，最后将排好序的字符串数组拼接出来。关键就是制定排序规则。
+排序规则如下：若ab &gt; ba 则 a &gt; b，若ab &lt; ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/把数组排成最小的数/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/斐波那契数列"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/斐波那契数列/">斐波那契数列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/斐波那契数列/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。<br>n&lt;=39</p>
+<p><strong>分析</strong></p>
+<p>不要用递归！！！</p>
+<p><strong>代码:</strong></p>
+        <!-- 大家都知道斐波那契数列(0,1,1,2,3,5….)，现在要求输入一个整数n，请你输出斐波那契数列的第n项。第一项下标为0。n&lt;=39
+分析
+不要用递归！！！
+代码:
+
+public class Solution &#123;    public int Fibonacci(int n) &#123;        int first = 0,second = 1,result = 0......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/斐波那契数列/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/数值的整数次方"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/数值的整数次方/">数值的整数次方</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/数值的整数次方/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</p>
+<p><strong>分析</strong></p>
+<p>题目比较简单，主要注意指数是负数的情况。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+分析
+题目比较简单，主要注意指数是负数的情况。
+代码:
+
+public class Solution &#123;    public double Power(double base, int exponent) &#123;	int x = Math.abs(expo......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/数值的整数次方/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/整数中1出现的次数（从1到n整数中1出现的次数）"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/整数中1出现的次数（从1到n整数中1出现的次数）/">整数中1出现的次数（从1到n整数中1出现的次数）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/整数中1出现的次数（从1到n整数中1出现的次数）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>题目描述</strong></p>
+<p>求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。</p>
+<p><strong>分析</strong></p>
+<p>将每个数组转成字符串，算出每个字符串里的“1”的个数。</p>
+<p><strong>代码:</strong></p>
+        <!-- 题目描述
+求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。
+分析
+将每个数组转成字符串，算出每个字符串里的“1”的个数。
+代码:
+
+public class S......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/整数中1出现的次数（从1到n整数中1出现的次数）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-未命名文件夹/数组中出现次数超过一半的数字"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/未命名文件夹/数组中出现次数超过一半的数字/">数组中出现次数超过一半的数字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/未命名文件夹/数组中出现次数超过一半的数字/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
+<p><strong>分析</strong></p>
+<p>用HashMap，key为数组中的数字，value为该数字在数组中出现的次数。边put边计算当前该数字的次数，若超过数组长度的一半直接返回。最后返回0。</p>
+<p><strong>代码:</strong></p>
+        <!-- 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
+分析
+用HashMap，key为数组中的数字，value为该数字在数组中出现的次数。边put边计算当前该数字的次数，若超过数组长度的一半直接返回。最后返回0。
+代码:
+
+import......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/未命名文件夹/数组中出现次数超过一半的数字/#more">阅读全文</a>
         </p>
       
     </div>

@@ -209,7 +209,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-从尾到头打印链表"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-未命名文件夹/链表中环的入口"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -217,7 +217,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/从尾到头打印链表/">从尾到头打印链表</a>
+      <a class="article-title" href="/2017/03/11/未命名文件夹/链表中环的入口/">链表中环的入口节点</a>
     </h1>
   
 
@@ -225,7 +225,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/从尾到头打印链表/" class="article-date">
+	<a href="/2017/03/11/未命名文件夹/链表中环的入口/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -236,18 +236,25 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>输入一个链表，从尾到头打印链表每个节点的值。</p>
+        <p><strong>题目描述</strong></p>
+<p>一个链表中包含环，请找出该链表的环的入口节点。</p>
 <p><strong>分析</strong></p>
-<p>将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。</p>
+<p>两种思路</p>
+<p>思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。</p>
+<p>思路二：两个指针。具体分析见代码注释。</p>
 <p><strong>代码:</strong></p>
-        <!-- 输入一个链表，从尾到头打印链表每个节点的值。
+        <!-- 题目描述
+一个链表中包含环，请找出该链表的环的入口节点。
 分析
-将每个node的值一次放入栈中。新建一个list，将出栈元素依次加入该list中。
+两种思路
+思路一：创建一个set，依次往set里添加节点。第二次到环的入口节点时，由于重复了，无法添加成功，返回该节点。
+思路二：两个指针。具体分析见代码注释。
 代码:
 
-/***    public class ListNode &#123;*        int val;*        ListNode next = null;**        ListNode(int val) &#123;*      ......  -->
+用HashSet（取巧）
+import java.util.*;public class Solution &#123;    public ListNode......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/从尾到头打印链表/#more">阅读全文</a>
+          <a href="/2017/03/11/未命名文件夹/链表中环的入口/#more">阅读全文</a>
         </p>
       
     </div>
@@ -256,57 +263,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
-
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -420,7 +376,7 @@ import java.io.......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[102] Binary Tree Level Order Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java 7新机制之自动关闭资源——try-with-resources"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -428,7 +384,7 @@ import java.io.......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[102] Binary Tree Level Order Traversal/">LeetCode[102] Binary Tree Level Order Traversal</a>
+      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
     </h1>
   
 
@@ -436,24 +392,24 @@ import java.io.......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/LeetCode[102] Binary Tree Level Order Traversal/" class="article-date">
+	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
-        <!-- Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).
+        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
+        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
 
-For example:Given binary tree [3,9,20,null,null,15,7],
-  3 / \9  20  /  \ 15  ......  -->
+如下：
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nul......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[102] Binary Tree Level Order Traversal/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
       
     </div>
@@ -461,7 +417,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -471,7 +427,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
 <!-- Table of Contents -->
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Phoenix安装配置"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -479,7 +435,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
     </h1>
   
 
@@ -487,23 +443,25 @@ For example:Given binary tree [3,9,20,null,null,15,7],
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
-        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
+        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
 
-代码结构主目录（$BENCH......  -->
+1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
+因此Phoenix跟HBase是离不开的，Phoenix......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
         </p>
       
     </div>
@@ -511,7 +469,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -521,7 +479,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[136] Single Number"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Phoenix文档"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -529,7 +487,7 @@ For example:Given binary tree [3,9,20,null,null,15,7],
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[136] Single Number/">LeetCode[136] Single Number</a>
+      <a class="article-title" href="/2017/03/11/Phoenix文档/">Phoenix综述（SQL on HBase）</a>
     </h1>
   
 
@@ -537,26 +495,27 @@ For example:Given binary tree [3,9,20,null,null,15,7],
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/LeetCode[136] Single Number/" class="article-date">
+	<a href="/2017/03/11/Phoenix文档/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given an array of integers, every element appears twice except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p><strong>思路:</strong></p>
-<p>直接用异或搞定，简单粗暴效率高。</p>
-<p><strong>代码:</strong></p>
-        <!-- Given an array of integers, every element appears twice except for one. Find that single one.
-Note:Your algorithm should have a linear runtime complexity. Could you implement it without using extra......  -->
+        <h2 id="1-Phoenix概述"><a href="#1-Phoenix概述" class="headerlink" title="1. Phoenix概述"></a>1. Phoenix概述</h2><p>Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。</p>
+        <!-- 1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
+
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。
+
+put the SQL back in NoSQL
+
+Phoenix完全使用Java编写，作为HBase内嵌的J......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[136] Single Number/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix文档/#more">阅读全文</a>
         </p>
       
     </div>
@@ -564,7 +523,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -574,7 +533,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[137] Single Number II"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Phoenix查询测试经验总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -582,7 +541,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[137] Single Number II/">LeetCode[137] Single Number II</a>
+      <a class="article-title" href="/2017/03/11/Phoenix查询测试经验总结/">Phoenix查询经验总结</a>
     </h1>
   
 
@@ -590,26 +549,24 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/LeetCode[137] Single Number II/" class="article-date">
+	<a href="/2017/03/11/Phoenix查询测试经验总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given an array of integers, every element appears three times except for one. Find that single one.</p>
-<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
-<p><strong>思路:</strong></p>
-<p>创建一个sizeof(int)长度的数组，count[sizeof(int)],count[i]表示在i位出现的1的次数。如果count[i]是3的倍数，则忽略；否则取出来组成result。</p>
-<p><strong>代码:</strong></p>
-        <!-- Given an array of integers, every element appears three times except for one. Find that single one.
-Note:Your algorithm should have a linear runtime complexity. Could you implement it without using......  -->
+        <p>适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。</p>
+        <!-- 适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。
+
+1. 背景适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，在此记录下来。
+2. 问题及解决2.1. 创建索引时报错，报错如下：//创......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[137] Single Number II/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix查询测试经验总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -617,7 +574,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -627,7 +584,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
 <!-- Table of Contents -->
 
   
-    <article id="post-LeetCode[144] Binary Tree Preorder Traversal"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -635,7 +592,7 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/">LeetCode[144] Binary Tree Preorder Traversal</a>
+      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
     </h1>
   
 
@@ -643,33 +600,25 @@ Note:Your algorithm should have a linear runtime complexity. Could you implement
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/" class="article-date">
+	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a><a class="article-category-link" href="/categories/数据结构与算法/编程题/">编程题</a>
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Given a binary tree, return the preorder traversal of its nodes’ values.</p>
-        <!-- Given a binary tree, return the preorder traversal of its nodes’ values.
+        <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
+<p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
+        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
 
-For example:Given binary tree {1,#,2,3},
-1 \  2 /3
-return [1,2,3].
-分析:
-两种种方法：
-
-递归法
- 递归是最简单的。
-
-迭代法
- 迭代法使用一个栈来保存每个节点的右节点。列表 r......  -->
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region s......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/LeetCode[144] Binary Tree Preorder Traversal/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
         </p>
       
     </div>
@@ -677,7 +626,57 @@ return [1,2,3].
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程题/">编程题</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java I:O 操作示例"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给出几个Java I/O 操作的示例代码。</p>
+        <!-- 给出几个Java I/O 操作的示例代码。
+
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");     ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
