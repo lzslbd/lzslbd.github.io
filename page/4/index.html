@@ -242,7 +242,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-分布式系统的问题"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -250,7 +250,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式系统的问题/">分布式系统的问题</a>
+      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
     </h1>
   
 
@@ -258,28 +258,24 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式系统的问题/" class="article-date">
+	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。</p>
-</blockquote>
-        <!-- 
-本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。
+        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
+        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
 
-
-近几章主要介绍系统如何处理错误。例如，我们讨论了副本故障转移，复制滞后和事务的并发控制。当我们理解实际系统中可能出现的各种边界情况时，我们就能更好地处理它们。
-前几章虽然谈论了很多关于错误的问题，但是还是太乐观了。在本章中，我们将最悲观地假设“任何可能出故障的，最终都会出故障”。......  -->
+内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
+那么，如何将一......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式系统的问题/#more">阅读全文</a>
+          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
         </p>
       
     </div>
@@ -287,7 +283,7 @@ git diff
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -348,7 +344,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中四种引用"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -356,7 +352,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
+      <a class="article-title" href="/2017/03/11/Java中四种引用/">Java中四种引用</a>
     </h1>
   
 
@@ -364,7 +360,7 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
+	<a href="/2017/03/11/Java中四种引用/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -375,13 +371,19 @@ git diff
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
+        <blockquote>
+<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
+</blockquote>
+        <!-- 
+为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
 
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一......  -->
+ 
+
+强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
+
+软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
         </p>
       
     </div>
@@ -450,7 +452,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中Comparable与Comparator的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -458,7 +460,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
     </h1>
   
 
@@ -466,23 +468,33 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。</p>
-        <!-- TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
+<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
+<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
+<li>Comparable和Comparator都是Java的接口</li>
+</ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
 
-代码结构主目录（$BENCH......  -->
+ 
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、In......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -490,7 +502,7 @@ git diff
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TPCx-BB/">TPCx-BB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基准测试/">基准测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -500,7 +512,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -508,7 +520,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -516,23 +528,21 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：<a href="http://linbingdong.com/2016/12/30/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E2%80%94%E2%80%94Paxos%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A8%E5%AF%BC/">分布式系列文章——Paxos算法原理与推导</a></p>
-        <!-- Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
-
-摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 mu......  -->
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
       
     </div>
@@ -540,7 +550,7 @@ git diff
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raft/">Raft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式一致性算法/">分布式一致性算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/论文翻译/">论文翻译</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
 
     </footer>
   </div>
@@ -600,7 +610,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-ZeroMQ初探"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java中wait、sleep和yield的区别"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -608,7 +618,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/ZeroMQ初探/">ZeroMQ初探</a>
+      <a class="article-title" href="/2017/03/11/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
     </h1>
   
 
@@ -616,31 +626,42 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/ZeroMQ初探/" class="article-date">
+	<a href="/2017/03/11/Java中wait、sleep和yield的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/ZeroMQ/">ZeroMQ</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。</p>
-        <!-- ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。
+        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
+<p>本质上，wait方法是用来让线程<strong>等待某个条件</strong>，进入该条件的等待集中。而sleep和yield方法是用来让线程<strong>让出CPU时间</strong>，把CPU交给线程调度器，使得其他线程能获得CPU时间。</p>
+<p>接下来详细比较三个方法。</p>
+<h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p>常用的wait方法有<strong>wait( )</strong>和<strong>wait(long timeout)</strong></p>
+<p>wait( )方法导致当前线程进入等待状态直到它被通知（其他线程调用notify或notifyAll方法。notify/notifyAll方法解除等待线程的阻塞状态）。    </p>
+<p>wait(long timeout) 方法导致当前线程进入等待状态直到它被通知或者经过指定的时间。</p>
+<p> <strong>wait( )后，线程会释放掉它所占有的对象的锁</strong>，从而使线程所在对象中的其它synchronized数据可被别的线程使用。</p>
+<p><strong>wait方法只能在一个同步方法中调用</strong>。如果当前线程不是对象锁的持有者，该方法抛出一个IllegalMonitorStateException异常。</p>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><p>Thread.sleep(long millis),<strong>必须带有一个时间参数</strong>。</p>
+<p> sleep(long millis)使当前线程进入停滞状态，所以执行sleep()的线程<strong>在指定的时间内肯定不会被执行</strong>。</p>
+<p> sleep(long millis)可能使<strong>任意优先级</strong>的其他线程得到执行机会。</p>
+<p>sleep(long millis)<strong>不会释放锁</strong>。</p>
+<p>调用sleep方法的线程在唤醒之后<strong>不保证</strong>能获取到CPU，它会先进入就绪态，与其他线程<strong>竞争CPU</strong>。</p>
+<h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
+<p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
+<p>yield方法也<strong>不会释放锁</strong>。</p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
-概述ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N ......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/ZeroMQ初探/#more">阅读全文</a>
-        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket编程/">Socket编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZeroMQ/">ZeroMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息队列/">消息队列</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -650,7 +671,7 @@ git diff
 <!-- Table of Contents -->
 
   
-    <article id="post-Hive安装配置文档"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java I:O总结"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -658,7 +679,7 @@ git diff
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+      <a class="article-title" href="/2017/03/11/Java I:O总结/">Java I/O 总结</a>
     </h1>
   
 
@@ -666,24 +687,23 @@ git diff
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
+	<a href="/2017/03/11/Java I:O总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
-        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
+        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
 
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
-......  -->
+数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -691,7 +711,7 @@ git diff
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
