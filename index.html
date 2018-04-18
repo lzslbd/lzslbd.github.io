@@ -259,7 +259,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
 <!-- Table of Contents -->
 
   
-    <article id="post-Java回调机制"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java NIO示例"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -267,7 +267,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/13/Java回调机制/">Java回调机制</a>
+      <a class="article-title" href="/2017/11/13/Java NIO示例/">Java NIO示例</a>
     </h1>
   
 
@@ -275,7 +275,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     
     <div class="article-meta">
       
-	<a href="/2017/11/13/Java回调机制/" class="article-date">
+	<a href="/2017/11/13/Java NIO示例/" class="article-date">
 	  <time datetime="2017-11-12T16:00:00.000Z" itemprop="datePublished">2017-11-13</time>
 	</a>
 
@@ -286,13 +286,15 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>对Java回调机制进行简单的介绍，并给出简单的示例。</p>
-        <!-- 对Java回调机制进行简单的介绍，并给出简单的示例。
+        <p>给出Java NIO的示例。包含客户端和服务端。</p>
+        <!-- 给出Java NIO的示例。包含客户端和服务端。
 
-什么是回调回调，即callback。简单来讲，回调就是A包含B，A的函数Af1调用B的函数Bf1，Bf1又调用A的另一个函数Af2。这个Af2是回调接口中的方法，即A实现了回调接口。那么，Bf1为什么能调用Af2呢，是因为A将自身作为参数传给了Bf1。回调一般用在异步调用中。
-举个通俗点的例子：A是Boss，B是worker。Boss让......  -->
+示例
+NIOServer.java
+
+import java.io.IOException;import java.net.InetSocketAddress;import java.nio.ByteBuffer;import java.nio.channels.SelectionKey;import java.nio.channels.S......  -->
         <p class="article-more-link">
-          <a href="/2017/11/13/Java回调机制/#more">阅读全文</a>
+          <a href="/2017/11/13/Java NIO示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -300,7 +302,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NIO/">NIO</a></li></ul>
 
     </footer>
   </div>
@@ -367,7 +369,7 @@ public class EchoServiceImpl imp......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java NIO示例"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Java回调机制"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -375,7 +377,7 @@ public class EchoServiceImpl imp......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/13/Java NIO示例/">Java NIO示例</a>
+      <a class="article-title" href="/2017/11/13/Java回调机制/">Java回调机制</a>
     </h1>
   
 
@@ -383,7 +385,7 @@ public class EchoServiceImpl imp......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/11/13/Java NIO示例/" class="article-date">
+	<a href="/2017/11/13/Java回调机制/" class="article-date">
 	  <time datetime="2017-11-12T16:00:00.000Z" itemprop="datePublished">2017-11-13</time>
 	</a>
 
@@ -394,66 +396,13 @@ public class EchoServiceImpl imp......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给出Java NIO的示例。包含客户端和服务端。</p>
-        <!-- 给出Java NIO的示例。包含客户端和服务端。
+        <p>对Java回调机制进行简单的介绍，并给出简单的示例。</p>
+        <!-- 对Java回调机制进行简单的介绍，并给出简单的示例。
 
-示例
-NIOServer.java
-
-import java.io.IOException;import java.net.InetSocketAddress;import java.nio.ByteBuffer;import java.nio.channels.SelectionKey;import java.nio.channels.S......  -->
+什么是回调回调，即callback。简单来讲，回调就是A包含B，A的函数Af1调用B的函数Bf1，Bf1又调用A的另一个函数Af2。这个Af2是回调接口中的方法，即A实现了回调接口。那么，Bf1为什么能调用Af2呢，是因为A将自身作为参数传给了Bf1。回调一般用在异步调用中。
+举个通俗点的例子：A是Boss，B是worker。Boss让......  -->
         <p class="article-more-link">
-          <a href="/2017/11/13/Java NIO示例/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NIO/">NIO</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java动态代理"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/11/12/Java动态代理/">Java动态代理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/11/12/Java动态代理/" class="article-date">
-	  <time datetime="2017-11-11T16:00:00.000Z" itemprop="datePublished">2017-11-12</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。</p>
-        <!-- 给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。
-
-示例
-import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;/** * DynamicProxyDemo */public class DynamicProxyDem......  -->
-        <p class="article-more-link">
-          <a href="/2017/11/12/Java动态代理/#more">阅读全文</a>
+          <a href="/2017/11/13/Java回调机制/#more">阅读全文</a>
         </p>
       
     </div>
@@ -515,6 +464,57 @@ import java.rmi.Remote;import java.rmi.RemoteException;/** * Created by lbd on 2
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RMI/">RMI</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java动态代理"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/11/12/Java动态代理/">Java动态代理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/11/12/Java动态代理/" class="article-date">
+	  <time datetime="2017-11-11T16:00:00.000Z" itemprop="datePublished">2017-11-12</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。</p>
+        <!-- 给出Java动态代理的示例，直接贴《Java编程思想》里的代码了。
+
+示例
+import java.lang.reflect.InvocationHandler;import java.lang.reflect.Method;import java.lang.reflect.Proxy;/** * DynamicProxyDemo */public class DynamicProxyDem......  -->
+        <p class="article-more-link">
+          <a href="/2017/11/12/Java动态代理/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -703,7 +703,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
 
   <div class="container">
       	<div class="row">
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2017 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2018 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -857,7 +857,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
             LBD&#39;s Blog
           </div>
           <div class="panel-body">
-            Copyright © 2017 LBD All Rights Reserved.
+            Copyright © 2018 LBD All Rights Reserved.
           </div>
         </div>
       </div>

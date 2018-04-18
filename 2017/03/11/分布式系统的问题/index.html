@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>分布式系统的问题 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="分布式系统" />
+  
+  
+  
+  
+  <meta name="description" content="本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分布式系统的问题">
+<meta property="og:url" content="http://linbingdong.com/2017/03/11/分布式系统的问题/index.html">
+<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:description" content="本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1752522-5d73a60621d1b78f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1752522-24120c1100abacf7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-18T03:29:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分布式系统的问题">
+<meta name="twitter:description" content="本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1752522-5d73a60621d1b78f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+</head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-分布式系统的问题" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      分布式系统的问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式系统的问题/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。</p>
+</blockquote>
+<a id="more"></a>
+<p>近几章主要介绍系统如何处理错误。例如，我们讨论了副本故障转移，复制滞后和事务的并发控制。当我们理解实际系统中可能出现的各种边界情况时，我们就能更好地处理它们。</p>
+<p>前几章虽然谈论了很多关于错误的问题，但是还是太乐观了。在本章中，我们将最悲观地假设“任何可能出故障的，最终都会出故障”。</p>
+<p>分布式系统编程与在单机上编写软件有本质区别——主要区别在于分布式系统中有很多新奇的可能出故障的方式。 本章中，我们将了解在实践中出现的问题，并了解哪些我们可以依赖，哪些不行。</p>
+<p>最后，作为工程师，我们的任务是构建能够完成工作的系统（即满足用户所期望的保证），尽管各个部件都出错了。 在第9章中，我们将看看可以在分布式系统中提供这种保证的算法的一些示例。 但首先，在本章中，我们必须了解我们面临的挑战。</p>
+<p>本章是对分布式系统中可能出现的问题的悲观和沮丧的概述。 我们将研究网络问题（第277页的“不可靠的网络”）; 时钟和时序问题（第287页上的“不可靠的时钟”）; 我们将讨论它们可以避免的程度。 所有这些问题造成的后果都会让人迷惑，因此我们将探讨如何思考分布式系统的状态以及如何推理已发生的事情（第300页的“知识，真相和谎言”）。</p>
+<h2 id="错误和部分故障"><a href="#错误和部分故障" class="headerlink" title="错误和部分故障"></a>错误和部分故障</h2><p>当你在单机上写程序时，它通常会以一种可预测的方式运行：要么正常工作，要么无法工作。有bug的软件可能会让人觉得电脑出问题了（通常重新启动就能解决问题），但大部分还是软件写得不好的后果。</p>
+<p>没有什么根本原因能让单机上的软件表现得奇怪：当硬件正常工作时，相同的操作总是产生相同的结果（这是确定性的）。如果存在硬件问题（例如，内存损坏或连接器松动），其后果通常是整个系统失效（例如“蓝屏死机”，无法启动）。具有良好软件的单机通常功能完好或完全损坏，而不在两者之间。</p>
+<p>这是计算机设计中的一个慎重选择：如果发生内部故障，我们宁愿计算机完全崩溃，而不是返回错误的结果，因为错误的结果很难处理，并且令人困惑。因此，计算机隐藏了它们实现所依赖的模糊物理现实，并提出了一个理想化的系统模型，它可以与数学完美结合起来。CPU指令总是做同样的事情; 如果你将一些数据写入内存或磁盘，则该数据保持完好并且不会随机损坏。 这种始终正确计算的设计目标可以追溯到第一台数字计算机。</p>
+<p>当你编写运行在多台计算机上并通过网络连接的软件时，情况完全不同。 在分布式系统中，我们不再处于理想系统模型中 - 我们别无选择，只能面对物理世界的混乱现实。 而在现实世界中，正如这个轶事所示，各种各样的事情可能会出错：</p>
+<blockquote>
+<p>在我有限的经验中，我处理过单个数据中心（DC）中的长时间网络分区，PDU（配电单元）故障，交换机故障，整个机架的意外电源故障，全DC主干故障，全DC 电力故障和一位低血糖驾驶员将他的福特皮卡撞进空调系统。我甚至不是一个运维人员。——Coda Hale</p>
+</blockquote>
+<p>在分布式系统中，可能出现这样的情况，尽管系统的其他部分工作正常，但系统的某些部分可能会以某种不可预知的方式出故障。这就叫做部分故障。该问题的难点在于部分故障是不确定的：如果你试图做任何包含多个节点和网络的事情，它可能有时工作正常，有时出现不可预知的故障。正如我们将要看到的，你可能甚至不知道某件事是否成功，因为消息在网络中传播所花费的时间也是不确定的！</p>
+<p>这种不确定性和部分故障的可能性是分布式系统难以处理的原因。</p>
+<h3 id="云计算和超级计算"><a href="#云计算和超级计算" class="headerlink" title="云计算和超级计算"></a>云计算和超级计算</h3><p>关于如何构建大型计算系统有一系列哲学：</p>
+<ul>
+<li><p>规模的一端是高性能计算（HPC）领域。拥有数千个CPU的超级计算机通常用于计算密集型科学计算任务，如天气预报或分子动力学（模拟原子和分子的运动）。</p>
+</li>
+<li><p>另一端是云计算，云计算没有非常明确的定义，但通常与多租户数据中心，连接IP网络的商品计算机（通常是以太网），弹性/按需资源分配以及按时计费联系在一起。</p>
+</li>
+</ul>
+<p>有了这些哲学，处理错误的方法就非常不同了。在超级计算机中，作业通常会对其计算状态不时地做检查点到持久存储上。如果一个节点发生故障，通常的解决方案是简单地停止整个集群工作负载。故障节点修复后，从上一个检查点重新开始计算。因此，超级计算机更像是一台单节点计算机而不是分布式系统：它通过升级为完全故障来处理部分故障 - 当系统的任何部分发生故障，简单地让整个系统崩溃（就像单机上的内核恐慌一样）。</p>
+<p>在本书中，我们重点介绍实现互联网服务的系统，这些系统通常看起来与超级计算机有很大不同：</p>
+<ul>
+<li><p>许多与互联网有关的应用程序都是在线的，在某种意义上它们需要能够随时为用户提供低延迟服务。服务不可用（例如，停止群集以进行修复）是不可接受的。相比之下，像天气模拟这样的离线（批处理）作业可以停止并重启，而且影响很小。</p>
+</li>
+<li><p>超级计算机通常由专用硬件构建，其中每个节点都非常可靠，并且节点通过共享内存和远程直接内存访问（RDMA）进行通信。另一方面，云服务中的节点是由普通机器构建的，它们能以较低的成本提供相同的性能，但也具有较高的故障率。</p>
+</li>
+<li><p>大型数据中心网络通常基于IP和以太网，以Clos拓扑排列来提供高对分带宽。超级计算机通常使用专门的网络拓扑结构，例如多维网格和toruses，这为具有已知通信模式的HPC工作负载提供了更好的性能。</p>
+</li>
+<li><p>系统越大，系统中有组件出故障的概率越高。随着时间的推移，故障被修复，新的组件又出故障，但是在一个有数千个节点的系统中，认为系统中总是在发生故障是一个合理的假设。当错误处理策略不够有效时，一个大型系统最终会花费大量的时间从故障中恢复，而不是做有用的工作。</p>
+</li>
+<li><p>如果系统可以容忍失败的节点并且仍然作为一个整体继续工作，这对于操作和维护是一个非常有用的特性：例如，可以执行滚动升级（参阅第4章），一次重启一个节点，系统继续为用户提供服务而不中断。在云环境中，如果一台虚拟机运行不佳，可以将其杀死并请求一台新的虚拟机（希望新的虚拟机速度更快）。</p>
+</li>
+<li><p>在地理分布式部署中（保持数据在地理位置上接近用户以减少访问延迟），通信很可能通过互联网进行，与本地网络相比，速度慢且不可靠。超级计算机通常假设它们的所有节点都靠近在一起。</p>
+</li>
+</ul>
+<p>如果我们想让分布式系统工作，就必须接受部分故障的可能性，并在软件中建立容错机制。换句话说，我们需要从不可靠的组件中构建可靠的系统。（正如在第6页的“可靠性”中所讨论的那样，没有完美的可靠性，所以我们需要了解我们可以实际承诺的极限。）</p>
+<p>即使在只有少数节点的小型系统中，考虑部分故障也很重要。在一个小型系统中，很可能大部分组件在大多数时间都正常工作。但是，迟早会有一部分系统出现故障，软件将不得不以某种方式处理它。故障处理必须是软件设计的一部分，并且软件的操作员需要知道发生故障时软件会出现什么行为。</p>
+<p>假定错误很少发生，并只往好的想是不明智的。考虑各种可能的错误（甚至是不太可能的错误），并在测试环境中人为地创建这些情况以查看会发生什么是非常重要的。在分布式系统中，抱着怀疑，悲观和偏执的态度才能取得成功。</p>
+<h3 id="从不可靠的组件中构建可靠的系统"><a href="#从不可靠的组件中构建可靠的系统" class="headerlink" title="从不可靠的组件中构建可靠的系统"></a>从不可靠的组件中构建可靠的系统</h3><p>你可能会怀疑这是否有道理——直觉上，一个系统只能和其最不可靠的组件（它最薄弱的环节）一样可靠。事实并非如此：事实上，从不太可靠的基础构建更可靠的系统，这在计算中是一个古老的想法。 例如：</p>
+<ul>
+<li><p>纠错码允许数字数据在通信信道上准确传输，偶尔会出现某些位错误，例如由于无线网络上的无线电干扰。</p>
+</li>
+<li><p>IP（互联网协议）是不可靠的：数据包可能丢失，延迟，重复或乱序。TCP（传输控制协议）在IP之上提供了一个更可靠的传输层：它确保丢失的数据包被重传，消除重复，并且数据包被重新组装为它们的发送顺序。</p>
+</li>
+</ul>
+<p>虽然系统可能比其基础部分更可靠，但它的可靠性总是有限的。例如，纠错码可以处理少量的单比特错误，但是如果信号被干扰所淹没，那么通过通信信道可以获得的数据量就有一个基本限制。TCP可以对我们隐藏数据包丢失，重复和乱序，但它不能在网络中奇迹般地消除延迟。</p>
+<p>虽然更可靠的更高级别的系统并不完美，但它仍然很有用，因为它可以处理一些棘手的低级故障，因此通常也可以更轻松地解决和处理其余的故障。</p>
+<h2 id="不可靠的网络"><a href="#不可靠的网络" class="headerlink" title="不可靠的网络"></a>不可靠的网络</h2><p>正如在第二部分的介绍中所讨论的，我们在本书中关注的分布式系统是shared-nothing系统：即一堆机器通过网络连接。网络是这些机器可以通信的唯一方式。我们假设每台机器有自己的内存和磁盘，一台机器无法访问另一台机器的内存或磁盘（除了通过网络向服务发出请求外）。</p>
+<p>shared-nothing并不是构建系统的唯一方式，但它已经成为构建互联网服务的主要方式，原因有几个：它相对便宜，因为它不需要特殊的硬件，可以利用商品化的云计算服务， 可以通过跨多个地理分布的数据中心进行冗余来实现高可靠性。</p>
+<p>互联网和数据中心的大部分内部网络（通常是以太网）都是异步分组网络。 在这种网络中，一个节点可以向另一个节点发送一个消息（一个数据包），但是网络不能保证它何时到达，甚至是否能到达。如果你发送请求并期待响应，很多事情可能会出错（其中一些如图8-1所示）：</p>
+<ol>
+<li>你的请求可能已经丢失（可能是某人拔掉了网线）。</li>
+<li>你的请求可能正在队列中等待，稍后会被发送（也许网络或收件人过载）。</li>
+<li>远程节点可能失败（可能崩溃或掉电）。</li>
+<li>远程节点可能暂时停止了响应（可能正在经历长时间的垃圾回收暂停;请参阅第295页上的“进程暂停”），但稍后它会再次开始响应。</li>
+<li>远程节点可能处理了你的请求，但响应在网络上丢失了（可能是网络交换机配置错误）。</li>
+<li>远程节点可能已经处理了你的请求，但响应已经延迟并且将稍后发送（可能是网络或你自己的机器过载）。</li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/1752522-5d73a60621d1b78f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图8-1 如果你发送了一个请求没有得到响应，无法区分是发生了以下哪种情况：（a）请求丢失了（b）对方节点宕机（c）响应丢失了"></p>
+<p>发送方甚至无法知道数据包是否已经被发送：唯一的选择是让接收方发送响应消息，这可能会丢失或延迟。这些问题在异步网络中难以区分：你拥有的唯一信息是你尚未收到响应。如果你向另一个节点发送请求并且未收到回复，也无法知道是什么原因。</p>
+<p>处理该问题通常的方法是使用超时：一段时间后就放弃等待并假设响应不会送达。但是，当发生超时时，你仍然不知道远程节点是否收到了你的请求（如果请求仍然在某个地方排队，它仍然可能会被传送给接收方，即使发送方已经放弃了）。</p>
+<h3 id="网络故障实践"><a href="#网络故障实践" class="headerlink" title="网络故障实践"></a>网络故障实践</h3><p>几十年来我们一直在建立计算机网络——人们可能希望现在我们已经知道了如何使它们变得可靠。但是，似乎我们还没有成功。</p>
+<p>有一些系统的研究和大量的轶事证据表明，即使在由公司运营的数据中心那样的受控环境中，网络问题也可能非常普遍。在一家中等规模的数据中心进行的一项研究发现，每个月大约发生12次网络故障，其中一半单台机器断开连接，一半整个机架断开连接。另一项研究测量了架顶式交换机，汇聚交换机和负载平衡器等组件的故障率，发现添加冗余网络设备不会像你所希望的那样减少故障，因为它不能防范人为错误（例如，配置错误的交换机），这是造成网络中断的主要原因。</p>
+<p>公共云服务（如EC2）因频繁出现短暂的网络故障而臭名昭着，管理良好的专用数据中心网络会比较稳定。尽管如此，没有人能够避免网络问题的干扰：例如，交换机软件升级期间的问题可能会触发网络拓扑重新配置，在此期间网络数据包可能会延迟超过一分钟。鲨鱼可能咬住海底电缆并损坏它们。其他令人惊讶的故障包括网络接口有时会丢弃所有入站数据包，但成功发送出站数据包。因此，仅仅因为网络链接在一个方向上正常工作并不能保证它也在相反的方向也正常工作。</p>
+<blockquote>
+<p><strong>网络分区</strong><br>当网络的一部分由于网络故障而与其余部分断开时，有时称为网络分区或网络分割。 在本书中，我们使用更一般的术语网络故障，以避免与如第6章所述的存储系统的分区（碎片）混淆。</p>
+</blockquote>
+<p>即使你的环境中很少发生网络故障，但可能发生故障的事实意味着你的软件需要能够处理它们。网络上的通信总有可能会失败，这是没有办法的。</p>
+<p>如果网络故障的错误处理未经过定义和测试，则可能会发生反复无常的错误：例如，即使网络恢复，群集也可能会死锁并永久无法为请求提供服务，甚至可能会删除你的所有数据。如果软件不在受控的情况下，可能会有意想不到的行为。</p>
+<p>处理网络故障并不一定意味着容忍它们：如果你的网络通常相当可靠，则有效的方法可能是在网络遇到问题时向用户简单显示错误消息。但是，你需要知道你的软件会对网络问题做出什么反应，并确保系统能够从中恢复。刻意地触发网络问题并测试系统响应是有意义的（这是Chaos Monkey背后的想法;请参阅第6页的“可靠性”）。</p>
+<h3 id="检测故障"><a href="#检测故障" class="headerlink" title="检测故障"></a>检测故障</h3><p>很多系统都需要自动检测故障节点。 例如：</p>
+<ul>
+<li>负载平衡器需要停止向死节点发送请求。</li>
+<li>在single-leader复制的分布式数据库中，如果leader发生故障，需要提升一个follower成为新的leader（参阅第152页的“处理节点故障”）。</li>
+</ul>
+<p>不幸的是，网络的不确定性使得判断一个节点是否正常工作变得很困难。在某些特定情况下，你可能会收到一些反馈信息，以明确告诉你某些组件不正常工作：</p>
+<ul>
+<li><p>如果你可以到达运行节点的机器，但没有进程正在监听目标端口（例如，因为进程崩溃），操作系统将通过发送RST或FIN数据包来帮助关闭或拒绝TCP连接。但是，如果节点在处理请求过程中崩溃，你将无法知道远程节点实际已经处理了多少数据。</p>
+</li>
+<li><p>如果节点进程崩溃（或被管理员杀死）但节点的操作系统仍在运行，脚本可以通知其他节点有关崩溃的信息，以便另一个节点可以快速接管而无需等待超时。</p>
+</li>
+<li><p>如果你有权限访问数据中心网络交换机的管理界面，则可以查询它们以检测硬件级别的链路故障（例如，远程机器是否关闭电源）。如果你通过互联网连接，或者你处于共享数据中心但无权限无法访问交换机，或者由于网络问题而无法访问管理界面，则无法使用该选项。</p>
+</li>
+<li><p>如果路由器确定你尝试连接的IP地址无法访问，它可能会用ICMP目标无法访问的数据包回复你。但是，路由器不具备神奇的故障检测能力——它受到与网络其他组成部分相同的限制。</p>
+</li>
+<li><p>远程节点宕机的快速反馈很有用，但你不能指望它。即使TCP确认数据包已发送，应用程序在处理数据之前可能已崩溃。如果你想确认一个请求是成功的，需要在应用程序本身积极响应。</p>
+</li>
+<li><p>相反，如果出现问题，你可能会在某个层次上得到错误响应，但通常你必须假设根本得不到响应。你可以重试几次（TCP重试是透明的，但您你可以在应用程序级别重试），等待超时过去，并且如果在超时范围内没有收到响应，才最终宣布节点失效。</p>
+</li>
+</ul>
+<h3 id="超时和无限延迟"><a href="#超时和无限延迟" class="headerlink" title="超时和无限延迟"></a>超时和无限延迟</h3><p>如果超时是检测故障的唯一可靠方法，那么超时时间应该多长？不幸的是没有简单的答案。</p>
+<p>超时时间长意味着需要长时间等待才能宣告一个节点死亡（并且在此期间，用户可能不得不等待或看到错误消息）。超时时间短可以更快地检测到故障，但是会带来更高的误判的风险，例如节点可能只是暂时变慢（比如由于工作或网络负载高峰）就被误判为死亡。</p>
+<p>过早地宣告一个节点已经死亡是有问题的：如果节点实际上处于活动状态并且正在执行一些操作（例如，发送电子邮件），然后另一个节点接管，那么该操作最终可能会执行两次。我们将在第300页的“知识，真相和谎言”以及第9章和第11章中更详细地讨论该问题。</p>
+<p>当一个节点被宣告死亡时，其职责需要转移到其他节点，这会给其他节点和网络带来额外的负担。如果系统已经处于高负载状态，过早宣告节点死亡会使问题变得更糟。特别地，可能节点实际上并未死亡，只是由于负载太高而响应缓慢。将其负载转移到其他节点可能会导致瀑布式的失败（在极端情况下，所有节点都宣告对方死亡，然后一切都停止工作）。</p>
+<p>假设一个虚拟系统的网络可以保证数据包的最大延迟——每个数据包要么在一段时间内送达，要么丢失，但时间永远不会超过d。此外，假设可以保证非故障节点在总是在一段时间r内处理请求。在这种情况下，可以保证每个成功的请求都会在2d + r的时间内收到响应，并且如果在此时间内没有收到响应，则知道网络或远程节点不工作。如果情况真如上述那样，2d + r将是一个合理的超时时间。</p>
+<p>不幸的是，我们所使用的大多数系统都没有这些保证：异步网络具有无限的延迟（即它们尽可能快地发送数据包，但数据包到达所需的时间没有上限） ，并且大多数服务器实现不能保证它们可以在特定时间内处理请求（请参阅“响应时间保证”（第298页））。对于故障检测，大部分时间内快是不够的：如果超时时间较短，则往返时间只需要瞬间上升就会导致系统失去平衡。</p>
+<h4 id="网络拥塞和排队"><a href="#网络拥塞和排队" class="headerlink" title="网络拥塞和排队"></a>网络拥塞和排队</h4><p>在开车汽车时，由于交通堵塞，在路上花的时间往往不尽相同。类似的，计算机网络上的数据包延迟的可变性通常也是由于排队：</p>
+<ul>
+<li>如果多个不同的节点同时尝试向相同的目的地发送数据包，则网络交换机必须将它们排队并将它们逐个送入目标网络链路（如图8-2所示）。在繁忙的网络链路上，数据包可能需要等待一段时间才能获得一个槽（这称为网络拥塞）。如果传入的数据太多以至于交换机队列填满，数据包将被丢弃，因此需要重新发送数据包，即使网络运行良好。</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/1752522-24120c1100abacf7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图8-2"></p>
+<ul>
+<li><p>当数据包到达目标机器时，如果所有CPU内核当前都处于繁忙状态，则来自网络的传入请求将被操作系统排队，直到应用程序准备好处理它为止。根据机器的负载情况，这可能需要一段任意长度的时间。</p>
+</li>
+<li><p>在虚拟化环境中，当另一个虚拟机正在使用CPU核的时候，正在运行的操作系统通常会暂停几十毫秒。在此期间，虚拟机无法使用网络中的任何数据，因此输入数据被虚拟机监视器排队（缓冲），这进一步增加了网络延迟的可变性。</p>
+</li>
+<li><p>TCP执行流量控制（也称为拥塞避免或背压），节点限制自己的发送速率以避免网络链路或接收节点过载。这意味着甚至在数据进入网络之前，发送者也会让数据排队。</p>
+</li>
+</ul>
+<p>此外，如果TCP在某个超时时间内未得到确认（根据观察的往返时间计算），则认为数据包丢失，并且丢失的数据包将自动重新发送。尽管应用程序没有看到数据包丢失和重传，但它确实会看到由此产生的延迟（等待超时过期，然后等待重传的数据包得到确认）。</p>
+<p><strong>TCP与UDP</strong></p>
+<p>一些对延迟敏感的应用程序（如视频会议和IP语音（VoIP））使用UDP而不是TCP。这是延迟的可靠性和可变性之间的折衷：由于UDP不执行流量控制并且不重传丢失的数据包，所以它避免了一些可变网络延迟的原因（尽管它仍然易受交换机队列和调度延迟的影响）。</p>
+<p>在延迟数据毫无价值的情况下，UDP是一个不错的选择。例如，在VoIP电话呼叫中，可能没有足够的时间在其数据将在扬声器上播放之前重新传输丢失的数据包。在这种情况下，重传数据包没有意义——应用程序必须用无声填充丢失数据包的时隙（导致声音短暂中断），然后在数据流中继续。相反，重试发生在人类层面。（“你能再说一遍吗？刚刚没声音了。”）</p>
+<p>所有这些因素都会造成网络延迟的变化。当系统接近其最大容量时，排队延迟的范围很大：拥有大量备用容量的系统可以轻松消化队列，而在高度使用的系统中，很快就会排起长队列。</p>
+<p>在公有云和多租户数据中心中，资源被许多客户共享：网络链路和交换机，甚至每台计算机的网络接口和CPU（在虚拟机上运行时）都是共享的。批处理工作负载（如MapReduce）（请参阅第10章）可以轻松地使网络链接饱和。由于你无法控制或了解其他客户对共享资源的使用情况，如果你身边的某个人正在使用大量资源，网络延迟可能会变化无常。</p>
+<p>在这样的环境中，你只能通过实验来选择超时时间：在一个延长的周期中测试和多台机器的网络往返时间分布，以确定延迟可变性的期望。然后，考虑应用程序的特性，你可以在故障检测延迟与过早超时风险之间确定一个适当的折衷。</p>
+<p>更好的是，系统不是使用配置的常量超时，而是能够连续测量响应时间及其变化（抖动），并根据观察到的响应时间分布自动调整超时。这可以用Phi Accrual故障检测器完成，该检测器在Akka和Cassandra中被使用。TCP重传超时运行原理类似。</p>
+<h4 id="同步与异步网络"><a href="#同步与异步网络" class="headerlink" title="同步与异步网络"></a>同步与异步网络</h4><p>如果我们可以依赖网络来传递具有固定最大延迟的数据包，而不是丢弃数据包，那么分布式系统就会简单得多。为什么我们不能在硬件级别解决这个问题，并使网络可靠，以便软件不必考虑这些问题？</p>
+<p>为了回答这个问题，将数据中心网络与非常可靠的传统固定电话网络（非蜂窝，非VoIP）进行比较是很有趣的：延迟音频帧和掉话是非常罕见的。电话呼叫需要始终较低的端到端延迟和足够的带宽来传输语音的音频样本。在计算机网络中拥有类似的可靠性和可预测性不是很好吗？</p>
+<p>当你通过电话网络拨打电话时，它会建立一条线路：沿着两个呼叫者之间的整个路由为呼叫分配固定的有保证的带宽量。该线路保持占用，直到通话结束。例如，ISDN网络以每秒4000帧的固定速率运行。呼叫建立后，每个帧内（每个方向）分配16位空间。因此，在通话期间，每一方都保证能够每250微秒发送一个精确的16位音频数据。</p>
+<p>这种网络是同步的：即使数据通过多个路由器，也不会受到排队的影响，因为呼叫的16位空间已经在网络的下一跳中保留下来了。而且由于没有排队，网络的最大端到端延迟是固定的。我们称之为有限的延迟。</p>
+<p><strong>我们不能简单地使网络延迟可预测吗？</strong></p>
+<p>请注意，电话网络中的线路与TCP连接非常不同：线路是固定数量的预留带宽，在线路建立时没有人可以使用，而TCP连接的数据包有机会使用任何可用的网络带宽。你可以为TCP提供可变大小的数据块（例如电子邮件或网页），TCP会尽可能在最短的时间内传输它。当TCP连接空闲时，不使用任何带宽。如果数据中心网络和互联网是线路交换网络，那么建立线路后可以确保最大往返时间。然而，它们并不是：以太网和IP是分组交换协议，它们受到排队的影响，从而导致网络无限延迟。这些协议没有线路的概念。</p>
+<p>为什么数据中心网络和互联网使用分组交换？答案是，它们针对突发流量进行了优化。一个电路适用于音频或视频通话，在通话期间需要每秒传送相当恒定的比特数。另一方面，请求网页，发送电子邮件或传输文件没有任何特定的带宽需求，我们只是希望它尽快完成。</p>
+<p>如果你想通过线路传输文件，则必须猜测带宽分配。如果你猜的太低，传输速度会不必要的太慢，导致网络容量没有使用。如果你猜得太高，线路就无法建立（因为如果无法保证其带宽分配，网络不能建立线路）。因此，使用线路进行突发数据传输会浪费网络容量，并导致传输不必要的缓慢。相比之下，TCP会动态调整数据传输速率以适应可用的网络容量。</p>
+<p>已经有一些尝试构建支持线路交换和分组交换的混合网络，例如ATM。例如InfiniBand：它实现了链路层的端到端流量控制，减少了网络排队的概率，尽管它仍然可能因链路拥塞而遭受延迟。通过谨慎使用服务质量（QoS，数据包的优先级和调度）和准入控制（限速发送器），可以仿真分组网络上的线路交换，或提供统计上有界的延迟。</p>
+<p><strong>延迟和资源使用</strong></p>
+<p>更一般地说，你可以将可变延迟视为动态资源分区的结果。</p>
+<p>假设两台电话交换机之间有一条线路，可以同时进行10,000个呼叫。通过此线路切换的每个电路都占用其中一个呼叫插槽。因此，你可以将线路视为可由多达10,000个并发用户共享的资源。资源以静态方式分配：即使你现在是线路上唯一的电话，并且所有其他9,999个插槽都未使用，你的线路仍将分配跟线路被充分利用时相同的固定数量的带宽。</p>
+<p>相比之下，互联网动态分享网络带宽。发送者竞争以尽可能快地通过网络获得它们的分组，并且网络交换机决定发送哪个分组（即，带宽分配）。这种方法有排队的缺点，但优点是它最大限度地利用了线路。线路成本固定，所以如果你更充分地利用它，通过该线路发送的每个字节都更便宜。</p>
+<p>CPU也会出现类似的情况：如果你在多个线程之间动态共享每个CPU核，则有时候一个线程必须在另一个线程运行时等待操作系统的运行队列，因此线程可能被暂停不同的时间长度。但是，与为每个线程分配静态数量的CPU周期相比，这会更充分地利用硬件（请参阅第298页的“响应时间保证”）。更高的硬件利用率也是使用虚拟机的重要动机。</p>
+<p>如果资源是静态分区的（例如，专用硬件和专用带宽分配），则在某些环境中可实现延迟保证。但是，这是以降低利用率为代价的。换句话说，它是更昂贵的。另一方面，动态资源分配下的多租户提供了更好的利用率，所以它更便宜，但它具有可变延迟的缺点。</p>
+<p>网络中的可变延迟不是自然规律，而仅仅是成本/收益折衷的结果。</p>
+<p>但是，此类服务质量目前尚未在多租户数据中心和公有云或通过互联网进行通信时可用。当前部署的技术无法让我们对网络的延迟或可靠性做出任何保证：我们必须假定网络拥塞，排队和无限延迟可能发生。因此，超时时间没有“正确”的值，需要通过实验确定。</p>
+<p><strong>未完待续。。。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '欢迎打赏~', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://upload-images.jianshu.io/upload_images/1752522-36613fdaddaabe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+  alipayImage: 'http://upload-images.jianshu.io/upload_images/1752522-e25c8a72b44c418e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/11/Git常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Git常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">PostgreSQL单机部署（CentOS7）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误和部分故障"><span class="nav-number">1.</span> <span class="nav-text">错误和部分故障</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#云计算和超级计算"><span class="nav-number">1.1.</span> <span class="nav-text">云计算和超级计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从不可靠的组件中构建可靠的系统"><span class="nav-number">1.2.</span> <span class="nav-text">从不可靠的组件中构建可靠的系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可靠的网络"><span class="nav-number">2.</span> <span class="nav-text">不可靠的网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络故障实践"><span class="nav-number">2.1.</span> <span class="nav-text">网络故障实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测故障"><span class="nav-number">2.2.</span> <span class="nav-text">检测故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时和无限延迟"><span class="nav-number">2.3.</span> <span class="nav-text">超时和无限延迟</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网络拥塞和排队"><span class="nav-number">2.3.1.</span> <span class="nav-text">网络拥塞和排队</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步与异步网络"><span class="nav-number">2.3.2.</span> <span class="nav-text">同步与异步网络</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2018 LBD&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2018 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
