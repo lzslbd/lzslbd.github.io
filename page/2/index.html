@@ -159,57 +159,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-tmpfs"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/11/tmpfs/">tmpfs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/04/11/tmpfs/" class="article-date">
-	  <time datetime="2017-04-11T06:03:33.000Z" itemprop="datePublished">2017-04-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。</p>
-        <!-- tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。
-
-用一个简单的mount命令就可以创建tmpfs文件系统：
-mou......  -->
-        <p class="article-more-link">
-          <a href="/2017/04/11/tmpfs/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tmpfs/">tmpfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-分布式系统(Distributed System)资料大全"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
@@ -574,7 +523,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 <!-- Table of Contents -->
 
   
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Hadoop YARN介绍"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -582,7 +531,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -590,7 +539,55 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java文件管理操作"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -601,13 +598,14 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
-
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一......  -->
+        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
+<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
+        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
+Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
+ 
+Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
+          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
       
     </div>
