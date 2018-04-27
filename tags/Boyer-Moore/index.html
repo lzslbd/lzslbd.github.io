@@ -3,35 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>java中comparable与comparator的区别 | LBD&#39;s Blog</title>
+  <title>tag: boyer-moore | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Java" />
   
   
   
-  
-  <meta name="description" content="相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java中Comparable与Comparator的区别">
-<meta property="og:url" content="http://linbingdong.com/2017/03/11/Java中Comparable与Comparator的区别/index.html">
+  <meta name="description" content="大数据与分布式">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LBD's Blog">
+<meta property="og:url" content="http://linbingdong.com/tags/Boyer-Moore/index.html">
 <meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta property="og:description" content="大数据与分布式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中Comparable与Comparator的区别">
-<meta name="twitter:description" content="相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="LBD's Blog">
+<meta name="twitter:description" content="大数据与分布式">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -70,6 +56,8 @@ Comparable和Comparator都是Java的接口">
   
 
   
+    <link rel="stylesheet" href="/css/archive.css" >
+  
   
   
     <link rel="stylesheet" href="/css/vdonate.css" >
@@ -79,7 +67,7 @@ Comparable和Comparator都是Java的接口">
 
 
 
-  <body data-spy="scroll" data-target="#toc" data-offset="50">
+  <body>
 
 
   
@@ -102,7 +90,7 @@ Comparable和Comparator都是Java的接口">
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 >
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -171,145 +159,44 @@ Comparable和Comparator都是Java的接口">
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-Java中Comparable与Comparator的区别" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
+          <section id="main" style="float:none;">
   
-    <h1 class="thumb" class="article-title" itemprop="name">
-      Java中Comparable与Comparator的区别
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+	<a href="/2017/02/26/字符串查找算法总结/" class="archive-article-date">
+	  <time datetime="2017-02-25T16:00:00.000Z" itemprop="datePublished">2017-02-26</time>
+	</a>
+
+      
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="archive-article-title" href="/2017/02/26/字符串查找算法总结/">字符串查找算法总结</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-	<a class="article-views">
-	<span id="busuanzi_container_page_pv">
-		阅读量<span id="busuanzi_value_page_pv"></span>
-	</span>
-	</a>
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
-<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
-<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
-<li>Comparable和Comparator都是Java的接口</li>
-</ul>
-<a id="more"></a> 
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
-<li>Comparator位于java.util包下，而Comparable位于java.lang包下</li>
-<li>Comparable接口的实现是在类的内部（如 String、Integer已经实现了Comparable接口，自己就可以完成比较大小操作），Comparator接口的实现是在类的外部（可以理解为一个是自已完成比较，一个是外部程序实现比较）</li>
-<li>实现Comparable接口要重写compareTo方法, 在compareTo方法里面实现比较</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">public class Student implements Comparable &#123;</div><div class="line">     String name;</div><div class="line">     int age</div><div class="line">     public int compareTo(Student another) &#123;</div><div class="line">          int i = 0;</div><div class="line">          i = name.compareTo(another.name); </div><div class="line">          if(i == 0) &#123; </div><div class="line">               return age - another.age;</div><div class="line">          &#125; else &#123;</div><div class="line">               return i; </div><div class="line">          &#125;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">   这时我们可以直接用 Collections.sort( StudentList ) 对其排序了.(</div><div class="line">   **只需传入要排序的列表**）</div></pre></td></tr></table></figure>
-<ul>
-<li>实现Comparator需要重写 compare 方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">public class Student&#123;</div><div class="line">     String name;</div><div class="line">     int age</div><div class="line">&#125;</div><div class="line">class StudentComparator implements Comparator &#123; </div><div class="line">     public int compare(Student one, Student another) &#123;</div><div class="line">          int i = 0;</div><div class="line">          i = one.name.compareTo(another.name); </div><div class="line">          if(i == 0) &#123; </div><div class="line">               return one.age - another.age;</div><div class="line">          &#125; else &#123;</div><div class="line">               return i;          &#125;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">   Collections.sort( StudentList , new StudentComparator()) 可以对其排序（</div><div class="line">   **不仅要传入待排序的列表，还要传入实现了Comparator的类的对象**）</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
-<li><p>如果比较的方法只要用在一个类中，用该类实现Comparable接口就可以。</p>
-</li>
-<li><p>如果比较的方法在很多类中需要用到，就自己写个类实现Comparator接口，这样当要比较的时候把实现了Comparator接口的类传过去就可以，省得重复造轮子。这也是为什么Comparator会在java.util包下的原因。<br>使用Comparator的优点是：1.与实体类分离 2.方便应对多变的排序规则</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <div id="donation_div"></div>
-
-<script src="/js/vdonate.js"></script>
-<script>
-var a = new Donate({
-  title: '欢迎打赏~', // 可选参数，打赏标题
-  btnText: '打赏支持', // 可选参数，打赏按钮文字
-  el: document.getElementById('donation_div'),
-  wechatImage: 'http://upload-images.jianshu.io/upload_images/1752522-36613fdaddaabe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
-  alipayImage: 'http://upload-images.jianshu.io/upload_images/1752522-e25c8a72b44c418e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
-});
-</script>
-      
-      
-        
-	<div id="comment">
-		<!-- 来必力City版安装代码 -->
-		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
-		<script type="text/javascript">
-		   (function(d, s) {
-		       var j, e = d.getElementsByTagName(s)[0];
-
-		       if (typeof LivereTower === 'function') { return; }
-
-		       j = d.createElement(s);
-		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-		       j.async = true;
-
-		       e.parentNode.insertBefore(j, e);
-		   })(document, 'script');
-		</script>
-		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-		</div>
-		<!-- City版安装代码已完成 -->
-	</div>
-
-
-
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/03/11/Java对象流与序列化/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Java对象流与序列化
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/03/11/Phoenix安装配置/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Phoenix安装配置</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-<!-- Table of Contents -->
 
-  <aside id="toc-sidebar">
-    <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相同"><span class="nav-number">1.</span> <span class="nav-text">相同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">2.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol>
-    
-    </div>
-  </aside>
 </section>
         
       </div>
@@ -407,8 +294,6 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
-
 
 
 
@@ -492,8 +377,6 @@ var a = new Donate({
   
   <a id="rocket" href="#top" class=""></a>
   <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
-  
-    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
   
 </body>
 </html>
