@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>phxpaxos源码分析——paxos算法实现 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="PaxosPhxPaxos" />
+  <meta name="keywords" content="PaxosPhxPaxos">
   
   
   
   
   <meta name="description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
+<meta name="keywords" content="Paxos,PhxPaxos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PhxPaxos源码分析——Paxos算法实现">
 <meta property="og:url" content="http://linbingdong.com/2017/11/21/PhxPaxos源码分析——Paxos算法实现/index.html">
-<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:site_name" content="LBD&#39;s Blog">
 <meta property="og:description" content="这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:updated_time" content="2017-11-22T00:41:19.000Z">
 <meta name="twitter:card" content="summary">
@@ -48,7 +50,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -57,17 +59,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -92,8 +94,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -114,14 +115,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -148,7 +149,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -162,14 +163,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-PhxPaxos源码分析——Paxos算法实现" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-PhxPaxos源码分析——Paxos算法实现" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       PhxPaxos源码分析——Paxos算法实现
     </h1>
   

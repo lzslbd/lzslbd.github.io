@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>大数据基准测试工具tpcx-bb源码分析 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="大数据TPCx-BB基准测试" />
+  <meta name="keywords" content="大数据TPCx-BB基准测试">
   
   
   
   
   <meta name="description" content="TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。">
+<meta name="keywords" content="大数据,TPCx-BB,基准测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据基准测试工具TPCx-BB源码分析">
 <meta property="og:url" content="http://linbingdong.com/2017/03/11/大数据基准测试工具TPCx-BB源码分析/index.html">
-<meta property="og:site_name" content="LBD's Blog">
+<meta property="og:site_name" content="LBD&#39;s Blog">
 <meta property="og:description" content="TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。">
-<meta property="og:image" content="http://linbingdong.com/./bigBench.png">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://linbingdong.com/2017/03/11/大数据基准测试工具TPCx-BB源码分析/bigBench.png">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据基准测试工具TPCx-BB源码分析">
 <meta name="twitter:description" content="TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。">
-<meta name="twitter:image" content="http://linbingdong.com/./bigBench.png">
+<meta name="twitter:image" content="http://linbingdong.com/2017/03/11/大数据基准测试工具TPCx-BB源码分析/bigBench.png">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -49,7 +51,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -58,17 +60,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -93,8 +95,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -115,14 +116,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -149,7 +150,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -163,14 +164,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-大数据基准测试工具TPCx-BB源码分析" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-大数据基准测试工具TPCx-BB源码分析" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       大数据基准测试工具TPCx-BB源码分析
     </h1>
   

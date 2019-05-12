@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>分布式系列文章——paxos算法原理与推导 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="分布式系统Paxos分布式一致性算法" />
+  <meta name="keywords" content="分布式系统Paxos分布式一致性算法">
   
   
   
   
-  <meta name="description" content="Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。">
+  <meta name="description" content="Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。 网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。">
+<meta name="keywords" content="分布式系统,Paxos,分布式一致性算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式系列文章——Paxos算法原理与推导">
 <meta property="og:url" content="http://linbingdong.com/2017/04/17/分布式系列文章——Paxos算法原理与推导/index.html">
-<meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。">
+<meta property="og:site_name" content="LBD&#39;s Blog">
+<meta property="og:description" content="Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。 网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-d2136179b456e13e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-6980ffa6b43c16d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-a902b09159405eab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -33,8 +33,7 @@
 <meta property="og:updated_time" content="2017-09-03T02:12:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式系列文章——Paxos算法原理与推导">
-<meta name="twitter:description" content="Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。">
+<meta name="twitter:description" content="Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。 网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-d2136179b456e13e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -61,7 +60,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -70,17 +69,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -105,8 +104,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -127,14 +125,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -161,7 +159,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -175,14 +173,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-分布式系列文章——Paxos算法原理与推导" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-分布式系列文章——Paxos算法原理与推导" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       分布式系列文章——Paxos算法原理与推导
     </h1>
   

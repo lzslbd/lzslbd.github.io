@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>全球分布式数据库：google spanner（论文翻译） | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="分布式数据库Spanner论文翻译" />
+  <meta name="keywords" content="分布式数据库Spanner论文翻译">
   
   
   
   
-  <meta name="description" content="本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API">
+  <meta name="description" content="本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。 【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API">
+<meta name="keywords" content="分布式数据库,Spanner,论文翻译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全球分布式数据库：Google Spanner（论文翻译）">
 <meta property="og:url" content="http://linbingdong.com/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/index.html">
-<meta property="og:site_name" content="LBD's Blog">
-<meta property="og:description" content="本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API">
+<meta property="og:site_name" content="LBD&#39;s Blog">
+<meta property="og:description" content="本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。 【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-8d4d85a54036697f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-b99c0dffe8361eb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-192ba58099b34f11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -37,8 +37,7 @@
 <meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全球分布式数据库：Google Spanner（论文翻译）">
-<meta name="twitter:description" content="本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API">
+<meta name="twitter:description" content="本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。 【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-8d4d85a54036697f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
@@ -65,7 +64,7 @@
   <script src="/js/bootstrap.js"></script>
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/bootstrap.css">
 
   
     <link rel="stylesheet" href="/css/dialog.css">
@@ -74,17 +73,17 @@
   
 
   
-    <link rel="stylesheet" href="/css/header-post.css" >
+    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
   
   
-    <link rel="stylesheet" href="/css/vdonate.css" >
+    <link rel="stylesheet" href="/css/vdonate.css">
   
 
 </head>
-
+</html>
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -109,8 +108,7 @@
 
             
               <a class="brand" style="
-                 margin-top: 0px;"  
-                href="#" data-toggle="modal" data-target="#myModal" >
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
                   <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -131,14 +129,14 @@
                   <li><div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <input type="text" class="ins-search-input search-form-input" placeholder>
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -165,7 +163,7 @@
 <script src="/js/insight.js"></script>
 
 </div></li>
-            </div>
+            </ul></div>
           </div>
                 
       </div>
@@ -179,14 +177,14 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-全球分布式数据库：Google Spanner（论文翻译）" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-全球分布式数据库：Google Spanner（论文翻译）" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 class="thumb" class="article-title" itemprop="name">
+    <h1 class="thumb" itemprop="name">
       全球分布式数据库：Google Spanner（论文翻译）
     </h1>
   
