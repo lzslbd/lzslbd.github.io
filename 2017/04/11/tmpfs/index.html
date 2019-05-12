@@ -198,13 +198,17 @@
       
         <p>tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。</p>
 <a id="more"></a>
+
 <p>用一个简单的mount命令就可以创建tmpfs文件系统：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mount tmpfs -t tmpfs /data/test -o size=10g</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount tmpfs -t tmpfs /data/test -o size=10g</span><br></pre></td></tr></table></figure>
+
 <p>将tmpfs挂载到/data/mfs目录后，往/data/mfs写入的内容都会写到内存里。如果需要重新设置分配的内存大小，可以先umount，再重新挂载：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">umount /data/mfs</div><div class="line">mount tmpfs -t tmpfs /data/test -o size=20g</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">umount /data/mfs</span><br><span class="line">mount tmpfs -t tmpfs /data/test -o size=20g</span><br></pre></td></tr></table></figure>
+
 <p>也可以在/etc/fstab里设置。</p>
 <p>MooseFS是分布式文件系统，正常情况下文件是写到chunkserver节点的磁盘里。如果想让文件写入内存，可以将tmpfs挂到MooseFS的chunkserver节点的数据目录下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mount tmpfs -t tmpfs /data/mfs -o size=50g</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mount tmpfs -t tmpfs /data/mfs -o size=50g</span><br></pre></td></tr></table></figure>
+
 <p>这样以后往MooseFS里写数据就都写到内存里了。</p>
 <p>注意：</p>
 <ol>

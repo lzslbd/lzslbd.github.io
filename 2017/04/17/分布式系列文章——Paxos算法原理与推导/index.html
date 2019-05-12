@@ -209,6 +209,7 @@
         <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
 <p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
 <a id="more"></a>
+
 <h2 id="Paxos是什么"><a href="#Paxos是什么" class="headerlink" title="Paxos是什么"></a>Paxos是什么</h2><blockquote>
 <p>Paxos算法是基于<strong>消息传递</strong>且具有<strong>高度容错特性</strong>的<strong>一致性算法</strong>，是目前公认的解决<strong>分布式一致性</strong>问题<strong>最有效</strong>的算法之一。</p>
 </blockquote>
@@ -283,7 +284,7 @@
 <p>P2a：如果某个value为v的提案被选定了，那么每个编号更高的被Acceptor接受的提案的value必须也是v。</p>
 </blockquote>
 <p>只要满足了P2a，就能满足P2。</p>
-<p>但是，考虑如下的情况：假设总的有5个Acceptor。Proposer2提出[M1,V1]的提案，Acceptor2~5（半数以上）均接受了该提案，于是对于Acceptor2~5和Proposer2来讲，它们都认为V1被选定。Acceptor1刚刚从宕机状态恢复过来（之前Acceptor1没有收到过任何提案），此时Proposer1向Acceptor1发送了[M2,V2]的提案（V2≠V1且M2&gt;M1），对于Acceptor1来讲，这是它收到的第一个提案。根据P1（一个Acceptor必须接受它收到的第一个提案。）,Acceptor1必须接受该提案！同时Acceptor1认为V2被选定。这就出现了两个问题：</p>
+<p>但是，考虑如下的情况：假设总的有5个Acceptor。Proposer2提出[M1,V1]的提案，Acceptor2<del>5（半数以上）均接受了该提案，于是对于Acceptor2</del>5和Proposer2来讲，它们都认为V1被选定。Acceptor1刚刚从宕机状态恢复过来（之前Acceptor1没有收到过任何提案），此时Proposer1向Acceptor1发送了[M2,V2]的提案（V2≠V1且M2&gt;M1），对于Acceptor1来讲，这是它收到的第一个提案。根据P1（一个Acceptor必须接受它收到的第一个提案。）,Acceptor1必须接受该提案！同时Acceptor1认为V2被选定。这就出现了两个问题：</p>
 <ol>
 <li>Acceptor1认为V2被选定，Acceptor2~5和Proposer2认为V1被选定。出现了不一致。 </li>
 <li>V1被选定了，但是编号更高的被Acceptor1接受的提案[M2,V2]的value为V2，且V2≠V1。这就跟P2a（如果某个value为v的提案被选定了，那么每个编号更高的被Acceptor接受的提案的value必须也是v）矛盾了。</li>
@@ -307,10 +308,12 @@
 <h3 id="Proposer生成提案"><a href="#Proposer生成提案" class="headerlink" title="Proposer生成提案"></a>Proposer生成提案</h3><p>为了满足P2b，这里有个比较重要的思想：Proposer生成提案之前，应该先去<strong>『学习』</strong>已经被选定或者可能被选定的value，然后以该value作为自己提出的提案的value。如果没有value被选定，Proposer才可以自己决定value的值。这样才能达成一致。这个学习的阶段是通过一个<strong>『Prepare请求』</strong>实现的。</p>
 <p>于是我们得到了如下的<strong>提案生成算法</strong>：</p>
 <ol>
-<li><p>Proposer选择一个<strong>新的提案编号N</strong>，然后向<strong>某个Acceptor集合</strong>（半数以上）发送请求，要求该集合中的每个Acceptor做出如下响应（response）。<br>(a) 向Proposer承诺保证<strong>不再接受</strong>任何编号<strong>小于N的提案</strong>。<br>(b) 如果Acceptor已经接受过提案，那么就向Proposer响应<strong>已经接受过</strong>的编号小于N的<strong>最大编号的提案</strong>。</p>
+<li><p>Proposer选择一个<strong>新的提案编号N</strong>，然后向<strong>某个Acceptor集合</strong>（半数以上）发送请求，要求该集合中的每个Acceptor做出如下响应（response）。<br>(a) 向Proposer承诺保证<strong>不再接受</strong>任何编号<strong>小于N的提案</strong>。
+(b) 如果Acceptor已经接受过提案，那么就向Proposer响应<strong>已经接受过</strong>的编号小于N的<strong>最大编号的提案</strong>。</p>
 <p>我们将该请求称为<strong>编号为N</strong>的<strong>Prepare请求</strong>。</p>
 </li>
-<li><p>如果Proposer收到了<strong>半数以上</strong>的Acceptor的<strong>响应</strong>，那么它就可以生成编号为N，Value为V的<strong>提案[N,V]</strong>。这里的V是所有的响应中<strong>编号最大的提案的Value</strong>。如果所有的响应中<strong>都没有提案</strong>，那 么此时V就可以由Proposer<strong>自己选择</strong>。<br>生成提案后，Proposer将该<strong>提案</strong>发送给<strong>半数以上</strong>的Acceptor集合，并期望这些Acceptor能接受该提案。我们称该请求为<strong>Accept请求</strong>。（注意：此时接受Accept请求的Acceptor集合<strong>不一定</strong>是之前响应Prepare请求的Acceptor集合）</p>
+<li><p>如果Proposer收到了<strong>半数以上</strong>的Acceptor的<strong>响应</strong>，那么它就可以生成编号为N，Value为V的<strong>提案[N,V]</strong>。这里的V是所有的响应中<strong>编号最大的提案的Value</strong>。如果所有的响应中<strong>都没有提案</strong>，那 么此时V就可以由Proposer<strong>自己选择</strong>。
+生成提案后，Proposer将该<strong>提案</strong>发送给<strong>半数以上</strong>的Acceptor集合，并期望这些Acceptor能接受该提案。我们称该请求为<strong>Accept请求</strong>。（注意：此时接受Accept请求的Acceptor集合<strong>不一定</strong>是之前响应Prepare请求的Acceptor集合）</p>
 </li>
 </ol>
 <h3 id="Acceptor接受提案"><a href="#Acceptor接受提案" class="headerlink" title="Acceptor接受提案"></a>Acceptor接受提案</h3><p>Acceptor<strong>可以忽略任何请求</strong>（包括Prepare请求和Accept请求）而不用担心破坏算法的<strong>安全性</strong>。因此，我们这里要讨论的是什么时候Acceptor可以响应一个请求。</p>

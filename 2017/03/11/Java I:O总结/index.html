@@ -200,11 +200,12 @@
       
         <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
 <a id="more"></a>
+
 <p>数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程序来说，看不到数据流在写入时的分段情况，每次可以读取其中的任意长度的数据，但只能先读取前面的数据后，再读取后面的数据（不能随机读取）。不管写入时是将数据分多次写入，还是作为一个整体一次写入，读取时的效果都是完全一样的。</p>
 <p>简而言之：数据流是一组有序，有起点和终点的字节的数据序列。包括输入流和输出流。</p>
 <p>当程序需要读取数据的时候，就会建立一个通向数据源的连接，这个数据源可以是文件，内存，或是网络连接。类似的，当程序需要写入数据的时候，就会建立一个通向目的地的连接。</p>
 <p>数据流分类：</p>
-<p>流序列中的数据既可以是未经加工的原始二进制数据，也可以是经一定编码处理后符合某种格式规定的特定数据。因此Java中的流分为两种：<strong> 1)  字节流：</strong>数据流中最小的数据单元是字节<strong> 2)  字符流：</strong>数据流中最小的数据单元是字符， Java中的字符是Unicode编码，一个字符占用两个字节。</p>
+<p>流序列中的数据既可以是未经加工的原始二进制数据，也可以是经一定编码处理后符合某种格式规定的特定数据。因此Java中的流分为两种：** 1)  字节流：<strong>数据流中最小的数据单元是字节</strong> 2)  字符流：**数据流中最小的数据单元是字符， Java中的字符是Unicode编码，一个字符占用两个字节。</p>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>Java.io包中最重要的就是5个类和一个接口。5个类指的是File、OutputStream、InputStream、Writer、Reader；一个接口指的是Serializable。掌握了这些就掌握了Java I/O的精髓了。</p>
 <p>Java I/O主要包括如下3层次：</p>
 <ol>
@@ -270,7 +271,7 @@
 <p>Reader和InputStream类似；Writer和OutputStream类似。</p>
 <p>有两个需要注意的：</p>
 <ol>
-<li><strong>InputStreamReader </strong>： 从输入流读取字节，在将它们转换成字符。</li>
+<li>*<em>InputStreamReader *</em>： 从输入流读取字节，在将它们转换成字符。</li>
 <li><strong>BufferReader :</strong>接受Reader对象作为参数，并对其添加字符缓冲器，使用readline()方法可以读取一行。</li>
 </ol>
 <h2 id="如何选择I-O流"><a href="#如何选择I-O流" class="headerlink" title="如何选择I/O流"></a>如何选择I/O流</h2><ol>
@@ -290,23 +291,30 @@
 <h2 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h2><ul>
 <li>将标准输入（键盘输入）显示到标准输出（显示器），支持字符。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">char</span> ch;</div><div class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));  <span class="comment">//将字节流转为字符流，带缓冲</span></div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">while</span> ((ch = (<span class="keyword">char</span>) in.read()) != -<span class="number">1</span>)&#123;</div><div class="line">        System.out.print(ch);</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));  <span class="comment">//将字节流转为字符流，带缓冲</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> ((ch = (<span class="keyword">char</span>) in.read()) != -<span class="number">1</span>)&#123;</span><br><span class="line">        System.out.print(ch);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>将AtomicityTest.java的内容打印到显示器</li>
 </ul>
-<p>方法一：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"AtomicityTest.java"</span>));</div><div class="line">String s;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">while</span> ((s = in.readLine()) != <span class="keyword">null</span>)&#123;</div><div class="line">        System.out.println(s);</div><div class="line">    &#125;</div><div class="line">    in.close();</div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法一：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BufferedReader in = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">"AtomicityTest.java"</span>));</span><br><span class="line">String s;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> ((s = in.readLine()) != <span class="keyword">null</span>)&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    in.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>方法二：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">FileReader in = <span class="keyword">new</span> FileReader(<span class="string">"AtomicityTest.java"</span>);</div><div class="line"><span class="keyword">int</span> b;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">while</span> ((b = in.read()) != -<span class="number">1</span>)&#123;</div><div class="line">        System.out.print((<span class="keyword">char</span>)b);</div><div class="line">    &#125;</div><div class="line">    in.close();</div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FileReader in = <span class="keyword">new</span> FileReader(<span class="string">"AtomicityTest.java"</span>);</span><br><span class="line"><span class="keyword">int</span> b;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> ((b = in.read()) != -<span class="number">1</span>)&#123;</span><br><span class="line">        System.out.print((<span class="keyword">char</span>)b);</span><br><span class="line">    &#125;</span><br><span class="line">    in.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>方法三：(有可能出现乱码）</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">FileInputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">"AtomicityTest.java"</span>);</div><div class="line"><span class="keyword">int</span> n = <span class="number">50</span>;</div><div class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[n];</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">while</span> ((in.read(buffer,<span class="number">0</span>,n) != -<span class="number">1</span> &amp;&amp; n &gt; <span class="number">0</span>))&#123;</div><div class="line">        System.out.print(<span class="keyword">new</span> String(buffer));</div><div class="line">    &#125;</div><div class="line">    in.close();</div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    e.printStackTrace();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FileInputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">"AtomicityTest.java"</span>);</span><br><span class="line"><span class="keyword">int</span> n = <span class="number">50</span>;</span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[n];</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> ((in.read(buffer,<span class="number">0</span>,n) != -<span class="number">1</span> &amp;&amp; n &gt; <span class="number">0</span>))&#123;</span><br><span class="line">        System.out.print(<span class="keyword">new</span> String(buffer));</span><br><span class="line">    &#125;</span><br><span class="line">    in.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>将文件A的内容拷贝到文件B</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">FileInputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">"AtomicityTest.java"</span>);</div><div class="line">FileOutputStream out = <span class="keyword">new</span> FileOutputStream(<span class="string">"copy.txt"</span>);</div><div class="line"><span class="keyword">int</span> b;</div><div class="line"><span class="keyword">while</span> ((b = in.read()) != -<span class="number">1</span>)&#123;</div><div class="line">    out.write(b);</div><div class="line">&#125;</div><div class="line">out.flush();</div><div class="line">in.close();</div><div class="line">out.close();</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FileInputStream in = <span class="keyword">new</span> FileInputStream(<span class="string">"AtomicityTest.java"</span>);</span><br><span class="line">FileOutputStream out = <span class="keyword">new</span> FileOutputStream(<span class="string">"copy.txt"</span>);</span><br><span class="line"><span class="keyword">int</span> b;</span><br><span class="line"><span class="keyword">while</span> ((b = in.read()) != -<span class="number">1</span>)&#123;</span><br><span class="line">    out.write(b);</span><br><span class="line">&#125;</span><br><span class="line">out.flush();</span><br><span class="line">in.close();</span><br><span class="line">out.close();</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>将标准输入的内容写入文件</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">FileWriter out = <span class="keyword">new</span> FileWriter(<span class="string">"systemIn.log"</span>);</div><div class="line">String s;</div><div class="line"><span class="keyword">while</span> (!(s = in.nextLine()).equals(<span class="string">"Q"</span>))&#123;</div><div class="line">    out.write(s + <span class="string">"\n"</span>);</div><div class="line">&#125;</div><div class="line">out.flush();</div><div class="line">out.close();</div><div class="line">in.close();</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">FileWriter out = <span class="keyword">new</span> FileWriter(<span class="string">"systemIn.log"</span>);</span><br><span class="line">String s;</span><br><span class="line"><span class="keyword">while</span> (!(s = in.nextLine()).equals(<span class="string">"Q"</span>))&#123;</span><br><span class="line">    out.write(s + <span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line">out.flush();</span><br><span class="line">out.close();</span><br><span class="line">in.close();</span><br></pre></td></tr></table></figure>
+
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
@@ -361,19 +369,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Java 关键字 static 、final 总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Hadoop YARN介绍/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Java 关键字 static 、final 总结
+          Hadoop YARN介绍
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/Phoenix查询测试经验总结/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java文件管理操作/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Phoenix查询经验总结</div>
+      <div class="article-nav-title">Java文件管理操作</div>
     </a>
   
 </nav>

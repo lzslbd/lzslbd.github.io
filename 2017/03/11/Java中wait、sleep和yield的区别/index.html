@@ -198,6 +198,9 @@
       
         <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
 <a id="more"></a>
+
+
+
 <p>本质上，wait方法是用来让线程<strong>等待某个条件</strong>，进入该条件的等待集中。而sleep和yield方法是用来让线程<strong>让出CPU时间</strong>，把CPU交给线程调度器，使得其他线程能获得CPU时间。</p>
 <p>接下来详细比较三个方法。</p>
 <h2 id="wait"><a href="#wait" class="headerlink" title="wait"></a>wait</h2><p>常用的wait方法有<strong>wait( )</strong>和<strong>wait(long timeout)</strong></p>
@@ -213,7 +216,8 @@
 <h2 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h2><p>yield方法<strong>没有参数</strong>。</p>
 <p>yield方法使当前线程<strong>让出CPU</strong>，但让出的<strong>时间是不可设定的</strong>。</p>
 <p>yield方法也<strong>不会释放锁</strong>。</p>
-<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+<p>yield只能把CPU让给<strong>相同优先级</strong>的其他线程，而<strong>不会把CPU给更高或更低优先级</strong>的其他线程。若此时没有其他线程跟它在有一个优先级，则该线程继续获得CPU时间，因此可能某线程<strong>刚调用yield方法又马上被执行</strong>。
+<img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
       
     </div>
@@ -267,19 +271,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/设计模式-观察者模式/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          关于Java Collections的几个常见问题
+          设计模式-观察者模式
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/关于Java Map的几个常见问题/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java 关键字 static 、final 总结/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">关于Java Map的几个常见问题</div>
+      <div class="article-nav-title">Java 关键字 static 、final 总结</div>
     </a>
   
 </nav>

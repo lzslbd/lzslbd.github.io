@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Java文件管理操作" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 中定义常量的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
+      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
+	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -186,14 +186,23 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
-<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
-        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
-Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
- 
-Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
+        <p>主要有三种：接口、类和枚举。</p>
+        <!-- 主要有三种：接口、类和枚举。
+
+
+接口：
+
+在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
+类实现该接口即可在类中调用该常量
+
+类：
+直接用 public static final 定义常量。
+枚举：
+在枚举类中直接写上常量值。
+示例：
+public class ConstTest &#123;    public static void ma......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
       
     </div>
@@ -241,8 +250,9 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
         <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
         <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
 
+
 多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目......  -->
+纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
         </p>
@@ -292,11 +302,12 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
         <p>观察者模式又叫发布/订阅模式。</p>
         <!-- 观察者模式又叫发布/订阅模式。
 
+
 定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
 角色
 抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
 
-具体主题（ConcreteSubject）：将有关状态存入具......  -->
+具体主题（ConcreteSubject）：将有关状态存入......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
         </p>
@@ -316,7 +327,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中四种引用" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java中wait、sleep和yield的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -324,7 +335,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中四种引用/">Java中四种引用</a>
+      <a class="article-title" href="/2017/03/11/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
     </h1>
   
 
@@ -332,7 +343,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中四种引用/" class="article-date">
+	<a href="/2017/03/11/Java中wait、sleep和yield的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -343,19 +354,15 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
-</blockquote>
-        <!-- 
-为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
+        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
+        <!-- Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
 
- 
 
-强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
 
-软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间......  -->
+
+本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中wait、sleep和yield的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -364,6 +371,164 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
+        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+
+
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+sta......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/经典编程书籍/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。</p>
+<p><a href="https://github.com/jobbole/awesome-programming-books" target="_blank" rel="noopener">原文</a></p>
+        <!-- 经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
+原文
+
+
+这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issue......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典编程书籍/">经典编程书籍</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
+        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+
+
+网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -421,214 +586,6 @@ Path和Files是在Java SE 7中新添加进来的类，比自JDK......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
-        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
-
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoenix......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/经典编程书籍/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。</p>
-<p><a href="https://github.com/jobbole/awesome-programming-books">原文</a></p>
-        <!-- 经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
-原文
-
-这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典编程书籍/">经典编程书籍</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
-        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
-
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
-......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
-        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
-
-static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
-static 域：
-如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
-stat......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-Java I:O总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -659,9 +616,63 @@ stat......  -->
         <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
         <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
 
-数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程......  -->
+
+数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java文件管理操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
+<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
+        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
+Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
+ 
+
+Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
       
     </div>

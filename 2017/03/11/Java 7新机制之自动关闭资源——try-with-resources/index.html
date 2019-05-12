@@ -198,10 +198,13 @@
       
         <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
 <a id="more"></a>
+
 <p>如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(path));</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">return</span> br.readLine();</div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    <span class="keyword">if</span> (br != <span class="keyword">null</span>) br.close();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(path));</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> br.readLine();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (br != <span class="keyword">null</span>) br.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Java 7新增了try-with-resources语法来保证资源的关闭。现在你可以这么写：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">try</span>(BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(path));) &#123;</div><div class="line">  <span class="keyword">return</span> br.readLine();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>(BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(path));) &#123;</span><br><span class="line">  <span class="keyword">return</span> br.readLine();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>代码块里处理完后会自动关闭资源，不需要显示调用close()方法。也不需要finally。代码简洁了很多。</p>
 <p>注意：</p>
 <ul>
@@ -261,19 +264,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/学习PostgreSQL不可错过的一篇文章/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Phoenix文档/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          PostgreSQL综合
+          Phoenix综述（SQL on HBase）
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/程序员资料大全/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/PostgreSQL主从流复制部署/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">程序员资料大全</div>
+      <div class="article-nav-title">PostgreSQL主从流复制部署</div>
     </a>
   
 </nav>

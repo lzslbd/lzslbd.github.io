@@ -203,13 +203,16 @@
       
         <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
 <a id="more"></a>
+
+
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目</p>
 <p>Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询</p>
 <p>因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟HBase集群</p>
 <p>本集群上已部署CHD5.5.1版本的Hadooop（2.6.0）和HBase（1.0.0）</p>
 <p>各节点规划如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">192.168.20.100 node-20-100 hdfs-master1 nn1     jn1 hmaster1</div><div class="line">192.168.20.101 node-20-101 hdfs-master2 nn2 zk1 jn2 hmaster2        Phoenix</div><div class="line">192.168.20.102 node-20-102 hdfs-slave1  dn1 zk2 jn3 hregionserver1</div><div class="line">192.168.20.103 node-20-103 hdfs-slave2  dn2 zk3 jn4 hregionserver2</div><div class="line">192.168.20.104 node-20-104 hdfs-slave3  dn3 zk4 jn5 hregionserver3</div><div class="line">192.168.20.105 node-20-105 hdfs-slave4  dn4 zk5     hregionserver4</div></pre></td></tr></table></figure>
-<p><strong>注意</strong>：Cloudera官方并不支持Phoenix，也就是说从Phoenix官网下的预编译的包在CDH安装的HBase上根本不能运行，Phoenix官网对此也没有任何说明！！！刚开始按照Phoenix官网给出的步骤安装完Phoenix后运行报错，幸好有StackOverflow，才找到了原因，并且找到解决方案。链接如下：<br><a href="http://stackoverflow.com/questions/31849454/using-phoenix-with-cloudera-hbase-installed-from-repo" target="_blank" rel="external">http://stackoverflow.com/questions/31849454/using-phoenix-with-cloudera-hbase-installed-from-repo</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">192.168.20.100 node-20-100 hdfs-master1 nn1     jn1 hmaster1</span><br><span class="line">192.168.20.101 node-20-101 hdfs-master2 nn2 zk1 jn2 hmaster2        Phoenix</span><br><span class="line">192.168.20.102 node-20-102 hdfs-slave1  dn1 zk2 jn3 hregionserver1</span><br><span class="line">192.168.20.103 node-20-103 hdfs-slave2  dn2 zk3 jn4 hregionserver2</span><br><span class="line">192.168.20.104 node-20-104 hdfs-slave3  dn3 zk4 jn5 hregionserver3</span><br><span class="line">192.168.20.105 node-20-105 hdfs-slave4  dn4 zk5     hregionserver4</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：Cloudera官方并不支持Phoenix，也就是说从Phoenix官网下的预编译的包在CDH安装的HBase上根本不能运行，Phoenix官网对此也没有任何说明！！！刚开始按照Phoenix官网给出的步骤安装完Phoenix后运行报错，幸好有StackOverflow，才找到了原因，并且找到解决方案。链接如下：<br><a href="http://stackoverflow.com/questions/31849454/using-phoenix-with-cloudera-hbase-installed-from-repo" target="_blank" rel="noopener">http://stackoverflow.com/questions/31849454/using-phoenix-with-cloudera-hbase-installed-from-repo</a></p>
 <p>解决方案：<br>需要自己从Phoenix官网下载跟HBase版本对应的Phoenix版本（Phoenix 4.x版本均支持HBase 1.0.0）的源码来编译，得到编译后的两个相关jar包。具体安装步骤如下</p>
 <h2 id="2-安装配置"><a href="#2-安装配置" class="headerlink" title="2.安装配置"></a>2.安装配置</h2><p>Phoenix最新版本是4.8，4.x均支持HBase 1.0.0，这里选用Phoenix 4.6.0版本</p>
 <h3 id="2-1下载并解压"><a href="#2-1下载并解压" class="headerlink" title="2.1下载并解压"></a>2.1下载并解压</h3><p>从Phoenix官网下载预编译的<code>phoenix-4.6.0-HBase-1.0-bin.tar.gz</code></p>
@@ -221,7 +224,7 @@
 <li>解压：<code>$ tar -xzvf phoenix-4.6.0-HBase-1.0-bin.tar.gz</code></li>
 <li>建立软链接：<code>$ ln -s phoenix-4.6.0-HBase-1.0-bin phoenix</code></li>
 </ul>
-<h3 id="2-2编译源码"><a href="#2-2编译源码" class="headerlink" title="2.2编译源码"></a>2.2编译源码</h3><p>如果从Phoenix官网下载4.6.0的源码来编译，需要自己修改pom.xml文件，比较麻烦。Github上已经有人把修改过pom.xml文件的源码上传了，链接如下：<br><a href="https://github.com/chiastic-security/phoenix-for-cloudera/tree/4.6-HBase-1.0-cdh5.5" target="_blank" rel="external">https://github.com/chiastic-security/phoenix-for-cloudera/tree/4.6-HBase-1.0-cdh5.5</a></p>
+<h3 id="2-2编译源码"><a href="#2-2编译源码" class="headerlink" title="2.2编译源码"></a>2.2编译源码</h3><p>如果从Phoenix官网下载4.6.0的源码来编译，需要自己修改pom.xml文件，比较麻烦。Github上已经有人把修改过pom.xml文件的源码上传了，链接如下：<br><a href="https://github.com/chiastic-security/phoenix-for-cloudera/tree/4.6-HBase-1.0-cdh5.5" target="_blank" rel="noopener">https://github.com/chiastic-security/phoenix-for-cloudera/tree/4.6-HBase-1.0-cdh5.5</a></p>
 <p>下载该链接的源码，用maven进行编译</p>
 <ul>
 <li>进入<code>phoenix-for-cloudera-4.6-HBase-1.0-cdh5.5</code>目录</li>
@@ -229,29 +232,39 @@
 </ul>
 <p>编译成功后显示如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-2b6ef1568b8a332d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="compile succeed"></p>
-<h3 id="2-3替换"><a href="#2-3替换" class="headerlink" title="2.3替换"></a>2.3替换</h3><p>将编译后<code>`phoenix-for-cloudera-4.6-HBase-1.0-cdh5.5/phoenix-assembly/target</code>目录下的<code>phoenix-4.6.0-cdh5.5.1-client.jar</code>和<code>phoenix-4.6.0-cdh5.5.1-server.jar</code>分别替换<code>/opt/phoenix</code>目录下的<code>phoenix-4.6.0-HBase-1.0-client.jar</code>和<code>phoenix-4.6.0-HBase-1.0-server.jar</code></p>
+<h3 id="2-3替换"><a href="#2-3替换" class="headerlink" title="2.3替换"></a>2.3替换</h3><p>将编译后``phoenix-for-cloudera-4.6-HBase-1.0-cdh5.5/phoenix-assembly/target<code>目录下的</code>phoenix-4.6.0-cdh5.5.1-client.jar<code>和</code>phoenix-4.6.0-cdh5.5.1-server.jar<code>分别替换</code>/opt/phoenix<code>目录下的</code>phoenix-4.6.0-HBase-1.0-client.jar<code>和</code>phoenix-4.6.0-HBase-1.0-server.jar`</p>
 <h3 id="2-4将相关jar拷贝到HBase的lib目录下"><a href="#2-4将相关jar拷贝到HBase的lib目录下" class="headerlink" title="2.4将相关jar拷贝到HBase的lib目录下"></a>2.4将相关jar拷贝到HBase的lib目录下</h3><p>拷贝<code>phoenix-4.6.0-cdh5.5.1-server.jar</code>到集群上每个HBase的lib目录下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cp phoenix-4.6.0-cdh5.5.1-server.jar /usr/lib/hbase/lib</div><div class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-100:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</div><div class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-102:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</div><div class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-103:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</div><div class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-104:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</div><div class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-105:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cp phoenix-4.6.0-cdh5.5.1-server.jar /usr/lib/hbase/lib</span><br><span class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-100:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</span><br><span class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-102:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</span><br><span class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-103:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</span><br><span class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-104:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</span><br><span class="line">$ scp phoenix-4.6.0-cdh5.5.1-server.jar node-20-105:/usr/lib/hbase/lib/phoenix-4.6.0-cdh5.5.1-server.jar</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-5配置Phoenix客户端的CLASSPATH"><a href="#2-5配置Phoenix客户端的CLASSPATH" class="headerlink" title="2.5配置Phoenix客户端的CLASSPATH"></a>2.5配置Phoenix客户端的CLASSPATH</h3><p>将<code>phoenix-4.6.0-cdh5.5.1-client.jar</code>添加到Phoenix客户端的CLASSPATH中，这里是192.168.20.101节点</p>
-<p>在/etc/profile.d目录下新建phoenix.sh<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export CLASSPATH=.:/opt/phoenix/phoenix-4.6.0-cdh5.5.1-client.jar</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ source phoenix.sh</div></pre></td></tr></table></figure>
+<p>在/etc/profile.d目录下新建phoenix.sh</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export CLASSPATH=.:/opt/phoenix/phoenix-4.6.0-cdh5.5.1-client.jar</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source phoenix.sh</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-6配置hbase-site-xml"><a href="#2-6配置hbase-site-xml" class="headerlink" title="2.6配置hbase-site.xml"></a>2.6配置hbase-site.xml</h3><ul>
 <li>Master的hbase-site.xml</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;hbase.regionserver.wal.codec&lt;/name&gt;     &lt;value&gt;org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;hbase.master.loadbalancer.class&lt;/name&gt;</div><div class="line">&lt;value&gt;org.apache.phoenix.hbase.index.balancer.IndexLoadBalancer&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">   &lt;name&gt;hbase.coprocessor.master.classes&lt;/name&gt;</div><div class="line">&lt;value&gt;org.apache.phoenix.hbase.index.master.IndexMasterObserver&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">   &lt;name&gt;hbase.rpc.timeout&lt;/name&gt;</div><div class="line">  &lt;value&gt;300000&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.regionserver.wal.codec&lt;/name&gt;     &lt;value&gt;org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.master.loadbalancer.class&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.phoenix.hbase.index.balancer.IndexLoadBalancer&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">   &lt;name&gt;hbase.coprocessor.master.classes&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.phoenix.hbase.index.master.IndexMasterObserver&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">   &lt;name&gt;hbase.rpc.timeout&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;300000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Region Server的hbase-site.xml</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;hbase.regionserver.wal.codec&lt;/name&gt;</div><div class="line">&lt;value&gt;org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">&lt;name&gt;hbase.region.server.rpc.scheduler.factory.class&lt;/name&gt; </div><div class="line">&lt;value&gt;org.apache.hadoop.hbase.ipc.PhoenixRpcSchedulerFactory&lt;/value&gt;</div><div class="line">&lt;description&gt;Factory to create the Phoenix RPC Scheduler that usesseparate queues for index and metadata updates&lt;/description&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line"> &lt;name&gt;hbase.rpc.controllerfactory.class&lt;/name&gt;</div><div class="line">&lt;value&gt;org.apache.hadoop.hbase.ipc.controller.ServerRpcControllerFactory&lt;/value&gt;</div><div class="line">&lt;description&gt;Factory to create the Phoenix RPCScheduler that uses separate queues for index and metadataupdates&lt;/description&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">&lt;name&gt;hbase.coprocessor.regionserver.classes&lt;/name&gt;</div><div class="line">&lt;value&gt;org.apache.hadoop.hbase.regionserver.LocalIndexMerger&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">   &lt;name&gt;hbase.rpc.timeout&lt;/name&gt;</div><div class="line">  &lt;value&gt;300000&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.regionserver.wal.codec&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.hadoop.hbase.regionserver.wal.IndexedWALEditCodec&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hbase.region.server.rpc.scheduler.factory.class&lt;/name&gt; </span><br><span class="line">&lt;value&gt;org.apache.hadoop.hbase.ipc.PhoenixRpcSchedulerFactory&lt;/value&gt;</span><br><span class="line">&lt;description&gt;Factory to create the Phoenix RPC Scheduler that usesseparate queues for index and metadata updates&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;hbase.rpc.controllerfactory.class&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.hadoop.hbase.ipc.controller.ServerRpcControllerFactory&lt;/value&gt;</span><br><span class="line">&lt;description&gt;Factory to create the Phoenix RPCScheduler that uses separate queues for index and metadataupdates&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hbase.coprocessor.regionserver.classes&lt;/name&gt;</span><br><span class="line">&lt;value&gt;org.apache.hadoop.hbase.regionserver.LocalIndexMerger&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">   &lt;name&gt;hbase.rpc.timeout&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;300000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
 <p>至此，Phoenix安装配置完毕</p>
 <h2 id="3-验证是否可用"><a href="#3-验证是否可用" class="headerlink" title="3.验证是否可用"></a>3.验证是否可用</h2><h3 id="3-1进入CLI"><a href="#3-1进入CLI" class="headerlink" title="3.1进入CLI"></a>3.1进入CLI</h3><p>切换到/opt/phoenix/bin目录下</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ chmod 777 sqlline.py</div><div class="line">$ chmod 777 psql.py</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ chmod 777 sqlline.py</span><br><span class="line">$ chmod 777 psql.py</span><br></pre></td></tr></table></figure>
+
 <p>运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ./sqlline.py localhost</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ./sqlline.py localhost</span><br></pre></td></tr></table></figure>
+
 <p>结果如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-6811f8b8fff76e7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="install success"></p>
 <p>说明Phoenix安装成功</p>
-<h3 id="3-2在终端执行SQL脚本"><a href="#3-2在终端执行SQL脚本" class="headerlink" title="3.2在终端执行SQL脚本"></a>3.2在终端执行SQL脚本</h3><p>运行<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ./sqlline.py localhost ../examples/STOCK_SYMBOL.sql</div></pre></td></tr></table></figure></p>
+<h3 id="3-2在终端执行SQL脚本"><a href="#3-2在终端执行SQL脚本" class="headerlink" title="3.2在终端执行SQL脚本"></a>3.2在终端执行SQL脚本</h3><p>运行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ ./sqlline.py localhost ../examples/STOCK_SYMBOL.sql</span><br></pre></td></tr></table></figure>
+
 <p>报错：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-a01d00372d5f552f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="null.png"></p>
 <p>解决：</p>
@@ -259,7 +272,8 @@
 <p>重新运行：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-65804dfefcc6bdbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="null.png"></p>
 <h3 id="3-3加载数据"><a href="#3-3加载数据" class="headerlink" title="3.3加载数据"></a>3.3加载数据</h3><p>运行：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ psql.py localhost ../examples/web_stat.sql ../examples/web_stat.csv ../examples/web_stat_queries.sql</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ psql.py localhost ../examples/web_stat.sql ../examples/web_stat.csv ../examples/web_stat_queries.sql</span><br></pre></td></tr></table></figure>
+
 <p>结果：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-8efc41108666544d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="result"><br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
 
@@ -315,19 +329,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Hadoop YARN介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Hadoop YARN介绍
+          PostgreSQL单机部署（CentOS7）
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/经典编程书籍/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java中四种引用/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">经典编程书籍</div>
+      <div class="article-nav-title">Java中四种引用</div>
     </a>
   
 </nav>

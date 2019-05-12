@@ -202,6 +202,7 @@
       
         <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
 <a id="more"></a>
+
 <h2 id="YARN产生背景"><a href="#YARN产生背景" class="headerlink" title="YARN产生背景"></a>YARN产生背景</h2><h3 id="MRv1的局限"><a href="#MRv1的局限" class="headerlink" title="MRv1的局限"></a>MRv1的局限</h3><p>YARN是在MRv1基础上演化而来的，它克服了MRv1中的各种局限性。在正式介绍YARN之前，先了解下MRv1的一些局限性，主要有以下几个方面：</p>
 <ul>
 <li><strong>扩展性差</strong>。在MRv1中，<strong>JobTracker</strong>同时兼备了<strong>资源管理</strong>和<strong>作业控制</strong>两个功能，这成为系统的一个最大瓶颈，严重制约了Hadoop集群扩展性。</li>
@@ -308,19 +309,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Java中四种引用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Hive安装配置文档/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Java中四种引用
+          Hive安装配置文档（含Hive Metastore三种配置方式详解）
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/Phoenix安装配置/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java I:O总结/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Phoenix安装配置</div>
+      <div class="article-nav-title">Java I/O 总结</div>
     </a>
   
 </nav>

@@ -197,8 +197,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>先看看System.arraycopy()的声明：</p>
-<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
-</code></pre><a id="more"></a>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`</code></pre><a id="more"></a>
+
 <p>src - 源数组。<br>srcPos - 源数组中的起始位置。<br>dest - 目标数组。<br>destPos - 目标数据中的起始位置。<br>length - 要复制的数组元素的数量。</p>
 <p>该方法用了native关键字，说明调用的是其他语言写的底层函数。</p>
 <p>再看Arrays.copyOf()</p>
@@ -208,8 +208,7 @@
    Array.newInstance(newType.getComponentType(), newLength);System.arraycopy(original,0, copy,0,                       
    Math.min(original.length, newLength));    
    return copy;
-}
-</code></pre><p>该方法对应不同的数据类型都有各自的重载方法<br>original - 要复制的数组<br>newLength - 要返回的副本的长度<br>newType - 要返回的副本的类型<br>仔细观察发现，copyOf()内部调用了System.arraycopy()方法</p>
+}</code></pre><p>该方法对应不同的数据类型都有各自的重载方法<br>original - 要复制的数组<br>newLength - 要返回的副本的长度<br>newType - 要返回的副本的类型<br>仔细观察发现，copyOf()内部调用了System.arraycopy()方法</p>
 <h3 id="区别在于："><a href="#区别在于：" class="headerlink" title="区别在于："></a>区别在于：</h3><ol>
 <li>arraycopy()需要目标数组，将原数组拷贝到你自己定义的数组里，而且可以选择拷贝的起点和长度以及放入新数组中的位置</li>
 <li>copyOf()是系统自动在内部新建一个数组，调用arraycopy()将original内容复制到copy中去，并且长度为newLength。返回copy; 即将原数组拷贝到一个长度为newLength的新数组中，并返回该数组。</li>
@@ -268,19 +267,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/程序员资料大全/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          PostgreSQL单机部署（CentOS7）
+          程序员资料大全
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/Java对象流与序列化/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/02/26/字符串查找算法总结/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Java对象流与序列化</div>
+      <div class="article-nav-title">字符串查找算法总结</div>
     </a>
   
 </nav>

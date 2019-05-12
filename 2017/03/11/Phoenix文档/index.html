@@ -210,6 +210,7 @@
       
         <h2 id="1-Phoenix概述"><a href="#1-Phoenix概述" class="headerlink" title="1. Phoenix概述"></a>1. Phoenix概述</h2><p>Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。</p>
 <a id="more"></a>
+
 <p>Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。</p>
 <blockquote>
 <p>put the SQL back in NoSQL</p>
@@ -228,84 +229,92 @@
 <h2 id="2-历史演进"><a href="#2-历史演进" class="headerlink" title="2. 历史演进"></a>2. 历史演进</h2><ul>
 <li><strong>3.0/4.0 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/array_type.html" target="_blank" rel="external">ARRAY Type</a></strong>. 支持标准的JDBC数组类型</p>
-<p><strong><a href="http://phoenix.apache.org/sequences.html" target="_blank" rel="external">Sequences</a></strong>. 支持 CREATE/DROP SEQUENCE, NEXT VALUE FOR, CURRENT VALUE FOR也实现了</p>
-<p><strong><a href="http://phoenix.apache.org/multi-tenancy.html" target="_blank" rel="external">Multi-tenancy</a></strong>. 同一张HBase物理表上，不同的租户可以创建相互独立的视图</p>
-<p><strong><a href="http://phoenix.apache.org/views.html" target="_blank" rel="external">Views</a></strong>. 同一张HBase物理表上可以创建不同的视图</p>
+<p><strong><a href="http://phoenix.apache.org/array_type.html" target="_blank" rel="noopener">ARRAY Type</a></strong>. 支持标准的JDBC数组类型</p>
+<p><strong><a href="http://phoenix.apache.org/sequences.html" target="_blank" rel="noopener">Sequences</a></strong>. 支持 CREATE/DROP SEQUENCE, NEXT VALUE FOR, CURRENT VALUE FOR也实现了</p>
+<p><strong><a href="http://phoenix.apache.org/multi-tenancy.html" target="_blank" rel="noopener">Multi-tenancy</a></strong>. 同一张HBase物理表上，不同的租户可以创建相互独立的视图</p>
+<p><strong><a href="http://phoenix.apache.org/views.html" target="_blank" rel="noopener">Views</a></strong>. 同一张HBase物理表上可以创建不同的视图</p>
 <ul>
 <li><strong>3.1/4.1 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/pig_integration.html#Pig_Loader" target="_blank" rel="external">Apache Pig Loader</a></strong> . 通过pig来处理数据时支持pig加载器来利用Phoenix的性能</p>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-136" target="_blank" rel="external">Derived Tables</a></strong>. 允许在一个FROM子句中使用SELECT子句来定义一张衍生表</p>
-<p><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Local_Indexing" target="_blank" rel="external">Local Indexing</a></strong>. 后面介绍</p>
-<p><strong><a href="http://phoenix.apache.org/tracing.html" target="_blank" rel="external">Tracing</a></strong>. 后面介绍</p>
+<p><strong><a href="http://phoenix.apache.org/pig_integration.html#Pig_Loader" target="_blank" rel="noopener">Apache Pig Loader</a></strong> . 通过pig来处理数据时支持pig加载器来利用Phoenix的性能</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-136" target="_blank" rel="noopener">Derived Tables</a></strong>. 允许在一个FROM子句中使用SELECT子句来定义一张衍生表</p>
+<p><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Local_Indexing" target="_blank" rel="noopener">Local Indexing</a></strong>. 后面介绍</p>
+<p><strong><a href="http://phoenix.apache.org/tracing.html" target="_blank" rel="noopener">Tracing</a></strong>. 后面介绍</p>
 <ul>
 <li><strong>3.2/4.2 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/subqueries.html" target="_blank" rel="external">Subqueries</a></strong> 支持在WHERE和FROM子句中的独立子查询和相关子查询</p>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-167" target="_blank" rel="external">Semi/anti joins</a></strong>. 通过标准的[NOT] IN 和 [NOT] EXISTS关键字来支持半/反连接</p>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-852" target="_blank" rel="external">Optimize foreign key joins</a></strong>. 通过利用跳跃扫描过滤器来优化外键连接</p>
-<p><strong><a href="http://phoenix.apache.org/update_statistics.html" target="_blank" rel="external">Statistics Collection</a></strong>. 通过收集表的统计信息来提高并行查询能力</p>
+<p><strong><a href="http://phoenix.apache.org/subqueries.html" target="_blank" rel="noopener">Subqueries</a></strong> 支持在WHERE和FROM子句中的独立子查询和相关子查询</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-167" target="_blank" rel="noopener">Semi/anti joins</a></strong>. 通过标准的[NOT] IN 和 [NOT] EXISTS关键字来支持半/反连接</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-852" target="_blank" rel="noopener">Optimize foreign key joins</a></strong>. 通过利用跳跃扫描过滤器来优化外键连接</p>
+<p><strong><a href="http://phoenix.apache.org/update_statistics.html" target="_blank" rel="noopener">Statistics Collection</a></strong>. 通过收集表的统计信息来提高并行查询能力</p>
 <ul>
 <li><strong>3.3/4.3 release</strong></li>
 </ul>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-1179" target="_blank" rel="external">Many-to-many joins</a></strong>. 支持两边都太大以至于无法放进内存的连接</p>
-<p><strong><a href="http://phoenix.apache.org/phoenix_mr.html" target="_blank" rel="external">Map-reduce Integration</a></strong>. 支持Map-reduce集成</p>
-<p><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Functional_Indexes" target="_blank" rel="external">Functional Indexes</a></strong>. 后面介绍</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-1179" target="_blank" rel="noopener">Many-to-many joins</a></strong>. 支持两边都太大以至于无法放进内存的连接</p>
+<p><strong><a href="http://phoenix.apache.org/phoenix_mr.html" target="_blank" rel="noopener">Map-reduce Integration</a></strong>. 支持Map-reduce集成</p>
+<p><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Functional_Indexes" target="_blank" rel="noopener">Functional Indexes</a></strong>. 后面介绍</p>
 <ul>
 <li><strong>4.4 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/udf.html" target="_blank" rel="external">User Defined Functions</a></strong>. 后面介绍</p>
+<p><strong><a href="http://phoenix.apache.org/udf.html" target="_blank" rel="noopener">User Defined Functions</a></strong>. 后面介绍</p>
 <ul>
 <li><strong>4.5 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Asynchronous_Index_Population" target="_blank" rel="external">Asynchronous Index Population</a></strong>. 通过一个Map-reduce job，索引可以被异步创建</p>
+<p><strong><a href="http://phoenix.apache.org/secondary_indexing.html#Asynchronous_Index_Population" target="_blank" rel="noopener">Asynchronous Index Population</a></strong>. 通过一个Map-reduce job，索引可以被异步创建</p>
 <ul>
 <li><strong>4.6 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/rowtimestamp.html" target="_blank" rel="external">Time series Optimization</a></strong>. 优化针对时间序列数据的查询</p>
+<p><strong><a href="http://phoenix.apache.org/rowtimestamp.html" target="_blank" rel="noopener">Time series Optimization</a></strong>. 优化针对时间序列数据的查询</p>
 <ul>
 <li><strong>4.7 release</strong></li>
 </ul>
-<p><strong><a href="http://phoenix.apache.org/transactions.html" target="_blank" rel="external">Transaction Support</a></strong>. 后面介绍</p>
+<p><strong><a href="http://phoenix.apache.org/transactions.html" target="_blank" rel="noopener">Transaction Support</a></strong>. 后面介绍</p>
 <ul>
 <li><strong>4.8 release</strong></li>
 </ul>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-258" target="_blank" rel="external">DISTINCT Query Optimization</a></strong>. 使用搜索逻辑来大幅提高 SELECT DISTINCT 和 COUNT DISTINCT的查询性能 </p>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-1734" target="_blank" rel="external">Local Index Improvements</a></strong>. Reworked 后面介绍</p>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-2743" target="_blank" rel="external">Hive Integration</a></strong>. 能够在Phoenix内使用Hive来支持大表和大表之间的连接</p>
-<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-1311" target="_blank" rel="external">Namespace Mapping</a></strong>. 将Phoenix schema映射到HBase的命名空间来增强不同schema之间的隔离性</p>
-<h2 id="3-特性"><a href="#3-特性" class="headerlink" title="3. 特性"></a>3. 特性</h2><h3 id="3-1-Transactions-beta-事务"><a href="#3-1-Transactions-beta-事务" class="headerlink" title="3.1 Transactions (beta)  事务"></a>3.1 <a href="http://phoenix.apache.org/transactions.html" target="_blank" rel="external">Transactions (beta)</a>  事务</h3><p>该特性还处于beta版，并非正式版。通过集成<a href="http://tephra.incubator.apache.org/" target="_blank" rel="external">Tephra</a>,Phoenix可以支持ACID特性。Tephra也是Apache的一个项目,是事务管理器，它在像HBase这样的分布式数据存储上提供全局一致事务。HBase本身在行层次和区层次上支持强一致性，Tephra额外提供交叉区、交叉表的一致性来支持可扩展性。</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-258" target="_blank" rel="noopener">DISTINCT Query Optimization</a></strong>. 使用搜索逻辑来大幅提高 SELECT DISTINCT 和 COUNT DISTINCT的查询性能 </p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-1734" target="_blank" rel="noopener">Local Index Improvements</a></strong>. Reworked 后面介绍</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-2743" target="_blank" rel="noopener">Hive Integration</a></strong>. 能够在Phoenix内使用Hive来支持大表和大表之间的连接</p>
+<p><strong><a href="https://issues.apache.org/jira/browse/PHOENIX-1311" target="_blank" rel="noopener">Namespace Mapping</a></strong>. 将Phoenix schema映射到HBase的命名空间来增强不同schema之间的隔离性</p>
+<h2 id="3-特性"><a href="#3-特性" class="headerlink" title="3. 特性"></a>3. 特性</h2><h3 id="3-1-Transactions-beta-事务"><a href="#3-1-Transactions-beta-事务" class="headerlink" title="3.1 Transactions (beta)  事务"></a>3.1 <a href="http://phoenix.apache.org/transactions.html" target="_blank" rel="noopener">Transactions (beta)</a>  事务</h3><p>该特性还处于beta版，并非正式版。通过集成<a href="http://tephra.incubator.apache.org/" target="_blank" rel="noopener">Tephra</a>,Phoenix可以支持ACID特性。Tephra也是Apache的一个项目,是事务管理器，它在像HBase这样的分布式数据存储上提供全局一致事务。HBase本身在行层次和区层次上支持强一致性，Tephra额外提供交叉区、交叉表的一致性来支持可扩展性。</p>
 <p>要想让Phoenix支持事务特性，需要以下步骤：</p>
 <ul>
 <li>配置客户端hbase-site.xml</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;phoenix.transactions.enabled&lt;/name&gt;</div><div class="line">  &lt;value&gt;true&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;phoenix.transactions.enabled&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>配置服务端hbase-site.xml</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;data.tx.snapshot.dir&lt;/name&gt;</div><div class="line">  &lt;value&gt;/tmp/tephra/snapshots&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;data.tx.timeout&lt;/name&gt;</div><div class="line">  &lt;value&gt;60&lt;/value&gt;</div><div class="line">  &lt;description&gt; set the transaction timeout (time after which open transactions become invalid) to a reasonable value.&lt;/description&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;data.tx.snapshot.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;/tmp/tephra/snapshots&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;data.tx.timeout&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;60&lt;/value&gt;</span><br><span class="line">  &lt;description&gt; set the transaction timeout (time after which open transactions become invalid) to a reasonable value.&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>配置$HBASE_HOME并启动Tephra</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">./bin/tephra</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./bin/tephra</span><br></pre></td></tr></table></figure>
+
 <p>通过以上配置，Phoenix已经支持了事务特性，但创建表的时候默认还是不支持的。如果想创建一个表支持事务特性，需要显示声明，如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;</span><br></pre></td></tr></table></figure>
+
 <p>就是在建表语句末尾增加 <code>TRANSACTIONAL=true</code>。</p>
 <p>原本存在的表也可以更改成支持事务的，需要注意的是，事务表无法改回非事务的，因此更改的时候要小心。一旦改成事务的，就改不回去了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ALTER TABLE my_other_table SET TRANSACTIONAL=true;</div></pre></td></tr></table></figure>
-<h3 id="3-2-User-defined-functions-UDFs-用户定义函数"><a href="#3-2-User-defined-functions-UDFs-用户定义函数" class="headerlink" title="3.2 User-defined functions(UDFs)  用户定义函数"></a>3.2 <a href="http://phoenix.apache.org/udf.html" target="_blank" rel="external">User-defined functions(UDFs)</a>  用户定义函数</h3><h4 id="3-2-1-概述"><a href="#3-2-1-概述" class="headerlink" title="3.2.1 概述"></a>3.2.1 概述</h4><p>Phoenix从4.4.0版本开始支持用户自定义函数。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ALTER TABLE my_other_table SET TRANSACTIONAL=true;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-User-defined-functions-UDFs-用户定义函数"><a href="#3-2-User-defined-functions-UDFs-用户定义函数" class="headerlink" title="3.2 User-defined functions(UDFs)  用户定义函数"></a>3.2 <a href="http://phoenix.apache.org/udf.html" target="_blank" rel="noopener">User-defined functions(UDFs)</a>  用户定义函数</h3><h4 id="3-2-1-概述"><a href="#3-2-1-概述" class="headerlink" title="3.2.1 概述"></a>3.2.1 概述</h4><p>Phoenix从4.4.0版本开始支持用户自定义函数。</p>
 <p>用户可以创建临时或永久的用户自定义函数。这些用户自定义函数可以像内置的create、upsert、delete一样被调用。临时函数是针对特定的会话或连接，对其他会话或连接不可见。永久函数的元信息会被存储在一张叫做SYSTEM.FUNCTION的系统表中，对任何会话或连接均可见。</p>
 <h4 id="3-2-2-配置"><a href="#3-2-2-配置" class="headerlink" title="3.2.2 配置"></a>3.2.2 配置</h4><ul>
 <li>hive-site.xml</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;phoenix.functions.allowUserDefinedFunctions&lt;/name&gt;</div><div class="line">  &lt;value&gt;true&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;fs.hdfs.impl&lt;/name&gt;</div><div class="line">  &lt;value&gt;org.apache.hadoop.hdfs.DistributedFileSystem&lt;/value&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;hbase.rootdir&lt;/name&gt;</div><div class="line">  &lt;value&gt;$&#123;hbase.tmp.dir&#125;/hbase&lt;/value&gt;</div><div class="line">  &lt;description&gt;The directory shared by region servers and into</div><div class="line">    which HBase persists.  The URL should be &apos;fully-qualified&apos;</div><div class="line">    to include the filesystem scheme.  For example, to specify the</div><div class="line">    HDFS directory &apos;/hbase&apos; where the HDFS instance&apos;s namenode is</div><div class="line">    running at namenode.example.org on port 9000, set this value to:</div><div class="line">    hdfs://namenode.example.org:9000/hbase.  By default, we write</div><div class="line">    to whatever $&#123;hbase.tmp.dir&#125; is set too -- usually /tmp --</div><div class="line">    so change this configuration or else all data will be lost on</div><div class="line">    machine restart.&lt;/description&gt;</div><div class="line">&lt;/property&gt;</div><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;hbase.dynamic.jars.dir&lt;/name&gt;</div><div class="line">  &lt;value&gt;$&#123;hbase.rootdir&#125;/lib&lt;/value&gt;</div><div class="line">  &lt;description&gt;</div><div class="line">    The directory from which the custom udf jars can be loaded</div><div class="line">    dynamically by the phoenix client/region server without the need to restart. However,</div><div class="line">    an already loaded udf class would not be un-loaded. See</div><div class="line">    HBASE-1936 for more details.</div><div class="line">  &lt;/description&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;phoenix.functions.allowUserDefinedFunctions&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;fs.hdfs.impl&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;org.apache.hadoop.hdfs.DistributedFileSystem&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;$&#123;hbase.tmp.dir&#125;/hbase&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;The directory shared by region servers and into</span><br><span class="line">    which HBase persists.  The URL should be &apos;fully-qualified&apos;</span><br><span class="line">    to include the filesystem scheme.  For example, to specify the</span><br><span class="line">    HDFS directory &apos;/hbase&apos; where the HDFS instance&apos;s namenode is</span><br><span class="line">    running at namenode.example.org on port 9000, set this value to:</span><br><span class="line">    hdfs://namenode.example.org:9000/hbase.  By default, we write</span><br><span class="line">    to whatever $&#123;hbase.tmp.dir&#125; is set too -- usually /tmp --</span><br><span class="line">    so change this configuration or else all data will be lost on</span><br><span class="line">    machine restart.&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.dynamic.jars.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;$&#123;hbase.rootdir&#125;/lib&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;</span><br><span class="line">    The directory from which the custom udf jars can be loaded</span><br><span class="line">    dynamically by the phoenix client/region server without the need to restart. However,</span><br><span class="line">    an already loaded udf class would not be un-loaded. See</span><br><span class="line">    HBASE-1936 for more details.</span><br><span class="line">  &lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
 <p>后两个配置需要跟hbse服务端的配置一致。</p>
 <p>以上配置完后，在JDBC连接时还需要执行以下语句：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Properties props = new Properties();</div><div class="line">props.setProperty(&quot;phoenix.functions.allowUserDefinedFunctions&quot;, &quot;true&quot;);</div><div class="line">Connection conn = DriverManager.getConnection(&quot;jdbc:phoenix:localhost&quot;, props);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Properties props = new Properties();</span><br><span class="line">props.setProperty(&quot;phoenix.functions.allowUserDefinedFunctions&quot;, &quot;true&quot;);</span><br><span class="line">Connection conn = DriverManager.getConnection(&quot;jdbc:phoenix:localhost&quot;, props);</span><br></pre></td></tr></table></figure>
+
 <p>以下是可选的配置，用于动态类加载的时候把jar包从hdfs拷贝到本地文件系统</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;property&gt;</div><div class="line">  &lt;name&gt;hbase.local.dir&lt;/name&gt;</div><div class="line">  &lt;value&gt;$&#123;hbase.tmp.dir&#125;/local/&lt;/value&gt;</div><div class="line">  &lt;description&gt;Directory on the local filesystem to be used</div><div class="line">    as a local storage.&lt;/description&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
-<h3 id="3-3-Secondary-Indexing-二级索引"><a href="#3-3-Secondary-Indexing-二级索引" class="headerlink" title="3.3 Secondary Indexing  二级索引"></a>3.3 <a href="http://phoenix.apache.org/secondary_indexing.html" target="_blank" rel="external">Secondary Indexing</a>  二级索引</h3><p>在HBase中，只有一个单一的按照字典序排序的rowKey索引，当使用rowKey来进行数据查询的时候速度较快，但是如果不使用rowKey来查询的话就会使用filter来对全表进行扫描，很大程度上降低了检索性能。而Phoenix提供了二级索引技术来应对这种使用rowKey之外的条件进行检索的场景。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hbase.local.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;$&#123;hbase.tmp.dir&#125;/local/&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;Directory on the local filesystem to be used</span><br><span class="line">    as a local storage.&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-Secondary-Indexing-二级索引"><a href="#3-3-Secondary-Indexing-二级索引" class="headerlink" title="3.3 Secondary Indexing  二级索引"></a>3.3 <a href="http://phoenix.apache.org/secondary_indexing.html" target="_blank" rel="noopener">Secondary Indexing</a>  二级索引</h3><p>在HBase中，只有一个单一的按照字典序排序的rowKey索引，当使用rowKey来进行数据查询的时候速度较快，但是如果不使用rowKey来查询的话就会使用filter来对全表进行扫描，很大程度上降低了检索性能。而Phoenix提供了二级索引技术来应对这种使用rowKey之外的条件进行检索的场景。</p>
 <ul>
 <li>Covered Indexes</li>
 </ul>
@@ -330,44 +339,44 @@
 <blockquote>
 <p>Local indexing适用于写操作频繁的场景。<br>与Global indexing一样，Phoenix会自动判定在进行查询的时候是否使用索引。使用Local indexing时，索引数据和数据表的数据是存放在相同的服务器中的避免了在写操作的时候往不同服务器的索引表中写索引带来的额外开销。使用Local indexing的时候即使查询的字段不是索引字段索引表也会被使用，这会带来查询速度的提升，这点跟Global indexing不同。一个数据表的所有索引数据都存储在一个单一的独立的可共享的表中。</p>
 </blockquote>
-<h3 id="3-4-Statistics-Collection-统计信息收集"><a href="#3-4-Statistics-Collection-统计信息收集" class="headerlink" title="3.4 Statistics Collection  统计信息收集"></a>3.4 <a href="http://phoenix.apache.org/update_statistics.html" target="_blank" rel="external">Statistics Collection</a>  统计信息收集</h3><blockquote>
+<h3 id="3-4-Statistics-Collection-统计信息收集"><a href="#3-4-Statistics-Collection-统计信息收集" class="headerlink" title="3.4 Statistics Collection  统计信息收集"></a>3.4 <a href="http://phoenix.apache.org/update_statistics.html" target="_blank" rel="noopener">Statistics Collection</a>  统计信息收集</h3><blockquote>
 <p>UPDATE STATISTICS可以更新某张表的统计信息，以提高查询性能</p>
 </blockquote>
-<h3 id="3-5-Row-timestamp-时间戳"><a href="#3-5-Row-timestamp-时间戳" class="headerlink" title="3.5 Row timestamp  时间戳"></a>3.5 <a href="http://phoenix.apache.org/rowtimestamp.html" target="_blank" rel="external">Row timestamp</a>  时间戳</h3><blockquote>
+<h3 id="3-5-Row-timestamp-时间戳"><a href="#3-5-Row-timestamp-时间戳" class="headerlink" title="3.5 Row timestamp  时间戳"></a>3.5 <a href="http://phoenix.apache.org/rowtimestamp.html" target="_blank" rel="noopener">Row timestamp</a>  时间戳</h3><blockquote>
 <p>从4.6版本开始，Phoenix提供了一种将HBase原生的row timestamp映射到Phoenix列的方法。这样有利于充分利用HBase提供的针对存储文件的时间范围的各种优化，以及Phoenix内置的各种查询优化。</p>
 </blockquote>
-<h3 id="3-6-Paged-Queries-分页查询"><a href="#3-6-Paged-Queries-分页查询" class="headerlink" title="3.6 Paged Queries  分页查询"></a>3.6 <a href="http://phoenix.apache.org/paged.html#" target="_blank" rel="external">Paged Queries</a>  分页查询</h3><blockquote>
+<h3 id="3-6-Paged-Queries-分页查询"><a href="#3-6-Paged-Queries-分页查询" class="headerlink" title="3.6 Paged Queries  分页查询"></a>3.6 <a href="http://phoenix.apache.org/paged.html#" target="_blank" rel="noopener">Paged Queries</a>  分页查询</h3><blockquote>
 <p>Phoenix支持分页查询：</p>
 <ul>
 <li>Row Value Constructors (RVC)</li>
 <li>OFFSET with limit</li>
 </ul>
 </blockquote>
-<h3 id="3-7-Salted-Tables-散步表"><a href="#3-7-Salted-Tables-散步表" class="headerlink" title="3.7 Salted Tables  散步表"></a>3.7 <a href="http://phoenix.apache.org/salted.html" target="_blank" rel="external">Salted Tables</a>  散步表</h3><blockquote>
+<h3 id="3-7-Salted-Tables-散步表"><a href="#3-7-Salted-Tables-散步表" class="headerlink" title="3.7 Salted Tables  散步表"></a>3.7 <a href="http://phoenix.apache.org/salted.html" target="_blank" rel="noopener">Salted Tables</a>  散步表</h3><blockquote>
 <p>如果row key是自动增长的，那么HBase的顺序写会导致region server产生数据热点的问题，Phoenix的Salted Tables技术可以解决region server的热点问题</p>
 </blockquote>
-<h3 id="3-8-Skip-Scan-跳跃扫描"><a href="#3-8-Skip-Scan-跳跃扫描" class="headerlink" title="3.8 Skip Scan  跳跃扫描"></a>3.8 <a href="http://phoenix.apache.org/skip_scan.html" target="_blank" rel="external">Skip Scan</a>  跳跃扫描</h3><blockquote>
+<h3 id="3-8-Skip-Scan-跳跃扫描"><a href="#3-8-Skip-Scan-跳跃扫描" class="headerlink" title="3.8 Skip Scan  跳跃扫描"></a>3.8 <a href="http://phoenix.apache.org/skip_scan.html" target="_blank" rel="noopener">Skip Scan</a>  跳跃扫描</h3><blockquote>
 <p>可以在范围扫描的时候提高性能</p>
 </blockquote>
-<h3 id="3-9-Views-视图"><a href="#3-9-Views-视图" class="headerlink" title="3.9 Views  视图"></a>3.9 <a href="http://phoenix.apache.org/views.html" target="_blank" rel="external">Views</a>  视图</h3><blockquote>
+<h3 id="3-9-Views-视图"><a href="#3-9-Views-视图" class="headerlink" title="3.9 Views  视图"></a>3.9 <a href="http://phoenix.apache.org/views.html" target="_blank" rel="noopener">Views</a>  视图</h3><blockquote>
 <p>标准的SQL视图语法现在在Phoenix上也支持了。这使得能在同一张底层HBase物理表上创建多个虚拟表。</p>
 </blockquote>
-<h3 id="3-10-Multi-tenancy-多租户"><a href="#3-10-Multi-tenancy-多租户" class="headerlink" title="3.10 Multi tenancy  多租户"></a>3.10 <a href="http://phoenix.apache.org/multi-tenancy.html" target="_blank" rel="external">Multi tenancy</a>  多租户</h3><blockquote>
+<h3 id="3-10-Multi-tenancy-多租户"><a href="#3-10-Multi-tenancy-多租户" class="headerlink" title="3.10 Multi tenancy  多租户"></a>3.10 <a href="http://phoenix.apache.org/multi-tenancy.html" target="_blank" rel="noopener">Multi tenancy</a>  多租户</h3><blockquote>
 <p>通过指定不同的租户连接实现数据访问的隔离</p>
 </blockquote>
-<h3 id="3-11-Dynamic-Columns-动态列"><a href="#3-11-Dynamic-Columns-动态列" class="headerlink" title="3.11 Dynamic Columns  动态列"></a>3.11 <a href="http://phoenix.apache.org/dynamic_columns.html" target="_blank" rel="external">Dynamic Columns</a>  动态列</h3><blockquote>
+<h3 id="3-11-Dynamic-Columns-动态列"><a href="#3-11-Dynamic-Columns-动态列" class="headerlink" title="3.11 Dynamic Columns  动态列"></a>3.11 <a href="http://phoenix.apache.org/dynamic_columns.html" target="_blank" rel="noopener">Dynamic Columns</a>  动态列</h3><blockquote>
 <p>Phoenix 1.2, specifying columns dynamically is now supported by allowing column definitions to included in parenthesis after the table in the FROM clause on a SELECT statement. Although this is not standard SQL, it is useful to surface this type of functionality to leverage the late binding ability of HBase.</p>
 </blockquote>
-<h3 id="3-12-Bulk-CSV-Data-Loading-大量CSV数据加载"><a href="#3-12-Bulk-CSV-Data-Loading-大量CSV数据加载" class="headerlink" title="3.12 Bulk CSV Data Loading  大量CSV数据加载"></a>3.12 <a href="http://phoenix.apache.org/bulk_dataload.html" target="_blank" rel="external">Bulk CSV Data Loading</a>  大量CSV数据加载</h3><blockquote>
+<h3 id="3-12-Bulk-CSV-Data-Loading-大量CSV数据加载"><a href="#3-12-Bulk-CSV-Data-Loading-大量CSV数据加载" class="headerlink" title="3.12 Bulk CSV Data Loading  大量CSV数据加载"></a>3.12 <a href="http://phoenix.apache.org/bulk_dataload.html" target="_blank" rel="noopener">Bulk CSV Data Loading</a>  大量CSV数据加载</h3><blockquote>
 <p>加载CSV数据到Phoenix表有两种方式：1. 通过psql命令以单线程的方式加载，数据量少的情况下适用。 2. 基于MapReduce的bulk load工具，适用于数据量大的情况</p>
 </blockquote>
-<h3 id="3-13-Query-Server-查询服务器"><a href="#3-13-Query-Server-查询服务器" class="headerlink" title="3.13 Query Server  查询服务器"></a>3.13 <a href="http://phoenix.apache.org/server.html" target="_blank" rel="external">Query Server</a>  查询服务器</h3><blockquote>
+<h3 id="3-13-Query-Server-查询服务器"><a href="#3-13-Query-Server-查询服务器" class="headerlink" title="3.13 Query Server  查询服务器"></a>3.13 <a href="http://phoenix.apache.org/server.html" target="_blank" rel="noopener">Query Server</a>  查询服务器</h3><blockquote>
 <p>Phoenix4.4引入的一个单独的服务器来提供thin客户端的连接</p>
 </blockquote>
-<h3 id="3-14-Tracing-追踪"><a href="#3-14-Tracing-追踪" class="headerlink" title="3.14 Tracing  追踪"></a>3.14 <a href="http://phoenix.apache.org/tracing.html" target="_blank" rel="external">Tracing</a>  追踪</h3><blockquote>
+<h3 id="3-14-Tracing-追踪"><a href="#3-14-Tracing-追踪" class="headerlink" title="3.14 Tracing  追踪"></a>3.14 <a href="http://phoenix.apache.org/tracing.html" target="_blank" rel="noopener">Tracing</a>  追踪</h3><blockquote>
 <p>从4.1版本开始Phoenix增加这个特性来追踪每条查询的踪迹，这使用户能够看到每一条查询或插入操作背后从客户端到HBase端执行的每一步。</p>
 </blockquote>
-<h3 id="3-15-Metrics-指标"><a href="#3-15-Metrics-指标" class="headerlink" title="3.15 Metrics  指标"></a>3.15 <a href="http://phoenix.apache.org/metrics.html" target="_blank" rel="external">Metrics</a>  指标</h3><blockquote>
+<h3 id="3-15-Metrics-指标"><a href="#3-15-Metrics-指标" class="headerlink" title="3.15 Metrics  指标"></a>3.15 <a href="http://phoenix.apache.org/metrics.html" target="_blank" rel="noopener">Metrics</a>  指标</h3><blockquote>
 <p>Phoenix提供各种各样的指标使我们能够知道Phoenix客户端在执行不同SQL语句的时候其内部发生了什么。这些指标在客户端JVM中通过两种方式来收集：</p>
 <ul>
 <li><strong>Request level metrics</strong> - collected at an individual SQL statement<br>level</li>
@@ -390,87 +399,108 @@
 <ul>
 <li>SELECT</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">SELECT * FROM TEST LIMIT 1000;</div><div class="line">SELECT * FROM TEST LIMIT 1000 OFFSET 100;</div><div class="line">SELECT full_name FROM SALES_PERSON WHERE ranking &gt;= 5.0 UNION ALL SELECT reviewer_name FROM CUSTOMER_REVIEW WHERE score &gt;= 8.0</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">SELECT * FROM TEST LIMIT 1000;</span><br><span class="line">SELECT * FROM TEST LIMIT 1000 OFFSET 100;</span><br><span class="line">SELECT full_name FROM SALES_PERSON WHERE ranking &gt;= 5.0 UNION ALL SELECT reviewer_name FROM CUSTOMER_REVIEW WHERE score &gt;= 8.0</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>UPSERT VALUES</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">UPSERT INTO TEST VALUES(&apos;foo&apos;,&apos;bar&apos;,3);</div><div class="line">UPSERT INTO TEST(NAME,ID) VALUES(&apos;foo&apos;,123);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">UPSERT INTO TEST VALUES(&apos;foo&apos;,&apos;bar&apos;,3);</span><br><span class="line">UPSERT INTO TEST(NAME,ID) VALUES(&apos;foo&apos;,123);</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>UPSERT SELECT</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">UPSERT INTO test.targetTable(col1, col2) SELECT col3, col4 FROM test.sourceTable WHERE col5 &lt; 100</div><div class="line">UPSERT INTO foo SELECT * FROM bar;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">UPSERT INTO test.targetTable(col1, col2) SELECT col3, col4 FROM test.sourceTable WHERE col5 &lt; 100</span><br><span class="line">UPSERT INTO foo SELECT * FROM bar;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DELETE</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DELETE FROM TEST;</div><div class="line">DELETE FROM TEST WHERE ID=123;</div><div class="line">DELETE FROM TEST WHERE NAME LIKE &apos;foo%&apos;;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DELETE FROM TEST;</span><br><span class="line">DELETE FROM TEST WHERE ID=123;</span><br><span class="line">DELETE FROM TEST WHERE NAME LIKE &apos;foo%&apos;;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>CREATE TABLE</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">CREATE TABLE my_schema.my_table ( id BIGINT not null primary key, date)</div><div class="line">CREATE TABLE my_table ( id INTEGER not null primary key desc, date DATE not null,m.db_utilization DECIMAL, i.db_utilization) m.DATA_BLOCK_ENCODING=&apos;DIFF&apos;</div><div class="line">CREATE TABLE stats.prod_metrics ( host char(50) not null, created_date date not null,txn_count bigint CONSTRAINT pk PRIMARY KEY (host, created_date) )</div><div class="line">CREATE TABLE IF NOT EXISTS &quot;my_case_sensitive_table&quot;</div><div class="line">    ( &quot;id&quot; char(10) not null primary key, &quot;value&quot; integer)</div><div class="line">    DATA_BLOCK_ENCODING=&apos;NONE&apos;,VERSIONS=5,MAX_FILESIZE=2000000 split on (?, ?, ?)</div><div class="line">CREATE TABLE IF NOT EXISTS my_schema.my_table (org_id CHAR(15), entity_id CHAR(15), payload binary(1000),CONSTRAINT pk PRIMARY KEY (org_id, entity_id) )TTL=86400</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE my_schema.my_table ( id BIGINT not null primary key, date)</span><br><span class="line">CREATE TABLE my_table ( id INTEGER not null primary key desc, date DATE not null,m.db_utilization DECIMAL, i.db_utilization) m.DATA_BLOCK_ENCODING=&apos;DIFF&apos;</span><br><span class="line">CREATE TABLE stats.prod_metrics ( host char(50) not null, created_date date not null,txn_count bigint CONSTRAINT pk PRIMARY KEY (host, created_date) )</span><br><span class="line">CREATE TABLE IF NOT EXISTS &quot;my_case_sensitive_table&quot;</span><br><span class="line">    ( &quot;id&quot; char(10) not null primary key, &quot;value&quot; integer)</span><br><span class="line">    DATA_BLOCK_ENCODING=&apos;NONE&apos;,VERSIONS=5,MAX_FILESIZE=2000000 split on (?, ?, ?)</span><br><span class="line">CREATE TABLE IF NOT EXISTS my_schema.my_table (org_id CHAR(15), entity_id CHAR(15), payload binary(1000),CONSTRAINT pk PRIMARY KEY (org_id, entity_id) )TTL=86400</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DROP TABLE</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DROP TABLE my_schema.my_table;</div><div class="line">DROP TABLE IF EXISTS my_table;</div><div class="line">DROP TABLE my_schema.my_table CASCADE;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DROP TABLE my_schema.my_table;</span><br><span class="line">DROP TABLE IF EXISTS my_table;</span><br><span class="line">DROP TABLE my_schema.my_table CASCADE;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>CREATE FUNCTION</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">CREATE FUNCTION my_reverse(varchar) returns varchar as &apos;com.mypackage.MyReverseFunction&apos; using jar &apos;hdfs:/localhost:8080/hbase/lib/myjar.jar&apos;</div><div class="line">CREATE FUNCTION my_reverse(varchar) returns varchar as &apos;com.mypackage.MyReverseFunction&apos;</div><div class="line">CREATE FUNCTION my_increment(integer, integer constant defaultvalue=&apos;10&apos;) returns integer as &apos;com.mypackage.MyIncrementFunction&apos; using jar &apos;/hbase/lib/myincrement.jar&apos;</div><div class="line">CREATE TEMPORARY FUNCTION my_reverse(varchar) returns varchar as &apos;com.mypackage.MyReverseFunction&apos; using jar &apos;hdfs:/localhost:8080/hbase/lib/myjar.jar&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">CREATE FUNCTION my_reverse(varchar) returns varchar as &apos;com.mypackage.MyReverseFunction&apos; using jar &apos;hdfs:/localhost:8080/hbase/lib/myjar.jar&apos;</span><br><span class="line">CREATE FUNCTION my_reverse(varchar) returns varchar as &apos;com.mypackage.MyReverseFunction&apos;</span><br><span class="line">CREATE FUNCTION my_increment(integer, integer constant defaultvalue=&apos;10&apos;) returns integer as &apos;com.mypackage.MyIncrementFunction&apos; using jar &apos;/hbase/lib/myincrement.jar&apos;</span><br><span class="line">CREATE TEMPORARY FUNCTION my_reverse(varchar) returns varchar as &apos;com.mypackage.MyReverseFunction&apos; using jar &apos;hdfs:/localhost:8080/hbase/lib/myjar.jar&apos;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DROP FUNCTION</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DROP FUNCTION IF EXISTS my_reverse</div><div class="line">DROP FUNCTION my_reverse</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DROP FUNCTION IF EXISTS my_reverse</span><br><span class="line">DROP FUNCTION my_reverse</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>CREATE VIEW</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">CREATE VIEW &quot;my_hbase_table&quot;( k VARCHAR primary key, &quot;v&quot; UNSIGNED_LONG) default_column_family=&apos;a&apos;;</div><div class="line">CREATE VIEW my_view ( new_col SMALLINT ) AS SELECT * FROM my_table WHERE k = 100;</div><div class="line">CREATE VIEW my_view_on_view AS SELECT * FROM my_view WHERE new_col &gt; 70;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">CREATE VIEW &quot;my_hbase_table&quot;( k VARCHAR primary key, &quot;v&quot; UNSIGNED_LONG) default_column_family=&apos;a&apos;;</span><br><span class="line">CREATE VIEW my_view ( new_col SMALLINT ) AS SELECT * FROM my_table WHERE k = 100;</span><br><span class="line">CREATE VIEW my_view_on_view AS SELECT * FROM my_view WHERE new_col &gt; 70;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DROP VIEW</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DROP VIEW my_view</div><div class="line">DROP VIEW IF EXISTS my_schema.my_view</div><div class="line">DROP VIEW IF EXISTS my_schema.my_view CASCADE</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DROP VIEW my_view</span><br><span class="line">DROP VIEW IF EXISTS my_schema.my_view</span><br><span class="line">DROP VIEW IF EXISTS my_schema.my_view CASCADE</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>CREATE SEQUENCE</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">CREATE SEQUENCE my_sequence;</div><div class="line">CREATE SEQUENCE my_sequence START WITH -1000</div><div class="line">CREATE SEQUENCE my_sequence INCREMENT BY 10</div><div class="line">CREATE SEQUENCE my_schema.my_sequence START 0 CACHE 10</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">CREATE SEQUENCE my_sequence;</span><br><span class="line">CREATE SEQUENCE my_sequence START WITH -1000</span><br><span class="line">CREATE SEQUENCE my_sequence INCREMENT BY 10</span><br><span class="line">CREATE SEQUENCE my_schema.my_sequence START 0 CACHE 10</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DROP SEQUENCE</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DROP SEQUENCE my_sequence</div><div class="line">DROP SEQUENCE IF EXISTS my_schema.my_sequence</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DROP SEQUENCE my_sequence</span><br><span class="line">DROP SEQUENCE IF EXISTS my_schema.my_sequence</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>ALTER</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">ALTER TABLE my_schema.my_table ADD d.dept_id char(10) VERSIONS=10</div><div class="line">ALTER TABLE my_table ADD dept_name char(50), parent_id char(15) null primary key</div><div class="line">ALTER TABLE my_table DROP COLUMN d.dept_id, parent_id;</div><div class="line">ALTER VIEW my_view DROP COLUMN new_col;</div><div class="line">ALTER TABLE my_table SET IMMUTABLE_ROWS=true,DISABLE_WAL=true;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">ALTER TABLE my_schema.my_table ADD d.dept_id char(10) VERSIONS=10</span><br><span class="line">ALTER TABLE my_table ADD dept_name char(50), parent_id char(15) null primary key</span><br><span class="line">ALTER TABLE my_table DROP COLUMN d.dept_id, parent_id;</span><br><span class="line">ALTER VIEW my_view DROP COLUMN new_col;</span><br><span class="line">ALTER TABLE my_table SET IMMUTABLE_ROWS=true,DISABLE_WAL=true;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>CREATE INDEX</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">CREATE INDEX my_idx ON sales.opportunity(last_updated_date DESC)</div><div class="line">CREATE INDEX my_idx ON log.event(created_date DESC) INCLUDE (name, payload) SALT_BUCKETS=10</div><div class="line">CREATE INDEX IF NOT EXISTS my_comp_idx ON server_metrics ( gc_time DESC, created_date DESC ) DATA_BLOCK_ENCODING=&apos;NONE&apos;,VERSIONS=?,MAX_FILESIZE=2000000 split on (?, ?, ?)</div><div class="line">CREATE INDEX my_idx ON sales.opportunity(UPPER(contact_name))</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">CREATE INDEX my_idx ON sales.opportunity(last_updated_date DESC)</span><br><span class="line">CREATE INDEX my_idx ON log.event(created_date DESC) INCLUDE (name, payload) SALT_BUCKETS=10</span><br><span class="line">CREATE INDEX IF NOT EXISTS my_comp_idx ON server_metrics ( gc_time DESC, created_date DESC ) DATA_BLOCK_ENCODING=&apos;NONE&apos;,VERSIONS=?,MAX_FILESIZE=2000000 split on (?, ?, ?)</span><br><span class="line">CREATE INDEX my_idx ON sales.opportunity(UPPER(contact_name))</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DROP INDEX</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DROP INDEX my_idx ON sales.opportunity</div><div class="line">DROP INDEX IF EXISTS my_idx ON server_metrics</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DROP INDEX my_idx ON sales.opportunity</span><br><span class="line">DROP INDEX IF EXISTS my_idx ON server_metrics</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>ALTER INDEX</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">ALTER INDEX my_idx ON sales.opportunity DISABLE</div><div class="line">ALTER INDEX IF EXISTS my_idx ON server_metrics REBUILD</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">ALTER INDEX my_idx ON sales.opportunity DISABLE</span><br><span class="line">ALTER INDEX IF EXISTS my_idx ON server_metrics REBUILD</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>EXPLAIN</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">EXPLAIN SELECT NAME, COUNT(*) FROM TEST GROUP BY NAME HAVING COUNT(*) &gt; 2;</div><div class="line">EXPLAIN SELECT entity_id FROM CORE.CUSTOM_ENTITY_DATA WHERE organization_id=&apos;00D300000000XHP&apos; AND SUBSTR(entity_id,1,3) = &apos;002&apos; AND created_date &lt; CURRENT_DATE()-1;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">EXPLAIN SELECT NAME, COUNT(*) FROM TEST GROUP BY NAME HAVING COUNT(*) &gt; 2;</span><br><span class="line">EXPLAIN SELECT entity_id FROM CORE.CUSTOM_ENTITY_DATA WHERE organization_id=&apos;00D300000000XHP&apos; AND SUBSTR(entity_id,1,3) = &apos;002&apos; AND created_date &lt; CURRENT_DATE()-1;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>UPDATE STATISTICS</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">UPDATE STATISTICS my_table</div><div class="line">UPDATE STATISTICS my_schema.my_table INDEX</div><div class="line">UPDATE STATISTICS my_index</div><div class="line">UPDATE STATISTICS my_table COLUMNS</div><div class="line">UPDATE STATISTICS my_table SET phoenix.stats.guidepost.width=50000000</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">UPDATE STATISTICS my_table</span><br><span class="line">UPDATE STATISTICS my_schema.my_table INDEX</span><br><span class="line">UPDATE STATISTICS my_index</span><br><span class="line">UPDATE STATISTICS my_table COLUMNS</span><br><span class="line">UPDATE STATISTICS my_table SET phoenix.stats.guidepost.width=50000000</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>CREATE SCHEMA</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">CREATE SCHEMA IF NOT EXISTS my_schema</div><div class="line">CREATE SCHEMA my_schema</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">CREATE SCHEMA IF NOT EXISTS my_schema</span><br><span class="line">CREATE SCHEMA my_schema</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>USE</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">USE my_schema</div><div class="line">USE DEFAULT</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">USE my_schema</span><br><span class="line">USE DEFAULT</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>DROP SCHEMA</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Example:</div><div class="line">DROP SCHEMA IF EXISTS my_schema</div><div class="line">DROP SCHEMA my_schema</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example:</span><br><span class="line">DROP SCHEMA IF EXISTS my_schema</span><br><span class="line">DROP SCHEMA my_schema</span><br></pre></td></tr></table></figure>
+
 <h2 id="7-安装部署"><a href="#7-安装部署" class="headerlink" title="7. 安装部署"></a>7. 安装部署</h2><h3 id="7-1-安装预编译的Phoenix"><a href="#7-1-安装预编译的Phoenix" class="headerlink" title="7.1 安装预编译的Phoenix"></a>7.1 安装预编译的Phoenix</h3><ul>
 <li><p>下载并解压最新版的phoenix-[version]-bin.tar包</p>
 </li>
@@ -484,13 +514,16 @@
 <h3 id="7-2-使用Phoenix"><a href="#7-2-使用Phoenix" class="headerlink" title="7.2 使用Phoenix"></a>7.2 使用Phoenix</h3><h4 id="7-2-1-命令行"><a href="#7-2-1-命令行" class="headerlink" title="7.2.1 命令行"></a>7.2.1 命令行</h4><p>若要在命令行执行交互式SQL语句：</p>
 <p>1.切换到bin目录</p>
 <p>2.执行以下语句</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sqlline.py localhost</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sqlline.py localhost</span><br></pre></td></tr></table></figure>
+
 <p>若要在命令行执行SQL脚本</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sqlline.py localhost ../examples/stock_symbol.sql</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sqlline.py localhost ../examples/stock_symbol.sql</span><br></pre></td></tr></table></figure>
+
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-c1a747aba143487f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h4 id="7-2-2-客户端"><a href="#7-2-2-客户端" class="headerlink" title="7.2.2 客户端"></a>7.2.2 客户端</h4><p> <a href="http://squirrel-sql.sourceforge.net/" target="_blank" rel="external">SQuirrel</a>是用来连接Phoenix的客户端。</p>
+<h4 id="7-2-2-客户端"><a href="#7-2-2-客户端" class="headerlink" title="7.2.2 客户端"></a>7.2.2 客户端</h4><p> <a href="http://squirrel-sql.sourceforge.net/" target="_blank" rel="noopener">SQuirrel</a>是用来连接Phoenix的客户端。</p>
 <p>SQuirrel安装步骤如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">1. Remove prior phoenix-[*oldversion*]-client.jar from the lib directory of SQuirrel, copy phoenix-[*newversion*]-client.jar to the lib directory (*newversion* should be compatible with the version of the phoenix server jar used with your HBase installation)</div><div class="line">2. Start SQuirrel and add new driver to SQuirrel (Drivers -&gt; New Driver)</div><div class="line">3. In Add Driver dialog box, set Name to Phoenix, and set the Example URL to jdbc:phoenix:localhost.</div><div class="line">4. Type “org.apache.phoenix.jdbc.PhoenixDriver” into the Class Name textbox and click OK to close this dialog.</div><div class="line">5. Switch to Alias tab and create the new Alias (Aliases -&gt; New Aliases)</div><div class="line">6. In the dialog box, Name: *any name*, Driver: Phoenix, User Name: *anything*, Password: *anything*</div><div class="line">7. Construct URL as follows: jdbc:phoenix: *zookeeper quorum server*. For example, to connect to a local HBase use: jdbc:phoenix:localhost</div><div class="line">8. Press Test (which should succeed if everything is setup correctly) and press OK to close.</div><div class="line">9. Now double click on your newly created Phoenix alias and click Connect. Now you are ready to run SQL queries against Phoenix.</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. Remove prior phoenix-[*oldversion*]-client.jar from the lib directory of SQuirrel, copy phoenix-[*newversion*]-client.jar to the lib directory (*newversion* should be compatible with the version of the phoenix server jar used with your HBase installation)</span><br><span class="line">2. Start SQuirrel and add new driver to SQuirrel (Drivers -&gt; New Driver)</span><br><span class="line">3. In Add Driver dialog box, set Name to Phoenix, and set the Example URL to jdbc:phoenix:localhost.</span><br><span class="line">4. Type “org.apache.phoenix.jdbc.PhoenixDriver” into the Class Name textbox and click OK to close this dialog.</span><br><span class="line">5. Switch to Alias tab and create the new Alias (Aliases -&gt; New Aliases)</span><br><span class="line">6. In the dialog box, Name: *any name*, Driver: Phoenix, User Name: *anything*, Password: *anything*</span><br><span class="line">7. Construct URL as follows: jdbc:phoenix: *zookeeper quorum server*. For example, to connect to a local HBase use: jdbc:phoenix:localhost</span><br><span class="line">8. Press Test (which should succeed if everything is setup correctly) and press OK to close.</span><br><span class="line">9. Now double click on your newly created Phoenix alias and click Connect. Now you are ready to run SQL queries against Phoenix.</span><br></pre></td></tr></table></figure>
+
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-30cf6769ba33e129.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <h2 id="8-测试"><a href="#8-测试" class="headerlink" title="8. 测试"></a>8. 测试</h2><h3 id="8-1-Pherf"><a href="#8-1-Pherf" class="headerlink" title="8.1 Pherf"></a>8.1 Pherf</h3><p>Pherf是可以通过Phoenix来进行性能和功能测试的工具。Pherf可以用来生成高度定制的数据集，并且测试SQL在这些数据集上的性能。</p>
 <h4 id="8-1-1-构建Pherf"><a href="#8-1-1-构建Pherf" class="headerlink" title="8.1.1 构建Pherf"></a>8.1.1 构建Pherf</h4><p>Pherf是在用maven构建Phoenix的过程中同时构建的。可以用两种不同的配置来构建：</p>
@@ -500,7 +533,7 @@
 <blockquote>
 <p>This profile builds Pherf such that it can run along side an existing cluster. The dependencies are pulled from the HBase classpath.</p>
 </blockquote>
-<ol>
+<ol start="2">
 <li>独立</li>
 </ol>
 <blockquote>
@@ -509,11 +542,13 @@
 <ul>
 <li>构建全部的Phoenix。包含Pherf的默认配置。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mvn clean package -DskipTests</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn clean package -DskipTests</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>用Pherf的独立配置来构建Phoenix。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mvn clean package -P standalone -DskipTests</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn clean package -P standalone -DskipTests</span><br></pre></td></tr></table></figure>
+
 <h4 id="8-1-2-安装"><a href="#8-1-2-安装" class="headerlink" title="8.1.2 安装"></a>8.1.2 安装</h4><p>用以上的Maven命令构建完Pherf后，会在该模块的目标目录下生成一个zip文件。</p>
 <ol>
 <li>将该zip文件解压到合适的目录</li>
@@ -521,17 +556,21 @@
 <li>./pherf.sh -h</li>
 <li>想要在一个真正的集群上测试，运行如下命令: </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">./pherf.sh -drop all -l -q -z localhost -schemaFile .*user_defined_schema.sql -scenarioFile .*user_defined_scenario.xml</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">./pherf.sh -drop all -l -q -z localhost -schemaFile .*user_defined_schema.sql -scenarioFile .*user_defined_scenario.xml</span><br></pre></td></tr></table></figure>
+
 <h4 id="8-1-3-命令示例"><a href="#8-1-3-命令示例" class="headerlink" title="8.1.3 命令示例"></a>8.1.3 命令示例</h4><ul>
 <li>列出所有可运行的场景文件</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$./pherf.sh -listFiles</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$./pherf.sh -listFiles</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>删掉全部场景文件中存在的特定的表、加载和查询数据</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$./pherf.sh -drop all -l -q -z localhost</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$./pherf.sh -drop all -l -q -z localhost</span><br></pre></td></tr></table></figure>
+
 <h4 id="8-1-4-参数"><a href="#8-1-4-参数" class="headerlink" title="8.1.4 参数"></a>8.1.4 参数</h4><blockquote>
-<p>-h Help<br>-l Apply schema and load data<br>-q Executes Multi-threaded query sets and write results<br>-z [quorum] Zookeeper quorum<br>-m Enable monitor for statistics<br>-monitorFrequency [frequency in Ms] _Frequency at which the monitor will snopshot stats to log file.<br>-drop [pattern] Regex drop all tables with schema name as PHERF. Example drop Event tables: -drop .(EVENT). Drop all: -drop .<em> or -drop all</em><br>-scenarioFile Regex or file name of a specific scenario file to run.<br>-schemaFile Regex or file name of a specific schema file to run.<br>-export Exports query results to CSV files in CSV_EXPORT directory<br>-diff Compares results with previously exported results<br>-hint Executes all queries with specified hint. Example SMALL<br>-rowCountOverride<br>-rowCountOverride [number of rows] Specify number of rows to be upserted rather than using row count specified in schema</p>
+<p>-h Help<br>-l Apply schema and load data<br>-q Executes Multi-threaded query sets and write results<br>-z [quorum] Zookeeper quorum<br>-m Enable monitor for statistics<br>-monitorFrequency [frequency in Ms] _Frequency at which the monitor will snopshot stats to log file.<br>-drop [pattern] Regex drop all tables with schema name as PHERF. Example drop Event tables: -drop .(EVENT). Drop all: -drop .* or -drop all*
+-scenarioFile Regex or file name of a specific scenario file to run.<br>-schemaFile Regex or file name of a specific schema file to run.<br>-export Exports query results to CSV files in CSV_EXPORT directory<br>-diff Compares results with previously exported results<br>-hint Executes all queries with specified hint. Example SMALL<br>-rowCountOverride<br>-rowCountOverride [number of rows] Specify number of rows to be upserted rather than using row count specified in schema</p>
 </blockquote>
 <h4 id="8-1-5-为数据生成增加规则"><a href="#8-1-5-为数据生成增加规则" class="headerlink" title="8.1.5 为数据生成增加规则"></a>8.1.5 为数据生成增加规则</h4><h4 id="8-1-6-定义场景"><a href="#8-1-6-定义场景" class="headerlink" title="8.1.6 定义场景"></a>8.1.6 定义场景</h4><h4 id="8-1-7-结果"><a href="#8-1-7-结果" class="headerlink" title="8.1.7 结果"></a>8.1.7 结果</h4><p>结果实时写入结果目录中。可以打开.jpg格式文件来实时可视化。</p>
 <h4 id="8-1-8-测试"><a href="#8-1-8-测试" class="headerlink" title="8.1.8 测试"></a>8.1.8 测试</h4><blockquote>
@@ -545,10 +584,12 @@
 </li>
 </ul>
 <h4 id="8-2-1-Phoenix对比相近产品"><a href="#8-2-1-Phoenix对比相近产品" class="headerlink" title="8.2.1 Phoenix对比相近产品"></a>8.2.1 Phoenix对比相近产品</h4><h5 id="8-2-1-1-Phoenix-vs-Hive-running-over-HDFS-and-HBase"><a href="#8-2-1-1-Phoenix-vs-Hive-running-over-HDFS-and-HBase" class="headerlink" title="8.2.1.1 Phoenix vs Hive (running over HDFS and HBase)"></a>8.2.1.1 Phoenix vs Hive (running over HDFS and HBase)</h5><p><img src="http://upload-images.jianshu.io/upload_images/1752522-697a95a8cab3a28d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Query: select count(1) from table over 10M and 100M rows. Data is 5 narrow columns. Number of Region Servers: 4 (HBase heap: 10GB, Processor: 6 cores @ 3.3GHz Xeon)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Query: select count(1) from table over 10M and 100M rows. Data is 5 narrow columns. Number of Region Servers: 4 (HBase heap: 10GB, Processor: 6 cores @ 3.3GHz Xeon)</span><br></pre></td></tr></table></figure>
+
 <h5 id="8-2-1-2-Phoenix-vs-Impala-running-over-HBase"><a href="#8-2-1-2-Phoenix-vs-Impala-running-over-HBase" class="headerlink" title="8.2.1.2 Phoenix vs Impala (running over HBase)"></a>8.2.1.2 Phoenix vs Impala (running over HBase)</h5><p><img src="http://upload-images.jianshu.io/upload_images/1752522-38710062c800a26b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Query: select count(1) from table over 1M and 5M rows. Data is 3 narrow columns. Number of Region Server: 1 (Virtual Machine, HBase heap: 2GB, Processor: 2 cores @ 3.3GHz Xeon)</div></pre></td></tr></table></figure>
-<h4 id="8-2-2-Latest-Automated-Performance-Run"><a href="#8-2-2-Latest-Automated-Performance-Run" class="headerlink" title="8.2.2 Latest Automated Performance Run"></a>8.2.2 Latest Automated Performance Run</h4><p><a href="http://phoenix-bin.github.io/client/performance/latest.htm" target="_blank" rel="external">Latest Automated Performance Run</a> | <a href="http://phoenix-bin.github.io/client/performance/" target="_blank" rel="external">Automated Performance Runs History</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Query: select count(1) from table over 1M and 5M rows. Data is 3 narrow columns. Number of Region Server: 1 (Virtual Machine, HBase heap: 2GB, Processor: 2 cores @ 3.3GHz Xeon)</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-2-2-Latest-Automated-Performance-Run"><a href="#8-2-2-Latest-Automated-Performance-Run" class="headerlink" title="8.2.2 Latest Automated Performance Run"></a>8.2.2 Latest Automated Performance Run</h4><p><a href="http://phoenix-bin.github.io/client/performance/latest.htm" target="_blank" rel="noopener">Latest Automated Performance Run</a> | <a href="http://phoenix-bin.github.io/client/performance/" target="_blank" rel="noopener">Automated Performance Runs History</a></p>
 <h4 id="8-2-3-Phoenix1-2性能提升"><a href="#8-2-3-Phoenix1-2性能提升" class="headerlink" title="8.2.3 Phoenix1.2性能提升"></a>8.2.3 Phoenix1.2性能提升</h4><ul>
 <li>Essential Column Family</li>
 </ul>
@@ -566,11 +607,11 @@
 </ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/1752522-81d30687fe0f32ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <h2 id="9-参考资料"><a href="#9-参考资料" class="headerlink" title="9. 参考资料"></a>9. 参考资料</h2><ul>
-<li><a href="http://phoenix.apache.org" target="_blank" rel="external">http://phoenix.apache.org</a></li>
-<li><a href="http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html" target="_blank" rel="external">http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html</a></li>
-<li><a href="http://hadooptutorial.info/apache-phoenix-hbase-an-sql-layer-on-hbase/" target="_blank" rel="external">http://hadooptutorial.info/apache-phoenix-hbase-an-sql-layer-on-hbase/</a></li>
-<li><a href="http://www.phoenixframework.org/docs/resources" target="_blank" rel="external">http://www.phoenixframework.org/docs/resources</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Apache_Phoenix" target="_blank" rel="external">https://en.wikipedia.org/wiki/Apache_Phoenix</a><br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+<li><a href="http://phoenix.apache.org" target="_blank" rel="noopener">http://phoenix.apache.org</a></li>
+<li><a href="http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html" target="_blank" rel="noopener">http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html</a></li>
+<li><a href="http://hadooptutorial.info/apache-phoenix-hbase-an-sql-layer-on-hbase/" target="_blank" rel="noopener">http://hadooptutorial.info/apache-phoenix-hbase-an-sql-layer-on-hbase/</a></li>
+<li><a href="http://www.phoenixframework.org/docs/resources" target="_blank" rel="noopener">http://www.phoenixframework.org/docs/resources</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Apache_Phoenix" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Apache_Phoenix</a><br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
 </ul>
 
       
@@ -625,19 +666,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/11/Java I:O 操作示例/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Java I/O 操作示例
+          Java NIO之内存映射文件——MappedByteBuffer
         
       </div>
     </a>
   
   
-    <a href="/2017/03/11/学习PostgreSQL不可错过的一篇文章/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">PostgreSQL综合</div>
+      <div class="article-nav-title">Java 7新机制之自动关闭资源——try-with-resources</div>
     </a>
   
 </nav>
