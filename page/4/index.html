@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Java 中定义常量的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java对象流与序列化" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
+      <a class="article-title" href="/2017/03/11/Java对象流与序列化/">Java对象流与序列化</a>
     </h1>
   
 
@@ -175,7 +175,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
+	<a href="/2017/03/11/Java对象流与序列化/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -186,23 +186,15 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>主要有三种：接口、类和枚举。</p>
-        <!-- 主要有三种：接口、类和枚举。
+        <p>Java语言支持一种称为<strong>对象序列化（object serialization）</strong>的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。</p>
+        <!-- Java语言支持一种称为对象序列化（object serialization）的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。
+ 
 
-
-接口：
-
-在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
-类实现该接口即可在类中调用该常量
-
-类：
-直接用 public static final 定义常量。
-枚举：
-在枚举类中直接写上常量值。
 示例：
-public class ConstTest &#123;    public static void ma......  -->
+ObjectStreamTest.java
+import java.io......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
+          <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
         </p>
       
     </div>
@@ -380,7 +372,7 @@ public class ConstTest &#123;    public static void ma......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -388,7 +380,7 @@ public class ConstTest &#123;    public static void ma......  -->
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -396,7 +388,55 @@ public class ConstTest &#123;    public static void ma......  -->
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
+        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Java文件管理操作" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -407,16 +447,15 @@ public class ConstTest &#123;    public static void ma......  -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
-        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
+<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
+        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
+Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
+ 
 
-
-static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
-static 域：
-如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
-sta......  -->
+Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
+          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
       
     </div>
@@ -487,6 +526,58 @@ sta......  -->
 <!-- Table of Contents -->
 
   
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先看看System.arraycopy()的声明：</p>
+<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`</code></pre>
+        <!-- 先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -538,54 +629,6 @@ sta......  -->
 <!-- Table of Contents -->
 
   
-    <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
     <article id="post-Java I:O总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -620,59 +663,6 @@ sta......  -->
 数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java文件管理操作" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
-<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
-        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
-Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
- 
-
-Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
       
     </div>

@@ -295,7 +295,7 @@ C &amp; C++
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -303,7 +303,7 @@ C &amp; C++
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -311,7 +311,7 @@ C &amp; C++
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -322,14 +322,16 @@ C &amp; C++
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先看看System.arraycopy()的声明：</p>
-<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`</code></pre>
-        <!-- 先看看System.arraycopy()的声明：
-public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
+        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
-src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+sta......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>

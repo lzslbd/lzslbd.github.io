@@ -211,7 +211,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -219,7 +219,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
+      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
     </h1>
   
 
@@ -227,7 +227,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
+	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -238,15 +238,16 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
-<p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
-        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
-通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
+        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
 
 
-1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region ......  -->
+
+1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
+因此Phoenix跟HBase是离不开的，Phoen......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
         </p>
       
     </div>
@@ -315,7 +316,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-Java中Comparable与Comparator的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 中定义常量的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -323,7 +324,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
     </h1>
   
 
@@ -331,7 +332,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
+	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -342,23 +343,23 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="相同"><a href="#相同" class="headerlink" title="相同"></a>相同</h2><ul>
-<li>Comparable和Comparator都是用来实现对象的比较、排序</li>
-<li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
-<li>Comparable和Comparator都是Java的接口</li>
-</ul>
-        <!-- 相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口
+        <p>主要有三种：接口、类和枚举。</p>
+        <!-- 主要有三种：接口、类和枚举。
 
- 
 
-区别
-Comparator位于java.util包下，而Comparable位于java.lang包下
-Comparable接口的实现是在类的内部（如 String、I......  -->
+接口：
+
+在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
+类实现该接口即可在类中调用该常量
+
+类：
+直接用 public static final 定义常量。
+枚举：
+在枚举类中直接写上常量值。
+示例：
+public class ConstTest &#123;    public static void ma......  -->
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
       
     </div>
@@ -541,6 +542,110 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
 <!-- Table of Contents -->
 
   
+    <article id="post-Java I:O 操作示例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>给出几个Java I/O 操作的示例代码。</p>
+        <!-- 给出几个Java I/O 操作的示例代码。
+
+
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");    ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
+<p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
+        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+
+
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-Java 7新机制之自动关闭资源——try-with-resources" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -576,109 +681,6 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
 BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nu......  -->
         <p class="article-more-link">
           <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
-        <!-- PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
-
-
-192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
-1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Java I:O 操作示例" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给出几个Java I/O 操作的示例代码。</p>
-        <!-- 给出几个Java I/O 操作的示例代码。
-
-
-创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");    ......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
         </p>
       
     </div>

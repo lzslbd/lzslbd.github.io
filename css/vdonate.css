@@ -15,12 +15,14 @@
 	top: 0;
 	left: 0;
 	z-index: 999;
-	transform: scale(0)
+	-webkit-transform: scale(0);
+	        transform: scale(0)
 }
 
 #donate-modal-container.active {
 	display: table;
-	transform: scale(1)
+	-webkit-transform: scale(1);
+	        transform: scale(1)
 }
 
 #donate-modal-container.active .donate-modal-background {
@@ -28,7 +30,8 @@
 }
 
 #donate-modal-container.active .donate-modal-background .donate-modal {
-	animation: blowUpModal .5s cubic-bezier(.165,.84,.44,1) forwards
+	-webkit-animation: blowUpModal .5s cubic-bezier(.165,.84,.44,1) forwards;
+	        animation: blowUpModal .5s cubic-bezier(.165,.84,.44,1) forwards
 }
 
 #donate-modal-container .donate-quote {
@@ -135,13 +138,27 @@
 	background: url("https://ooo.0o0.ooo/2017/03/09/58c16b1f3eaa4.png") no-repeat
 }
 
-@keyframes blowUpModal {
+@-webkit-keyframes blowUpModal {
 	0% {
-		transform: scale(0)
+		-webkit-transform: scale(0);
+		        transform: scale(0)
 	}
 
 	100% {
-		transform: scale(1)
+		-webkit-transform: scale(1);
+		        transform: scale(1)
+	}
+}
+
+@keyframes blowUpModal {
+	0% {
+		-webkit-transform: scale(0);
+		        transform: scale(0)
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+		        transform: scale(1)
 	}
 }
 

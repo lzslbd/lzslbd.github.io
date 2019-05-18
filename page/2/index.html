@@ -530,6 +530,58 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 <!-- Table of Contents -->
 
   
+    <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
+        <!-- PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+
+
+192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
+1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
     <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -574,60 +626,6 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-  
-    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
-        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
-
-
-
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoen......  -->
-        <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
