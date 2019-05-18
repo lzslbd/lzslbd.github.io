@@ -217,7 +217,7 @@
 
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java I:O 操作示例" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -225,7 +225,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
     </h1>
   
 
@@ -233,12 +233,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -247,19 +247,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+          给出几个Java I/O 操作的示例代码。
 
 
-代码结构主目录（$BENCH_MARK_HOME）下有：
-
-bin
-conf
-data-generator
-engines
-t...
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");        dir.mkdir();  //创建目录        File file = new Fi...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -334,7 +328,7 @@ LinkedList是一个双向链表。因此，当需要...
 
 
   
-    <article id="post-Java中Comparable与Comparator的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 中定义常量的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -342,7 +336,7 @@ LinkedList是一个双向链表。因此，当需要...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中Comparable与Comparator的区别/">Java中Comparable与Comparator的区别</a>
+      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
     </h1>
   
 
@@ -350,7 +344,7 @@ LinkedList是一个双向链表。因此，当需要...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java中Comparable与Comparator的区别/" class="article-date">
+	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -364,19 +358,23 @@ LinkedList是一个双向链表。因此，当需要...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          相同
-Comparable和Comparator都是用来实现对象的比较、排序
-要想对象比较、排序，都需要实现Comparable或Comparator接口
-Comparable和Comparator都是Java的接口
+          主要有三种：接口、类和枚举。
 
- 
 
-区别
-Comparator位于java.util包下，而Comparable位于java.lang包下
-Comparable接口的实现是在类的内部（如 String、Integer已经实现了Comparable接口，自己就可以完成比较大小操作），Comparator接...
+接口：
+
+在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
+类实现该接口即可在类中调用该常量
+
+类：
+直接用 public static final 定义常量。
+枚举：
+在枚举类中直接写上常量值。
+示例：
+public class ConstTest &#123;    public static void main(String[] args) &#123;        Signal sg = new Si...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
       
     </div>
@@ -624,7 +622,7 @@ Comparable接口的实现是在类的内部（如 String、Integer已经实现�
 
 
   
-    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -632,7 +630,7 @@ Comparable接口的实现是在类的内部（如 String、Integer已经实现�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -640,12 +638,12 @@ Comparable接口的实现是在类的内部（如 String、Integer已经实现�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -654,11 +652,19 @@ Comparable接口的实现是在类的内部（如 String、Integer已经实现�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
+          static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+
+
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+static 方法：
+static 方法可以通过类名直接调用，该类的任何对象也可以调用（但不推荐）。
+
+s...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>

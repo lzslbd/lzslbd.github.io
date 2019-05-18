@@ -217,7 +217,7 @@
 
 
   
-    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -225,7 +225,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
     </h1>
   
 
@@ -233,12 +233,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
 
       
       
@@ -247,16 +247,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
 
 
+代码结构主目录（$BENCH_MARK_HOME）下有：
 
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+bin
+conf
+data-generator
+engines
+t...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
         </p>
       
     </div>
@@ -330,7 +333,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 
   
-    <article id="post-Java 中定义常量的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java文件管理操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -338,7 +341,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 中定义常量的几种方法/">Java 中定义常量的几种方法</a>
+      <a class="article-title" href="/2017/03/11/Java文件管理操作/">Java文件管理操作</a>
     </h1>
   
 
@@ -346,7 +349,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 中定义常量的几种方法/" class="article-date">
+	<a href="/2017/03/11/Java文件管理操作/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -360,23 +363,15 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          主要有三种：接口、类和枚举。
+          linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
+Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
+ 
 
-
-接口：
-
-在接口里定义域(接口中会对域自动加上 public static final ，使之成为常量)
-类实现该接口即可在类中调用该常量
-
-类：
-直接用 public static final 定义常量。
-枚举：
-在枚举类中直接写上常量值。
-示例：
-public class ConstTest &#123;    public static void main(String[] args) &#123;        Signal sg = new Si...
+Path和Files是在Java SE 7中新添加进来的类，比自JDK 1.0以来就一直使用的File类要方便得多。
+java.nio.file.Paths 7Path...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
+          <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
       
     </div>
@@ -459,7 +454,7 @@ public class ConstTest &#123;    public static void main(String[] args) &#123;  
 
 
   
-    <article id="post-Java NIO之内存映射文件——MappedByteBuffer" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java对象流与序列化" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -467,7 +462,7 @@ public class ConstTest &#123;    public static void main(String[] args) &#123;  
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/">Java NIO之内存映射文件——MappedByteBuffer</a>
+      <a class="article-title" href="/2017/03/11/Java对象流与序列化/">Java对象流与序列化</a>
     </h1>
   
 
@@ -475,7 +470,7 @@ public class ConstTest &#123;    public static void main(String[] args) &#123;  
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/" class="article-date">
+	<a href="/2017/03/11/Java对象流与序列化/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -489,17 +484,15 @@ public class ConstTest &#123;    public static void main(String[] args) &#123;  
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
+          Java语言支持一种称为对象序列化（object serialization）的非常通用的机制，它可以将任何对象写入到流中，并在之后将其读回。被序列化的每个对象都有一个序列号，唯一标识该对象，而不是通过该对象的内存地址来表示对象。这样就能将一个对象集合从一台集群传送到另一台机器，与对象在内存中的地址无关。
+ 
 
-
-内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将一个文件映射到内存呢？
-
-从文件中获得一个通道（channel）
-FileChannel chann...
+示例：
+ObjectStreamTest.java
+import java.io.*;/** * Created by lbd on 2017/1/5. */public clas...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
+          <a href="/2017/03/11/Java对象流与序列化/#more">阅读全文</a>
         </p>
       
     </div>
@@ -577,7 +570,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
 
 
   
-    <article id="post-Java I:O 操作示例" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 7新机制之自动关闭资源——try-with-resources" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -585,7 +578,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java I:O 操作示例/">Java I/O 操作示例</a>
+      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
     </h1>
   
 
@@ -593,7 +586,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java I:O 操作示例/" class="article-date">
+	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -607,13 +600,74 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          给出几个Java I/O 操作的示例代码。
+          在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
 
 
-创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");        dir.mkdir();  //创建目录        File file = new Fi...
+如下：
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != null) br.close();&#125;
+
+Java 7新增了try-with-resources...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+
+
+
+1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
+因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
         </p>
       
     </div>
@@ -671,64 +725,6 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Java 7新机制之自动关闭资源——try-with-resources" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/">Java 7新机制之自动关闭资源——try-with-resources</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
-
-
-如下：
-BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != null) br.close();&#125;
-
-Java 7新增了try-with-resources...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
       
     </div>
