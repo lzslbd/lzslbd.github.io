@@ -32,12 +32,14 @@
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="/js/jquery-3.1.1.min.js"></script>
@@ -52,8 +54,6 @@
 
   
 
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
@@ -70,89 +70,192 @@
 
 
   
-  <div id="container">
-    <div id="wrap">
-      
-        <header>
+    <header id="header">
 
-    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-inner">
-          
-          <div class="container"> 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+	<!-- 背景图模式 -->
+	
 
-            
-              <a class="brand" style="
-                 margin-top: 0px;">
-                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
-              </a>
-            
-            
-            <div class="navbar-collapse collapse">
-              <ul class="hnav navbar-nav">
-                
-                  <li> <a class="main-nav-link" href="/">首页</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
-                
-                  <li><div id="search-form-wrap">
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder>
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
 
-</div></li>
-            </ul></div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="/css/images/home-bg.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img1" src="/css/images/sample.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img1 = new Image();
+                      var imageTag1 = document.getElementById("carousel-img1");
+                      img1.src = imageTag1.src;
+                      img1.onload=function(){
+                        if (img1.width / img1.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag1.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag1.style.height = document.body.clientHeight + "px";
+                          imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img2" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img2 = new Image();
+                      var imageTag2 = document.getElementById("carousel-img2");
+                      img2.src = imageTag2.src;
+                      img2.onload=function(){
+                        if (img2.width / img2.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag2.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag2.style.height = document.body.clientHeight + "px";
+                          imageTag2.style.marginLeft = -(document.body.clientHeight * img2.width / img2.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
           </div>
-                
-      </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback" style="border: 1px solid #404040;">
+            <h1><a href="#content" id="logo">LBD&#39;s Blog</a></h1>
+            <h3>大数据与分布式</h3>
+            <h5>LBD</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
     </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
+        
+      </p>
+  </div>
 
 </header>
-
-
-
+  
+  <div id="container">
+    <div id="wrap">
       
             
       <div id="content" class="outer">
@@ -183,14 +286,18 @@
     <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PostgreSQL是以加州大学伯克利分校计算机系开发的<a href="http://db.cs.berkeley.edu/postgres.html" target="_blank" rel="noopener"> POSTGRES, Version 4.2</a>为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。</p>
-        <!-- PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。
+        <p class="article-excerpt-content">
+          PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。
 
 
-1. 简介PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES......  -->
+1. 简介PostgreSQL是以加州大学伯克利分校计算机系开发的 POSTGRES, Version 4.2为基础的对象关系型数据库管理系统(ORDBMS)。POSTGRES开创的许多概念在很久以后才出现在商业数据库中。
+PostgreSQL支持大部分SQL标准并且提供了许...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/学习PostgreSQL不可错过的一篇文章/#more">阅读全文</a>
         </p>
@@ -200,7 +307,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+      
 
     </footer>
   </div>
@@ -208,6 +315,7 @@
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-程序员资料大全" class="article article-type-post" itemscope itemprop="blogPost">
@@ -234,11 +342,13 @@
     <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>活到老，学到老。</p>
-        <!-- 活到老，学到老。
+        <p class="article-excerpt-content">
+          活到老，学到老。
 
 
 本文由stanzhai整理。
@@ -275,7 +385,17 @@ C &amp; C++
 
 
 其他
-游......  -->
+游戏开发相关
+日志聚合，分布式日志收集
+RTP,实时传输协议与音视频
+
+
+
+
+
+资料篇技术站点
+在线学...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/程序员资料大全/#more">阅读全文</a>
         </p>
@@ -285,7 +405,7 @@ C &amp; C++
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/好文转载/">好文转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li></ul>
+      
 
     </footer>
   </div>
@@ -293,6 +413,7 @@ C &amp; C++
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别" class="article article-type-post" itemscope itemprop="blogPost">
@@ -319,15 +440,19 @@ C &amp; C++
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先看看System.arraycopy()的声明：</p>
-<pre><code>public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`</code></pre>
-        <!-- 先看看System.arraycopy()的声明：
+        <p class="article-excerpt-content">
+          先看看System.arraycopy()的声明：
 public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
 
-src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要......  -->
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要复制的数组元素的数量。
+该方法用了native关键字，说明调用的是其他语言写的底层函数。
+再看Arr...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
         </p>
@@ -337,7 +462,7 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -345,6 +470,7 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-字符串查找算法总结" class="article article-type-post" itemscope itemprop="blogPost">
@@ -371,14 +497,18 @@ src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。d
     <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。</p>
-        <!-- 字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。
+        <p class="article-excerpt-content">
+          字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。
 
 
-KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，开头的那个K就是著名科学家 Donald Knuth 。KMP 算法的关键是求 next 数组。next 数组的长度为模式串的长度。next 数......  -->
+KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，开头的那个K就是著名科学家 Donald Knuth 。KMP 算法的关键是求 next 数组。next 数组的长度为模式串的长度。next 数组中每个值代表模式串中当前字符前面的字符串中，有多大长度的相同前缀后缀。
+Boyer-Moore 算...
+        </p>
         <p class="article-more-link">
           <a href="/2017/02/26/字符串查找算法总结/#more">阅读全文</a>
         </p>
@@ -388,7 +518,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boyer-Moore/">Boyer-Moore</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/">KMP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构与算法/">数据结构与算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+      
 
     </footer>
   </div>
@@ -396,6 +526,7 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Python用yield生成杨辉三角" class="article article-type-post" itemscope itemprop="blogPost">
@@ -422,15 +553,21 @@ KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，�
     <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>so funny</p>
-        <!-- so funny
+        <p class="article-excerpt-content">
+          so funny
 
 
 代码：
-def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.append(0)    line = [line[i-1] + line[i] for i in range(len(line))]    n += 1for line in triangles():  pr......  -->
+def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.append(0)    line = [line[i-1] + line[i] for i in range(len(line))]    n += 1for line in triangles():  print(line)
+
+输出：
+[1][1, 1][1, 2, 1][1, 3, 3, 1][1, 4...
+        </p>
         <p class="article-more-link">
           <a href="/2017/02/16/Python用yield生成杨辉三角/#more">阅读全文</a>
         </p>
@@ -440,7 +577,7 @@ def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.app
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+      
 
     </footer>
   </div>
@@ -448,6 +585,7 @@ def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.app
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-《腾讯传》读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
@@ -474,17 +612,21 @@ def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.app
     <a class="article-category-link" href="/categories/读书笔记/">读书笔记</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>腾讯+吴晓波。一个是互联网巨头，一个是著名的财经作家，必将碰撞出绚丽的火花。</p>
-        <!-- 腾讯+吴晓波。一个是互联网巨头，一个是著名的财经作家，必将碰撞出绚丽的火花。
+        <p class="article-excerpt-content">
+          腾讯+吴晓波。一个是互联网巨头，一个是著名的财经作家，必将碰撞出绚丽的火花。
 
 
 简介
 腾讯+吴晓波。一个是互联网巨头，一个是著名的财经作家，必将碰撞出绚丽的火花。
 该书记录了腾讯崛起的经历，讲述了腾讯如何从通讯工具起步，逐渐进入到社交网络、互动娱乐、电子商务等领域。书中还列举了许多腾讯著名产品如QQ空间、微信等诞生的经过以及曾经轰动的“3Q”大战，相当精彩。
-更难能可贵的是，书中还涉及到腾......  -->
+更难能可贵的是，书中还涉及到腾讯很多产品设计的哲学和运用到的心理学知识，产品经理应该能从本书中获得不少启发。
+此外，创业者也可以看...
+        </p>
         <p class="article-more-link">
           <a href="/2017/01/01/《腾讯传》读书笔记/#more">阅读全文</a>
         </p>
@@ -494,7 +636,7 @@ def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.app
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+      
 
     </footer>
   </div>
@@ -502,6 +644,7 @@ def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.app
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Hive on Spark调优" class="article article-type-post" itemscope itemprop="blogPost">
@@ -528,15 +671,18 @@ def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.app
     <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前在<code>Hive on Spark</code>跑<code>TPCx-BB</code>测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    <code>POWER_TEST</code>阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。</p>
-        <!-- 之前在Hive on Spark跑TPCx-BB测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    POWER_TEST阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。
+        <p class="article-excerpt-content">
+          之前在Hive on Spark跑TPCx-BB测试时，100g的数据量要跑十几个小时，一看CPU和内存的监控，发现    POWER_TEST阶段（依次执行30个查询）CPU只用了百分之十几，也就是没有把整个集群的性能利用起来，导致跑得很慢。因此，如何调整参数，使整个集群发挥最大性能显得尤为重要。
 
 
 Spark作业运行原理
-详细原理见上图。我们使用spark-submit提交一个Spar......  -->
+详细原理见上图。我们使用spark-submit提交一个Spark作业之后，这个作业就会启动一个对应的Driver进程。根据你使用的部署模式（deploy-mode...
+        </p>
         <p class="article-more-link">
           <a href="/2016/11/30/Hive on Spark调优/#more">阅读全文</a>
         </p>
@@ -546,7 +692,7 @@ Spark作业运行原理
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -554,6 +700,7 @@ Spark作业运行原理
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Hive on Spark安装配置详解" class="article article-type-post" itemscope itemprop="blogPost">
@@ -580,14 +727,17 @@ Spark作业运行原理
     <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。</p>
-        <!-- 简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
+        <p class="article-excerpt-content">
+          简介本文主要记录如何安装配置Hive on Spark，在执行以下步骤之前，请先确保已经安装Hadoop集群，Hive，MySQL，JDK，Scala，具体安装步骤不再赘述。
 
 
-背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduc......  -->
+背景Hive默认使用MapReduce作为执行引擎，即Hive on mr。实际上，Hive还可以使用Tez和Spark作为其执行引擎，分别为Hive on Tez和Hive on Spark。由于MapReduce中间计算均需要写入磁盘，而Spark是放在内存中，所以总体来讲Spark比MapReduce快很多...
+        </p>
         <p class="article-more-link">
           <a href="/2016/10/10/Hive on Spark安装配置详解/#more">阅读全文</a>
         </p>
@@ -597,7 +747,7 @@ Spark作业运行原理
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -605,6 +755,7 @@ Spark作业运行原理
 </article>
 
 <!-- Table of Contents -->
+
 
   
 
@@ -625,7 +776,8 @@ Spark作业运行原理
 
   <div class="container">
       	<div class="row">
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -698,7 +850,7 @@ Spark作业运行原理
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -726,7 +878,7 @@ Spark作业运行原理
 
 
 
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 	</script>
 
 

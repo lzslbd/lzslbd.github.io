@@ -32,12 +32,14 @@
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="/js/jquery-3.1.1.min.js"></script>
@@ -52,8 +54,6 @@
 
   
 
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
@@ -70,89 +70,192 @@
 
 
   
-  <div id="container">
-    <div id="wrap">
-      
-        <header>
+    <header id="header">
 
-    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-inner">
-          
-          <div class="container"> 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+	<!-- 背景图模式 -->
+	
 
-            
-              <a class="brand" style="
-                 margin-top: 0px;">
-                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
-              </a>
-            
-            
-            <div class="navbar-collapse collapse">
-              <ul class="hnav navbar-nav">
-                
-                  <li> <a class="main-nav-link" href="/">首页</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
-                
-                  <li><div id="search-form-wrap">
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder>
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
 
-</div></li>
-            </ul></div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="/css/images/home-bg.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img1" src="/css/images/sample.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img1 = new Image();
+                      var imageTag1 = document.getElementById("carousel-img1");
+                      img1.src = imageTag1.src;
+                      img1.onload=function(){
+                        if (img1.width / img1.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag1.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag1.style.height = document.body.clientHeight + "px";
+                          imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img2" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img2 = new Image();
+                      var imageTag2 = document.getElementById("carousel-img2");
+                      img2.src = imageTag2.src;
+                      img2.onload=function(){
+                        if (img2.width / img2.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag2.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag2.style.height = document.body.clientHeight + "px";
+                          imageTag2.style.marginLeft = -(document.body.clientHeight * img2.width / img2.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
           </div>
-                
-      </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback" style="border: 1px solid #404040;">
+            <h1><a href="#content" id="logo">LBD&#39;s Blog</a></h1>
+            <h3>大数据与分布式</h3>
+            <h5>LBD</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
     </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
+        
+      </p>
+  </div>
 
 </header>
-
-
-
+  
+  <div id="container">
+    <div id="wrap">
       
             
       <div id="content" class="outer">
@@ -183,11 +286,13 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>主要有三种：接口、类和枚举。</p>
-        <!-- 主要有三种：接口、类和枚举。
+        <p class="article-excerpt-content">
+          主要有三种：接口、类和枚举。
 
 
 接口：
@@ -200,7 +305,8 @@
 枚举：
 在枚举类中直接写上常量值。
 示例：
-public class ConstTest &#123;    public static void ma......  -->
+public class ConstTest &#123;    public static void main(String[] args) &#123;        Signal sg = new Si...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
@@ -210,7 +316,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -218,6 +324,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-纠删码（Erasure Code）浅析" class="article article-type-post" itemscope itemprop="blogPost">
@@ -244,15 +351,18 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。</p>
-        <!-- 【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
+        <p class="article-excerpt-content">
+          【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
 
 
 多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的......  -->
+纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目的。其基本思想是将n块原始的数据元素通过一定的计算，得到m块冗余元素（校验块）。对于这n+m块的元...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
         </p>
@@ -262,7 +372,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/存储/">存储</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据冗余/">数据冗余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纠删码/">纠删码</a></li></ul>
+      
 
     </footer>
   </div>
@@ -270,6 +380,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
@@ -296,18 +407,23 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>观察者模式又叫发布/订阅模式。</p>
-        <!-- 观察者模式又叫发布/订阅模式。
+        <p class="article-excerpt-content">
+          观察者模式又叫发布/订阅模式。
 
 
 定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
 角色
 抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
 
-具体主题（ConcreteSubject）：将有关状态存入......  -->
+具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
+
+抽象观察者（Observ...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
         </p>
@@ -317,7 +433,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+      
 
     </footer>
   </div>
@@ -325,6 +441,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java中wait、sleep和yield的区别" class="article article-type-post" itemscope itemprop="blogPost">
@@ -351,16 +468,21 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：<strong>wait是Object类的方法，sleep和yield是Thread类的静态方法</strong>。</p>
-        <!-- Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
+        <p class="article-excerpt-content">
+          Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
 
 
 
 
-本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使......  -->
+本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使得其他线程能获得CPU时间。
+接下来详细比较三个方法。
+wait常用的wait方法有wait( )和...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java中wait、sleep和yield的区别/#more">阅读全文</a>
         </p>
@@ -370,7 +492,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -378,6 +500,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
@@ -404,17 +527,23 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。</p>
-        <!-- static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+        <p class="article-excerpt-content">
+          static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
 
 static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
 static 域：
 如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
-sta......  -->
+static 方法：
+static 方法可以通过类名直接调用，该类的任何对象也可以调用（但不推荐）。
+
+s...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
@@ -424,7 +553,7 @@ sta......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -432,6 +561,7 @@ sta......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
@@ -458,16 +588,22 @@ sta......  -->
     <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。</p>
-<p><a href="https://github.com/jobbole/awesome-programming-books" target="_blank" rel="noopener">原文</a></p>
-        <!-- 经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
+        <p class="article-excerpt-content">
+          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
 原文
 
 
-这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issue......  -->
+这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
+计算机系统与网络
+《图灵的秘密:他的生平、思想及论文解读》
+《计算机系统概论》
+...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
         </p>
@@ -477,7 +613,7 @@ sta......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习资料/">学习资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/经典编程书籍/">经典编程书籍</a></li></ul>
+      
 
     </footer>
   </div>
@@ -485,6 +621,7 @@ sta......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
@@ -511,14 +648,20 @@ sta......  -->
     <a class="article-category-link" href="/categories/Hive/">Hive</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。</p>
-        <!-- 本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+        <p class="article-excerpt-content">
+          本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
 
 
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。......  -->
+网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
+1. 相关概念Hive Metastore有三种配置方式，分别是：
+
+Embedded Metas...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
         </p>
@@ -528,7 +671,7 @@ sta......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hive/">Hive</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -536,6 +679,7 @@ sta......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
@@ -562,11 +706,17 @@ sta......  -->
     <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个<strong>全局的资源管理器ResourceManager</strong>和<strong>每个应用程序特有的ApplicationMaster</strong>。其中ResourceManager负责整个系统的<strong>资源管理和分配</strong>，而ApplicationMaster负责<strong>单个应用程序的管理</strong>。</p>
-        <!-- YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负......  -->
+        <p class="article-excerpt-content">
+          YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负责单个应用程序的管理。
+
+
+YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
@@ -576,7 +726,7 @@ sta......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/YARN/">YARN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源管理/">资源管理</a></li></ul>
+      
 
     </footer>
   </div>
@@ -584,6 +734,7 @@ sta......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java I:O总结" class="article article-type-post" itemscope itemprop="blogPost">
@@ -610,14 +761,17 @@ sta......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。</p>
-        <!-- Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
+        <p class="article-excerpt-content">
+          Java中I/O操作主要是指使用Java进行输入，输出操作. Java所有的I/O机制都是基于数据流进行输入输出，这些数据流表示了字符或者字节数据的流动序列。
 
 
-数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取......  -->
+数据流是一串连续不断的数据的集合，就象水管里的水流，在水管的一端一点一点地供水，而在水管的另一端看到的是一股连续不断的水流。数据写入程序可以是一段、一段地向数据流管道中写入数据，这些数据段会按先后顺序形成一个长的数据流。对数据读取程序来说，看不到数据流在写入时的分段情况，每次可以读取其中的任意长度的数据，但只能先读取前面的数据后...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java I:O总结/#more">阅读全文</a>
         </p>
@@ -627,7 +781,7 @@ sta......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -635,6 +789,7 @@ sta......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java文件管理操作" class="article article-type-post" itemscope itemprop="blogPost">
@@ -661,16 +816,19 @@ sta......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。</p>
-<p>Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。</p>
-        <!-- linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
+        <p class="article-excerpt-content">
+          linux里有mkdir、rm、cp、mv、touch等对文件或目录进行操作的命令，Java中也有对应的方法。
 Path和Files类封装了处理文件系统所需的所有功能。比如，可以用Files类删除或重命名文件，或者查询文件最后被修改的时间等。换句话说，流类关心的是文件的内容，而Files类关心的是对文件和目录的操作。
  
 
-Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
+Path和Files是在Java SE 7中新添加进来的类，比自JDK 1.0以来就一直使用的File类要方便得多。
+java.nio.file.Paths 7Path...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java文件管理操作/#more">阅读全文</a>
         </p>
@@ -680,7 +838,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -688,6 +846,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
 
@@ -708,7 +867,8 @@ Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
 
   <div class="container">
       	<div class="row">
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -781,7 +941,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -809,7 +969,7 @@ Path和Files是在Java SE 7中新添加进来的类，比自JD......  -->
 
 
 
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 	</script>
 
 

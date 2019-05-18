@@ -32,12 +32,14 @@
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="/js/jquery-3.1.1.min.js"></script>
@@ -52,8 +54,6 @@
 
   
 
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
@@ -70,89 +70,192 @@
 
 
   
-  <div id="container">
-    <div id="wrap">
-      
-        <header>
+    <header id="header">
 
-    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-inner">
-          
-          <div class="container"> 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+	<!-- 背景图模式 -->
+	
 
-            
-              <a class="brand" style="
-                 margin-top: 0px;">
-                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
-              </a>
-            
-            
-            <div class="navbar-collapse collapse">
-              <ul class="hnav navbar-nav">
-                
-                  <li> <a class="main-nav-link" href="/">首页</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
-                
-                  <li><div id="search-form-wrap">
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder>
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
 
-</div></li>
-            </ul></div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="/css/images/home-bg.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img1" src="/css/images/sample.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img1 = new Image();
+                      var imageTag1 = document.getElementById("carousel-img1");
+                      img1.src = imageTag1.src;
+                      img1.onload=function(){
+                        if (img1.width / img1.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag1.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag1.style.height = document.body.clientHeight + "px";
+                          imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img2" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img2 = new Image();
+                      var imageTag2 = document.getElementById("carousel-img2");
+                      img2.src = imageTag2.src;
+                      img2.onload=function(){
+                        if (img2.width / img2.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag2.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag2.style.height = document.body.clientHeight + "px";
+                          imageTag2.style.marginLeft = -(document.body.clientHeight * img2.width / img2.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
           </div>
-                
-      </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback" style="border: 1px solid #404040;">
+            <h1><a href="#content" id="logo">LBD&#39;s Blog</a></h1>
+            <h3>大数据与分布式</h3>
+            <h5>LBD</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
     </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
+        
+      </p>
+  </div>
 
 </header>
-
-
-
+  
+  <div id="container">
+    <div id="wrap">
       
             
       <div id="content" class="outer">
@@ -183,11 +286,13 @@
     <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>分布式系统资料大全，enjoy！</p>
-        <!-- 分布式系统资料大全，enjoy！
+        <p class="article-excerpt-content">
+          分布式系统资料大全，enjoy！
 
 
 
@@ -195,7 +300,10 @@
 
 介绍:这是一篇介绍在动态网络里面实现分布式系统重构的paper.论文的作者(导师)是MIT读博的时候是做分布式系统的研究的,现在在NUS带学生,不仅仅是分布式系统,还有无线网络.如果感兴趣可以去他的主页了解.
 
-《Distributed......  -->
+《Distributed porgramming liboratory》
+
+介绍:分布式编程实验室,他们发表的很多的pape...
+        </p>
         <p class="article-more-link">
           <a href="/2017/04/09/分布式系统(Distributed System)资料大全/#more">阅读全文</a>
         </p>
@@ -205,7 +313,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资料大全/">资料大全</a></li></ul>
+      
 
     </footer>
   </div>
@@ -213,6 +321,7 @@
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-JVM之Java内存区域与内存溢出异常" class="article article-type-post" itemscope itemprop="blogPost">
@@ -239,17 +348,22 @@
     <a class="article-category-link" href="/categories/JVM/">JVM</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。</p>
-        <!-- Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
+        <p class="article-excerpt-content">
+          Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
 
 
 简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
 先看看JVM运行时数据区包括哪几个部分：
 
-可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、......  -->
+可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、程序计数器和运行时常量池。其中，运行时常量池在方法区里。
+接下来对这几个区域一一介绍。
+Java堆J...
+        </p>
         <p class="article-more-link">
           <a href="/2017/04/08/JVM之Java内存区域与内存溢出异常/#more">阅读全文</a>
         </p>
@@ -259,7 +373,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -267,6 +381,7 @@
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-CountDownLatch &amp;&amp; CyclicBarrier example" class="article article-type-post" itemscope itemprop="blogPost">
@@ -293,14 +408,17 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>CountDownLatch &amp;&amp; CyclicBarrier example</p>
-        <!-- CountDownLatch &amp;&amp; CyclicBarrier example
+        <p class="article-excerpt-content">
+          CountDownLatch &amp;&amp; CyclicBarrier example
 
 
-CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.util.concurrent.*;/** * Created by lbd. */public class CountDownLatchD......  -->
+CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.util.concurrent.*;/** * Created by lbd. */public class CountDownLatchDemo &#123;    public static void main(String[] arg...
+        </p>
         <p class="article-more-link">
           <a href="/2017/04/05/CountDownLatch && CyclicBarrier example/#more">阅读全文</a>
         </p>
@@ -310,7 +428,7 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -318,6 +436,7 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-MooseFS安装配置" class="article article-type-post" itemscope itemprop="blogPost">
@@ -344,11 +463,13 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
     <a class="article-category-link" href="/categories/MooseFS/">MooseFS</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记录 MooseFS 的部署过程。</p>
-        <!-- 记录 MooseFS 的部署过程。
+        <p class="article-excerpt-content">
+          记录 MooseFS 的部署过程。
 
 
 简介MooseFS 是一个分布式文件系统，支持挂载的形式。
@@ -357,7 +478,14 @@ CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.uti
 master 节点：元数据节点，复制调度和管理元数据。
 metalogger 节点：用于备份 master 的元数据和日志。
 chunkserver 节点：数据节点，数据实际存放的节点。
-client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一......  -->
+client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一个普通的磁盘分区一样来使用 mfs 。
+
+集群规划
+
+
+mfsmaster
+mfsmetalogge...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/30/MooseFS安装配置/#more">阅读全文</a>
         </p>
@@ -367,7 +495,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MooseFS/">MooseFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式文件系统/">分布式文件系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+      
 
     </footer>
   </div>
@@ -375,6 +503,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-PostgreSQL安装PostGISC插件并使用" class="article article-type-post" itemscope itemprop="blogPost">
@@ -401,14 +530,18 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。</p>
-        <!-- PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。
+        <p class="article-excerpt-content">
+          PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。
 
 
-1. 简介PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循Open......  -->
+1. 简介PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。
+PostGIS支持所有的空间数据类型，这些类型包括：点（POINT）、线（LINES...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/25/PostgreSQL安装PostGISC插件并使用/#more">阅读全文</a>
         </p>
@@ -418,7 +551,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+      
 
     </footer>
   </div>
@@ -426,6 +559,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-ZooKeeper原理及其在Hadoop和HBase中的应用" class="article article-type-post" itemscope itemprop="blogPost">
@@ -452,14 +586,17 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     <a class="article-category-link" href="/categories/ZooKeeper/">ZooKeeper</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ZooKeeper是一个开源的<strong>分布式协调服务</strong>，由雅虎创建，是Google <strong>Chubby的开源实现</strong>。分布式应用程序可以基于ZooKeeper实现诸如<strong>数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列</strong>等功能。</p>
-        <!-- ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。
+        <p class="article-excerpt-content">
+          ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。
 
 
-简介ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooK......  -->
+简介ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/23/ZooKeeper原理及其在Hadoop和HBase中的应用/#more">阅读全文</a>
         </p>
@@ -469,7 +606,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZooKeeper/">ZooKeeper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -477,6 +614,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Python函数式编程" class="article article-type-post" itemscope itemprop="blogPost">
@@ -503,14 +641,18 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。</p>
-        <!-- 虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。
+        <p class="article-excerpt-content">
+          虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。
 
 
-匿名函数Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表......  -->
+匿名函数Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表达式的定义体必须和声明放在同一行。语法如下：
+lambda [arg1[, arg2, ... ar...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/15/Python函数式编程/#more">阅读全文</a>
         </p>
@@ -520,7 +662,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+      
 
     </footer>
   </div>
@@ -528,6 +670,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
@@ -554,16 +697,22 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文介绍Contos7上用yum部署PostgreSQL9.4的过程。</p>
-        <!-- 本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
+        <p class="article-excerpt-content">
+          本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
 
 
 1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
 
-2. 执行安装命令yum updateyum install postgresql94-server ......  -->
+2. 执行安装命令yum updateyum install postgresql94-server postgresql94-contrib
+
+3. 验证是否安装成功执行：
+rpm -qa | gre...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
         </p>
@@ -573,7 +722,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
+      
 
     </footer>
   </div>
@@ -581,6 +730,7 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
@@ -607,17 +757,20 @@ client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，�
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
-        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+        <p class="article-excerpt-content">
+          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
 
 
 
 1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
 Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoen......  -->
+因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
         </p>
@@ -627,7 +780,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -635,6 +788,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java中四种引用" class="article article-type-post" itemscope itemprop="blogPost">
@@ -661,13 +815,13 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
-</blockquote>
-        <!-- 
+        <p class="article-excerpt-content">
+          
 为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
 
  
@@ -675,7 +829,12 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
 
-软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空......  -->
+软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空间不足了，就会回收这些对象的内存。
+
+
+
+弱引用（WeakReference）只具有弱引用的对象拥有...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
         </p>
@@ -685,7 +844,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -693,6 +852,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 </article>
 
 <!-- Table of Contents -->
+
 
   
 
@@ -713,7 +873,8 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
   <div class="container">
       	<div class="row">
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -786,7 +947,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -814,7 +975,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 
 
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 	</script>
 
 
