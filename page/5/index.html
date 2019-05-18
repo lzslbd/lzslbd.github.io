@@ -32,14 +32,12 @@
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   <style type="text/css">
-    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
-}
-
-  </style>
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="/js/jquery-3.1.1.min.js"></script>
@@ -185,19 +183,25 @@
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。</p>
+        <!-- 适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。
+
+
+1. 背景适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，在此记录下来。
+2. 问题及解决2.1. 创建索引时报错，报错如下：//......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix查询测试经验总结/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -205,7 +209,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
@@ -232,20 +235,26 @@
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
 <p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
+        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+
+
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -253,7 +262,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-ZeroMQ初探" class="article article-type-post" itemscope itemprop="blogPost">
@@ -280,19 +288,24 @@
     <a class="article-category-link" href="/categories/ZeroMQ/">ZeroMQ</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。</p>
+        <!-- ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。
+
+
+概述ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/ZeroMQ初探/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket编程/">Socket编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZeroMQ/">ZeroMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息队列/">消息队列</a></li></ul>
 
     </footer>
   </div>
@@ -300,7 +313,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Java中Comparable与Comparator的区别" class="article article-type-post" itemscope itemprop="blogPost">
@@ -327,8 +339,6 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -337,13 +347,26 @@
 <li>要想对象比较、排序，都需要实现Comparable或Comparator接口</li>
 <li>Comparable和Comparator都是Java的接口</li>
 </ul>
+        <!-- 相同
+Comparable和Comparator都是用来实现对象的比较、排序
+要想对象比较、排序，都需要实现Comparable或Comparator接口
+Comparable和Comparator都是Java的接口
+
+ 
+
+区别
+Comparator位于java.util包下，而Comparable位于java.lang包下
+Comparable接口的实现是在类的内部（如 String、I......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java中Comparable与Comparator的区别/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -351,7 +374,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-分布式系列文章——从ACID到CAP:BASE" class="article article-type-post" itemscope itemprop="blogPost">
@@ -378,19 +400,31 @@
     <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。</p>
+        <!-- 本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+
+
+
+事务事务的定义：
+
+事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
+
+事务的作用：
+
+当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
 
     </footer>
   </div>
@@ -398,7 +432,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Java NIO之内存映射文件——MappedByteBuffer" class="article article-type-post" itemscope itemprop="blogPost">
@@ -425,19 +458,25 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
+        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
+
+
+内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
+那么，如何将......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -445,7 +484,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Phoenix文档" class="article article-type-post" itemscope itemprop="blogPost">
@@ -472,19 +510,28 @@
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-Phoenix概述"><a href="#1-Phoenix概述" class="headerlink" title="1. Phoenix概述"></a>1. Phoenix概述</h2><p>Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。</p>
+        <!-- 1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
+
+
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。
+
+put the SQL back in NoSQL
+
+Phoenix完全使用Java编写，作为HBase内嵌的......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix文档/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -492,7 +539,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Java 7新机制之自动关闭资源——try-with-resources" class="article article-type-post" itemscope itemprop="blogPost">
@@ -519,19 +565,25 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
+        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
+
+
+如下：
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nu......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -539,7 +591,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
@@ -566,19 +617,25 @@
     <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。</p>
+        <!-- PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+
+
+192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
+1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
 
     </footer>
   </div>
@@ -586,7 +643,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Java I:O 操作示例" class="article article-type-post" itemscope itemprop="blogPost">
@@ -613,19 +669,24 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>给出几个Java I/O 操作的示例代码。</p>
+        <!-- 给出几个Java I/O 操作的示例代码。
+
+
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");    ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -633,7 +694,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
 
@@ -654,7 +714,6 @@
 
   <div class="container">
       	<div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
@@ -728,7 +787,7 @@
     });
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -756,7 +815,7 @@
 
 
 
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 	</script>
 
 

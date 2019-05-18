@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>git常用命令 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Git">
+  
+  
+  
+  
+  <meta name="description" content="记录 Git 常用的命令。">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用命令">
+<meta property="og:url" content="http://linbingdong.com/2017/03/11/Git常用命令/index.html">
+<meta property="og:site_name" content="LBD&#39;s Blog">
+<meta property="og:description" content="记录 Git 常用的命令。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-23T02:08:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git常用命令">
+<meta name="twitter:description" content="记录 Git 常用的命令。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder>
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </ul></div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Git常用命令" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      Git常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Git常用命令/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/编程工具/">编程工具</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录 Git 常用的命令。</p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git init</td>
+<td>初始化git仓库</td>
+</tr>
+<tr>
+<td>git add filename</td>
+<td>将文件添加到暂存区</td>
+</tr>
+<tr>
+<td>git commit -m “blablabla…”</td>
+<td>提交到本地仓库</td>
+</tr>
+<tr>
+<td>git push origin master</td>
+<td>将本地master分支推到远程</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看那些文件被修改过</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>查看修改内容</td>
+</tr>
+<tr>
+<td>git reset –hard HEAD^</td>
+<td>回到某个版本 （HEAD表示当前版本（已commit的最新版本），HEAD^表示上一个版本，HEAD^^表示上上个版本，依此类推）</td>
+</tr>
+<tr>
+<td>git log –oneline</td>
+<td>查看提交历史（–oneline 简洁地打印提交历史）</td>
+</tr>
+<tr>
+<td>git reflog</td>
+<td>查看命令历史，包括commit和reset等</td>
+</tr>
+<tr>
+<td>git diff HEAD – readme.txt</td>
+<td>查看工作区和版本库里最新版本的区别</td>
+</tr>
+<tr>
+<td>git checkout – filename</td>
+<td>撤销工作区中对该文件的修改 让该文件回到最近一次 commit 或 add 时的状态</td>
+</tr>
+<tr>
+<td>git rm  filename</td>
+<td>从版本库中删除文件</td>
+</tr>
+<tr>
+<td>git reset HEAD filename</td>
+<td>把暂存区对该文件的修改撤销掉（unstage），重新放回工作区</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>查看分支</td>
+</tr>
+<tr>
+<td>git branch branchname</td>
+<td>创建分支</td>
+</tr>
+<tr>
+<td>git checkout branchname</td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td>git checkout -b branchname</td>
+<td>创建并切换分支</td>
+</tr>
+<tr>
+<td>git merge branchname</td>
+<td>将<name>分支合并到当前分支</name></td>
+</tr>
+<tr>
+<td>git branch -d branchname</td>
+<td>删除分支</td>
+</tr>
+<tr>
+<td>git log –graph –oneline</td>
+<td>分支合并图</td>
+</tr>
+<tr>
+<td>git merge –no-ff -m “describe something” dev</td>
+<td>跟dev合并，不使用ff，然后提交</td>
+</tr>
+<tr>
+<td>git stash</td>
+<td>把工作现场“储存”起来，等以后恢复现场再继续工作</td>
+</tr>
+<tr>
+<td>git stash list</td>
+<td>查看“储存”的工作现场</td>
+</tr>
+<tr>
+<td>git stash pop</td>
+<td>恢复工作现场并把stash内容删除  相当于 git stash apply stash@{0};git stash drop stash@{0}</td>
+</tr>
+<tr>
+<td>git branch -D branchname</td>
+<td>将没有被merge过的<name>分支强制删除</name></td>
+</tr>
+<tr>
+<td>git remote</td>
+<td>查看远程仓库信息</td>
+</tr>
+<tr>
+<td>git remote -v</td>
+<td>显示更详细的远程仓库信息</td>
+</tr>
+<tr>
+<td>git push origin master</td>
+<td>把本地该分支推送到远程库对应的远程分支上。如果推送失败，先用 git pull 拉取最新的再 git push</td>
+</tr>
+<tr>
+<td>git checkout -b brahch-name origin/branch-name</td>
+<td>在本地创建和远程分支对应的分支</td>
+</tr>
+<tr>
+<td>git branch –set-upstream branch-name origin/branch-name</td>
+<td>建立本地分支和远程分支的关联</td>
+</tr>
+<tr>
+<td>git tag v1.0</td>
+<td>打上v1.0标签，默认打在最新提交的commit上</td>
+</tr>
+<tr>
+<td>git tag</td>
+<td>查看所有标签</td>
+</tr>
+<tr>
+<td>git tag v0.9 9c4ef20</td>
+<td>为 9c4ef20 这次commit打上v0.9标签</td>
+</tr>
+<tr>
+<td>git show v0.9</td>
+<td>查看标签（显示具体的commit内容）</td>
+</tr>
+<tr>
+<td>git tag -a <tagname> -m “blablabla…”</tagname></td>
+<td>可以指定标签信息</td>
+</tr>
+<tr>
+<td>git tag -d v0.1</td>
+<td>删除v0.1标签</td>
+</tr>
+<tr>
+<td>git push origin v1.0</td>
+<td>推送v1.0标签到远程 ，对应github上的一个release</td>
+</tr>
+<tr>
+<td>git push origin –tags</td>
+<td>推送本地所有标签到远程</td>
+</tr>
+<tr>
+<td>git tag -d v0.9 ; git push origin :refs/tags/v0.9</td>
+<td>删除远程v0.9标签</td>
+</tr>
+<tr>
+<td>git config –global color.ui true</td>
+<td>设置让git显示颜色</td>
+</tr>
+<tr>
+<td>git add -f xxx.pyc</td>
+<td>强制添加被忽略的文件</td>
+</tr>
+<tr>
+<td>git check-ignore -v xxx.pyc</td>
+<td>查看该文件是被哪一条规则忽略的</td>
+</tr>
+<tr>
+<td>git config –global alias.st status</td>
+<td>设置status的别名为st</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>如果要忽略某些文件（比如.pyc文件），可以通过添加.gitignore文件来实现（写上 *.pyc）。.gitignore文件也需要 add 和 commit。</p>
+</li>
+<li><p>常用别名：</p>
+<ul>
+<li>git config –global alias.ci commit</li>
+<li>git config –global alias.st status</li>
+<li>git config –global alias.br branch</li>
+<li>git config –global alias.unstage ‘reset HEAD’</li>
+<li>git config –global alias.last ‘log -1’</li>
+<li>git config –global alias.lg “log –color –graph –pretty=format:’%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset’ –abbrev-commit” </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>如果想从版本库里删除某个文件：<ol>
+<li>rm filename</li>
+<li>git rm filename</li>
+<li>git commit </li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>在本地新建一个仓库<ol>
+<li>git init 初始化本地仓库</li>
+<li>git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:linbingdong/blog.git 关联一个远程库</li>
+<li>git push -u origin master 第一次推送master分支的所有内容<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ol>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '欢迎打赏~', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://upload-images.jianshu.io/upload_images/1752522-36613fdaddaabe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+  alipayImage: 'http://upload-images.jianshu.io/upload_images/1752522-e25c8a72b44c418e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          全球分布式数据库：Google Spanner（论文翻译）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/11/Java 中定义常量的几种方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java 中定义常量的几种方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

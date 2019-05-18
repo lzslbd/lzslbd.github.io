@@ -32,14 +32,12 @@
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
   <style type="text/css">
-    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
-}
-
-  </style>
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="/js/jquery-3.1.1.min.js"></script>
@@ -185,19 +183,29 @@
     <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>分布式系统资料大全，enjoy！</p>
+        <!-- 分布式系统资料大全，enjoy！
+
+
+
+《Reconfigurable Distributed Storage for Dynamic Networks》
+
+介绍:这是一篇介绍在动态网络里面实现分布式系统重构的paper.论文的作者(导师)是MIT读博的时候是做分布式系统的研究的,现在在NUS带学生,不仅仅是分布式系统,还有无线网络.如果感兴趣可以去他的主页了解.
+
+《Distributed......  -->
+        <p class="article-more-link">
+          <a href="/2017/04/09/分布式系统(Distributed System)资料大全/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资料大全/">资料大全</a></li></ul>
 
     </footer>
   </div>
@@ -205,7 +213,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-JVM之Java内存区域与内存溢出异常" class="article article-type-post" itemscope itemprop="blogPost">
@@ -232,19 +239,27 @@
     <a class="article-category-link" href="/categories/JVM/">JVM</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。</p>
+        <!-- Java的JVM可以自动管理内存，包括内存动态分配和垃圾收集等。
+
+
+简介JVM在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有各自的用途，以及创建和销毁的时间，有的区域随着JVM进程的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
+先看看JVM运行时数据区包括哪几个部分：
+
+可以看出JVM运行时数据区包括：堆、虚拟机栈、本地方法栈、方法区、......  -->
+        <p class="article-more-link">
+          <a href="/2017/04/08/JVM之Java内存区域与内存溢出异常/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JVM/">JVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -252,7 +267,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-CountDownLatch &amp;&amp; CyclicBarrier example" class="article article-type-post" itemscope itemprop="blogPost">
@@ -279,19 +293,24 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>CountDownLatch &amp;&amp; CyclicBarrier example</p>
+        <!-- CountDownLatch &amp;&amp; CyclicBarrier example
+
+
+CountDownLatchpackage com.lbd.concurrent;import java.util.Random;import java.util.concurrent.*;/** * Created by lbd. */public class CountDownLatchD......  -->
+        <p class="article-more-link">
+          <a href="/2017/04/05/CountDownLatch && CyclicBarrier example/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -299,7 +318,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-MooseFS安装配置" class="article article-type-post" itemscope itemprop="blogPost">
@@ -326,19 +344,30 @@
     <a class="article-category-link" href="/categories/MooseFS/">MooseFS</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>记录 MooseFS 的部署过程。</p>
+        <!-- 记录 MooseFS 的部署过程。
+
+
+简介MooseFS 是一个分布式文件系统，支持挂载的形式。
+主要角色
+
+master 节点：元数据节点，复制调度和管理元数据。
+metalogger 节点：用于备份 master 的元数据和日志。
+chunkserver 节点：数据节点，数据实际存放的节点。
+client ：客户端。通过 FUSE 将 mfs 文件系统挂载到客户端后，客户端可以像使用一......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/30/MooseFS安装配置/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MooseFS/">MooseFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式文件系统/">分布式文件系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
 
     </footer>
   </div>
@@ -346,7 +375,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-PostgreSQL安装PostGISC插件并使用" class="article article-type-post" itemscope itemprop="blogPost">
@@ -373,19 +401,24 @@
     <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。</p>
+        <!-- PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循OpenGIS的规范。
+
+
+1. 简介PostGIS是对象关系型数据库PostgreSQL的一个插件，PostGIS提供如下空间信息服务功能：空间对象、空间索引、空间操作函数和空间操作符。同时，PostGIS遵循Open......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/25/PostgreSQL安装PostGISC插件并使用/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
 
     </footer>
   </div>
@@ -393,7 +426,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-ZooKeeper原理及其在Hadoop和HBase中的应用" class="article article-type-post" itemscope itemprop="blogPost">
@@ -420,19 +452,24 @@
     <a class="article-category-link" href="/categories/ZooKeeper/">ZooKeeper</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>ZooKeeper是一个开源的<strong>分布式协调服务</strong>，由雅虎创建，是Google <strong>Chubby的开源实现</strong>。分布式应用程序可以基于ZooKeeper实现诸如<strong>数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列</strong>等功能。</p>
+        <!-- ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。
+
+
+简介ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooK......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/23/ZooKeeper原理及其在Hadoop和HBase中的应用/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZooKeeper/">ZooKeeper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -440,7 +477,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Python函数式编程" class="article article-type-post" itemscope itemprop="blogPost">
@@ -467,19 +503,24 @@
     <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。</p>
+        <!-- 虽然 Python 不是函数式编程语言（是命令式编程语言），但是支持许多有价值的函数式编程工具。Python 提供 3 种内建函数和 lambda 表达式等来支持函数式编程。
+
+
+匿名函数Python 允许用 lambda 关键字创造匿名函数。匿名顾名思义就是没有名字，即不需要以标准的方式来声明，比如说，使用 def 加函数名来声明。一个完整的 lambda “语句”代表了一个表达式，这个表......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/15/Python函数式编程/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
 
     </footer>
   </div>
@@ -487,7 +528,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
@@ -514,19 +554,26 @@
     <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>本文介绍Contos7上用yum部署PostgreSQL9.4的过程。</p>
+        <!-- 本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
+
+
+1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+
+2. 执行安装命令yum updateyum install postgresql94-server ......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/关系数据库/">关系数据库</a></li></ul>
 
     </footer>
   </div>
@@ -534,7 +581,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
@@ -561,19 +607,27 @@
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
+        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+
+
+
+1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
+因此Phoenix跟HBase是离不开的，Phoen......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
 
     </footer>
   </div>
@@ -581,7 +635,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
     <article id="post-Java中四种引用" class="article article-type-post" itemscope itemprop="blogPost">
@@ -608,21 +661,31 @@
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
-      
-
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
 <p>为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。</p>
 </blockquote>
+        <!-- 
+为了使能更加灵活地控制对象的生命周期。从JDK 1.2版本开始，把对象的引用分为4种级别。这4种级别由高到低依次为：强引用、软引用、弱引用和虚引用。
+
+ 
+
+
+强引用（StrongReference）强引用是级别最高，也是最常用的引用。拥有强引用的对象绝不会被垃圾回收器回收。
+
+软引用（SoftReference）如果一个对象只具有软引用，则内存空间足够，垃圾回收器就不会回收它；如果内存空......  -->
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java中四种引用/#more">阅读全文</a>
+        </p>
       
     </div>
     <footer class="article-footer">
       
       
       
-      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -630,7 +693,6 @@
 </article>
 
 <!-- Table of Contents -->
-
 
   
 
@@ -651,7 +713,6 @@
 
   <div class="container">
       	<div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
@@ -725,7 +786,7 @@
     });
 </script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -753,7 +814,7 @@
 
 
 
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 	</script>
 
 

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>zookeeper原理及其在hadoop和hbase中的应用 | LBD&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="大数据ZooKeeper">
+  
+  
+  
+  
+  <meta name="description" content="ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。">
+<meta name="keywords" content="大数据,ZooKeeper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZooKeeper原理及其在Hadoop和HBase中的应用">
+<meta property="og:url" content="http://linbingdong.com/2017/03/23/ZooKeeper原理及其在Hadoop和HBase中的应用/index.html">
+<meta property="og:site_name" content="LBD&#39;s Blog">
+<meta property="og:description" content="ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-6326ec291ba11b95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-03-23T00:47:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ZooKeeper原理及其在Hadoop和HBase中的应用">
+<meta name="twitter:description" content="ZooKeeper是一个开源的分布式协调服务，由雅虎创建，是Google Chubby的开源实现。分布式应用程序可以基于ZooKeeper实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列等功能。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-6326ec291ba11b95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;" href="#" data-toggle="modal" data-target="#myModal">
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder>
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </ul></div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-ZooKeeper原理及其在Hadoop和HBase中的应用" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      ZooKeeper原理及其在Hadoop和HBase中的应用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/23/ZooKeeper原理及其在Hadoop和HBase中的应用/" class="article-date">
+	  <time datetime="2017-03-23T00:47:28.000Z" itemprop="datePublished">2017-03-23</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/ZooKeeper/">ZooKeeper</a>
+
+      
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>ZooKeeper是一个开源的<strong>分布式协调服务</strong>，由雅虎创建，是Google <strong>Chubby的开源实现</strong>。分布式应用程序可以基于ZooKeeper实现诸如<strong>数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列</strong>等功能。</p>
+<a id="more"></a>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ZooKeeper是一个开源的<strong>分布式协调服务</strong>，由雅虎创建，是Google <strong>Chubby的开源实现</strong>。分布式应用程序可以基于ZooKeeper实现诸如<strong>数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master选举、分布式锁和分布式队列</strong>等功能。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>本节将介绍ZooKeeper的几个核心概念。这些概念贯穿于之后对ZooKeeper更深入的讲解，因此有必要预先了解这些概念。</p>
+<h3 id="集群角色"><a href="#集群角色" class="headerlink" title="集群角色"></a>集群角色</h3><p>在ZooKeeper中，有三种角色：</p>
+<ul>
+<li>Leader</li>
+<li>Follower</li>
+<li>Observer</li>
+</ul>
+<p>一个ZooKeeper集群同一时刻只会有一个Leader，其他都是Follower或Observer。</p>
+<p>ZooKeeper配置很简单，每个节点的配置文件(zoo.cfg)都是一样的，只有myid文件不一样。myid的值必须是zoo.cfg中server.{数值}的{数值}部分。</p>
+<p>zoo.cfg文件内容示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">maxClientCnxns=0</span><br><span class="line"># The number of milliseconds of each tick</span><br><span class="line">tickTime=2000</span><br><span class="line"># The number of ticks that the initial</span><br><span class="line"># synchronization phase can take</span><br><span class="line">initLimit=10</span><br><span class="line"># The number of ticks that can pass between</span><br><span class="line"># sending a request and getting an acknowledgement</span><br><span class="line">syncLimit=5</span><br><span class="line"># the directory where the snapshot is stored.</span><br><span class="line">dataDir=/var/lib/zookeeper/data</span><br><span class="line"># the port at which the clients will connect</span><br><span class="line">clientPort=2181</span><br><span class="line"># the directory where the transaction logs are stored.</span><br><span class="line">dataLogDir=/var/lib/zookeeper/logs</span><br><span class="line">server.1=192.168.20.101:2888:3888</span><br><span class="line">server.2=192.168.20.102:2888:3888</span><br><span class="line">server.3=192.168.20.103:2888:3888</span><br><span class="line">server.4=192.168.20.104:2888:3888</span><br><span class="line">server.5=192.168.20.105:2888:3888</span><br><span class="line">minSessionTimeout=4000</span><br><span class="line">maxSessionTimeout=100000</span><br></pre></td></tr></table></figure>
+
+<p>在装有ZooKeeper的机器的终端执行 <code>zookeeper-server status</code> 可以看当前节点的ZooKeeper是什么角色（Leader or Follower）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@node-20-103 ~]# zookeeper-server status</span><br><span class="line">JMX enabled by default</span><br><span class="line">Using config: /etc/zookeeper/conf/zoo.cfg</span><br><span class="line">Mode: follower</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@node-20-104 ~]# zookeeper-server status</span><br><span class="line">JMX enabled by default</span><br><span class="line">Using config: /etc/zookeeper/conf/zoo.cfg</span><br><span class="line">Mode: leader</span><br></pre></td></tr></table></figure>
+
+<p>如上，node-20-104是Leader，node-20-103是follower。</p>
+<p>ZooKeeper默认只有Leader和Follower两种角色，没有Observer角色。</p>
+<p>为了使用Observer模式，在任何想变成Observer的节点的配置文件中加入：<code>peerType=observer</code><br>并在所有server的配置文件中，配置成observer模式的server的那行配置追加:observer，例如：<br><code>server.1:localhost:2888:3888:observer</code></p>
+<p>ZooKeeper集群的所有机器通过一个<strong>Leader选举过程</strong>来选定一台被称为<strong>『Leader』</strong>的机器，<strong>Leader服务器</strong>为客户端提供<strong>读</strong>和<strong>写</strong>服务。</p>
+<p>Follower和Observer都<strong>能</strong>提供<strong>读</strong>服务，<strong>不能</strong>提供<strong>写</strong>服务。两者唯一的区别在于，<strong>Observer</strong>机器<strong>不参与Leader选举</strong>过程，也<strong>不参与写操作</strong>的『过半写成功』策略，因此Observer可以在<strong>不影响写性能</strong>的情况下<strong>提升</strong>集群的<strong>读性能</strong>。</p>
+<h3 id="会话（Session）"><a href="#会话（Session）" class="headerlink" title="会话（Session）"></a>会话（Session）</h3><p>Session是指<strong>客户端会话</strong>，在讲解客户端会话之前，我们先来了解下<strong>客户端连接</strong>。在ZooKeeper中，一个客户端连接是指客户端和ZooKeeper服务器之间的<strong>TCP长连接</strong>。ZooKeeper对外的服务端口默认是<strong>2181</strong>，客户端启动时，首先会与服务器建立一个TCP连接，从第一次连接建立开始，客户端会话的生命周期也开始了，通过这个连接，客户端能够通过<strong>心跳检测</strong>和服务器保持有效的会话，也能够向ZooKeeper服务器<strong>发送请求</strong>并<strong>接受响应</strong>，同时还能通过该连接接收来自服务器的<strong>Watch事件通知</strong>。Session的<strong>SessionTimeout</strong>值用来设置一个客户端会话的<strong>超时时间</strong>。当由于服务器压力太大、网络故障或是客户端主动断开连接等各种原因导致客户端连接断开时，只要在SessionTimeout规定的时间内能够<strong>重新连接上</strong>集群中<strong>任意一台</strong>服务器，那么之前创建的会话<strong>仍然有效</strong>。</p>
+<h3 id="数据节点（ZNode）"><a href="#数据节点（ZNode）" class="headerlink" title="数据节点（ZNode）"></a>数据节点（ZNode）</h3><p>在谈到分布式的时候，<strong>一般</strong>『节点』指的是组成集群的每一台<strong>机器</strong>。而ZooKeeper中的数据节点是指<strong>数据模型</strong>中的<strong>数据单元</strong>，称为<strong>ZNode</strong>。ZooKeeper将所有数据存储在<strong>内存中</strong>，数据模型是一棵<strong>树（ZNode Tree）</strong>，由斜杠（/）进行分割的路径，就是一个ZNode，如/hbase/master,其中hbase和master<strong>都是</strong>ZNode。每个ZNode上都会保存<strong>自己的数据内容</strong>，同时会保存一系列<strong>属性信息</strong>。</p>
+<p>注：<br>这里的ZNode可以理解成<strong>既是</strong>Unix里的<strong>文件</strong>，<strong>又是</strong>Unix里的<strong>目录</strong>。因为每个ZNode不仅本身可以<strong>写数据</strong>（相当于Unix里的文件），还可以有<strong>下一级文件或目录</strong>（相当于Unix里的目录）。</p>
+<p>在ZooKeeper中，ZNode可以分为<strong>持久节点</strong>和<strong>临时节点</strong>两类。</p>
+<p><strong>持久节点</strong></p>
+<p> 所谓持久节点是指一旦这个ZNode被创建了，除非主动进行ZNode的移除操作，否则这个ZNode将一直保存在ZooKeeper上。</p>
+<p><strong>临时节点</strong></p>
+<p>临时节点的生命周期跟客户端会话绑定，一旦客户端会话失效，那么这个客户端创建的所有临时节点都会被移除。</p>
+<p>另外，ZooKeeper还允许用户为每个节点添加一个特殊的属性：SEQUENTIAL。一旦节点被标记上这个属性，那么在这个节点被创建的时候，ZooKeeper就会自动在其节点后面追加上一个整型数字，这个整型数字是一个由父节点维护的自增数字。</p>
+<h3 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h3><p>ZooKeeper的每个ZNode上都会存储数据，对应于每个ZNode，ZooKeeper都会为其维护一个叫作Stat的数据结构，Stat中记录了这个ZNode的三个数据版本，分别是version（当前ZNode的版本）、cversion（当前ZNode子节点的版本）和aversion（当前ZNode的ACL版本）。</p>
+<h3 id="状态信息"><a href="#状态信息" class="headerlink" title="状态信息"></a>状态信息</h3><p>每个ZNode除了存储数据内容之外，还存储了ZNode本身的一些状态信息。用 get 命令可以同时获得某个ZNode的内容和状态信息。如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 23] get /yarn-leader-election/appcluster-yarn/ActiveBreadCrumb</span><br><span class="line"></span><br><span class="line">appcluster-yarnrm1</span><br><span class="line">cZxid = 0x1b00133dc0    //Created ZXID,表示该ZNode被创建时的事务ID</span><br><span class="line">ctime = Tue Jan 03 15:44:42 CST 2017    //Created Time,表示该ZNode被创建的时间</span><br><span class="line">mZxid = 0x1d00000063    //Modified ZXID，表示该ZNode最后一次被更新时的事务ID</span><br><span class="line">mtime = Fri Jan 06 08:44:25 CST 2017    //Modified Time，表示该节点最后一次被更新的时间</span><br><span class="line">pZxid = 0x1b00133dc0    //表示该节点的子节点列表最后一次被修改时的事务ID。注意，只有子节点列表变更了才会变更pZxid，子节点内容变更不会影响pZxid。</span><br><span class="line">cversion = 0    //子节点的版本号</span><br><span class="line">dataVersion = 11    //数据节点的版本号</span><br><span class="line">aclVersion = 0    //ACL版本号</span><br><span class="line">ephemeralOwner = 0x0    //创建该节点的会话的seddionID。如果该节点是持久节点，那么这个属性值为0。</span><br><span class="line">dataLength = 22    //数据内容的长度</span><br><span class="line">numChildren = 0    //子节点的个数</span><br></pre></td></tr></table></figure>
+
+<p>在ZooKeeper中，version属性是用来实现乐观锁机制中的『写入校验』的（保证分布式数据原子性操作）。</p>
+<h3 id="事务操作"><a href="#事务操作" class="headerlink" title="事务操作"></a>事务操作</h3><p>在ZooKeeper中，能改变ZooKeeper服务器状态的操作称为事务操作。一般包括数据节点创建与删除、数据内容更新和客户端会话创建与失效等操作。对应每一个事务请求，ZooKeeper都会为其分配一个全局唯一的事务ID，用ZXID表示，通常是一个64位的数字。每一个ZXID对应一次更新操作，从这些ZXID中可以间接地识别出ZooKeeper处理这些事务操作请求的全局顺序。</p>
+<h3 id="Watcher"><a href="#Watcher" class="headerlink" title="Watcher"></a>Watcher</h3><p>Watcher（事件监听器），是ZooKeeper中一个很重要的特性。ZooKeeper允许用户在指定节点上注册一些Watcher，并且在一些特定事件触发的时候，ZooKeeper服务端会将事件通知到感兴趣的客户端上去。该机制是ZooKeeper实现分布式协调服务的重要特性。</p>
+<h3 id="ACL"><a href="#ACL" class="headerlink" title="ACL"></a>ACL</h3><p>ZooKeeper采用ACL（Access Control Lists）策略来进行权限控制。ZooKeeper定义了如下5种权限。</p>
+<ul>
+<li>CREATE: 创建子节点的权限。</li>
+<li>READ: 获取节点数据和子节点列表的权限。</li>
+<li>WRITE：更新节点数据的权限。</li>
+<li>DELETE: 删除子节点的权限。</li>
+<li>ADMIN: 设置节点ACL的权限。</li>
+</ul>
+<p>注意：CREATE 和 DELETE 都是针对子节点的权限控制。</p>
+<h2 id="ZooKeeper典型应用场景"><a href="#ZooKeeper典型应用场景" class="headerlink" title="ZooKeeper典型应用场景"></a>ZooKeeper典型应用场景</h2><p>ZooKeeper是一个<strong>高可用</strong>的分布式<strong>数据管理与协调框架</strong>。基于对ZAB算法的实现，该框架能够很好地保证分布式环境中数据的<strong>一致性</strong>。也是基于这样的特性，使得ZooKeeper成为了解决分布式一致性问题的利器。</p>
+<h3 id="数据发布与订阅（配置中心）"><a href="#数据发布与订阅（配置中心）" class="headerlink" title="数据发布与订阅（配置中心）"></a>数据发布与订阅（配置中心）</h3><p>数据发布与订阅，即所谓的<strong>配置中心</strong>，顾名思义就是发布者将数据发布到ZooKeeper节点上，供订阅者进行数据订阅，进而达到<strong>动态获取数据</strong>的目的，实现配置信息的<strong>集中式管理</strong>和<strong>动态更新</strong>。</p>
+<p>在我们平常的应用系统开发中，经常会碰到这样的需求：系统中需要使用一些通用的配置信息，例如<strong>机器列表信息</strong>、<strong>数据库配置信息</strong>等。这些全局配置信息通常具备以下3个特性。</p>
+<ul>
+<li>数据量通常比较<strong>小。</strong></li>
+<li>数据内容在运行时<strong>动态变化</strong>。</li>
+<li>集群中各机器共享，<strong>配置一致</strong>。</li>
+</ul>
+<p>对于这样的全局配置信息就可以发布到ZooKeeper上，让客户端（集群的机器）去订阅该消息。</p>
+<p>发布/订阅系统一般有两种设计模式，分别是<strong>推（Push）</strong>和<strong>拉（Pull）</strong>模式。</p>
+<ul>
+<li>推：<strong>服务端主动</strong>将数据更新发送给所有订阅的客户端。</li>
+<li>拉：<strong>客户端主动</strong>发起请求来获取最新数据，通常客户端都采用<strong>定时轮询</strong>拉取的方式。</li>
+</ul>
+<p>ZooKeeper采用的是<strong>推拉相结合</strong>的方式。如下：</p>
+<p>客户端想服务端<strong>注册</strong>自己需要关注的节点，一旦该节点的数据发生<strong>变更</strong>，那么服务端就会向相应的客户端发送Watcher事件<strong>通知</strong>，客户端接收到这个消息通知后，需要<strong>主动</strong>到服务端<strong>获取</strong>最新的数据（<strong>推拉结合</strong>）。</p>
+<h3 id="命名服务-Naming-Service"><a href="#命名服务-Naming-Service" class="headerlink" title="命名服务(Naming Service)"></a>命名服务(Naming Service)</h3><p>命名服务也是分布式系统中比较常见的一类场景。在分布式系统中，通过使用命名服务，客户端应用能够根据指定<strong>名字</strong>来获取<strong>资源或服务的地址，提供者等信息</strong>。被命名的实体通常可以是<strong>集群中的机器，提供的服务，远程对象等等</strong>——这些我们都可以统称他们为<strong>名字（Name）</strong>。其中较为常见的就是一些分布式服务框架（如RPC、RMI）中的服务地址列表。通过在ZooKeepr里创建顺序节点，能够很容易创建一个<strong>全局唯一的路径</strong>，这个路径就可以作为一个<strong>名字</strong>。</p>
+<p>ZooKeeper的命名服务即生成<strong>全局唯一的ID</strong>。</p>
+<h3 id="分布式协调-通知"><a href="#分布式协调-通知" class="headerlink" title="分布式协调/通知"></a>分布式协调/通知</h3><p>ZooKeeper中特有<strong>Watcher注册</strong>与<strong>异步通知机制</strong>，能够很好的实现分布式环境下不同机器，甚至不同系统之间的<strong>通知与协调</strong>，从而实现<strong>对数据变更的实时处理</strong>。使用方法通常是不同的客户端都对ZK上同一个ZNode进行注册，监听ZNode的变化（包括ZNode本身内容及子节点的），如果ZNode发生了变化，那么所有订阅的客户端都能够接收到相应的Watcher通知，并做出相应的处理。</p>
+<p><strong>ZK的分布式协调/通知，是一种通用的分布式系统机器间的通信方式</strong>。</p>
+<h4 id="心跳检测"><a href="#心跳检测" class="headerlink" title="心跳检测"></a>心跳检测</h4><p>机器间的心跳检测机制是指在分布式环境中，不同机器（或进程）之间需要检测到彼此是否在正常运行，例如A机器需要知道B机器是否正常运行。在传统的开发中，我们通常是通过主机直接是否可以<strong>相互PING通</strong>来判断，更复杂一点的话，则会通过在机器之间建立长连接，通过<strong>TCP连接</strong>固有的心跳检测机制来实现上层机器的心跳检测，这些都是非常常见的心跳检测方法。</p>
+<p>下面来看看如何使用ZK来实现分布式机器（进程）间的心跳检测。</p>
+<p>基于ZK的<strong>临时节点</strong>的特性，可以让不同的进程都在ZK的一个<strong>指定节点</strong>下创建<strong>临时子节点</strong>，不同的进程直接可以根据这个临时子节点来判断对应的进程<strong>是否存活</strong>。通过这种方式，检测和被检测系统直接并不需要直接相关联，而是通过ZK上的某个节点进行关联，大大<strong>减少了系统耦合</strong>。</p>
+<h4 id="工作进度汇报"><a href="#工作进度汇报" class="headerlink" title="工作进度汇报"></a>工作进度汇报</h4><p>在一个常见的<strong>任务分发系统</strong>中，通常任务被分发到不同的机器上执行后，需要实时地将自己的任务执行进度<strong>汇报</strong>给分发系统。这个时候就可以通过ZK来实现。在ZK上选择一个节点，每个任务客户端都在这个节点下面创建<strong>临时子节点</strong>，这样便可以实现两个功能：</p>
+<ul>
+<li>通过判断临时节点是否存在来确定任务机器<strong>是否存活</strong>。</li>
+<li>各个任务机器会实时地将自己的<strong>任务执行进度写到这个临时节点上去</strong>，以便中心系统能够实时地获取到任务的<strong>执行进度</strong>。</li>
+</ul>
+<h3 id="Master选举"><a href="#Master选举" class="headerlink" title="Master选举"></a>Master选举</h3><p><strong>Master选举</strong>可以说是ZooKeeper<strong>最典型的应用场景</strong>了。比如HDFS中Active NameNode的选举、YARN中Active ResourceManager的选举和HBase中Active HMaster的选举等。</p>
+<p>针对Master选举的需求，通常情况下，我们可以选择常见的<strong>关系型数据库</strong>中的<strong>主键特性</strong>来实现：希望成为Master的机器都向数据库中插入一条<strong>相同主键ID</strong>的记录，数据库会帮我们进行<strong>主键冲突检查</strong>，也就是说，<strong>只有一台</strong>机器能插入成功——那么，我们就认为向数据库中<strong>成功插入</strong>数据的客户端机器<strong>成为Master</strong>。</p>
+<p>依靠关系型数据库的主键特性确实能够很好地保证在集群中选举出唯一的一个Master。但是，如果当前选举出的Master挂了，那么该如何处理？谁来告诉我Master挂了呢？显然，关系型数据库无法通知我们这个事件。但是，ZooKeeper可以做到！</p>
+<p>利用ZooKeepr的强一致性，能够很好地保证在分布式高并发情况下节点的创建一定能够保证全局唯一性，即ZooKeeper将会保证客户端<strong>无法创建一个已经存在的ZNode</strong>。也就是说，如果同时有多个客户端请求创建<strong>同一个</strong>临时节点，那么最终一定<strong>只有一个</strong>客户端请求能够创建成功。利用这个特性，就能很容易地在分布式环境中进行Master选举了。</p>
+<p>成功创建该节点的客户端所在的机器就成为了Master。同时，其他没有成功创建该节点的客户端，都会在该节点上<strong>注册</strong>一个子节点变更的<strong>Watcher</strong>，用于监控当前Master机器是否存活，一旦发现当前的Master挂了，那么其他客户端将会<strong>重新进行Master选举</strong>。</p>
+<p>这样就实现了Master的<strong>动态选举</strong>。</p>
+<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p>分布式锁是控制<strong>分布式系统</strong>之间<strong>同步访问共享资源</strong>的一种方式。</p>
+<p>分布式锁又分为<strong>排他锁</strong>和<strong>共享锁</strong>两种。</p>
+<h4 id="排他锁"><a href="#排他锁" class="headerlink" title="排他锁"></a>排他锁</h4><p>排他锁（Exclusive Locks，简称X锁），又称为<strong>写锁</strong>或<strong>独占锁</strong>。</p>
+<blockquote>
+<p>如果事务T1对数据对象O1加上了排他锁，那么在整个加锁期间，只允许事务T1对O1进行<strong>读取和更新</strong>操作，其他任何事务都不能在对这个数据对象进行任何类型的操作（不能再对该对象加锁），直到T1释放了排他锁。</p>
+</blockquote>
+<p>可以看出，排他锁的核心是如何保证当前<strong>只有一个事务获得锁</strong>，并且锁<strong>被释放</strong>后，所有正在等待获取锁的事务都能够<strong>被通知到</strong>。</p>
+<p>如何利用ZooKeeper实现排他锁？</p>
+<p><strong>定义锁</strong></p>
+<p>ZooKeeper上的<strong>一个ZNode可以表示一个锁</strong>。例如/exclusive_lock/lock节点就可以被定义为一个锁。</p>
+<p><strong>获得锁</strong></p>
+<p>如上所说，把ZooKeeper上的一个ZNode看作是一个锁，<strong>获得锁</strong>就通过<strong>创建ZNode</strong>的方式来实现。所有客户端都去/exclusive_lock节点下创建临时子节点/exclusive_lock/lock。ZooKeeper会保证在所有客户端中，最终只有一个客户端能够创建成功，那么就可以认为该客户端获得了锁。同时，所有没有获取到锁的客户端就需要到/exclusive_lock节点上注册一个子节点变更的Watcher监听，以便实时监听到lock节点的变更情况。</p>
+<p><strong>释放锁</strong></p>
+<p>因为/exclusive_lock/lock是一个<strong>临时节点</strong>，因此在以下两种情况下，都有可能释放锁。</p>
+<ul>
+<li>当前获得锁的客户端机器发生<strong>宕机</strong>或<strong>重启</strong>，那么该临时节点就会<strong>被删除，释放锁</strong>。</li>
+<li>正常执行完业务逻辑后，客户端就会<strong>主动</strong>将自己创建的临时节点<strong>删除，释放锁</strong>。</li>
+</ul>
+<p>无论在什么情况下移除了lock节点，ZooKeeper都会<strong>通知</strong>所有在/exclusive_lock节点上注册了节点变更Watcher监听的客户端。这些客户端在接收到通知后，再次<strong>重新发起</strong>分布式锁获取，即重复『获取锁』过程。</p>
+<h4 id="共享锁"><a href="#共享锁" class="headerlink" title="共享锁"></a>共享锁</h4><blockquote>
+<p>共享锁（Shared Locks，简称S锁），又称为读锁。如果事务T1对数据对象O1加上了共享锁，那么T1只能对O1进行<strong>读操作</strong>，其他事务也能<strong>同时对O1加共享锁</strong>（不能是排他锁），直到O1上的所有共享锁都释放后O1才能被加排他锁。</p>
+</blockquote>
+<p>总结：可以<strong>多个事务同时获得</strong>一个对象的<strong>共享锁</strong>（同时读），有共享锁就不能再加排他锁（因为排他锁是写锁）</p>
+<h2 id="ZooKeeper在大型分布式系统中的应用"><a href="#ZooKeeper在大型分布式系统中的应用" class="headerlink" title="ZooKeeper在大型分布式系统中的应用"></a>ZooKeeper在大型分布式系统中的应用</h2><p>前面已经介绍了ZooKeeper的典型应用场景。本节将以常见的大数据产品Hadoop和HBase为例来介绍ZooKeeper在其中的应用，帮助大家更好地理解ZooKeeper的分布式应用场景。</p>
+<h3 id="ZooKeeper在Hadoop中的应用"><a href="#ZooKeeper在Hadoop中的应用" class="headerlink" title="ZooKeeper在Hadoop中的应用"></a>ZooKeeper在Hadoop中的应用</h3><p>在Hadoop中，ZooKeeper主要用于<strong>实现HA(High Availability）</strong>，包括<strong>HDFS的NamaNode和YARN的ResourceManager的HA</strong>。同时，在YARN中，ZooKeepr还用来<strong>存储应用的运行状态</strong>。HDFS的NamaNode和YARN的ResourceManager利用ZooKeepr实现HA的原理是一样的，所以本节以YARN为例来介绍。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-6326ec291ba11b95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="YARN架构体系"></p>
+<p>从上图可以看出，YARN主要由ResourceManager（RM）、NodeManager（NM）、ApplicationMaster（AM）和Container四部分组成。其中<strong>最核心</strong>的就是<strong>ResourceManager</strong>。</p>
+<p>ResourceManager负责集群中<strong>所有资源的统一管理和分配</strong>，同时<strong>接收</strong>来自各个节点（NodeManager）的<strong>资源汇报信息</strong>，并把这些信息按照一定的策略分配给各个应用程序（Application Manager），其内部维护了各个应用程序的ApplicationMaster信息、NodeManager信息以及资源使用信息等。</p>
+<p>为了实现HA，必须有<strong>多个ResourceManager并存</strong>（一般就两个），并且<strong>只有一个ResourceManager处于Active状态</strong>，其他的则处于Standby状态，当Active节点无法正常工作（如机器宕机或重启）时，处于Standby的就会通过<strong>竞争选举</strong>产生<strong>新的Active节点</strong>。</p>
+<h4 id="主备切换"><a href="#主备切换" class="headerlink" title="主备切换"></a>主备切换</h4><p>下面我们就来看看YARN是如何实现多个ResourceManager之间的主备切换的。</p>
+<ol>
+<li><p>创建锁节点<br>在ZooKeeper上会有一个<code>/yarn-leader-election/appcluster-yarn</code>的锁节点，所有的ResourceManager在启动的时候，都会去竞争写一个Lock子节点：<code>/yarn-leader-election/appcluster-yarn/ActiveBreadCrumb</code>，该节点是临时节点。ZooKeepr能够为我们保证最终<strong>只有一个</strong>ResourceManager能够<strong>创建成功</strong>。<strong>创建成功</strong>的那个ResourceManager就切换为<strong>Active状态</strong>，<strong>没有成功</strong>的那些ResourceManager则切换为<strong>Standby状态</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 16] get /yarn-leader-election/appcluster-yarn/ActiveBreadCrumb</span><br><span class="line"></span><br><span class="line">appcluster-yarnrm2</span><br><span class="line">cZxid = 0x1b00133dc0</span><br><span class="line">ctime = Tue Jan 03 15:44:42 CST 2017</span><br><span class="line">mZxid = 0x1f00000540</span><br><span class="line">mtime = Sat Jan 07 00:50:20 CST 2017</span><br><span class="line">pZxid = 0x1b00133dc0</span><br><span class="line">cversion = 0</span><br><span class="line">dataVersion = 28</span><br><span class="line">aclVersion = 0</span><br><span class="line">ephemeralOwner = 0x0</span><br><span class="line">dataLength = 22</span><br><span class="line">numChildren = 0</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>可以看到此时集群中ResourceManager2为Active。</p>
+<ol start="2">
+<li><p>注册Watcher监听<br>所有Standby状态的ResourceManager都会向<code>/yarn-leader-election/appcluster-yarn/ActiveBreadCrumb</code>节点注册一个节点变更的<strong>Watcher监听</strong>，利用<strong>临时节点的特性</strong>，能够快速感知到Active状态的ResourceManager的运行情况。</p>
+</li>
+<li><p>主备切换<br>当Active状态的ResourceManager出现诸如<strong>宕机或重启</strong>的异常情况时，其在ZooKeeper上连接的客户端<strong>会话就会失效</strong>，因此<code>/yarn-leader-election/appcluster-yarn/ActiveBreadCrumb</code>节点就会<strong>被删除</strong>。此时其余各个Standby状态的ResourceManager就都会<strong>接收到</strong>来自ZooKeeper服务端的<strong>Watcher事件通知</strong>，然后会<strong>重复进行步骤1的操作</strong>。</p>
+</li>
+</ol>
+<p>以上就是利用ZooKeeper来实现ResourceManager的主备切换的过程，实现了ResourceManager的HA。</p>
+<p>HDFS中NameNode的HA的实现原理跟YARN中ResourceManager的HA的实现原理相同。其锁节点为<code>/hadoop-ha/mycluster/ActiveBreadCrumb</code>。</p>
+<h4 id="ResourceManager状态存储"><a href="#ResourceManager状态存储" class="headerlink" title="ResourceManager状态存储"></a>ResourceManager状态存储</h4><p>在 ResourceManager 中，<strong>RMStateStore</strong> 能够存储一些 RM 的<strong>内部状态信息</strong>，包括 Application 以及它们的 Attempts 信息、Delegation Token 及 Version Information 等。需要注意的是，RMStateStore 中的绝大多数状态信息都是<strong>不需要持久化存储</strong>的，因为<strong>很容易从上下文信息中将其重构出来</strong>，如资源的使用情况。在存储的设计方案中，提供了三种可能的实现，分别如下。</p>
+<ul>
+<li>基于内存实现，一般是用于日常开发测试。</li>
+<li>基于文件系统的实现，如HDFS。</li>
+<li>基于ZooKeeper实现。</li>
+</ul>
+<p>由于这些状态信息的<strong>数据量都不是很大</strong>，因此Hadoop<strong>官方建议基于ZooKeeper来实现状态信息的存储</strong>。在ZooKeepr上，ResourceManager 的状态信息都被存储在<code>/rmstore</code>这个根节点下面。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">[zk: localhost:<span class="number">2181</span>(CONNECTED) <span class="number">28</span>] ls /rmstore/ZKRMStateRoot</span><br><span class="line">[RMAppRoot, AMRMTokenSecretManagerRoot, EpochNode, RMDTSecretManagerRoot, RMVersionNode]</span><br></pre></td></tr></table></figure>
+
+<p>RMAppRoot 节点下存储的是与各个 Application 相关的信息，RMDTSecretManagerRoot 存储的是与安全相关的 Token 等信息。每个 Active 状态的 ResourceManager 在<strong>初始化阶段</strong>都会从 ZooKeeper 上<strong>读取到这些状态信息</strong>，并根据这些状态信息继续进行相应的处理。</p>
+<p>小结：</p>
+<p>ZooKeepr在Hadoop中的应用主要有：</p>
+<ol>
+<li>HDFS中NameNode的HA和YARN中ResourceManager的HA。</li>
+<li>存储RMStateStore状态信息</li>
+</ol>
+<h3 id="ZooKeeper在HBase中的应用"><a href="#ZooKeeper在HBase中的应用" class="headerlink" title="ZooKeeper在HBase中的应用"></a>ZooKeeper在HBase中的应用</h3><p>HBase主要用ZooKeeper来实现<strong>HMaster选举与主备切换、系统容错、RootRegion管理、Region状态管理和分布式SplitWAL任务管理</strong>等。</p>
+<h4 id="HMaster选举与主备切换"><a href="#HMaster选举与主备切换" class="headerlink" title="HMaster选举与主备切换"></a>HMaster选举与主备切换</h4><p>HMaster选举与主备切换的原理和HDFS中NameNode及YARN中ResourceManager的HA原理相同。</p>
+<h4 id="系统容错"><a href="#系统容错" class="headerlink" title="系统容错"></a>系统容错</h4><p>当HBase启动时，每个<strong>RegionServer</strong>都会到ZooKeeper的<code>/hbase/rs</code>节点下创建一个信息节点（下文中，我们称该节点为”rs状态节点”），例如<code>/hbase/rs/[Hostname]</code>，同时，<strong>HMaster</strong>会对这个节点<strong>注册监听</strong>。当某个 RegionServer 挂掉的时候，ZooKeeper会因为在一段时间内无法接受其心跳（即 Session 失效），而删除掉该 RegionServer 服务器对应的 rs 状态节点。与此同时，HMaster 则会接收到 ZooKeeper 的 NodeDelete 通知，从而感知到某个节点断开，并立即开始容错工作。</p>
+<p>HBase为什么不直接让HMaster来负责RegionServer的监控呢？如果HMaster直接通过<strong>心跳机制</strong>等来管理RegionServer的状态，随着<strong>集群越来越大</strong>，HMaster的<strong>管理负担会越来越重</strong>，另外它自身也有挂掉的可能，因此数据还<strong>需要持久化</strong>。在这种情况下，ZooKeeper就成了理想的选择。</p>
+<h4 id="RootRegion管理"><a href="#RootRegion管理" class="headerlink" title="RootRegion管理"></a>RootRegion管理</h4><p>对应HBase集群来说，数据存储的<strong>位置信息</strong>是记录在<strong>元数据region</strong>，也就是<strong>RootRegion</strong>上的。每次客户端发起新的请求，需要知道数据的位置，就会去查询RootRegion，而<strong>RootRegion自身位置则是记录在ZooKeeper上</strong>的（默认情况下，是记录在ZooKeeper的<code>/hbase/meta-region-server</code>节点中）。当RootRegion发生变化，比如Region的手工移动、重新负载均衡或RootRegion所在服务器发生了故障等是，就能够通过ZooKeeper来感知到这一变化并做出一系列相应的容灾措施，从而保证客户端总是能够拿到正确的RootRegion信息。</p>
+<h4 id="Region管理"><a href="#Region管理" class="headerlink" title="Region管理"></a>Region管理</h4><p>HBase里的Region会经常发生变更，这些变更的原因来自于系统故障、负载均衡、配置修改、Region分裂与合并等。一旦Region发生移动，它就会经历<strong>下线（offline）和重新上线（online）</strong>的过程。</p>
+<p>在<strong>下线期间</strong>数据是<strong>不能被访问</strong>的，并且Region的这个状态变化必须<strong>让全局知晓</strong>，否则可能会出现<strong>事务性的异常</strong>。对于大的HBase集群来说，Region的数量可能会多达十万级别，甚至更多，这样规模的Region状态管理交给ZooKeeper来做也是一个很好的选择。</p>
+<h4 id="分布式SplitWAL任务管理"><a href="#分布式SplitWAL任务管理" class="headerlink" title="分布式SplitWAL任务管理"></a>分布式SplitWAL任务管理</h4><p>当某台<strong>RegionServer服务器挂掉</strong>时，由于总有一部分<strong>新写入的数据还没有持久化到HFile中</strong>，因此在迁移该RegionServer的服务时，一个重要的工作就是<strong>从WAL中恢复</strong>这部分还在内存中的数据，而这部分工作<strong>最关键的一步</strong>就是<strong>SplitWAL</strong>，即HMaster需要遍历该RegionServer服务器的WAL，并按Region切分成小块移动到新的地址下，并进行<strong>日志的回放（replay）</strong>。</p>
+<p>由于单个RegionServer的日志量相对庞大（可能有上千个Region，上GB的日志），而用户又往往希望系统能够快速完成日志的恢复工作。因此一个可行的方案是将这个处理WAL的任务<strong>分给多台RegionServer服务器</strong>来共同处理，而这就又需要一个<strong>持久化组件来辅助HMaster完成任务的分配</strong>。当前的做法是，HMaster会在ZooKeeper上创建一个<strong>SplitWAL节点</strong>（默认情况下，是<code>/hbase/SplitWAL</code>节点），将<strong>“哪个RegionServer处理哪个Region”</strong>这样的信息以<strong>列表的形式</strong>存放到该节点上，然后由各个RegionServer服务器自行到该节点上去<strong>领取任务</strong>并在任务执行成功或失败后再<strong>更新该节点的信息</strong>，以通知HMaster继续进行后面的步骤。ZooKeeper在这里担负起了分布式集群中<strong>相互通知和信息持久化</strong>的角色。</p>
+<p>小结：</p>
+<p>以上就是一些HBase中依赖ZooKeeper完成分布式协调功能的典型场景。但事实上，HBase对ZooKeepr的依赖还不止这些，比如HMaster还依赖ZooKeeper来完成Table的enable/disable状态记录，以及HBase中<strong>几乎所有的元数据存储</strong>都是放在ZooKeeper上的。</p>
+<p>由于ZooKeeper出色的分布式协调能力及良好的通知机制，HBase在各版本的演进过程中越来越多地增加了ZooKeeper的应用场景，从趋势上来看两者的交集越来越多。HBase中所有对ZooKeeper的操作都封装在了org.apache.hadoop.hbase.zookeeper这个包中，感兴趣的同学可以自行研究。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《从Paxos到Zookeeper》</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '欢迎打赏~', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'http://upload-images.jianshu.io/upload_images/1752522-36613fdaddaabe1e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240',
+  alipayImage: 'http://upload-images.jianshu.io/upload_images/1752522-e25c8a72b44c418e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240'
+});
+</script>
+      
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZooKeeper/">ZooKeeper</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/25/PostgreSQL安装PostGISC插件并使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          PostgreSQL安装PostGIS插件并使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/15/Python函数式编程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Python函数式编程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集群角色"><span class="nav-number">2.1.</span> <span class="nav-text">集群角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话（Session）"><span class="nav-number">2.2.</span> <span class="nav-text">会话（Session）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据节点（ZNode）"><span class="nav-number">2.3.</span> <span class="nav-text">数据节点（ZNode）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本"><span class="nav-number">2.4.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态信息"><span class="nav-number">2.5.</span> <span class="nav-text">状态信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务操作"><span class="nav-number">2.6.</span> <span class="nav-text">事务操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Watcher"><span class="nav-number">2.7.</span> <span class="nav-text">Watcher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ACL"><span class="nav-number">2.8.</span> <span class="nav-text">ACL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZooKeeper典型应用场景"><span class="nav-number">3.</span> <span class="nav-text">ZooKeeper典型应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据发布与订阅（配置中心）"><span class="nav-number">3.1.</span> <span class="nav-text">数据发布与订阅（配置中心）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命名服务-Naming-Service"><span class="nav-number">3.2.</span> <span class="nav-text">命名服务(Naming Service)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式协调-通知"><span class="nav-number">3.3.</span> <span class="nav-text">分布式协调/通知</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#心跳检测"><span class="nav-number">3.3.1.</span> <span class="nav-text">心跳检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作进度汇报"><span class="nav-number">3.3.2.</span> <span class="nav-text">工作进度汇报</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Master选举"><span class="nav-number">3.4.</span> <span class="nav-text">Master选举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式锁"><span class="nav-number">3.5.</span> <span class="nav-text">分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#排他锁"><span class="nav-number">3.5.1.</span> <span class="nav-text">排他锁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享锁"><span class="nav-number">3.5.2.</span> <span class="nav-text">共享锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ZooKeeper在大型分布式系统中的应用"><span class="nav-number">4.</span> <span class="nav-text">ZooKeeper在大型分布式系统中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper在Hadoop中的应用"><span class="nav-number">4.1.</span> <span class="nav-text">ZooKeeper在Hadoop中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主备切换"><span class="nav-number">4.1.1.</span> <span class="nav-text">主备切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ResourceManager状态存储"><span class="nav-number">4.1.2.</span> <span class="nav-text">ResourceManager状态存储</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZooKeeper在HBase中的应用"><span class="nav-number">4.2.</span> <span class="nav-text">ZooKeeper在HBase中的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HMaster选举与主备切换"><span class="nav-number">4.2.1.</span> <span class="nav-text">HMaster选举与主备切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统容错"><span class="nav-number">4.2.2.</span> <span class="nav-text">系统容错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RootRegion管理"><span class="nav-number">4.2.3.</span> <span class="nav-text">RootRegion管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Region管理"><span class="nav-number">4.2.4.</span> <span class="nav-text">Region管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式SplitWAL任务管理"><span class="nav-number">4.2.5.</span> <span class="nav-text">分布式SplitWAL任务管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      
+	      
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            LBD&#39;s Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 LBD All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>
