@@ -569,7 +569,7 @@ lambda [arg1[, arg2, ... ar...
 
 
   
-    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -577,7 +577,7 @@ lambda [arg1[, arg2, ... ar...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
     </h1>
   
 
@@ -585,12 +585,12 @@ lambda [arg1[, arg2, ... ar...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
 
       
       
@@ -599,12 +599,11 @@ lambda [arg1[, arg2, ... ar...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
-
-摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 multi-Paxos 作用相同，效率也相当，但是它的组织结构跟 Paxos 不同。这使得 Raft 比...
+          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
+【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
@@ -679,7 +678,7 @@ lambda [arg1[, arg2, ... ar...
 
 
   
-    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -687,7 +686,7 @@ lambda [arg1[, arg2, ... ar...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
     </h1>
   
 
@@ -695,12 +694,12 @@ lambda [arg1[, arg2, ... ar...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
 
       
       
@@ -709,14 +708,19 @@ lambda [arg1[, arg2, ... ar...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          列举几个关于Java Collections的常见问题并给出答案。
+          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
 
 
-1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
-LinkedList是一个双向链表。因此，当需要...
+代码结构主目录（$BENCH_MARK_HOME）下有：
+
+bin
+conf
+data-generator
+engines
+t...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
         </p>
       
     </div>
