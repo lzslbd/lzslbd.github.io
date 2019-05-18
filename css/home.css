@@ -101,7 +101,7 @@ html{
 	position: absolute;
 	bottom: 100px;
 	background: url(../images/sample.jpg) no-repeat bottom center scroll;
-	background-color: #135f84;
+	background-color: #fff;
 	background-size: cover;
 	-o-background-size: cover;
 }
