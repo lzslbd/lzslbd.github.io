@@ -420,7 +420,7 @@ YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
 
 
   
-    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -428,7 +428,7 @@ YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
     </h1>
   
 
@@ -436,12 +436,12 @@ YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
 
       
       
@@ -450,14 +450,11 @@ YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          列举几个关于Java Collections的常见问题并给出答案。
-
-
-1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
-LinkedList是一个双向链表。因此，当需要...
+          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
+【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
@@ -476,7 +473,7 @@ LinkedList是一个双向链表。因此，当需要...
 
 
   
-    <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java中wait、sleep和yield的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -484,7 +481,7 @@ LinkedList是一个双向链表。因此，当需要...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
+      <a class="article-title" href="/2017/03/11/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
     </h1>
   
 
@@ -492,12 +489,12 @@ LinkedList是一个双向链表。因此，当需要...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
+	<a href="/2017/03/11/Java中wait、sleep和yield的区别/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -506,18 +503,17 @@ LinkedList是一个双向链表。因此，当需要...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
+          Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
 
 
-1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
 
-2. 执行安装命令yum updateyum install postgresql94-server postgresql94-contrib
 
-3. 验证是否安装成功执行：
-rpm -qa | gre...
+本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使得其他线程能获得CPU时间。
+接下来详细比较三个方法。
+wait常用的wait方法有wait( )和...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+          <a href="/2017/03/11/Java中wait、sleep和yield的区别/#more">阅读全文</a>
         </p>
       
     </div>
@@ -650,7 +646,7 @@ Embedded Metas...
 
 
   
-    <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -658,7 +654,7 @@ Embedded Metas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
+      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
     </h1>
   
 
@@ -666,12 +662,12 @@ Embedded Metas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
+	<a href="/2017/03/11/经典编程书籍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
 
       
       
@@ -680,15 +676,18 @@ Embedded Metas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
+原文
 
 
-192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
-1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
-与基于文件日志传送相比，流复制允许保持从服务器更新。 从服务器...
+这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
+计算机系统与网络
+《图灵的秘密:他的生平、思想及论文解读》
+《计算机系统概论》
+...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
+          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
         </p>
       
     </div>
