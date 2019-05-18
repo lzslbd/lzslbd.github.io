@@ -1642,7 +1642,7 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #0f273c;
+  background: #f8f8f8;
   margin: 20px 0px;
   padding: 15px 20px;
   border-style: solid;
@@ -1745,7 +1745,7 @@ figure.highlight::-webkit-scrollbar-track {
   border-style: solid;
   border-color: #eef1f8;
   border-width: 1px 0;
-  background: #0f273c;
+  background: #f8f8f8;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1771,7 +1771,7 @@ figure.highlight::-webkit-scrollbar-track {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #0f273c;
+  background: #f8f8f8;
   color: $highlight-comment;
   font: 0.85em -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   text-shadow: 0 0;

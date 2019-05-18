@@ -161,7 +161,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python日志模块示例" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -169,7 +169,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
+      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
     </h1>
   
 
@@ -177,12 +177,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
+	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
       
@@ -191,11 +191,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
+          给出Python日志模块显示配置和文件配置两种方式的示例
+
+
+显示配置在程序中直接调用函数来设置参数
+#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的handlersh = logging.StreamHandler()sh.setLevel(log...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -214,7 +217,7 @@
 
 
   
-    <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Git常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -222,7 +225,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+      <a class="article-title" href="/2017/03/11/Git常用命令/">Git常用命令</a>
     </h1>
   
 
@@ -230,12 +233,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	<a href="/2017/03/11/Git常用命令/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+    <a class="article-category-link" href="/categories/编程工具/">编程工具</a>
 
       
       
@@ -244,13 +247,224 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负责单个应用程序的管理。
+          记录 Git 常用的命令。
 
 
-YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
+
+
+命令
+说明
+
+
+
+git init
+初始化git仓库
+
+
+git add filename
+将文件添加到暂存区
+
+
+git commit -m “blablabla…”
+提交到本地仓库
+
+
+git push origin master
+将本地master分支推到远程
+
+
+git status
+查看那些文件被修改过
+
+
+git diff
+查看修改内容
+
+
+git reset –hard HEAD^
+回到某个版本 （HEAD表示当前版本（已commit的最新...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
+          <a href="/2017/03/11/Git常用命令/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+
+
+代码结构主目录（$BENCH_MARK_HOME）下有：
+
+bin
+conf
+data-generator
+engines
+t...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/经典编程书籍/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
+原文
+
+
+这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
+计算机系统与网络
+《图灵的秘密:他的生平、思想及论文解读》
+《计算机系统概论》
+...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+
+
+网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
+1. 相关概念Hive Metastore有三种配置方式，分别是：
+
+Embedded Metas...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
         </p>
       
     </div>
@@ -325,180 +539,6 @@ YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
 
 
   
-    <article id="post-纠删码（Erasure Code）浅析" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
-
-
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目的。其基本思想是将n块原始的数据元素通过一定的计算，得到m块冗余元素（校验块）。对于这n+m块的元...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          观察者模式又叫发布/订阅模式。
-
-
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
-
-具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
-
-抽象观察者（Observ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
-
-
-192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
-1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
-与基于文件日志传送相比，流复制允许保持从服务器更新。 从服务器...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -538,62 +578,6 @@ YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Python日志模块示例" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Python/">Python</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          给出Python日志模块显示配置和文件配置两种方式的示例
-
-
-显示配置在程序中直接调用函数来设置参数
-#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的handlersh = logging.StreamHandler()sh.setLevel(log...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -707,6 +691,70 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-分布式系列文章——从ACID到CAP:BASE" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+
+
+
+事务事务的定义：
+
+事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
+
+事务的作用：
+
+当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
+
+事务为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
         </p>
       
     </div>

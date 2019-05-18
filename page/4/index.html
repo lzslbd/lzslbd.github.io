@@ -161,7 +161,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-分布式系列文章——从ACID到CAP:BASE" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -169,7 +169,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
+      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
     </h1>
   
 
@@ -177,12 +177,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -191,82 +191,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+          列举几个关于Java Collections的常见问题并给出答案。
 
 
-
-事务事务的定义：
-
-事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
-
-事务的作用：
-
-当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
-
-事务为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍...
+1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
+LinkedList是一个双向链表。因此，当需要...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
-
-
-1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
-
-2. 执行安装命令yum updateyum install postgresql94-server postgresql94-contrib
-
-3. 验证是否安装成功执行：
-rpm -qa | gre...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
         </p>
       
     </div>
@@ -344,7 +276,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
 
 
   
-    <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -352,7 +284,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hive安装配置文档/">Hive安装配置文档（含Hive Metastore三种配置方式详解）</a>
+      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
     </h1>
   
 
@@ -360,12 +292,12 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hive安装配置文档/" class="article-date">
+	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Hive/">Hive</a>
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
 
       
       
@@ -374,16 +306,12 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          本文介绍Hive安装配置的整个过程，包括MySQL、Hive及Metastore的安装配置，并分析了Metastore三种配置方式的区别。
+          Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
 
-
-网上有很多介绍Hive Metastore三种配置方式的文章，但是理解都不对，给读者造成了很多误导。本人详细阅读Apache和CDH官方文档中关于Hive Metastore的部分，并经过实践，终于填好各种坑，安装配置成功，遂记录下本文，供大家参考。
-1. 相关概念Hive Metastore有三种配置方式，分别是：
-
-Embedded Metas...
+摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 multi-Paxos 作用相同，效率也相当，但是它的组织结构跟 Paxos 不同。这使得 Raft 比...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
+          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
@@ -402,7 +330,7 @@ Embedded Metas...
 
 
   
-    <article id="post-Git常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-分布式系列文章——分布式系统的特点及问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -410,7 +338,7 @@ Embedded Metas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Git常用命令/">Git常用命令</a>
+      <a class="article-title" href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/">分布式系列文章——分布式系统的特点及问题</a>
     </h1>
   
 
@@ -418,12 +346,12 @@ Embedded Metas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Git常用命令/" class="article-date">
+	<a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/编程工具/">编程工具</a>
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
 
       
       
@@ -432,45 +360,70 @@ Embedded Metas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          记录 Git 常用的命令。
+          随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。
 
 
+分布式系统定义在《分布式系统概念与设计》一书中，对分布式系统做了 如下定义：
 
+分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信和协调的系统。
 
-命令
-说明
-
-
-
-git init
-初始化git仓库
-
-
-git add filename
-将文件添加到暂存区
-
-
-git commit -m “blablabla…”
-提交到本地仓库
-
-
-git push origin master
-将本地master分支推到远程
-
-
-git status
-查看那些文件被修改过
-
-
-git diff
-查看修改内容
-
-
-git reset –hard HEAD^
-回到某个版本 （HEAD表示当前版本（已commit的最新...
+也就是说一个分布式系统中的计算机在空间部署上可以是随意分布的，这些计算机可能被放...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Git常用命令/#more">阅读全文</a>
+          <a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
+【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
@@ -643,7 +596,7 @@ RTP,实时传输协议与音视频
 
 
   
-    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -651,7 +604,7 @@ RTP,实时传输协议与音视频
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -659,12 +612,12 @@ RTP,实时传输协议与音视频
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/经典编程书籍/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
       
@@ -673,18 +626,13 @@ RTP,实时传输协议与音视频
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
-原文
+          YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负责单个应用程序的管理。
 
 
-这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
-计算机系统与网络
-《图灵的秘密:他的生平、思想及论文解读》
-《计算机系统概论》
-...
+YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
       
     </div>
