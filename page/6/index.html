@@ -315,7 +315,7 @@ RTP,实时传输协议与音视频
 
 
   
-    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -323,7 +323,7 @@ RTP,实时传输协议与音视频
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -331,12 +331,12 @@ RTP,实时传输协议与音视频
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/经典编程书籍/" class="article-date">
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -345,18 +345,19 @@ RTP,实时传输协议与音视频
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
-原文
+          static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
 
-这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
-计算机系统与网络
-《图灵的秘密:他的生平、思想及论文解读》
-《计算机系统概论》
-...
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+static 方法：
+static 方法可以通过类名直接调用，该类的任何对象也可以调用（但不推荐）。
+
+s...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>
