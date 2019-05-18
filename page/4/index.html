@@ -340,6 +340,60 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 
   
+    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
+
+摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 multi-Paxos 作用相同，效率也相当，但是它的组织结构跟 Paxos 不同。这使得 Raft 比...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-Phoenix文档" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -381,60 +435,6 @@ Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询�
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix文档/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-分布式一致性算法：Raft 算法（Raft 论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/">分布式一致性算法：Raft 算法（Raft 论文翻译）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式一致性算法/">分布式一致性算法</a><a class="article-category-link" href="/categories/分布式一致性算法/Raft/">Raft</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Raft 算法是可以用来替代 Paxos 算法的分布式一致性算法，而且 raft 算法比 Paxos 算法更易懂且更容易实现。本文对 raft 论文进行翻译，希望能有助于读者更方便地理解 raft 的思想。如果对 Paxos 算法感兴趣，可以看我的另一篇文章：分布式系列文章——Paxos算法原理与推导
-
-摘要Raft 是用来管理复制日志（replicated log）的一致性协议。它跟 multi-Paxos 作用相同，效率也相当，但是它的组织结构跟 Paxos 不同。这使得 Raft 比...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/分布式一致性算法：Raft 算法（Raft 论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
