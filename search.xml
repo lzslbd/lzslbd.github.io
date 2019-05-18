@@ -42,7 +42,7 @@
 <li>Timer是定时器，只在指定时间后发送一个当前时间 </li>
 <li>Ticker为节拍器，每隔指定时间发送当前时间，不间断 </li>
 </ul>
-<h2 id="数组和切片slice："><a href="#数组和切片slice：" class="headerlink" title="数组和切片slice："></a>数组和切片slice：</h2><p>​        go中很少使用数组，一般使用切片！ </p>
+<h2 id="数组和切片slice"><a href="#数组和切片slice" class="headerlink" title="数组和切片slice"></a>数组和切片slice</h2><p>​        go中很少使用数组，一般使用切片！ </p>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
 <li>数组长度是数组类型的一部分。长度不同的数组之间无法比较 </li>
 <li>两个同类型的数组可以比较。用”==”比较，比较的是数组中的元素，如果两个数组的元素都相同，则为true </li>
