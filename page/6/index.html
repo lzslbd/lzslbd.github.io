@@ -315,7 +315,7 @@ RTP,实时传输协议与音视频
 
 
   
-    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -323,7 +323,7 @@ RTP,实时传输协议与音视频
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
+      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
     </h1>
   
 
@@ -331,12 +331,12 @@ RTP,实时传输协议与音视频
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
+	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
       
       
@@ -345,19 +345,19 @@ RTP,实时传输协议与音视频
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
+          观察者模式又叫发布/订阅模式。
 
 
-static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
-static 域：
-如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
-static 方法：
-static 方法可以通过类名直接调用，该类的任何对象也可以调用（但不推荐）。
+定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
+角色
+抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
 
-s...
+具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
+
+抽象观察者（Observ...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
+          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
         </p>
       
     </div>

@@ -274,7 +274,7 @@ import java.io.*;/** * Created by lbd on 2017/1/5. */public clas...
 
 
   
-    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 关键字 static 、final 总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -282,7 +282,7 @@ import java.io.*;/** * Created by lbd on 2017/1/5. */public clas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
+      <a class="article-title" href="/2017/03/11/Java 关键字 static 、final 总结/">Java 关键字 static 、final 总结</a>
     </h1>
   
 
@@ -290,12 +290,12 @@ import java.io.*;/** * Created by lbd on 2017/1/5. */public clas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
+	<a href="/2017/03/11/Java 关键字 static 、final 总结/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -304,19 +304,19 @@ import java.io.*;/** * Created by lbd on 2017/1/5. */public clas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          观察者模式又叫发布/订阅模式。
+          static 和 final 是 Java 里两个关键字，在此对它们的用法做个总结。
 
 
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
+static被 static 修饰的域或方法属于类，独立于具体的对象。通过类名就可以直接调用，不需要实例化。访问时直接用类名.static 域和类名.static 方法即可。
+static 域：
+如果将域定义为 static ，每个类中只有一个这样的域。该类的所有对象都共享该 static 域。
+static 方法：
+static 方法可以通过类名直接调用，该类的任何对象也可以调用（但不推荐）。
 
-具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
-
-抽象观察者（Observ...
+s...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
+          <a href="/2017/03/11/Java 关键字 static 、final 总结/#more">阅读全文</a>
         </p>
       
     </div>
@@ -566,63 +566,6 @@ java.nio.file.Paths 7Path...
 
 
   
-    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          先看看System.arraycopy()的声明：
-public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
-
-src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要复制的数组元素的数量。
-该方法用了native关键字，说明调用的是其他语言写的底层函数。
-再看Arr...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-Hive安装配置文档" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -663,6 +606,63 @@ Embedded Metas...
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Hive安装配置文档/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Java中System.arraycopy()和Arrays.copyOf()的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/">Java中System.arraycopy()和Arrays.copyOf()的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          先看看System.arraycopy()的声明：
+public static native void arraycopy(Object src,int srcPos, Object dest, int destPos,int length);`
+
+src - 源数组。srcPos - 源数组中的起始位置。dest - 目标数组。destPos - 目标数据中的起始位置。length - 要复制的数组元素的数量。
+该方法用了native关键字，说明调用的是其他语言写的底层函数。
+再看Arr...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/Java中System.arraycopy()和Arrays.copyOf()的区别/#more">阅读全文</a>
         </p>
       
     </div>
