@@ -3,28 +3,26 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>关于java字符串的几个常见问题 | LBD&#39;s Blog</title>
+  <title>golang小记 | LBD&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Java">
+  <meta name="keywords" content="Golang">
   
   
   
   
-  <meta name="description" content="列举几个关于Java字符串的常见问题并给出答案。">
-<meta name="keywords" content="Java">
+  <meta name="description" content="记录go语言使用中的一些注意事项。">
+<meta name="keywords" content="Golang">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于Java字符串的几个常见问题">
-<meta property="og:url" content="http://linbingdong.com/2017/03/11/关于Java字符串的几个常见问题/index.html">
+<meta property="og:title" content="Golang小记">
+<meta property="og:url" content="http://linbingdong.com/2019/05/18/Golang小记/index.html">
 <meta property="og:site_name" content="LBD&#39;s Blog">
-<meta property="og:description" content="列举几个关于Java字符串的常见问题并给出答案。">
+<meta property="og:description" content="记录go语言使用中的一些注意事项。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-03-11T12:33:42.000Z">
+<meta property="og:updated_time" content="2019-05-18T06:22:24.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于Java字符串的几个常见问题">
-<meta name="twitter:description" content="列举几个关于Java字符串的常见问题并给出答案。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Golang小记">
+<meta name="twitter:description" content="记录go语言使用中的一些注意事项。">
   
     <link rel="alternate" href="/atom.xml" title="LBD&#39;s Blog" type="application/atom+xml">
   
@@ -165,7 +163,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-关于Java字符串的几个常见问题" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
+          <section id="main" style="float:none;"><article id="post-Golang小记" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -173,7 +171,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      关于Java字符串的几个常见问题
+      Golang小记
     </h1>
   
 
@@ -181,12 +179,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/关于Java字符串的几个常见问题/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	<a href="/2019/05/18/Golang小记/" class="article-date">
+	  <time datetime="2019-05-18T06:22:24.897Z" itemprop="datePublished">2019-05-18</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/Golang/">Golang</a>
 
       
 	<a class="article-views">
@@ -200,31 +198,73 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>列举几个关于Java字符串的常见问题并给出答案。</p>
+        <p>记录go语言使用中的一些注意事项。</p>
 <a id="more"></a>
 
-<h3 id="1-如何比较两个字符串？用”-”还是”equals”"><a href="#1-如何比较两个字符串？用”-”还是”equals”" class="headerlink" title="1. 如何比较两个字符串？用”==”还是”equals”?"></a>1. 如何比较两个字符串？用”==”还是”equals”?</h3><ul>
-<li>“==”对比的是引用是否相同（是否同一个对象）</li>
-<li>“equals”对比的是值是否相同</li>
+
+
+<h2 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h2><ol>
+<li>通道是用来让不同goroutine之间通信的，如果只有一个goroutine，就没必要用通道 </li>
+<li>make(chan bool) 等价于 make(chan bool, 0)  != make(chan bool, 1)</li>
+<li>默认是无缓冲通道，用于同步；有缓冲通道用于解耦</li>
+<li>不管是无缓冲通道还是有缓冲通道，只要有goroutine无限等待发生，就会死锁</li>
+<li>close(channel)用来通知读该channel的goroutine退出，防止无限等待导致死锁 </li>
+<li>对一个已经关闭的channel，会得到已经发送的值，等发送的值都读完后，读到通道类型对应的零值 </li>
+<li>通道并不一定要关闭，除非想用来通知其他goroutine </li>
+<li>用 x := range channel 来遍历通道，当channel关闭时，循环会自动退出，不会阻塞 </li>
+<li>向已经关闭的通道发送数据会导致panic；关闭已关闭的通道也会panic </li>
+<li>可以将双向通道转为单向通道。反之不行；参数传递时会隐式转换 </li>
+<li>select用于处理多个通道；随机选择一个到达的通道执行 </li>
+<li>channel可以比较，但好像也没啥意义 </li>
+</ol>
+<h2 id="Timer和Ticker"><a href="#Timer和Ticker" class="headerlink" title="Timer和Ticker"></a>Timer和Ticker</h2><ul>
+<li>time.NewTimer(5 * time.Second) or time.NewTicker(5 * time.Second) </li>
+<li>Timer是定时器，只在指定时间后发送一个当前时间 </li>
+<li>Ticker为节拍器，每隔指定时间发送当前时间，不间断 </li>
 </ul>
-<p>除非想要比较两个字符串是否是同一个对象，否则应该一直使用”equals”。</p>
-<h3 id="2-为什么对安全性敏感的信息更喜欢用char-而不是String来存储？"><a href="#2-为什么对安全性敏感的信息更喜欢用char-而不是String来存储？" class="headerlink" title="2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？"></a>2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？</h3><p>因为String是不可变对象，这就意味着只要String被创建，它们就会一直存在直到被垃圾回收器收集。因此，用String保存的信息安全性会降低。</p>
-<h3 id="3-在switch语句中可以使用字符串吗？"><a href="#3-在switch语句中可以使用字符串吗？" class="headerlink" title="3. 在switch语句中可以使用字符串吗？"></a>3. 在switch语句中可以使用字符串吗？</h3><p>从Java7开始，可以在switch语句中使用字符串。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span> (aString) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"a"</span>:</span><br><span class="line">           value = <span class="number">1</span>;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"b"</span>:</span><br><span class="line">           value = <span class="number">2</span>;</span><br><span class="line">           <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-如何将字符串转为int？"><a href="#4-如何将字符串转为int？" class="headerlink" title="4. 如何将字符串转为int？"></a>4. 如何将字符串转为int？</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n = Integer.parseInt(<span class="string">"10"</span>);</span><br></pre></td></tr></table></figure>
-
-<p>虽然很简单，但是使用频率很高。</p>
-<h3 id="5-如何用空格切分字符串？"><a href="#5-如何用空格切分字符串？" class="headerlink" title="5. 如何用空格切分字符串？"></a>5. 如何用空格切分字符串？</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String[] strArray = aString.split(<span class="string">"\\s+"</span>);</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-substring-方法会创建一个新字符串吗？"><a href="#6-substring-方法会创建一个新字符串吗？" class="headerlink" title="6. substring()方法会创建一个新字符串吗？"></a>6. substring()方法会创建一个新字符串吗？</h3><p>从Java7开始，substring()方法会创建一个新的char数组，而不是使用已经存在的。</p>
-<p>在Java6中，substring()方法不会创建一个新的char数组，如果想创建新的，可以用以下代码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">str.substring(m,n) + <span class="string">""</span>;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-String-vs-StringBuilder-vs-StringBuffer"><a href="#7-String-vs-StringBuilder-vs-StringBuffer" class="headerlink" title="7. String vs StringBuilder vs StringBuffer"></a>7. String vs StringBuilder vs StringBuffer</h3><p>String是不可变的，StringBuilder和StringBuffer都是可变的。</p>
-<p>StringBuffer是同步的，线程安全的，效率低。</p>
-<p>StringBuilder是非同步的，非线程安全，效率比StringBuffer高。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></p>
+<h2 id="数组和切片slice："><a href="#数组和切片slice：" class="headerlink" title="数组和切片slice："></a>数组和切片slice：</h2><p>​        go中很少使用数组，一般使用切片！ </p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<li>数组长度是数组类型的一部分。长度不同的数组之间无法比较 </li>
+<li>两个同类型的数组可以比较。用”==“比较，比较的是数组中的元素，如果两个数组的元素都相同，则为true </li>
+<li>go中数组是值传递。所以如果参数传一个很大的数组会很低效；当然也可以传递一个数组的指针 </li>
+<li>声明数组是，数组中每个元素默认被初始化为零值 </li>
+<li>数组指针 ！= 数组第一个元素的地址 </li>
+<li>数组的len和cap是一样的 </li>
+</ul>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h3><ul>
+<li>slice有三个属性：指针，长度len和容量cap </li>
+<li>slice的底层是数组 </li>
+<li>对slice的修改就是对其底层数组的修改 </li>
+<li>一个底层数组可以对应多个slice，如果多个slice都是从同一个底层数组而来，且有重叠，则修改其中一个slice，其他slice也会改变 </li>
+<li>slice传参是引用传递 </li>
+<li>slice的len为当前元素的个数；cap取决于底层数组（非循环数组），如底层数组a长度为10, s := a[3:5], 则len(s) == 2, cap(s) == 7 </li>
+<li>slice的零值为nil，值为nil的slice（var s []int）没有底层数组，len和cap都为0 </li>
+<li>创建slice三种方式：1. 先创建数组，再从数组得到slice 2. make 或 字面量创建 3.从slice得到另一个slice（引用同一个底层数组） </li>
+<li>使用append对slice进行追加时，如果原有数组容量不够，会对数组扩容，每次扩为原来的两倍（不一定） </li>
+<li>s := make([]int, 0) 此时slice的值为[], != nil（因为分配了底层数组，只不过数组长度为0）, len和cap都为0 </li>
+<li>检查slice是否为空：len(s) == 0? </li>
+<li>make([]T, len, cap) 至少要有len，可以没有cap。如果不确定容量，则make([]T, 0), 等价于 s := []T{}；确定容量，则make([]T, 0, cap) </li>
+<li>slice append 另一个slice：x = append(x, y…) </li>
+</ul>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><ul>
+<li>map键的类型，必须是可以用==来比较的。slice不能作为键 </li>
+<li>对于不存在的key，value为V类型的零值 </li>
+<li>map的键是唯一的，因此可以用map[T]bool来实现set，value都为true </li>
+<li>创建map两种方式：1. make(map[K]V)  2.  m := map[K]V{k1:v1, k2:v2,}，或者写成 var m = map[K]V{k1:v1, k2:v2,} </li>
+<li>map可以用range迭代，迭代的顺序是随机的，因此如果要按序迭代，需要维护一个有序的key的slice </li>
+<li>map和slice一样，都是不可比较的 </li>
+<li>map和slice在设置值前都必须初始化，不能只声明。var m map[K]V 只是声明了一个map，此时m为nil，没有引用任何散列表，不能赋值 </li>
+<li>用make创建map的时候，不需要（也不应该）指定len，因为没有意义（底层是散列表，内存不连续，大小无限制） </li>
+<li>map的容量是无限的，因此不能调用cap(m)；但是可以调用len(m)，结果为m中k,v对的个数 </li>
+<li>无法获取map元素的地址，因为随着map的增长，已有的元素可能会被重新散列到别的位置，也就是元素的地址是不固定的 </li>
+<li>map的value可以是map或slice，从而实现一个key，对应多个value </li>
+</ul>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>reflect.TypeOf()返回Type    reflect.ValueOf()返回Value</p>
+<p>Type主要用于获取类型信息，Value主要用于数据读写</p>
+<p>若要修改数据，需要传入指针，且后面必须加.Elem()获得对象实例</p>
+<h2 id><a href="#" class="headerlink" title=":="></a>:=</h2><ul>
+<li>当 := 左边有两个变量，如 a, err := 时，如果之前已经声明过 err ，这里会声明新变量 a ，只会对 err 赋值，不会声明新变量 err  </li>
+</ul>
 
       
     </div>
@@ -251,7 +291,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>本文链接:  </strong>
-          <a href="/2017/03/11/关于Java字符串的几个常见问题/" target="_blank" title="关于Java字符串的几个常见问题">http://linbingdong.com/2017/03/11/关于Java字符串的几个常见问题/</a>
+          <a href="/2019/05/18/Golang小记/" target="_blank" title="Golang小记">http://linbingdong.com/2019/05/18/Golang小记/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明:   </strong>
@@ -291,7 +331,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li></ul>
 
       
 
@@ -301,19 +341,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2017/03/15/Python函数式编程/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Python函数式编程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/04/18/分布式系统的问题/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">分布式系列文章——分布式系统的特点及问题</div>
+      <div class="article-nav-title">分布式系统的问题</div>
     </a>
   
 </nav>
@@ -327,7 +358,7 @@ var a = new Donate({
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
     
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何比较两个字符串？用”-”还是”equals”"><span class="nav-number">1.</span> <span class="nav-text">1. 如何比较两个字符串？用”==”还是”equals”?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-为什么对安全性敏感的信息更喜欢用char-而不是String来存储？"><span class="nav-number">2.</span> <span class="nav-text">2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在switch语句中可以使用字符串吗？"><span class="nav-number">3.</span> <span class="nav-text">3. 在switch语句中可以使用字符串吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-如何将字符串转为int？"><span class="nav-number">4.</span> <span class="nav-text">4. 如何将字符串转为int？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-如何用空格切分字符串？"><span class="nav-number">5.</span> <span class="nav-text">5. 如何用空格切分字符串？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-substring-方法会创建一个新字符串吗？"><span class="nav-number">6.</span> <span class="nav-text">6. substring()方法会创建一个新字符串吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-String-vs-StringBuilder-vs-StringBuffer"><span class="nav-number">7.</span> <span class="nav-text">7. String vs StringBuilder vs StringBuffer</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#channel"><span class="nav-number">1.</span> <span class="nav-text">channel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer和Ticker"><span class="nav-number">2.</span> <span class="nav-text">Timer和Ticker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组和切片slice："><span class="nav-number">3.</span> <span class="nav-text">数组和切片slice：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">3.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slice"><span class="nav-number">3.2.</span> <span class="nav-text">slice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map"><span class="nav-number">4.</span> <span class="nav-text">map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#反射"><span class="nav-number">5.</span> <span class="nav-text">反射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">6.</span> <span class="nav-text">:=</span></a></li></ol>
     
     </div>
   </aside>

@@ -161,6 +161,68 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-分布式系统(Distributed System)资料大全" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/04/09/分布式系统(Distributed System)资料大全/">分布式系统(Distributed System)资料大全</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/04/09/分布式系统(Distributed System)资料大全/" class="article-date">
+	  <time datetime="2017-04-09T15:17:43.000Z" itemprop="datePublished">2017-04-09</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          分布式系统资料大全，enjoy！
+
+
+
+《Reconfigurable Distributed Storage for Dynamic Networks》
+
+介绍:这是一篇介绍在动态网络里面实现分布式系统重构的paper.论文的作者(导师)是MIT读博的时候是做分布式系统的研究的,现在在NUS带学生,不仅仅是分布式系统,还有无线网络.如果感兴趣可以去他的主页了解.
+
+《Distributed porgramming liboratory》
+
+介绍:分布式编程实验室,他们发表的很多的pape...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/04/09/分布式系统(Distributed System)资料大全/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-CountDownLatch &amp;&amp; CyclicBarrier example" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -450,7 +512,7 @@ lambda [arg1[, arg2, ... ar...
 
 
   
-    <article id="post-关于Java字符串的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-纠删码（Erasure Code）浅析" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -458,7 +520,7 @@ lambda [arg1[, arg2, ... ar...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/关于Java字符串的几个常见问题/">关于Java字符串的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
     </h1>
   
 
@@ -466,12 +528,12 @@ lambda [arg1[, arg2, ... ar...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/关于Java字符串的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
 
       
       
@@ -480,18 +542,14 @@ lambda [arg1[, arg2, ... ar...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          列举几个关于Java字符串的常见问题并给出答案。
+          【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
 
 
-1. 如何比较两个字符串？用”==”还是”equals”?
-“==”对比的是引用是否相同（是否同一个对象）
-“equals”对比的是值是否相同
-
-除非想要比较两个字符串是否是同一个对象，否则应该一直使用”equals”。
-2. 为什么对安全性敏感的信息更喜欢用char[]而不是String来存储？因为String是不可变对象，这就意味着只要String被创建，它们就会一直存在直到被垃圾回收器收集。因此，用String保存的信息安全性会降...
+多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
+纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目的。其基本思想是将n块原始的数据元素通过一定的计算，得到m块冗余元素（校验块）。对于这n+m块的元...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/关于Java字符串的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
         </p>
       
     </div>
@@ -510,7 +568,7 @@ lambda [arg1[, arg2, ... ar...
 
 
   
-    <article id="post-分布式系列文章——分布式系统的特点及问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -518,7 +576,7 @@ lambda [arg1[, arg2, ... ar...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/">分布式系列文章——分布式系统的特点及问题</a>
+      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
     </h1>
   
 
@@ -526,12 +584,12 @@ lambda [arg1[, arg2, ... ar...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/" class="article-date">
+	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
       
       
@@ -540,70 +598,19 @@ lambda [arg1[, arg2, ... ar...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。
+          观察者模式又叫发布/订阅模式。
 
 
-分布式系统定义在《分布式系统概念与设计》一书中，对分布式系统做了 如下定义：
+定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
+角色
+抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
 
-分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信和协调的系统。
+具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
 
-也就是说一个分布式系统中的计算机在空间部署上可以是随意分布的，这些计算机可能被放...
+抽象观察者（Observ...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
-【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
+          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
         </p>
       
     </div>
@@ -678,7 +685,7 @@ lambda [arg1[, arg2, ... ar...
 
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -686,7 +693,7 @@ lambda [arg1[, arg2, ... ar...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
     </h1>
   
 
@@ -694,12 +701,12 @@ lambda [arg1[, arg2, ... ar...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/YARN/">YARN</a>
 
       
       
@@ -708,19 +715,13 @@ lambda [arg1[, arg2, ... ar...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+          YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负责单个应用程序的管理。
 
 
-代码结构主目录（$BENCH_MARK_HOME）下有：
-
-bin
-conf
-data-generator
-engines
-t...
+YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
         </p>
       
     </div>

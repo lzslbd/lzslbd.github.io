@@ -161,6 +161,68 @@
         
           <section id="main" style="float:none;">
   
+    <article id="post-Golang小记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/05/18/Golang小记/">Golang小记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/05/18/Golang小记/" class="article-date">
+	  <time datetime="2019-05-18T06:22:24.897Z" itemprop="datePublished">2019-05-18</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Golang/">Golang</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          记录go语言使用中的一些注意事项。
+
+
+
+
+channel
+通道是用来让不同goroutine之间通信的，如果只有一个goroutine，就没必要用通道 
+make(chan bool) 等价于 make(chan bool, 0)  != make(chan bool, 1)
+默认是无缓冲通道，用于同步；有缓冲通道用于解耦
+不管是无缓冲通道还是有缓冲通道，只要有goroutine无限等待发生，就会死锁
+close(channel)用来通知读该channel的goroutine退出，防止无...
+        </p>
+        <p class="article-more-link">
+          <a href="/2019/05/18/Golang小记/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
     <article id="post-分布式系统的问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -660,68 +722,6 @@ mount tmpfs -t tmpfs /data/test -o size=10g
         </p>
         <p class="article-more-link">
           <a href="/2017/04/11/tmpfs/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-分布式系统(Distributed System)资料大全" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/04/09/分布式系统(Distributed System)资料大全/">分布式系统(Distributed System)资料大全</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/04/09/分布式系统(Distributed System)资料大全/" class="article-date">
-	  <time datetime="2017-04-09T15:17:43.000Z" itemprop="datePublished">2017-04-09</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          分布式系统资料大全，enjoy！
-
-
-
-《Reconfigurable Distributed Storage for Dynamic Networks》
-
-介绍:这是一篇介绍在动态网络里面实现分布式系统重构的paper.论文的作者(导师)是MIT读博的时候是做分布式系统的研究的,现在在NUS带学生,不仅仅是分布式系统,还有无线网络.如果感兴趣可以去他的主页了解.
-
-《Distributed porgramming liboratory》
-
-介绍:分布式编程实验室,他们发表的很多的pape...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/09/分布式系统(Distributed System)资料大全/#more">阅读全文</a>
         </p>
       
     </div>

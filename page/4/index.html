@@ -161,7 +161,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Phoenix文档" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -169,7 +169,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
+      <a class="article-title" href="/2017/03/11/Phoenix文档/">Phoenix综述（SQL on HBase）</a>
     </h1>
   
 
@@ -177,7 +177,7 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
+	<a href="/2017/03/11/Phoenix文档/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -191,137 +191,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
-通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+          1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
 
 
-1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region server节点。
-每个region server管理很多region，每个region只会属于一个...
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。
+
+put the SQL back in NoSQL
+
+Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询引擎会将SQL查询转换为一个或多个HBase扫描，并编排执行以生成标...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-分布式系列文章——从ACID到CAP:BASE" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
-
-
-
-事务事务的定义：
-
-事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
-
-事务的作用：
-
-当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
-
-事务为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
-
-
-
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix文档/#more">阅读全文</a>
         </p>
       
     </div>
@@ -394,7 +274,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 
   
-    <article id="post-Phoenix文档" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -402,7 +282,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix文档/">Phoenix综述（SQL on HBase）</a>
+      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
     </h1>
   
 
@@ -410,7 +290,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix文档/" class="article-date">
+	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -424,132 +304,15 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
+          Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
 
 
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。
-
-put the SQL back in NoSQL
-
-Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询引擎会将SQL查询转换为一个或多个HBase扫描，并编排执行以生成标...
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region server节点。
+每个region server管理很多region，每个region只会属于一个...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix文档/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-关于Java Map的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/关于Java Map的几个常见问题/">关于Java Map的几个常见问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/关于Java Map的几个常见问题/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          列举几个关于Java Map的常见问题并给出答案。
-
-
-1. 将Map转化成ListMap接口提供了三种collection：key set,value set 和 key-value set，每一种都可以转成List。如下：
-//mapHashMap&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;();map.put(1,10);map.put(2,20);map.put(3,30);//key listArrayList&lt;Inte...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/关于Java Map的几个常见问题/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Java中wait、sleep和yield的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Java中wait、sleep和yield的区别/">Java中wait、sleep和yield的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Java中wait、sleep和yield的区别/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          Java中wait、sleep的区别或者Java中sleep、yield的区别是Java面试或者多线程面试中最常问的问题之一。首先，一个最明显的区别是：wait是Object类的方法，sleep和yield是Thread类的静态方法。
-
-
-
-
-本质上，wait方法是用来让线程等待某个条件，进入该条件的等待集中。而sleep和yield方法是用来让线程让出CPU时间，把CPU交给线程调度器，使得其他线程能获得CPU时间。
-接下来详细比较三个方法。
-wait常用的wait方法有wait( )和...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/Java中wait、sleep和yield的区别/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
         </p>
       
     </div>
@@ -764,6 +527,238 @@ RTP,实时传输协议与音视频
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+
+
+
+1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
+因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-分布式系列文章——分布式系统的特点及问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/">分布式系列文章——分布式系统的特点及问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。
+
+
+分布式系统定义在《分布式系统概念与设计》一书中，对分布式系统做了 如下定义：
+
+分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信和协调的系统。
+
+也就是说一个分布式系统中的计算机在空间部署上可以是随意分布的，这些计算机可能被放...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-字符串查找算法总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/26/字符串查找算法总结/">字符串查找算法总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/26/字符串查找算法总结/" class="article-date">
+	  <time datetime="2017-02-25T16:00:00.000Z" itemprop="datePublished">2017-02-26</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/数据结构与算法/">数据结构与算法</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          字符串匹配是字符串的一种基本操作：给定一个长度为 M 的文本和一个长度为 N 的模式串，在文本中找到一个和该模式相符的子字符串，并返回该字字符串在文本中的位置。
+
+
+KMP 算法，全称是 Knuth-Morris-Pratt 算法，以三个发明者命名，开头的那个K就是著名科学家 Donald Knuth 。KMP 算法的关键是求 next 数组。next 数组的长度为模式串的长度。next 数组中每个值代表模式串中当前字符前面的字符串中，有多大长度的相同前缀后缀。
+Boyer-Moore 算...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/02/26/字符串查找算法总结/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-Python用yield生成杨辉三角" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/16/Python用yield生成杨辉三角/">Python用yield生成杨辉三角</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/16/Python用yield生成杨辉三角/" class="article-date">
+	  <time datetime="2017-02-15T16:00:00.000Z" itemprop="datePublished">2017-02-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/Python/">Python</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          so funny
+
+
+代码：
+def triangles():  n = 0  line = [1]  while n &lt; 10:    yield(line)    line.append(0)    line = [line[i-1] + line[i] for i in range(len(line))]    n += 1for line in triangles():  print(line)
+
+输出：
+[1][1, 1][1, 2, 1][1, 3, 3, 1][1, 4...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/02/16/Python用yield生成杨辉三角/#more">阅读全文</a>
         </p>
       
     </div>

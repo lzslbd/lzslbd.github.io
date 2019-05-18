@@ -161,123 +161,6 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-纠删码（Erasure Code）浅析" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/纠删码（Erasure Code）浅析/">纠删码（Erasure Code）浅析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/纠删码（Erasure Code）浅析/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/纠删码/">纠删码</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          【摘要】：副本策略和纠删码是存储领域常见的两种数据冗余技术。相比于副本策略，纠删码具有更高的磁盘利用率。 Reed-Solomon码是一种常见的纠删码。
-
-
-多副本策略即将数据存储多个副本（一般是三副本，比如HDFS），当某个副本丢失时，可以通过其他副本复制回来。三副本的磁盘利用率为1/3。
-纠删码技术主要是通过纠删码算法将原始的数据进行编码得到冗余，并将数据和冗余一并存储起来，以达到容错的目的。其基本思想是将n块原始的数据元素通过一定的计算，得到m块冗余元素（校验块）。对于这n+m块的元...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/纠删码（Erasure Code）浅析/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          观察者模式又叫发布/订阅模式。
-
-
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
-
-具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
-
-抽象观察者（Observ...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
     <article id="post-Git常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
@@ -365,7 +248,7 @@ git reset –hard HEAD^
 
 
   
-    <article id="post-Hadoop YARN介绍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -373,7 +256,7 @@ git reset –hard HEAD^
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Hadoop YARN介绍/">Hadoop YARN介绍</a>
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
     </h1>
   
 
@@ -381,12 +264,12 @@ git reset –hard HEAD^
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Hadoop YARN介绍/" class="article-date">
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/YARN/">YARN</a>
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
 
       
       
@@ -395,129 +278,19 @@ git reset –hard HEAD^
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          YARN是Hadoop集群的资源管理系统。Hadoop2.0对MapReduce框架做了彻底的设计重构。YARN的基本设计思想是将MRv1中的JobTracker拆分成了两个独立的服务：一个全局的资源管理器ResourceManager和每个应用程序特有的ApplicationMaster。其中ResourceManager负责整个系统的资源管理和分配，而ApplicationMaster负责单个应用程序的管理。
+          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
 
 
-YARN产生背景MRv1的局限YARN是在MRv1基础上演化而来的，它克...
+代码结构主目录（$BENCH_MARK_HOME）下有：
+
+bin
+conf
+data-generator
+engines
+t...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Hadoop YARN介绍/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          列举几个关于Java Collections的常见问题并给出答案。
-
-
-1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
-LinkedList是一个双向链表。因此，当需要...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
-	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
-	</a>
-
-      
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
-
-      
-      
-
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
-
-
-1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
-
-2. 执行安装命令yum updateyum install postgresql94-server postgresql94-contrib
-
-3. 验证是否安装成功执行：
-rpm -qa | gre...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
         </p>
       
     </div>
@@ -650,7 +423,7 @@ Embedded Metas...
 
 
   
-    <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -658,7 +431,7 @@ Embedded Metas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
+      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
     </h1>
   
 
@@ -666,12 +439,12 @@ Embedded Metas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
+	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -680,15 +453,14 @@ Embedded Metas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+          列举几个关于Java Collections的常见问题并给出答案。
 
 
-192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
-1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
-与基于文件日志传送相比，流复制允许保持从服务器更新。 从服务器...
+1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
+LinkedList是一个双向链表。因此，当需要...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
+          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
         </p>
       
     </div>
@@ -744,6 +516,240 @@ Embedded Metas...
         </p>
         <p class="article-more-link">
           <a href="/2017/03/11/ZeroMQ初探/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
+【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-分布式系列文章——从ACID到CAP:BASE" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/">分布式系列文章——从ACID到CAP/BASE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+
+
+
+事务事务的定义：
+
+事务（Transaction）是由一系列对系统中数据进行访问与更新的操作所组成的一个程序执行逻辑单元（Unit），狭义上的事务特指数据库事务。
+
+事务的作用：
+
+当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
+
+事务为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
+
+
+1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+
+2. 执行安装命令yum updateyum install postgresql94-server postgresql94-contrib
+
+3. 验证是否安装成功执行：
+rpm -qa | gre...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+      
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+
+  
+    <article id="post-PostgreSQL主从流复制部署" class="article article-type-post" itemscope itemprop="blogPost">
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/11/PostgreSQL主从流复制部署/">PostgreSQL主从流复制部署</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/11/PostgreSQL主从流复制部署/" class="article-date">
+	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
+
+      
+      
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p class="article-excerpt-content">
+          PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+
+
+192.168.20.93上部署主服务器，192.168.20.94上部署从服务器。
+1. 简介PostgreSQL在9.0之后引入了主从的流复制机制，所谓流复制，就是从服务器通过tcp流从主服务器中同步相应的数据。这样当主服务器数据丢失时从服务器中仍有备份。
+与基于文件日志传送相比，流复制允许保持从服务器更新。 从服务器...
+        </p>
+        <p class="article-more-link">
+          <a href="/2017/03/11/PostgreSQL主从流复制部署/#more">阅读全文</a>
         </p>
       
     </div>
