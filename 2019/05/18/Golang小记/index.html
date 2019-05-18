@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="LBD&#39;s Blog">
 <meta property="og:description" content="记录go语言使用中的一些注意事项。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-18T06:32:24.230Z">
+<meta property="og:updated_time" content="2019-05-18T06:33:51.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Golang小记">
 <meta name="twitter:description" content="记录go语言使用中的一些注意事项。">
@@ -203,20 +203,32 @@
 
 
 
-<h2 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h2><ol>
-<li>通道是用来让不同goroutine之间通信的，如果只有一个goroutine，就没必要用通道 </li>
-<li>make(chan bool) 等价于 make(chan bool, 0)  != make(chan bool, 1)</li>
-<li>默认是无缓冲通道，用于同步；有缓冲通道用于解耦</li>
-<li>不管是无缓冲通道还是有缓冲通道，只要有goroutine无限等待发生，就会死锁</li>
-<li>close(channel)用来通知读该channel的goroutine退出，防止无限等待导致死锁 </li>
-<li>对一个已经关闭的channel，会得到已经发送的值，等发送的值都读完后，读到通道类型对应的零值 </li>
-<li>通道并不一定要关闭，除非想用来通知其他goroutine </li>
-<li>用 x := range channel 来遍历通道，当channel关闭时，循环会自动退出，不会阻塞 </li>
-<li>向已经关闭的通道发送数据会导致panic；关闭已关闭的通道也会panic </li>
-<li>可以将双向通道转为单向通道。反之不行；参数传递时会隐式转换 </li>
-<li>select用于处理多个通道；随机选择一个到达的通道执行 </li>
-<li>channel可以比较，但好像也没啥意义 </li>
-</ol>
+<h2 id="channel"><a href="#channel" class="headerlink" title="channel"></a>channel</h2><ul>
+<li><p>通道是用来让不同goroutine之间通信的，如果只有一个goroutine，就没必要用通道 </p>
+</li>
+<li><p>make(chan bool) 等价于 make(chan bool, 0)  != make(chan bool, 1)</p>
+</li>
+<li><p>默认是无缓冲通道，用于同步；有缓冲通道用于解耦</p>
+</li>
+<li><p>不管是无缓冲通道还是有缓冲通道，只要有goroutine无限等待发生，就会死锁</p>
+</li>
+<li><p>close(channel)用来通知读该channel的goroutine退出，防止无限等待导致死锁 </p>
+</li>
+<li><p>对一个已经关闭的channel，会得到已经发送的值，等发送的值都读完后，读到通道类型对应的零值 </p>
+</li>
+<li><p>通道并不一定要关闭，除非想用来通知其他goroutine </p>
+</li>
+<li><p>用 x := range channel 来遍历通道，当channel关闭时，循环会自动退出，不会阻塞 </p>
+</li>
+<li><p>向已经关闭的通道发送数据会导致panic；关闭已关闭的通道也会panic </p>
+</li>
+<li><p>可以将双向通道转为单向通道。反之不行；参数传递时会隐式转换 </p>
+</li>
+<li><p>select用于处理多个通道；随机选择一个到达的通道执行 </p>
+</li>
+<li><p>channel可以比较，但好像也没啥意义 </p>
+</li>
+</ul>
 <h2 id="Timer和Ticker"><a href="#Timer和Ticker" class="headerlink" title="Timer和Ticker"></a>Timer和Ticker</h2><ul>
 <li>time.NewTimer(5 * time.Second) or time.NewTicker(5 * time.Second) </li>
 <li>Timer是定时器，只在指定时间后发送一个当前时间 </li>

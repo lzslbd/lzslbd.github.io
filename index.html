@@ -198,10 +198,14 @@
 
 channel
 通道是用来让不同goroutine之间通信的，如果只有一个goroutine，就没必要用通道 
+
 make(chan bool) 等价于 make(chan bool, 0)  != make(chan bool, 1)
+
 默认是无缓冲通道，用于同步；有缓冲通道用于解耦
+
 不管是无缓冲通道还是有缓冲通道，只要有goroutine无限等待发生，就会死锁
-close(channel)用来通知读该channel的goroutine退出，防止无...
+
+close(channel)用来通知读该channel的goroutine退出...
         </p>
         <p class="article-more-link">
           <a href="/2019/05/18/Golang小记/#more">阅读全文</a>
