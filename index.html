@@ -55,6 +55,8 @@
   
 
   
+    <link rel="stylesheet" href="/css/header-post.css">
+  
 
   
   
@@ -70,192 +72,89 @@
 
 
   
-    <header id="header">
-
-	<!-- 背景图模式 -->
-	
-
-    
-      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
-
-      <!-- Support rolling -->  
-        
-        <section class="awSlider">
-          <div class="carousel slide carousel-fade " data-ride="carousel">
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-               
-                  
-                    <div class="item active">
-                  
-                    <img id="carousel-img0" src="/css/images/home-bg.jpg">
-                  </div>
-
-                  <!-- 自适应大图 -->
-                  <script>
-                      var img0 = new Image();
-                      var imageTag0 = document.getElementById("carousel-img0");
-                      img0.src = imageTag0.src;
-                      img0.onload=function(){
-                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
-                          imageTag0.style.width = document.body.clientWidth + "px";
-                        } else {
-                          imageTag0.style.height = document.body.clientHeight + "px";
-                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
-                        }
-                      };
-                  </script>
-                
-                  
-                    <div class="item">
-                  
-                    <img id="carousel-img1" src="/css/images/sample.jpg">
-                  </div>
-
-                  <!-- 自适应大图 -->
-                  <script>
-                      var img1 = new Image();
-                      var imageTag1 = document.getElementById("carousel-img1");
-                      img1.src = imageTag1.src;
-                      img1.onload=function(){
-                        if (img1.width / img1.height <= document.body.clientWidth / document.body.clientHeight) {
-                          imageTag1.style.width = document.body.clientWidth + "px";
-                        } else {
-                          imageTag1.style.height = document.body.clientHeight + "px";
-                          imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
-                        }
-                      };
-                  </script>
-                
-                  
-                    <div class="item">
-                  
-                    <img id="carousel-img2" src="https://source.unsplash.com/collection/954550/1920x1080">
-                  </div>
-
-                  <!-- 自适应大图 -->
-                  <script>
-                      var img2 = new Image();
-                      var imageTag2 = document.getElementById("carousel-img2");
-                      img2.src = imageTag2.src;
-                      img2.onload=function(){
-                        if (img2.width / img2.height <= document.body.clientWidth / document.body.clientHeight) {
-                          imageTag2.style.width = document.body.clientWidth + "px";
-                        } else {
-                          imageTag2.style.height = document.body.clientHeight + "px";
-                          imageTag2.style.marginLeft = -(document.body.clientHeight * img2.width / img2.height - document.body.clientWidth) / 2 + "px";
-                        }
-                      };
-                  </script>
-                
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-              <span class="sr-only">Geri</span>
-            </a>
-            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-              <span class="sr-only">İleri</span>
-            </a>
-          </div>
-        </section>
-        <script>
-          $('section.awSlider .carousel').carousel({
-              pause: '',
-              interval: 5000
-          });
-          var startImage = $('section.awSlider .item.active > img').attr('src');
-          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
-              var bscn = $(this).find('.item.active > img').attr('src');
-              $('section.awSlider > img').attr('src', bscn);
-          });
-        </script>
-      
-
-    
- 
-
-
-    <canvas width="100%" height="100%"></canvas>
-    <script>
-      var c = document.getElementsByTagName('canvas')[0],
-          x = c.getContext('2d'),
-          w = window.innerWidth,
-          h = window.innerHeight,
-          pr = window.devicePixelRatio || 1,
-          f = 90,
-          q,
-          m = Math,
-          r = 0,
-          u = m.PI*2,
-          v = m.cos,
-          z = m.random
-      c.width = w*pr
-      c.height = h*pr
-      x.scale(pr, pr)
-      x.globalAlpha = 0.6
-
-      <!-- 折线Polyline背景 -->
-      
-    </script>
-    
-
-    
-      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
-    
-
-        
-          <div class="homelogoback" style="border: 1px solid #404040;">
-            <h1><a href="#content" id="logo">LBD&#39;s Blog</a></h1>
-            <h3>大数据与分布式</h3>
-            <h5>LBD</h5>
-            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
-          </div>
-        
-    
-    </div>
-  </div>
-
-  <!-- 自适应主页背景大图 -->
-  
-
- <!-- home_logo_image居中 -->
- 
-    <script>
-        var homelogodiv = document.getElementById("homelogo");
-        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
-          homelogodiv.style.width = document.body.clientWidth + "px";
-          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
-        } else {
-          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
-          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
-        }
-    </script>
-  
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          <a id="beautifont" class="main-nav-link" href="/">首页</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
-        
-          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
-        
-      </p>
-  </div>
-
-</header>
-  
   <div id="container">
     <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;">
+                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder>
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </ul></div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
       
             
       <div id="content" class="outer">
@@ -291,19 +190,9 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          
-本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。
-
-
-
-近几章主要介绍系统如何处理错误。例如，我们讨论了副本故障转移，复制滞后和事务的并发控制。当我们理解实际系统中可能出现的各种边界情况时，我们就能更好地处理它们。
-前几章虽然谈论了很多关于错误的问题，但是还是太乐观了。在本章中，我们将最悲观地假设“任何可能出故障的，最终都会出故障”。
-分布式系统编程与在单机上编写软件有本质区别——主要区别在于分布式系统中有很多新奇的可能出故障的方...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/04/18/分布式系统的问题/#more">阅读全文</a>
-        </p>
+        <blockquote>
+<p>本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。</p>
+</blockquote>
       
     </div>
     <footer class="article-footer">
@@ -350,15 +239,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。
-
-
-Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也很重要，特别是在PhxPaxos的实现中，Leaner具有重要的功能。但是因为《Paxos Made Simple》论文中主要还是Proposer和Acceptor，因此...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/21/PhxPaxos源码分析——Paxos算法实现/#more">阅读全文</a>
-        </p>
+        <p>这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：<a href="http://linbingdong.com/2017/04/17/分布式系列文章——Paxos算法原理与推导/">Paxos算法原理与推导</a>，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。</p>
       
     </div>
     <footer class="article-footer">
@@ -405,15 +286,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          了解分布式系统的童鞋肯定听过Paxos算法的大名。Paxos算法以晦涩难懂著称，其工程实现更难。目前，号称在工程上实现了Paxos算法的应该只有Google、阿里和腾讯。然而，只有腾讯的微信团队真正将代码开源出来，他们将Paxos算法的实现封装成了一个Paxos库，大家可以基于该库实现自己想要的功能，比如用于master选举，或者甚至利用它来实现一个分布式KV数据库等。
-
-
-之前就对Paxos很感兴趣，但是一直没看过实现的代码，这次微信开源了PhxPaxos后终于有机会深入地了解Paxos...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/20/PhxPaxos源码分析——网络/#more">阅读全文</a>
-        </p>
+        <p>了解分布式系统的童鞋肯定听过Paxos算法的大名。Paxos算法以晦涩难懂著称，其工程实现更难。目前，号称在工程上实现了Paxos算法的应该只有Google、阿里和腾讯。然而，只有腾讯的微信团队真正将代码开源出来，他们将Paxos算法的实现封装成了一个Paxos库，大家可以基于该库实现自己想要的功能，比如用于master选举，或者甚至利用它来实现一个分布式KV数据库等。</p>
       
     </div>
     <footer class="article-footer">
@@ -460,16 +333,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          对Java回调机制进行简单的介绍，并给出简单的示例。
-
-
-什么是回调回调，即callback。简单来讲，回调就是A包含B，A的函数Af1调用B的函数Bf1，Bf1又调用A的另一个函数Af2。这个Af2是回调接口中的方法，即A实现了回调接口。那么，Bf1为什么能调用Af2呢，是因为A将自身作为参数传给了Bf1。回调一般用在异步调用中。
-举个通俗点的例子：A是Boss，B是worker。Boss让Worker去干活，并且让worker干完活后向Boss报告。Boss分发任务（dispatchW...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/13/Java回调机制/#more">阅读全文</a>
-        </p>
+        <p>对Java回调机制进行简单的介绍，并给出简单的示例。</p>
       
     </div>
     <footer class="article-footer">
@@ -516,25 +380,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          本文介绍适配器模式。
-
-
-定义适配器模式将一个类的接口，转换成客户端期待的另一个接口。
-比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。
-
-图中玫瑰金色的就是适配器。
-角色
-目标（Target）：即期望的接口。
-适配器（Adapter）：用于将源接口转换成目标接口。
-被适配者（Adaptee）：即源接口。
-
-类图
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/11/设计模式-适配器模式/#more">阅读全文</a>
-        </p>
+        <p>本文介绍适配器模式。</p>
       
     </div>
     <footer class="article-footer">
@@ -581,17 +427,8 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
-
-
-Paxos是什么
-Paxos算法是基于消息传递且具有高度容错特性的一致性算法，是目前公认的解决分布式一致性问题最有效的...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/17/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
-        </p>
+        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
+<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
       
     </div>
     <footer class="article-footer">
@@ -638,17 +475,7 @@ Paxos算法是基于消息传递且具有高度容错特性的一致性算法，
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          JDK1.7和JDK1.8中HashMap的实现不尽相同，JDK1.8中做了一些优化，比如当链表多长时转化成红黑树，提高插入和查找的效率；扩容时不再重新哈希。
-
-
-HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。这里主要以提问题的形式来加深对HashMap的理解，读者可以先独立思考这些问题，再参照我的回答和文末的源码进行学习。
-实现原理数组+链表+红黑树  
-数组是一个Node数组，Node是一个Key-Value对，Node实现了Map.Entry&lt;K,V&gt...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/16/深入理解HashMap/#more">阅读全文</a>
-        </p>
+        <p>JDK1.7和JDK1.8中HashMap的实现不尽相同，JDK1.8中做了一些优化，比如当链表多长时转化成红黑树，提高插入和查找的效率；扩容时不再重新哈希。</p>
       
     </div>
     <footer class="article-footer">
@@ -695,15 +522,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          在并发编程中使用生产者和消费者模式能够解决绝大多数并发问题。该模式通过平衡生产线程和消费线程的工作能力来提高程序的整体处理数据的速度。
-
-
-什么是生产者消费者模式生产者消费者模式通过一个容器（比如阻塞队列 BlockingQueue ）来解决生产者和消费者的紧耦合问题。生产者和消费者之间不直接通信，而是通过阻塞队列来通信。生产者生产完数据后不用等待消费者处理，而是直接将生产的数据放入阻塞队列；消费者不从生产者那里要数据，而是直接从阻塞队列里取。阻塞队列就相当于一个缓冲区，平衡了生产者和消费...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/14/生产者消费者模式/#more">阅读全文</a>
-        </p>
+        <p>在并发编程中使用生产者和消费者模式能够解决绝大多数并发问题。该模式通过平衡生产线程和消费线程的工作能力来提高程序的整体处理数据的速度。</p>
       
     </div>
     <footer class="article-footer">
@@ -750,16 +569,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          Lucida大神这篇文章写得非常详细，点此查看。
-
-
-
-
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/14/程序员必读书单/#more">阅读全文</a>
-        </p>
+        <p><a href="http://zh.lucida.me/" target="_blank" rel="noopener">Lucida</a>大神这篇文章写得非常详细，<a href="http://zh.lucida.me/blog/developer-reading-list/#cracking_the_coding_interview" target="_blank" rel="noopener">点此查看</a>。</p>
       
     </div>
     <footer class="article-footer">
@@ -806,18 +616,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。
-
-
-用一个简单的mount命令就可以创建tmpfs文件系统：
-mount tmpfs -t tmpfs /data/test -o size=10g
-
-将tmpfs挂...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/11/tmpfs/#more">阅读全文</a>
-        </p>
+        <p>tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。</p>
       
     </div>
     <footer class="article-footer">
@@ -854,7 +653,7 @@ mount tmpfs -t tmpfs /data/test -o size=10g
   <div class="container">
       	<div class="row">
 	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
-	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
