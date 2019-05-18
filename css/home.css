@@ -21,7 +21,7 @@ html{
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	background-color: #135f84;
+	background-color: #ffffff;
 }
 
 .section-content {
@@ -101,7 +101,7 @@ html{
 	position: absolute;
 	bottom: 100px;
 	background: url(../images/sample.jpg) no-repeat bottom center scroll;
-	background-color: #fff;
+	background-color: #135f84;
 	background-size: cover;
 	-o-background-size: cover;
 }
