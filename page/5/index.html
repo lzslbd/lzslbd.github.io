@@ -32,12 +32,14 @@
   
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
-  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <style type="text/css">
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
-    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
   <link rel="stylesheet" href="/css/style.css">
 
   <script src="/js/jquery-3.1.1.min.js"></script>
@@ -52,8 +54,6 @@
 
   
 
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
@@ -70,89 +70,192 @@
 
 
   
-  <div id="container">
-    <div id="wrap">
-      
-        <header>
+    <header id="header">
 
-    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="navbar-inner">
-          
-          <div class="container"> 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+	<!-- 背景图模式 -->
+	
 
-            
-              <a class="brand" style="
-                 margin-top: 0px;">
-                  <img width="62px" height="62px" alt="Hike News" src="/css/images/mylogo.jpg">
-              </a>
-            
-            
-            <div class="navbar-collapse collapse">
-              <ul class="hnav navbar-nav">
-                
-                  <li> <a class="main-nav-link" href="/">首页</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/archives">归档</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/categories">分类</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/tags">标签</a> </li>
-                
-                  <li> <a class="main-nav-link" href="/about">关于</a> </li>
-                
-                  <li><div id="search-form-wrap">
+    
+      <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder>
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词...">
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(无标题)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+      <!-- Support rolling -->  
+        
+        <section class="awSlider">
+          <div class="carousel slide carousel-fade " data-ride="carousel">
 
-</div></li>
-            </ul></div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               
+                  
+                    <div class="item active">
+                  
+                    <img id="carousel-img0" src="/css/images/home-bg.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img0 = new Image();
+                      var imageTag0 = document.getElementById("carousel-img0");
+                      img0.src = imageTag0.src;
+                      img0.onload=function(){
+                        if (img0.width / img0.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag0.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag0.style.height = document.body.clientHeight + "px";
+                          imageTag0.style.marginLeft = -(document.body.clientHeight * img0.width / img0.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img1" src="/css/images/sample.jpg">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img1 = new Image();
+                      var imageTag1 = document.getElementById("carousel-img1");
+                      img1.src = imageTag1.src;
+                      img1.onload=function(){
+                        if (img1.width / img1.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag1.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag1.style.height = document.body.clientHeight + "px";
+                          imageTag1.style.marginLeft = -(document.body.clientHeight * img1.width / img1.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+                  
+                    <div class="item">
+                  
+                    <img id="carousel-img2" src="https://source.unsplash.com/collection/954550/1920x1080">
+                  </div>
+
+                  <!-- 自适应大图 -->
+                  <script>
+                      var img2 = new Image();
+                      var imageTag2 = document.getElementById("carousel-img2");
+                      img2.src = imageTag2.src;
+                      img2.onload=function(){
+                        if (img2.width / img2.height <= document.body.clientWidth / document.body.clientHeight) {
+                          imageTag2.style.width = document.body.clientWidth + "px";
+                        } else {
+                          imageTag2.style.height = document.body.clientHeight + "px";
+                          imageTag2.style.marginLeft = -(document.body.clientHeight * img2.width / img2.height - document.body.clientWidth) / 2 + "px";
+                        }
+                      };
+                  </script>
+                
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href=".carousel" role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+              <span class="sr-only">Geri</span>
+            </a>
+            <a class="right carousel-control" href=".carousel" role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+              <span class="sr-only">İleri</span>
+            </a>
           </div>
-                
-      </div>
+        </section>
+        <script>
+          $('section.awSlider .carousel').carousel({
+              pause: '',
+              interval: 5000
+          });
+          var startImage = $('section.awSlider .item.active > img').attr('src');
+          $('section.awSlider .carousel').on('slid.bs.carousel', function () {
+              var bscn = $(this).find('.item.active > img').attr('src');
+              $('section.awSlider > img').attr('src', bscn);
+          });
+        </script>
+      
+
+    
+ 
+
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      <!-- 折线Polyline背景 -->
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback" style="border: 1px solid #404040;">
+            <h1><a href="#content" id="logo">LBD&#39;s Blog</a></h1>
+            <h3>大数据与分布式</h3>
+            <h5>LBD</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
     </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">关于</a>
+        
+      </p>
+  </div>
 
 </header>
-
-
-
+  
+  <div id="container">
+    <div id="wrap">
       
             
       <div id="content" class="outer">
@@ -183,15 +286,18 @@
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。</p>
-        <!-- 适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。
+        <p class="article-excerpt-content">
+          适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，经过探索，得到一些结论，在此记录下来。
 
 
 1. 背景适当的索引能够让极大提升查询速度，因此在Phoenix查询的测试用例中包括了对有索引跟无索引的查询性能的比较。测试过程中遇到一些问题，在此记录下来。
-2. 问题及解决2.1. 创建索引时报错，报错如下：//......  -->
+2. 问题及解决2.1. 创建索引时报错，报错如下：//创建索引语句：0: jdbc:phoenix:localhost&gt; CREATE INDEX ...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix查询测试经验总结/#more">阅读全文</a>
         </p>
@@ -201,7 +307,7 @@
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -209,6 +315,7 @@
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
@@ -235,17 +342,20 @@
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。</p>
-        <!-- 介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+        <p class="article-excerpt-content">
+          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
 
 
 
 1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
 Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoen......  -->
+因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
         </p>
@@ -255,7 +365,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -263,6 +373,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-ZeroMQ初探" class="article article-type-post" itemscope itemprop="blogPost">
@@ -289,14 +400,17 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <a class="article-category-link" href="/categories/ZeroMQ/">ZeroMQ</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。</p>
-        <!-- ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。
+        <p class="article-excerpt-content">
+          ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。
 
 
-概述ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N......  -->
+概述ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N 的 socket 连接。 ZeroMQ 的异步 I / O 模型为我们提供可扩展的基于异步消息处理...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/ZeroMQ初探/#more">阅读全文</a>
         </p>
@@ -306,7 +420,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket编程/">Socket编程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZeroMQ/">ZeroMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/消息队列/">消息队列</a></li></ul>
+      
 
     </footer>
   </div>
@@ -314,6 +428,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java 中定义常量的几种方法" class="article article-type-post" itemscope itemprop="blogPost">
@@ -340,11 +455,13 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>主要有三种：接口、类和枚举。</p>
-        <!-- 主要有三种：接口、类和枚举。
+        <p class="article-excerpt-content">
+          主要有三种：接口、类和枚举。
 
 
 接口：
@@ -357,7 +474,8 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 枚举：
 在枚举类中直接写上常量值。
 示例：
-public class ConstTest &#123;    public static void ma......  -->
+public class ConstTest &#123;    public static void main(String[] args) &#123;        Signal sg = new Si...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java 中定义常量的几种方法/#more">阅读全文</a>
         </p>
@@ -367,7 +485,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -375,6 +493,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-分布式系列文章——从ACID到CAP:BASE" class="article article-type-post" itemscope itemprop="blogPost">
@@ -401,11 +520,13 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。</p>
-        <!-- 本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
+        <p class="article-excerpt-content">
+          本文先介绍传统关系数据库中事务的ACID特性，再介绍分布式系统中的经典理论——CAP定理和BASE理论。
 
 
 
@@ -415,7 +536,10 @@ public class ConstTest &#123;    public static void ma......  -->
 
 事务的作用：
 
-当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰......  -->
+当多个应用程序并发访问数据库时，事务可以在这些应用程序之间提供一个隔离方法，以防止彼此的操作相互干扰。
+
+事务为数据库操作序列提供了一个从失败中恢复到正常状态的方法，同时提供了数据库即使在异常状态下仍...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/分布式系列文章——从ACID到CAP:BASE/#more">阅读全文</a>
         </p>
@@ -425,7 +549,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分布式系统/">分布式系统</a></li></ul>
+      
 
     </footer>
   </div>
@@ -433,6 +557,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java NIO之内存映射文件——MappedByteBuffer" class="article article-type-post" itemscope itemprop="blogPost">
@@ -459,15 +584,21 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。</p>
-        <!-- 大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
+        <p class="article-excerpt-content">
+          大多数操作系统都可以利用虚拟内存实现将一个文件或者文件的一部分”映射”到内存中。然后，这个文件就可以当作是内存数组来访问，这比传统的文件要快得多。
 
 
 内存映射文件的一个关键优势是操作系统负责真正的读写，即使你的程序在刚刚写入内存后就挂了，操作系统仍然会将内存中的数据写入文件系统。另外一个更突出的优势是共享内存，内存映射文件可以被多个进程同时访问，起到一种低时延共享内存的作用。
-那么，如何将......  -->
+那么，如何将一个文件映射到内存呢？
+
+从文件中获得一个通道（channel）
+FileChannel chann...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java NIO之内存映射文件——MappedByteBuffer/#more">阅读全文</a>
         </p>
@@ -477,7 +608,7 @@ public class ConstTest &#123;    public static void ma......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -485,6 +616,7 @@ public class ConstTest &#123;    public static void ma......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Phoenix文档" class="article article-type-post" itemscope itemprop="blogPost">
@@ -511,18 +643,21 @@ public class ConstTest &#123;    public static void ma......  -->
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-Phoenix概述"><a href="#1-Phoenix概述" class="headerlink" title="1. Phoenix概述"></a>1. Phoenix概述</h2><p>Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。</p>
-        <!-- 1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
+        <p class="article-excerpt-content">
+          1. Phoenix概述Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目。
 
 
 Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表，插入数据和对HBase数据进行查询。
 
 put the SQL back in NoSQL
 
-Phoenix完全使用Java编写，作为HBase内嵌的......  -->
+Phoenix完全使用Java编写，作为HBase内嵌的JDBC驱动。Phoenix查询引擎会将SQL查询转换为一个或多个HBase扫描，并编排执行以生成标...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix文档/#more">阅读全文</a>
         </p>
@@ -532,7 +667,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -540,6 +675,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java I:O 操作示例" class="article article-type-post" itemscope itemprop="blogPost">
@@ -566,14 +702,17 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>给出几个Java I/O 操作的示例代码。</p>
-        <!-- 给出几个Java I/O 操作的示例代码。
+        <p class="article-excerpt-content">
+          给出几个Java I/O 操作的示例代码。
 
 
-创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");    ......  -->
+创建文件或目录import java.io.File;import java.io.IOException;public class TestFileIO &#123;    public static void main(String[] args) &#123;        File dir = new File("dir1");        dir.mkdir();  //创建目录        File file = new Fi...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java I:O 操作示例/#more">阅读全文</a>
         </p>
@@ -583,7 +722,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -591,6 +730,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
@@ -617,16 +757,19 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
     <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。</p>
-<p>通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 </p>
-        <!-- Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+        <p class="article-excerpt-content">
+          Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
 通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
 
 
-1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region ......  -->
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region server节点。
+每个region server管理很多region，每个region只会属于一个...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
         </p>
@@ -636,7 +779,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phoenix/">Phoenix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据/">大数据</a></li></ul>
+      
 
     </footer>
   </div>
@@ -644,6 +787,7 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
 </article>
 
 <!-- Table of Contents -->
+
 
   
     <article id="post-Java 7新机制之自动关闭资源——try-with-resources" class="article article-type-post" itemscope itemprop="blogPost">
@@ -670,15 +814,20 @@ Phoenix完全使用Java编写，作为HBase内嵌的......  -->
     <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
+      
+
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。</p>
-        <!-- 在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
+        <p class="article-excerpt-content">
+          在Java 7之前，IO操作为了保证资源能被关闭，往往会在try代码块后加上finally代码块来处理资源的关闭。
 
 
 如下：
-BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != nu......  -->
+BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    return br.readLine();&#125; finally &#123;    if (br != null) br.close();&#125;
+
+Java 7新增了try-with-resources...
+        </p>
         <p class="article-more-link">
           <a href="/2017/03/11/Java 7新机制之自动关闭资源——try-with-resources/#more">阅读全文</a>
         </p>
@@ -688,7 +837,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
 
     </footer>
   </div>
@@ -696,6 +845,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 </article>
 
 <!-- Table of Contents -->
+
 
   
 
@@ -716,7 +866,8 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 
   <div class="container">
       	<div class="row">
-	      <p id="copyRightEn">Copyright &copy; 2016 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2019 LBD&#39;s Blog All Rights Reserved.</p>
 	      
 	      
     		<p class="busuanzi_uv">
@@ -789,7 +940,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
@@ -817,7 +968,7 @@ BufferedReader br = new BufferedReader(new FileReader(path));try &#123;    retur
 
 
 
-	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 	</script>
 
 
