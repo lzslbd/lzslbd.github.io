@@ -11,7 +11,7 @@
 }
 
 #allheader {
-	background: linear-gradient(120deg, #155799, #159957);  
+	background: #0f273c;  
 	z-index: 2;
 }
 .navbar-default .navbar-nav > li > a {
