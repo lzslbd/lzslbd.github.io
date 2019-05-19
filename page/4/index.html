@@ -161,7 +161,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -169,7 +169,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
     </h1>
   
 
@@ -177,12 +177,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
 
       
       
@@ -191,14 +191,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          列举几个关于Java Collections的常见问题并给出答案。
+          Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
+通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
 
 
-1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
-LinkedList是一个双向链表。因此，当需要...
+1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region server节点。
+每个region server管理很多region，每个region只会属于一个...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
         </p>
       
     </div>

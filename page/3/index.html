@@ -161,7 +161,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-Python日志模块示例" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -169,7 +169,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
+      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
     </h1>
   
 
@@ -177,12 +177,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
+	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
       
       
@@ -191,14 +191,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          给出Python日志模块显示配置和文件配置两种方式的示例
+          观察者模式又叫发布/订阅模式。
 
 
-显示配置在程序中直接调用函数来设置参数
-#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的handlersh = logging.StreamHandler()sh.setLevel(log...
+定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
+角色
+抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
+
+具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
+
+抽象观察者（Observ...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
+          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
         </p>
       
     </div>
@@ -304,7 +309,7 @@ git reset –hard HEAD^
 
 
   
-    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python日志模块示例" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -312,7 +317,7 @@ git reset –hard HEAD^
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
+      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
     </h1>
   
 
@@ -320,12 +325,12 @@ git reset –hard HEAD^
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
+	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
+    <a class="article-category-link" href="/categories/Python/">Python</a>
 
       
       
@@ -334,19 +339,14 @@ git reset –hard HEAD^
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
+          给出Python日志模块显示配置和文件配置两种方式的示例
 
 
-代码结构主目录（$BENCH_MARK_HOME）下有：
-
-bin
-conf
-data-generator
-engines
-t...
+显示配置在程序中直接调用函数来设置参数
+#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的handlersh = logging.StreamHandler()sh.setLevel(log...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
+          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
         </p>
       
     </div>
@@ -539,7 +539,7 @@ Embedded Metas...
 
 
   
-    <article id="post-Phoenix表和索引分区数对插入和查询性能的影响" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -547,7 +547,7 @@ Embedded Metas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/">Phoenix表和索引分区数对插入和查询性能的影响</a>
+      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
     </h1>
   
 
@@ -555,7 +555,7 @@ Embedded Metas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/" class="article-date">
+	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
@@ -569,15 +569,16 @@ Embedded Metas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          Phoenix在建表和建索引的时候可以指定SALT_BUCKETS数，即分区数，从而提高插入和查询性能。
-通过指定分区，可以将对一张表的操作分配给多个Region Server进行处理，从而提高效率。 
+          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
 
 
-1. 概述1.1 HBase概述HBase由master节点和region server节点组成。在100-105集群上，100和101是master节点，102-105是region server节点。
-每个region server管理很多region，每个region只会属于一个...
+
+1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
+Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
+因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix表和索引分区数对插入和查询性能的影响/#more">阅读全文</a>
+          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
         </p>
       
     </div>
@@ -651,7 +652,7 @@ Embedded Metas...
 
 
   
-    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -659,7 +660,7 @@ Embedded Metas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
+      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
     </h1>
   
 
@@ -667,12 +668,12 @@ Embedded Metas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
+	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -681,16 +682,14 @@ Embedded Metas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+          列举几个关于Java Collections的常见问题并给出答案。
 
 
-
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
+LinkedList是一个双向链表。因此，当需要...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
         </p>
       
     </div>
