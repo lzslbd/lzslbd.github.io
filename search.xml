@@ -2502,6 +2502,67 @@
     </entry>
     
     <entry>
+      <title><![CDATA[设计模式-观察者模式]]></title>
+      <url>http://linbingdong.com/2017/03/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>观察者模式又叫发布/订阅模式。</p>
+<a id="more"></a>
+
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>观察者模式</strong>定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫<strong>发布/订阅模式</strong>。</p>
+<h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><ul>
+<li><p><strong>抽象主题（Subject）</strong>：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。</p>
+</li>
+<li><p><strong>具体主题（ConcreteSubject）</strong>：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。</p>
+</li>
+<li><p><strong>抽象观察者（Observer）</strong>：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。</p>
+</li>
+<li><p><strong>具体观察者（ConcreteObserver）</strong>：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。</p>
+</li>
+</ul>
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="http://upload-images.jianshu.io/upload_images/1752522-8946e89856251d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="观察者模式"></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>以<strong>猎头-求职者</strong>为例。猎头是主题，求职者是观察者。</p>
+<p>Subject 接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyAllObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Observer 接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject s)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>HeadHunter 类实现 Subject 接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HeadHunter</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Observer&gt; userList;</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;String&gt; jobs;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HeadHunter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        userList = <span class="keyword">new</span> LinkedList&lt;Observer&gt;();</span><br><span class="line">        jobs = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">        userList.add(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">        userList.remove(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyAllObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Observer o: userList) &#123;</span><br><span class="line">            o.update(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addJob</span><span class="params">(String job)</span> </span>&#123;</span><br><span class="line">        jobs.add(job);</span><br><span class="line">        notifyAllObservers();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LinkedList&lt;String&gt; <span class="title">getJobs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jobs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jobs.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>JobSeeker 类实现 Observer 接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobSeeker</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">JobSeeker</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject s)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.name + <span class="string">" got notified!"</span>);</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HeadHunter hh = <span class="keyword">new</span> HeadHunter();</span><br><span class="line"></span><br><span class="line">        JobSeeker lbd = <span class="keyword">new</span> JobSeeker(<span class="string">"lbd"</span>);</span><br><span class="line">        JobSeeker lbx = <span class="keyword">new</span> JobSeeker(<span class="string">"lbx"</span>);</span><br><span class="line">        JobSeeker lbn = <span class="keyword">new</span> JobSeeker(<span class="string">"lbn"</span>);</span><br><span class="line">        JobSeeker lbb = <span class="keyword">new</span> JobSeeker(<span class="string">"lbb"</span>);</span><br><span class="line"></span><br><span class="line">        hh.registerObserver(lbd);</span><br><span class="line">        hh.registerObserver(lbx);</span><br><span class="line">        hh.registerObserver(lbn);</span><br><span class="line">        hh.registerObserver(lbb);</span><br><span class="line">        hh.removeObserver(lbb);</span><br><span class="line"></span><br><span class="line">        hh.addJob(<span class="string">"looking for Java engineers"</span>);</span><br><span class="line">        hh.addJob(<span class="string">"looking for Python engineers"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lbd got notified!</span><br><span class="line">[looking for Java engineers]</span><br><span class="line">lbx got notified!</span><br><span class="line">[looking for Java engineers]</span><br><span class="line">lbn got notified!</span><br><span class="line">[looking for Java engineers]</span><br><span class="line">lbd got notified!</span><br><span class="line">[looking for Java engineers, looking for Python engineers]</span><br><span class="line">lbx got notified!</span><br><span class="line">[looking for Java engineers, looking for Python engineers]</span><br><span class="line">lbn got notified!</span><br><span class="line">[looking for Java engineers, looking for Python engineers]</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>观察者模式使主题和观察者之间松耦合，松耦合的设计能够让我们建立有弹性的OO系统，能够应对变化，因为对象之间的相互依赖降到了最低。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>上面的例子是观察者模式的“推”模式，还有一种“拉”模式。</li>
+<li>Java 的 java.util 库里面，提供了一个 Observable 类以及一个 Observer 接口，构成 Java 语言对观察者模式的支持。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 设计模式 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 设计模式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[关于Java Collections的几个常见问题]]></title>
       <url>http://linbingdong.com/2017/03/11/Stack%20Overflow%E4%B8%8A%E5%85%B3%E4%BA%8EJava%20Collections%E7%9A%84%E5%87%A0%E4%B8%AA%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<p>列举几个关于Java Collections的常见问题并给出答案。</p>
@@ -2581,67 +2642,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[设计模式-观察者模式]]></title>
-      <url>http://linbingdong.com/2017/03/11/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
-      <content type="html"><![CDATA[<p>观察者模式又叫发布/订阅模式。</p>
-<a id="more"></a>
-
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>观察者模式</strong>定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫<strong>发布/订阅模式</strong>。</p>
-<h2 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h2><ul>
-<li><p><strong>抽象主题（Subject）</strong>：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。</p>
-</li>
-<li><p><strong>具体主题（ConcreteSubject）</strong>：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。</p>
-</li>
-<li><p><strong>抽象观察者（Observer）</strong>：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。</p>
-</li>
-<li><p><strong>具体观察者（ConcreteObserver）</strong>：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。</p>
-</li>
-</ul>
-<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><p><img src="http://upload-images.jianshu.io/upload_images/1752522-8946e89856251d45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="观察者模式"></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>以<strong>猎头-求职者</strong>为例。猎头是主题，求职者是观察者。</p>
-<p>Subject 接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyAllObservers</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Observer 接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject s)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>HeadHunter 类实现 Subject 接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HeadHunter</span> <span class="keyword">implements</span> <span class="title">Subject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Observer&gt; userList;</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;String&gt; jobs;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HeadHunter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        userList = <span class="keyword">new</span> LinkedList&lt;Observer&gt;();</span><br><span class="line">        jobs = <span class="keyword">new</span> LinkedList&lt;String&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">        userList.add(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">        userList.remove(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyAllObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (Observer o: userList) &#123;</span><br><span class="line">            o.update(<span class="keyword">this</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addJob</span><span class="params">(String job)</span> </span>&#123;</span><br><span class="line">        jobs.add(job);</span><br><span class="line">        notifyAllObservers();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> LinkedList&lt;String&gt; <span class="title">getJobs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jobs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> jobs.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>JobSeeker 类实现 Observer 接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JobSeeker</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">JobSeeker</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Subject s)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.name + <span class="string">" got notified!"</span>);</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        HeadHunter hh = <span class="keyword">new</span> HeadHunter();</span><br><span class="line"></span><br><span class="line">        JobSeeker lbd = <span class="keyword">new</span> JobSeeker(<span class="string">"lbd"</span>);</span><br><span class="line">        JobSeeker lbx = <span class="keyword">new</span> JobSeeker(<span class="string">"lbx"</span>);</span><br><span class="line">        JobSeeker lbn = <span class="keyword">new</span> JobSeeker(<span class="string">"lbn"</span>);</span><br><span class="line">        JobSeeker lbb = <span class="keyword">new</span> JobSeeker(<span class="string">"lbb"</span>);</span><br><span class="line"></span><br><span class="line">        hh.registerObserver(lbd);</span><br><span class="line">        hh.registerObserver(lbx);</span><br><span class="line">        hh.registerObserver(lbn);</span><br><span class="line">        hh.registerObserver(lbb);</span><br><span class="line">        hh.removeObserver(lbb);</span><br><span class="line"></span><br><span class="line">        hh.addJob(<span class="string">"looking for Java engineers"</span>);</span><br><span class="line">        hh.addJob(<span class="string">"looking for Python engineers"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lbd got notified!</span><br><span class="line">[looking for Java engineers]</span><br><span class="line">lbx got notified!</span><br><span class="line">[looking for Java engineers]</span><br><span class="line">lbn got notified!</span><br><span class="line">[looking for Java engineers]</span><br><span class="line">lbd got notified!</span><br><span class="line">[looking for Java engineers, looking for Python engineers]</span><br><span class="line">lbx got notified!</span><br><span class="line">[looking for Java engineers, looking for Python engineers]</span><br><span class="line">lbn got notified!</span><br><span class="line">[looking for Java engineers, looking for Python engineers]</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>观察者模式使主题和观察者之间松耦合，松耦合的设计能够让我们建立有弹性的OO系统，能够应对变化，因为对象之间的相互依赖降到了最低。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
-<li>上面的例子是观察者模式的“推”模式，还有一种“拉”模式。</li>
-<li>Java 的 java.util 库里面，提供了一个 Observable 类以及一个 Observer 接口，构成 Java 语言对观察者模式的支持。<br><img src="http://upload-images.jianshu.io/upload_images/1752522-2e4b0e5141927479.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="欢迎关注公众号: FullStackPlan 获取更多干货"></li>
-</ul>
-]]></content>
-      
-        <categories>
-            
-            <category> 设计模式 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 设计模式 </tag>
             
         </tags>
         

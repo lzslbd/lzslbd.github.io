@@ -679,7 +679,7 @@ lambda [arg1[, arg2, ... ar...
 
 
   
-    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -687,7 +687,7 @@ lambda [arg1[, arg2, ... ar...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
     </h1>
   
 
@@ -695,12 +695,12 @@ lambda [arg1[, arg2, ... ar...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
 
       
       
@@ -709,14 +709,19 @@ lambda [arg1[, arg2, ... ar...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          列举几个关于Java Collections的常见问题并给出答案。
+          观察者模式又叫发布/订阅模式。
 
 
-1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
-LinkedList是一个双向链表。因此，当需要...
+定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
+角色
+抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
+
+具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
+
+抽象观察者（Observ...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
         </p>
       
     </div>
