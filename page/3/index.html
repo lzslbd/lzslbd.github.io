@@ -161,7 +161,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-设计模式-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -169,7 +169,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/设计模式-观察者模式/">设计模式-观察者模式</a>
+      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
     </h1>
   
 
@@ -177,12 +177,12 @@
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/设计模式-观察者模式/" class="article-date">
+	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
 
       
       
@@ -191,19 +191,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          观察者模式又叫发布/订阅模式。
+          列举几个关于Java Collections的常见问题并给出答案。
 
 
-定义观察者模式定义了对象之间的一对多依赖，使得当一个对象改变状态时，它的所有依赖者都会收到通知并自动更新。观察者模式又叫发布/订阅模式。
-角色
-抽象主题（Subject）：它把所有观察者对象的引用保存到一个列表里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。
-
-具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。
-
-抽象观察者（Observ...
+1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
+LinkedList是一个双向链表。因此，当需要...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/设计模式-观察者模式/#more">阅读全文</a>
+          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
         </p>
       
     </div>
@@ -309,7 +304,7 @@ git reset –hard HEAD^
 
 
   
-    <article id="post-Python日志模块示例" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-全球分布式数据库：Google Spanner（论文翻译）" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -317,7 +312,7 @@ git reset –hard HEAD^
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Python日志模块示例/">Python日志模块示例</a>
+      <a class="article-title" href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/">全球分布式数据库：Google Spanner（论文翻译）</a>
     </h1>
   
 
@@ -325,12 +320,12 @@ git reset –hard HEAD^
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Python日志模块示例/" class="article-date">
+	<a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Python/">Python</a>
+    <a class="article-category-link" href="/categories/分布式数据库/">分布式数据库</a><a class="article-category-link" href="/categories/分布式数据库/Google-Spanner/">Google Spanner</a>
 
       
       
@@ -339,14 +334,11 @@ git reset –hard HEAD^
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          给出Python日志模块显示配置和文件配置两种方式的示例
-
-
-显示配置在程序中直接调用函数来设置参数
-#!/usr/bin/python# -*- coding: utf-8 -*-import logging# 创建一个loggerlogger = logging.getLogger('example')logger.setLevel(logging.DEBUG)# 创建一个输出到控制台的handlersh = logging.StreamHandler()sh.setLevel(log...
+          本文由厦门大学计算机系教师林子雨翻译，翻译质量很高，本人只对极少数翻译得不太恰当的地方进行了修改。
+【摘要】Spanner 是谷歌公司研发的、可扩展的、多版本、全球分布式、同步复制数据库。它是第一个把数据分布在全球范围内的系统，并且支持外部一致性的分布式事务。本文描述了 Spanner 的架构、特性、不同设计决策的背后机理和一个新的时间 API，这个 API 可以暴露时钟的不确定性。这个 API 及其实现，对于支持外部一致性和许多强大特性而言，是非常重要的，这些强大特性包括:非阻塞的读、不...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Python日志模块示例/#more">阅读全文</a>
+          <a href="/2017/03/11/全球分布式数据库：Google Spanner（论文翻译）/#more">阅读全文</a>
         </p>
       
     </div>
@@ -365,7 +357,7 @@ git reset –hard HEAD^
 
 
   
-    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-分布式系列文章——分布式系统的特点及问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -373,7 +365,7 @@ git reset –hard HEAD^
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
+      <a class="article-title" href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/">分布式系列文章——分布式系统的特点及问题</a>
     </h1>
   
 
@@ -381,12 +373,12 @@ git reset –hard HEAD^
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/经典编程书籍/" class="article-date">
+	<a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
+    <a class="article-category-link" href="/categories/分布式系统/">分布式系统</a>
 
       
       
@@ -395,18 +387,17 @@ git reset –hard HEAD^
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
-原文
+          随着数据量越来越大，计算机需要处理的业务越来越复杂，单机已经无法满足需求。一个有效的解决方案是把众多廉价的计算机整合起来，共同提供服务，这就是分布式系统。接下来介绍分布式系统的定义、特点，以及分布式环境中存在的问题和挑战。
 
 
-这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
-计算机系统与网络
-《图灵的秘密:他的生平、思想及论文解读》
-《计算机系统概论》
-...
+分布式系统定义在《分布式系统概念与设计》一书中，对分布式系统做了 如下定义：
+
+分布式系统是一个硬件或软件组件分布在不同的网络计算机上，彼此之间仅仅通过消息传递进行通信和协调的系统。
+
+也就是说一个分布式系统中的计算机在空间部署上可以是随意分布的，这些计算机可能被放...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
+          <a href="/2017/03/11/分布式系列文章——分布式系统的特点及问题/#more">阅读全文</a>
         </p>
       
     </div>
@@ -539,7 +530,7 @@ Embedded Metas...
 
 
   
-    <article id="post-Phoenix安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-大数据基准测试工具TPCx-BB源码分析" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -547,7 +538,7 @@ Embedded Metas...
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Phoenix安装配置/">Phoenix安装配置</a>
+      <a class="article-title" href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/">大数据基准测试工具TPCx-BB源码分析</a>
     </h1>
   
 
@@ -555,12 +546,12 @@ Embedded Metas...
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Phoenix安装配置/" class="article-date">
+	<a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Phoenix/">Phoenix</a>
+    <a class="article-category-link" href="/categories/源码分析/">源码分析</a>
 
       
       
@@ -569,16 +560,19 @@ Embedded Metas...
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          介绍Phoenix安装配置的过程，记录在安装配置过程中遇到的问题及解决方案。
+          TPCx-BB是大数据基准测试工具,它通过模拟零售商的30个应用场景，执行30个查询来衡量基于Hadoop的大数据系统的包括硬件和软件的性能。其中一些场景还用到了机器学习算法（聚类、线性回归等）。为了更好地了解被测试的系统的性能，需要对TPCx-BB整个测试流程深入了解。本文详细分析了整个TPCx-BB测试工具的源码，希望能够对大家理解TPCx-BB有所帮助。
 
 
+代码结构主目录（$BENCH_MARK_HOME）下有：
 
-1.简介Phoenix最早是saleforce的一个开源项目，后来成为Apache基金的顶级项目
-Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs而不是HBase客户端APIs来创建表、插入数据和对HBase数据进行查询
-因此Phoenix跟HBase是离不开的，Phoenix的安装也是基于HBase的。在安装Phoenix之前，请确保集群上已经安装了Hadoop集群跟H...
+bin
+conf
+data-generator
+engines
+t...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Phoenix安装配置/#more">阅读全文</a>
+          <a href="/2017/03/11/大数据基准测试工具TPCx-BB源码分析/#more">阅读全文</a>
         </p>
       
     </div>
@@ -597,7 +591,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 
   
-    <article id="post-ZeroMQ初探" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-经典编程书籍" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -605,7 +599,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/ZeroMQ初探/">ZeroMQ初探</a>
+      <a class="article-title" href="/2017/03/11/经典编程书籍/">经典编程书籍</a>
     </h1>
   
 
@@ -613,12 +607,12 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/ZeroMQ初探/" class="article-date">
+	<a href="/2017/03/11/经典编程书籍/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/ZeroMQ/">ZeroMQ</a>
+    <a class="article-category-link" href="/categories/学习资料/">学习资料</a>
 
       
       
@@ -627,13 +621,18 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          ZeroMQ介绍、三种模式讲解及代码示例(Java &amp;&amp; Python)。
+          经典技术书籍，涵盖：计算机系统与网络、系统架构、算法与数据结构、前端开发、后端开发、移动开发、数据库、测试、项目与团队、程序员职业修炼、求职面试和编程相关的经典书籍。
+原文
 
 
-概述ZeroMQ（也称为 ØMQ，0MQ 或 zmq）是一个可嵌入的网络通讯库（对 Socket 进行了封装）。 它提供了携带跨越多种传输协议（如：进程内，进程间，TCP 和多播）的原子消息的 sockets 。 有了ZeroMQ，我们可以通过发布-订阅、任务分发、和请求-回复等模式来建立 N-N 的 socket 连接。 ZeroMQ 的异步 I / O 模型为我们提供可扩展的基于异步消息处理...
+这个列表综合了伯乐在线网站以往推荐经典书籍文章中的列表，以及在微信和微博中被广泛推荐的好书。虽然已经包括了100多本，覆盖的面也比较全。仍然有很多方面需要补充，而且相信还有很多没有被收录的好书。欢迎大家在 issues 中推荐或自荐。
+计算机系统与网络
+《图灵的秘密:他的生平、思想及论文解读》
+《计算机系统概论》
+...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/ZeroMQ初探/#more">阅读全文</a>
+          <a href="/2017/03/11/经典编程书籍/#more">阅读全文</a>
         </p>
       
     </div>
@@ -652,7 +651,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
 
 
   
-    <article id="post-Stack Overflow上关于Java Collections的几个常见问题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PostgreSQL单机部署（CentOS7）" class="article article-type-post" itemscope itemprop="blogPost">
   <div id="articleInner" class="article-inner">
     
     
@@ -660,7 +659,7 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/">关于Java Collections的几个常见问题</a>
+      <a class="article-title" href="/2017/03/11/PostgreSQL单机部署（CentOS7）/">PostgreSQL单机部署（CentOS7）</a>
     </h1>
   
 
@@ -668,12 +667,12 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     
     <div class="article-meta">
       
-	<a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/" class="article-date">
+	<a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/" class="article-date">
 	  <time datetime="2017-03-11T12:33:42.000Z" itemprop="datePublished">2017-03-11</time>
 	</a>
 
       
-    <a class="article-category-link" href="/categories/Java/">Java</a>
+    <a class="article-category-link" href="/categories/PostgreSQL/">PostgreSQL</a>
 
       
       
@@ -682,14 +681,18 @@ Phoenix是构建在HBase上的一个SQL层，能让我们用标准的JDBC APIs�
     <div class="article-entry" itemprop="articleBody">
       
         <p class="article-excerpt-content">
-          列举几个关于Java Collections的常见问题并给出答案。
+          本文介绍Contos7上用yum部署PostgreSQL9.4的过程。
 
 
-1. 什么时候用LinkedList，什么时候用ArrayList？ArrayList是使用数组实现的list，本质上就是数组。ArrayList中的元素可以通过索引随机获取一个元素。但是如果该数组已满，当添加新元素时需要分配一个新的数组然后将原来数组的元素移动过去，需要O(n)的时间复杂度。添加或删除一个元素需要移动数组中的其他元素。这是ArrayList最大的缺点。
-LinkedList是一个双向链表。因此，当需要...
+1. 安装PostgreSQL源rpm -Uvh http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+
+2. 执行安装命令yum updateyum install postgresql94-server postgresql94-contrib
+
+3. 验证是否安装成功执行：
+rpm -qa | gre...
         </p>
         <p class="article-more-link">
-          <a href="/2017/03/11/Stack Overflow上关于Java Collections的几个常见问题/#more">阅读全文</a>
+          <a href="/2017/03/11/PostgreSQL单机部署（CentOS7）/#more">阅读全文</a>
         </p>
       
     </div>
