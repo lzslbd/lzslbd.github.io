@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #fff;
-  font: 17px Arial, "open sans", "Helvetica Neue", Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, sans-serif;
+  font: 14px Arial, "open sans", "Helvetica Neue", Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft Yahei, sans-serif;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizelegibility;
 }
@@ -634,7 +634,7 @@ body {
   line-height: 1.6em;
   outline: none !important;
   background: none !important;
-  font: 17px -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font: 14px -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   border: 0px;
 }
 .search-form-input:focus,
@@ -946,11 +946,11 @@ a.article-title:hover {
   background: rgba(208,211,248,0.15);
 }
 .article-entry blockquote p {
-  font-size: 17px;
+  font-size: 14px;
   margin: 15px 0;
 }
 .article-entry blockquote footer {
-  font-size: 17px;
+  font-size: 14px;
   margin: 1.6em 0;
   font-family: -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
