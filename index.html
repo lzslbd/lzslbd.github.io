@@ -190,26 +190,7 @@
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          记录go语言使用中的一些注意事项。
-
-
-
-
-channel
-通道是用来让不同goroutine之间通信的，如果只有一个goroutine，就没必要用通道 
-
-make(chan bool) 等价于 make(chan bool, 0)  != make(chan bool, 1)
-
-默认是无缓冲通道，用于同步；有缓冲通道用于解耦
-
-不管是无缓冲通道还是有缓冲通道，只要有goroutine无限等待发生，就会死锁
-
-close(channel)用来通知读该channel的goroutine退出...
-        </p>
-        <p class="article-more-link">
-          <a href="/2019/05/18/Golang小记/#more">阅读全文</a>
-        </p>
+        <p>记录go语言使用中的一些注意事项。</p>
       
     </div>
     <footer class="article-footer">
@@ -256,19 +237,9 @@ close(channel)用来通知读该channel的goroutine退出...
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          
-本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。
-
-
-
-近几章主要介绍系统如何处理错误。例如，我们讨论了副本故障转移，复制滞后和事务的并发控制。当我们理解实际系统中可能出现的各种边界情况时，我们就能更好地处理它们。
-前几章虽然谈论了很多关于错误的问题，但是还是太乐观了。在本章中，我们将最悲观地假设“任何可能出故障的，最终都会出故障”。
-分布式系统编程与在单机上编写软件有本质区别——主要区别在于分布式系统中有很多新奇的可能出故障的方...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/04/18/分布式系统的问题/#more">阅读全文</a>
-        </p>
+        <blockquote>
+<p>本文内容翻译自《Designing Data-Intensive Applications》一书的第8章。</p>
+</blockquote>
       
     </div>
     <footer class="article-footer">
@@ -315,15 +286,7 @@ close(channel)用来通知读该channel的goroutine退出...
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：Paxos算法原理与推导，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。
-
-
-Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也很重要，特别是在PhxPaxos的实现中，Leaner具有重要的功能。但是因为《Paxos Made Simple》论文中主要还是Proposer和Acceptor，因此...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/21/PhxPaxos源码分析——Paxos算法实现/#more">阅读全文</a>
-        </p>
+        <p>这篇主要来分析Paxos算法实现的部分，我想这应该也是读者最感兴趣的。在看这篇文章之前，如果之前对Paxos算法没有了解的童鞋可以看下这篇文章：<a href="http://linbingdong.com/2017/04/17/分布式系列文章——Paxos算法原理与推导/">Paxos算法原理与推导</a>，相信了解Paxos算法后再来通过源码看算法实现应该会很酸爽。</p>
       
     </div>
     <footer class="article-footer">
@@ -370,15 +333,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          了解分布式系统的童鞋肯定听过Paxos算法的大名。Paxos算法以晦涩难懂著称，其工程实现更难。目前，号称在工程上实现了Paxos算法的应该只有Google、阿里和腾讯。然而，只有腾讯的微信团队真正将代码开源出来，他们将Paxos算法的实现封装成了一个Paxos库，大家可以基于该库实现自己想要的功能，比如用于master选举，或者甚至利用它来实现一个分布式KV数据库等。
-
-
-之前就对Paxos很感兴趣，但是一直没看过实现的代码，这次微信开源了PhxPaxos后终于有机会深入地了解Paxos...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/20/PhxPaxos源码分析——网络/#more">阅读全文</a>
-        </p>
+        <p>了解分布式系统的童鞋肯定听过Paxos算法的大名。Paxos算法以晦涩难懂著称，其工程实现更难。目前，号称在工程上实现了Paxos算法的应该只有Google、阿里和腾讯。然而，只有腾讯的微信团队真正将代码开源出来，他们将Paxos算法的实现封装成了一个Paxos库，大家可以基于该库实现自己想要的功能，比如用于master选举，或者甚至利用它来实现一个分布式KV数据库等。</p>
       
     </div>
     <footer class="article-footer">
@@ -425,25 +380,7 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          本文介绍适配器模式。
-
-
-定义适配器模式将一个类的接口，转换成客户端期待的另一个接口。
-比如我们想用苹果的充电线给安卓充电。但是安卓的充电接口（type-c）跟苹果（lightning）的不一样，所以就需要一个适配器，将安卓的type-c接口转换成苹果的lightning接口，这样就能用苹果的充电线给安卓充电了。
-
-图中玫瑰金色的就是适配器。
-角色
-目标（Target）：即期望的接口。
-适配器（Adapter）：用于将源接口转换成目标接口。
-被适配者（Adaptee）：即源接口。
-
-类图
-...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/11/11/设计模式-适配器模式/#more">阅读全文</a>
-        </p>
+        <p>本文介绍适配器模式。</p>
       
     </div>
     <footer class="article-footer">
@@ -490,17 +427,8 @@ Paxos算法中最重要的两个角色是Proposer和Acceptor。当然Leaner也�
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。
-网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。
-
-
-Paxos是什么
-Paxos算法是基于消息传递且具有高度容错特性的一致性算法，是目前公认的解决分布式一致性问题最有效的...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/17/分布式系列文章——Paxos算法原理与推导/#more">阅读全文</a>
-        </p>
+        <p>Paxos算法在分布式领域具有非常重要的地位。但是Paxos算法有两个比较明显的缺点：1.难以理解 2.工程实现更难。</p>
+<p>网上有很多讲解Paxos算法的文章，但是质量参差不齐。看了很多关于Paxos的资料后发现，学习Paxos最好的资料是论文《Paxos Made Simple》，其次是中、英文版维基百科对Paxos的介绍。本文试图带大家一步步揭开Paxos神秘的面纱。</p>
       
     </div>
     <footer class="article-footer">
@@ -547,17 +475,7 @@ Paxos算法是基于消息传递且具有高度容错特性的一致性算法，
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          JDK1.7和JDK1.8中HashMap的实现不尽相同，JDK1.8中做了一些优化，比如当链表多长时转化成红黑树，提高插入和查找的效率；扩容时不再重新哈希。
-
-
-HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。这里主要以提问题的形式来加深对HashMap的理解，读者可以先独立思考这些问题，再参照我的回答和文末的源码进行学习。
-实现原理数组+链表+红黑树  
-数组是一个Node数组，Node是一个Key-Value对，Node实现了Map.Entry&lt;K,V&gt...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/16/深入理解HashMap/#more">阅读全文</a>
-        </p>
+        <p>JDK1.7和JDK1.8中HashMap的实现不尽相同，JDK1.8中做了一些优化，比如当链表多长时转化成红黑树，提高插入和查找的效率；扩容时不再重新哈希。</p>
       
     </div>
     <footer class="article-footer">
@@ -604,15 +522,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          在并发编程中使用生产者和消费者模式能够解决绝大多数并发问题。该模式通过平衡生产线程和消费线程的工作能力来提高程序的整体处理数据的速度。
-
-
-什么是生产者消费者模式生产者消费者模式通过一个容器（比如阻塞队列 BlockingQueue ）来解决生产者和消费者的紧耦合问题。生产者和消费者之间不直接通信，而是通过阻塞队列来通信。生产者生产完数据后不用等待消费者处理，而是直接将生产的数据放入阻塞队列；消费者不从生产者那里要数据，而是直接从阻塞队列里取。阻塞队列就相当于一个缓冲区，平衡了生产者和消费...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/14/生产者消费者模式/#more">阅读全文</a>
-        </p>
+        <p>在并发编程中使用生产者和消费者模式能够解决绝大多数并发问题。该模式通过平衡生产线程和消费线程的工作能力来提高程序的整体处理数据的速度。</p>
       
     </div>
     <footer class="article-footer">
@@ -659,16 +569,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          Lucida大神这篇文章写得非常详细，点此查看。
-
-
-
-
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/14/程序员必读书单/#more">阅读全文</a>
-        </p>
+        <p><a href="http://zh.lucida.me/" target="_blank" rel="noopener">Lucida</a>大神这篇文章写得非常详细，<a href="http://zh.lucida.me/blog/developer-reading-list/#cracking_the_coding_interview" target="_blank" rel="noopener">点此查看</a>。</p>
       
     </div>
     <footer class="article-footer">
@@ -715,18 +616,7 @@ HashMap的源码比较长，加上注释有2000行左右，会在文末贴出。
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p class="article-excerpt-content">
-          tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。
-
-
-用一个简单的mount命令就可以创建tmpfs文件系统：
-mount tmpfs -t tmpfs /data/test -o size=10g
-
-将tmpfs挂...
-        </p>
-        <p class="article-more-link">
-          <a href="/2017/04/11/tmpfs/#more">阅读全文</a>
-        </p>
+        <p>tmpfs是一种基于内存的文件系统，它和虚拟磁盘ramdisk比较类似像，但不完全相同。和ramdisk一样，tmpfs可以使用内存，但它也可以使用swap分区来存储。而且传统的ramdisk是个块设备，要用mkfs格式化才能使用；而tmpfs是一个文件系统，并不是块设备，不需要格式化。tmpfs是最好的基于内存的文件系统。</p>
       
     </div>
     <footer class="article-footer">
